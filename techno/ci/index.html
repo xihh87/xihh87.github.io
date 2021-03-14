@@ -1,0 +1,45 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Integración continua</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Integración continua</h1><nav id=TableOfContents><ul><li><a href=#consejos-de-victoria>Consejos de Victoria</a></li><li><a href=#monorepo>Monorepo</a></li><li><a href=#gestionar-dependencias-en-github-actions>Gestionar dependencias en GitHub Actions</a></li></ul></nav><h2 id=consejos-de-victoria><a href=#consejos-de-victoria alt>Consejos de Victoria</a> <a href=# alt="Regresar al inicio">↑</a></h2><ul><li><input disabled type=checkbox> <a href=https://victoria.dev/blog/make-your-team-more-productive-by-literally-doing-one-thing/ target=_blank rel=noopener>Consejos de dirección de equipo técnico</a></li><li><a href=https://victoria.dev/blog/how-to-write-good-documentation/ target=_blank rel=noopener>Proceso para documentar</a></li><li><a href=https://victoria.dev/blog/create-a-self-hosted-chat-service-with-your-own-matrix-server/ target=_blank rel=noopener>Crear un servicio de chat propio</a></li><li><a href=https://victoria.dev/blog/batch-renaming-images-including-image-resolution-with-awk/ target=_blank rel=noopener>Renombrar imágenes con AWK</a></li><li><input disabled type=checkbox> <a href=https://victoria.dev/blog/a-cron-job-that-could-save-you-from-a-ransomware-attack/ target=_blank rel=noopener>Respaldar toda tu data con cron</a></li><li><a href=https://victoria.dev/blog/how-to-write-bash-one-liners-for-cloning-and-managing-github-and-gitlab-repositories/ target=_blank rel=noopener>Cómo descargar tus repos de git</a></li><li><input disabled type=checkbox> <a href=https://victoria.dev/blog/how-to-do-twice-as-much-with-half-the-keystrokes-using-.bashrc/#bash-function-for-downloading-extended-hugo target=_blank rel=noopener>Elegir buenos alias de bash</a></li></ul><hr><ul><li><p><input disabled type=checkbox> <a href=https://victoria.dev/blog/how-to-create-a-self-documenting-makefile/ target=_blank rel=noopener>Configurar un Makefile auto-documentado</a>.</p></li><li><p><a href=https://nullprogram.com/blog/2017/08/20/ target=_blank rel=noopener>Un tutorial para hacer Makefiles portables</a>.</p></li><li><p><a href=https://victoria.dev/blog/a-portable-makefile-for-continuous-delivery-with-hugo-and-github-pages/# target=_blank rel=noopener>un ejemplo portable de make para CI</a>.</p></li><li><p><a href=https://victoria.dev/blog/a-portable-makefile-for-continuous-delivery-with-hugo-and-github-pages/ target=_blank rel=noopener>Un Makefile para hacer tu sitio web</a>.</p></li><li><p><input disabled type=checkbox> <a href=https://victoria.dev/blog/django-project-best-practices-to-keep-your-developers-happy/ target=_blank rel=noopener>Configurar repositorio para proyecto de python</a>.</p></li><li><p><a href=https://victoria.dev/blog/technical-ergonomics-for-the-efficient-developer/ target=_blank rel=noopener>Exporta el esfuerzo mental a tus herramientas</a>.</p></li></ul><h2 id=monorepo><a href=#monorepo alt>Monorepo</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://bridgecrew.io/blog/5-ways-to-configure-a-monorepo-for-devsecops-efficiency/ target=_blank rel=noopener>El principal problema del monorepo es el control de acceso</a>.</p><p>Para configurar pruebas unitarias en un monorepo
+hay varias opciones:</p><ul><li><p><a href=https://medium.com/@SammyRulez/git-monorepos-with-github-actions-e47f56d8793b target=_blank rel=noopener>Generar pipelines diferentes</a>
+<a href=https://stackoverflow.com/a/58136732 target=_blank rel=noopener>y usar una ruta prefijo para ejecutar la actividad</a>:</p><pre tabindex=0><code>on:
+  push:
+    paths:
+      - &#34;path/to/project/**&#34;
+</code></pre></li><li><p>Lo mismo, pero <a href=https://dev.to/stackdumper/setting-up-ci-for-microservices-in-monorepo-using-github-actions-5do2 target=_blank rel=noopener>usar una plantilla y autogenerar por proyectos</a>
+(<a href=https://github.com/stackdumper/monorepo-actions-ci/tree/master/.github target=_blank rel=noopener>ejemplo</a>):</p><pre tabindex=0><code>name: &#34;{{PROJECT}}&#34;
+on:
+  push:
+    paths:
+      - &#34;path/to/{{PROJECT}}/**&#34;
+      - &#34;.github/workflows/{{PROJECT}}.yaml&#34;
+jobs:
+  test:
+    runs-on: image
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run tests
+        run: |-
+          cd path/to/{{PROJECT}}
+          make test
+</code></pre><p>And make a comands that generates the workflows.</p></li><li><p><a href=https://github.com/marketplace/actions/has-changed-path target=_blank rel=noopener>Has Changed Path</a>
+(<a href=https://github.com/dorny/paths-filter#examples target=_blank rel=noopener>ejemplos</a>):</p></li><li><p><del><a href=https://blog.logrocket.com/creating-separate-monorepo-ci-cd-pipelines-github-actions/ target=_blank rel=noopener>Usar otra herramienta para gestionar el monorepo</a>
+(<a href=https://github.com/ashleydavis/nodejs-microservices-example/blob/main/scripts/kubernetes/worker.yaml target=_blank rel=noopener>ejemplo</a>)</del>.</p></li><li><p><del><a href=https://dev.to/ericapisani/testing-a-project-contained-in-a-monorepo-594i target=_blank rel=noopener>Usar tarball</a></del></p></li></ul><p><a href=https://monorepo.tools/ target=_blank rel=noopener>Herramientas para gestionar monorepos</a>.</p><p><a href=https://gist.github.com/stephen-peck/719ec5419c670677f94e97f7ea40ab56 target=_blank rel=noopener>Gist que muestra cómo aplicar parches</a>.</p><p><a href=https://turbo.build/repo/docs/handbook/testing target=_blank rel=noopener>Configurar pruebas de monorepos con turbo.build</a>.</p><h2 id=gestionar-dependencias-en-github-actions><a href=#gestionar-dependencias-en-github-actions alt>Gestionar dependencias en GitHub Actions</a> <a href=# alt="Regresar al inicio">↑</a></h2><ul><li><p><input disabled type=checkbox> Leer <a href=https://docs.github.com/en/actions/using-workflows/about-workflows target=_blank rel=noopener>Cómo usar los workflows</a>.</p></li><li><p><a href=https://github.blog/2021-11-18-7-advanced-workflow-automation-features-with-github-actions/#3-a-conditional-can-make-all-the-difference target=_blank rel=noopener>Usar condicionales</a>.</p></li><li><p><a href=https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_run target=_blank rel=noopener>Se pueden usar dependencias usando <code>workflow_run</code></a>.</p></li><li><p><a href=https://stackoverflow.com/questions/58457140/dependencies-between-workflows-on-github-actions target=_blank rel=noopener>Cómo aplicar dependencias</a>:</p><p><a href=https://stackoverflow.com/a/71489231 target=_blank rel=noopener>Se pueden usar <code>needs: [name]</code> para aplicar dependencias</a>.</p><pre tabindex=0><code># cat .github/workflows/tests.yml
+name: tests
+on: [workflow_call]  # allow this workflow to be called from other workflows
+jobs:
+  ...
+
+# cat .github/workflows/deploy.yml
+name: deploy
+on:
+  push:
+    tags:  # trigger the deploy job on tag creation
+    - *
+jobs:
+  tests:
+    uses: ./.github/workflows/tests.yml  # use the callable tests job to run tests
+  deploy:
+    name: deploy
+    needs: [tests]  # require tests to pass before deploy runs
+    ...
+</code></pre></li></ul></article></main></body></html>

@@ -1,0 +1,41 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Best Practices in Data Cleaning</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Best Practices in Data Cleaning</h1><nav id=TableOfContents><ul><li><a href=#metodologías-complejas>Metodologías complejas</a></li><li><a href=#valores-ideales-para-aceptar-las-hipótesis-de-normalidad>Valores ideales para aceptar las hipótesis de normalidad</a></li><li><a href=#transformaciones>Transformaciones</a></li><li><a href=#aplicar-transformación-inversa>Aplicar transformación inversa</a></li><li><a href=#calcular-lambda-para-transformación-box-cox>Calcular $\lambda$ para transformación Box-Cox</a></li></ul></nav><h1 id=best-practices-in-data-cleaning-isbn978-1-4129-8801-8><a href=#best-practices-in-data-cleaning-isbn978-1-4129-8801-8 alt>Best practices in data cleaning ISBN:978-1-4129-8801-8</a> <a href=# alt="Regresar al inicio">↑</a></h1><ol><li><p>Calcular el poder estadístico.</p><p><a href=http://www.psycho.uni-duesseldorf.de/abteilungen/aap/gpower3/ target=_blank rel=noopener>GPower</a>
+<a href=http://www.epibiostat.ucsf.edu/biostat/sampsize.html target=_blank rel=noopener>Sample size</a></p></li><li><p>Verificar que la muestra es representativa.</p></li></ol><ul><li><p>Los subgrupos pueden tener cada cual ciertas características.</p></li><li><p>Las encuestan deben tomar en cuenta grupos sensibles,
+o respuestas aleatorias.</p></li><li><p>El rango dinámico de medición debe ser apropiado para el estudio.</p></li><li><p>Verificar la metodología empleada en estudios con metodología de muestreo complejo:</p><h2 id=metodologías-complejas><a href=#metodolog%c3%adas-complejas alt>Metodologías complejas</a> <a href=# alt="Regresar al inicio">↑</a></h2><blockquote><p>Almost any survey seeking a representative sample from a large population
+probably will have a complex multistage probability sampling methodology,
+as it is relatively efficient and allows for estimation of representative samples.</p></blockquote><blockquote><p>Specifically, without correcting for design effects,
+standard errors are often underestimated,
+leading to significance tests that are inappropriately sensitive
+(e.g., Johnson & Elliott, 1998; Lehtonen & Pahkinen, 2004).</p></blockquote><p>Se puede escalar una muestra dividiendo por los pesos del muestreo,
+luego dividiendo para tomar en cuenta los efectos de diseño (DEFF) p.e.:
+1.88 para muestras con puros hombres,
+2.33 para diseños que usan a todos los individuos de un grupo.</p><p>Lo correcto es usar algoritmos de «Appropriate Model».</p></li></ul><ol start=3><li>Verificar el supuesto de normalidad:</li></ol><ul><li>p-p plot (expected probability, vs observed probability)</li><li>q-q plot</li><li>Kolmogrov-Smirnov (Menos sensible a la diferencia de normalidad, ¿mejor para muestras grandes?)</li><li>Saphiro-Wilk</li></ul><ol start=4><li>Examinar la incompletitud de datos:</li></ol><ul><li><p>Missing Completely At Random</p></li><li><p>Missing At Random</p></li><li><p>Missing Not At Random</p><p>Debe probarse que no hay correlación de la falta con otras variables (p.e. regresión logística)
+y que las medidas centrales no se alteran entre los grupos faltantes y no.</p><p>Se pueden imputar datos con varias técnicas.</p></li></ul><ol start=5><li><p>Verificar valores extremos (outliers and fringeliers)</p><p>Los valores extremos pueden ser:
+errores en el llenado o transcripción,
+muestras legítimas de la población que se estudia cuando hay incentivos para reportar incorrecto,
+fallas del proceso de normalización,
+ocurrencia de un evento durante el muestreo,
+fallas en la calibración del equipo (si no pueden defenderse apropiadamente, deben descartarse),
+errores en las suposiciones de la distribución de la información,
+resultado legítimo de la variación en la población de estudio.</p><p>Los valores extremos que son legítimos pueden recodificarse o truncarse
+para mantener al individuo y minimizar el daño a la inferencia estadística.</p><p>Los valores extremos pueden iluminar acerca de procesos y fenómeno no explorados.</p><p>Existe un método donde se calcula la media sin las observaciones extremas.</p><p>Las pruebas no paramétricas suelen tener menos poder que las paramétricas
+y tener los mismos problemas con valores extremos.</p><p>Se recomienda eliminar los valores extremos (±3 std dev) de las distribuciones univariadas para los análisis y
+considerar caso por caso los valores extremos para los modelos multivariados.</p></li><li><p>Normalidad e igualdad de varianza (homoscedasticity).</p><p>Se debe revisar los supuestos,
+dos de los más importantes son: normalidad, equivarianza.</p><p>Se pueden usar transformaciones para mejorar esas condiciones en los datos.
+Las transformaciones que normalizan los datos mejoran también los resultados de pruebas no paramétricas.</p><p>Algunos autores sugieren revertir las transformaciones para reportar los valores,
+sin embargo, revertir las transformaciones suele ser difícil y llevar a errores.</p><h2 id=valores-ideales-para-aceptar-las-hipótesis-de-normalidad><a href=#valores-ideales-para-aceptar-las-hip%c3%b3tesis-de-normalidad alt>Valores ideales para aceptar las hipótesis de normalidad</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>skew: -0.8—0.8 (más cercano a 0 es mejor),
+kurtosis: 3.0 (most), 0
+p-p plot: línea recta
+p > 0.05 en K-S|S-W</p><h2 id=transformaciones><a href=#transformaciones alt>Transformaciones</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Antes de aplicar transformaciones:</p><ul><li><p>Llevar el valor mínimo a 1.0</p></li><li><p>Box-Cox:</p></li></ul><p>$y_i^{\lambda} = \frac{y_i^{\lambda} - 1}{\lambda} | \lambda \ne 0$
+$y_i^{\lambda} = log_e(y_i) | \lambda = 0$</p><h2 id=aplicar-transformación-inversa><a href=#aplicar-transformaci%c3%b3n-inversa alt>Aplicar transformación inversa</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Osborne recomienda hacerlo únicamente si</p><p>a) quieres graficar variables que tengan una interpretación concreta,
+b) quieres establecer un parámetro de corte y es impráctico convertir las observaciones.</p><h2 id=calcular-lambda-para-transformación-box-cox><a href=#calcular-lambda-para-transformaci%c3%b3n-box-cox alt>Calcular $\lambda$ para transformación Box-Cox</a> <a href=# alt="Regresar al inicio">↑</a></h2><ul><li>Llevar el valor mínimo a 1.</li><li>Dividir la variable en al menos 10 regiones iguales.</li><li>Calcular la media y desviación estándar de cada región.</li><li>Graficar log(SD) vs log(mean).</li><li>Estimar la pendiente de la gráfica ($m + bx$)
+y usar (1-b) como estimación inicial de lambda</li></ul><p>Sólo usar valores de lambda entre -3 y 3.</p></li><li><p>Verificar errores de medición.</p><p>Cronbach&rsquo;s alpha.
+Supuestos: unidimensionalidad (las escalas multidimiensionales subestiman alpha).</p><p>Correlación entre variable independiente y variable dependiente: $r_{12}^{*} = \frac{r_{12}}{\sqrt{r_{11} r_{22}}}$</p><p>La correlación entre variables puede verse afectada por errores de medición y debe corregirse.</p><p>Estimar «reliability» en cada variable.</p><p>Usar SEM para modelar las relaciones entre variables sin error.</p></li></ol><blockquote><p>Given accurate reliability estimates, however,
+it is possible that sampling error, well-placed outliers,
+or even suppressor variables could inflate relationships artificially, and thus,
+when combined with correction for low reliability,
+produce inappropriately high or impossible corrected values.
+In light of this, I would suggest that
+researchers make sure they have checked for these issues prior to attempting a correction of this nature
+(researchers should check for these issues regularly anyway).</p></blockquote><ol start=8><li><p>Verificar respuestas aleatorias en cuestionarios.</p></li><li><p>No dicotomizar variables, a menos que realmente sean categóricas y estén claras.</p></li><li><p>Cuando hay variables repetidas en el tiempo:
+tratar todos los puntos de tiempo en la misma forma.</p></li></ol></article></main></body></html>

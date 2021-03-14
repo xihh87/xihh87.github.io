@@ -1,0 +1,44 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>USB mágica</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>USB mágica</h1><p>Cómo llevar varias distros linux en una USB.</p><h2 id=opción-sencilla-que-inutiliza-el-usb>Opción sencilla que inutiliza el USB</h2><p>Esta opción funciona para <del>cualquier distro</del> varias distros <a href=#fn1 class=footnote-ref id=fnref1 role=doc-noteref><sup>1</sup></a> pero hace que la USB parezca ser el CD, dejándolo inútil para todo lo demás. <strong>No la recomiendo</strong>, pero generalmente funciona cuando lo demás falla.</p><pre><code>sudo dd if=/DONDE/ESTÁ/EL/archivo.iso of=/dev/sd[x]</code></pre><h1 id=iniciar-gnulinux-desde-una-iso-en-una-usb>Iniciar GNU/Linux desde una ISO en una USB</h1><p>Hay tres cosas necesarias para correr una distro desde la ISO:</p><ul><li>El programa que cargador de arranque debe poder leer la USB.</li><li>El núcleo (linux) debe compilarse con soporte para montar archivos (loop-mount).</li><li>El initrd debe tener instrucciones para cargar desde el ISO (o contener todo el sistema).</li></ul><p>Desde hace un tiempo, ubuntu y <a href=https://trisquel.info/>derivadas</a> ofrecen <a href=https://launchpad.net/lupin>esa posibilidad</a>. También es posible con <a href=https://parabolagnulinux.org/>Parábola GNU/Linux</a>.</p><h1 id=usando-grub2>Usando Grub2</h1><h2 id=preparar-la-usb>Preparar la USB</h2><p>El primer paso es preparar la USB. Si el USB tiene nombre, puede usarse para identificar la USB:</p><pre><code>ls -l /dev/disk/by-label
+total 0
+[...]
+lrwxrwxrwx 1 root root 10 May 21 13:15 xihh -&gt; ../../sdc1</code></pre><p>Aquí veo mi usb que se llama <code>xihh</code>, en el disco <code>sdc</code>.</p><p>Luego con <code>lsblk</code> obtenemos más información. La opción <code>-o +UUID</code> es para conocer su identificador único.</p><pre><code>lsblk -o +UUID
+NAME                  MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT              UUID
+[...]
+sdc                     8:32   1  29.1G  0 disk
+└─sdc1                  8:33   1  24.4G  0 part  /run/media/user/label 9806-B364</code></pre><p>La USB debe tener al menos una partición en formato FAT32 que tenga la opción boot. Este arreglo funciona tanto para usar EFI como para el modo anterior para iniciar la compu (MBR).</p><p>La mayoría de las USB se venden con una sola partición FAT32, así que sólo falta agregar la etiqueta <code>boot</code>, usando <code>gparted</code>:</p><ul><li>Dar click derecho en la partición,</li><li>click en la opción <code>Manage Flags</code>,</li><li>click en la opción <code>boot</code> y</li><li>click en OK.</li></ul><h2 id=instalar-grub>Instalar GRUB</h2><p>Una vez preparado el USB, se necesita instalarle grub. Las computadoras nuevas utilizan EFI para iniciar, así que conviene utilizar este formato:</p><pre><code>grub-install --target=x86_64-efi --efi-directory=/run/media/joshpar/xihh/ --bootloader-id=grub --recheck --debug</code></pre><p>Sin embargo, si también pensamos utilizar la USB para computadoras más viejas, también conviene instalar grub para MBR (la forma anterior de iniciar la máquina).</p><pre><code>sudo grub-install --target=i386-pc --grub-setup=/bin/true --recheck --boot-directory=/run/media/joshpar/xihh/EFI /dev/sdc</code></pre><p>Aquí usé el mismo directorio de EFI para la otra instalación para que todo quede en el mismo sitio.</p><h2 id=descargar-las-imágenes-del-sistema-operativo>Descargar las imágenes del sistema operativo</h2><p>Se descargan las imágenes (<code>.iso</code>) de la distro que se va a probar. Yo hago una carpeta en <code>/donde/está/el/USB/iso</code> y allí pongo las imágenes.</p><p>Hay que recordar dónde para generar el archivo de configuración.</p><h3 id=configurar-grub-para-iniciar-desde-la-usb>Configurar GRUB para iniciar desde la USB</h3><p>Lo más recomendable, es que GRUB reconozca la USB según su identificador único (<code>UUID</code>), para evitar errores.</p><p>Aquí hay un ejemplo de cómo debe quedar el archivo <code>/donde/está/el/USB/EFI/grub.cfg</code></p><pre><code># partition tables
+insmod part_gpt
+insmod part_msdos
+# efi mode
+insmod efi_gop
+insmod efi_uga
+# solve some output problems
+insmod gfxterm
+terminal_output gfxterm
+# use the USB as root for all commands
+set UUID=9806-B364
+search --no-floppy --fs-uuid --set=root $UUID
+submenu &quot;Parabola&quot; {
+    set isofile=&quot;/iso/parabola-2013.09.01-dual.iso&quot;
+    loopback loop $isofile
+    menuentry &quot;parabola Linux Netinstall x86_64&quot; {
+        linux (loop)/parabola/boot/x86_64/vmlinuz img_loop=$isofile img_dev=/dev/disk/by-uuid/$UUID parabolaisolabel=PARA_201309 earlymodules=loop
+        initrd (loop)/parabola/boot/x86_64/parabolaiso.img
+    }
+    menuentry &quot;parabola Linux Netinstall i686&quot; {
+        linux (loop)/parabola/boot/i686/vmlinuz img_loop=$isofile img_dev=/dev/disk/by-uuid/$UUID parabolaisolabel=PARA_201309 earlymodules=loop
+        initrd (loop)/parabola/boot/i686/parabolaiso.img
+    }
+}
+menuentry &quot;Trisquel&quot; {
+    set isofile=&quot;/iso/trisquel_6.0.1_amd64.iso&quot;
+    loopback loop $isofile
+    linux   (loop)/casper/vmlinuz.efi root=UUID=$UUID boot=casper iso-scan/filename=${isofile} file=/cdrom/preseed/ubuntu.seed noprompt noeject --
+    initrd  (loop)/casper/initrd.lz
+}
+menuentry &quot;Ubuntu&quot; {
+    set isofile=&quot;/iso/ubuntu-14.04-desktop-amd64.iso&quot;
+    loopback loop $isofile
+    linux   (loop)/casper/vmlinuz.efi root=UUID=$UUID boot=casper iso-scan/filename=${isofile} file=/cdrom/preseed/trisquel.seed noprompt noeject --
+    initrd  (loop)/casper/initrd.lz
+}</code></pre><h3 id=ocultar-las-carpetas-en-windows>Ocultar las carpetas en windows</h3><p>Para que desde windows no se muestren las carpetas del SO en windows, se puede usar <code>fatattr</code> (es muy probable que deba instalarse primero):</p><pre><code>fatattr +s +h /donde/está/el/USB/{EFI,boot,iso}</code></pre><h3 id=problemas-comunes>Problemas comunes</h3><p>La última vez que intenté instalar en mi USB tuve dificultades para iniciar desde la USB. El problema puede deberse a varias razones:</p><ul><li><p>El sistema de archivos está corrupto:</p><ul><li>Realizar una revisión (yo usé gparted para arreglarlo).</li></ul></li><li><p>El usb se quemó.</p><ul><li>Conseguir uno nuevo.</li></ul></li></ul><h2 id=programa-relacionado>Programa relacionado</h2><p>Yo no he probado este software, pero lo comento porque parece prometedor. http://multibootusb.org/</p><h1 id=más-lecturas>Más lecturas</h1><p><a href=http://web.archive.org/web/20131113162559/http://www.panticz.de/MultiBootUSB>El archivo web del sitio en que se basó este post.</a></p><p><a href=http://pastebin.com/xK9TSAaZ>El script original en que se inspiró este post.</a></p><p><a href=http://www.dedoimedo.com/computers/linux-multi-boot.html>Tutorial que revisa varios programas para multiboot.</a></p><p><a href=http://www.dedoimedo.com/computers/linux-live-cd-persistence.html>Tutorial que revisa cómo guardar datos para una distro que corre desde una USB.</a></p><section class=footnotes role=doc-endnotes><hr><ol><li id=fn1 role=doc-endnote><p>Porque la mayoría hacen imágenes híbridas considerando este caso de uso.<a href=#fnref1 class=footnote-back role=doc-backlink>↩︎</a></p></li></ol></section></article></main></body></html>

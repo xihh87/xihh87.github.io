@@ -1,0 +1,225 @@
+```
+$ echo S1JZUFRPTklTR1JFQVQ= | base64 -d
+KRYPTONISGREAT
+```
+
+```
+krypton1@krypton:~$ find / -name krypton2 -type f 2>/dev/null
+/etc/krypton_pass/krypton2
+/krypton/krypton1/krypton2
+krypton1@krypton:/krypton/krypton1$ tr 'A-Z' 'N-ZA-N' < krypton2
+LEVEL TWO PASSWORD ROTTEN
+```
+
+```
+krypton1@krypton:~$ cd /krypton/krypton2
+
+```
+
+```
+krypton2@krypton:/krypton/krypton2$ cd $(mktemp -d /tmp/XXXX)
+krypton2@krypton:/tmp/92mn$ ln -s /krypton/krypton2/* .
+
+echo ABCDEFGHIJKLMNOPQRSTUVWXYZ > plaintext
+
+krypton2@krypton:/tmp/92mn$ chmod 644 plaintext
+krypton2@krypton:/tmp/92mn$ ./encrypt plaintext
+failed to open keyfile
+krypton2@krypton:/tmp/92mn$ ls -la encrypt keyfile.dat
+lrwxrwxrwx 1 krypton2 root 25 Mar 10 07:12 encrypt -> /krypton/krypton2/encrypt
+lrwxrwxrwx 1 krypton2 root 29 Mar 10 07:12 keyfile.dat -> /krypton/krypton2/keyfile.dat
+krypton2@krypton:/tmp/92mn$ rm keyfile.dat
+krypton2@krypton:/tmp/92mn$ cp /krypton/krypton2/keyfile.dat .
+cp: cannot open '/krypton/krypton2/keyfile.dat' for reading: Permission denied
+krypton2@krypton:/tmp/92mn$ ls
+encrypt  krypton3  plaintext  README
+krypton2@krypton:/tmp/92mn$ /krypton/krypton2/encrypt plaintext
+failed to open keyfile
+krypton2@krypton:/tmp/92mn$ less README
+krypton2@krypton:/tmp/92mn$ chmot 777 .
+-bash: chmot: command not found
+krypton2@krypton:/tmp/92mn$ chmod 777 .
+krypton2@krypton:/tmp/92mn$ ln -s /krypton/krypton2/* .
+ln: failed to create symbolic link './encrypt': File exists
+ln: failed to create symbolic link './krypton3': File exists
+ln: failed to create symbolic link './README': File exists
+krypton2@krypton:/tmp/92mn$ ls -la
+total 28
+drwxrwxrwx   2 krypton2 root      4096 Mar 10 07:16 .
+drwxrws-wt 260 root     root     20480 Mar 10 07:15 ..
+lrwxrwxrwx   1 krypton2 root        25 Mar 10 07:12 encrypt -> /krypton/krypton2/encrypt
+lrwxrwxrwx   1 krypton2 krypton2    29 Mar 10 07:16 keyfile.dat -> /krypton/krypton2/keyfile.dat
+lrwxrwxrwx   1 krypton2 root        26 Mar 10 07:12 krypton3 -> /krypton/krypton2/krypton3
+-rw-r--r--   1 krypton2 root        27 Mar 10 07:13 plaintext
+lrwxrwxrwx   1 krypton2 root        24 Mar 10 07:12 README -> /krypton/krypton2/README
+krypton2@krypton:/tmp/92mn$ /krypton/krypton2/encrypt plaintext
+krypton2@krypton:/tmp/92mn$ cat ciphertext
+MNOPQRSTUVWXYZABCDEFGHIJKL
+
+krypton2@krypton:/tmp/92mn$ cat ciphertext
+MNOPQRSTUVWXYZABCDEFGHIJKL
+krypton2@krypton:/tmp/92mn$ ls
+ciphertext  encrypt  keyfile.dat  krypton3  plaintext  README
+krypton2@krypton:/tmp/92mn$ tr 'A-Z' 'M-ZA-L' < krypton3
+AYCQYPGQCYQW
+
+krypton2@krypton:/krypton/krypton2$ tr 'MNOPQRSTUVWXYZABCDEFGHIJKL' 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' < krypton3
+CAESARISEASY
+```
+
+```
+krypton3@krypton:~$ cd /krypton/krypton3/
+krypton3@krypton:/krypton/krypton3$ ls -la
+total 36
+drwxr-xr-x 2 root     root     4096 May 19  2020 .
+drwxr-xr-x 8 root     root     4096 May 19  2020 ..
+-rw-r----- 1 krypton3 krypton3 1542 May 19  2020 found1
+-rw-r----- 1 krypton3 krypton3 2128 May 19  2020 found2
+-rw-r----- 1 krypton3 krypton3  560 May 19  2020 found3
+-rw-r----- 1 krypton3 krypton3   56 May 19  2020 HINT1
+-rw-r----- 1 krypton3 krypton3   37 May 19  2020 HINT2
+-rw-r----- 1 krypton3 krypton3   42 May 19  2020 krypton4
+-rw-r----- 1 krypton3 krypton3  785 May 19  2020 README
+```
+
+Copíé el texto en:
+
+-   https://www.dcode.fr/frequency-analysis
+-   https://www.boxentriq.com/code-breaking/cryptogram
+
+Me parece que sería más interesante poder asignar las frecuencias de las letras para hacer la revisión.
+
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+BOIHGKNQVTWYURXZAJEMSLDFPC
+
+Una vez resuelto el cifrado:
+
+```
+tr 'BOIHGKNQVTWYURXZAJEMSLDFPC' 'A-Z' < /krypton/krypton3/krypton4
+tr 'A-Z' 'BOIHGKNQVTWYURXZAJEMSLDFPC' < /krypton/krypton3/krypton4
+krypton3@krypton:/krypton/krypton3$ tr 'A-Z' 'BOIHGKNQVTWYURXZAJEMSLDFPC' < /krypton/krypton3/krypton4
+WELLD ONETH ELEVE LFOUR PASSW ORDIS BRUTE krypton3@krypton:/krypton/krypton3$
+```
+
+Para los objetivos del juego, esta herraminta está más padre:
+
+-   https://crypto.interactive-maths.com/frequency-analysis-breaking-the-code.html
+
+Usé [este identificador de cifrados](https://www.boxentriq.com/code-breaking/cipher-identifier)
+y luego [el solucionador de vignere](https://www.boxentriq.com/code-breaking/vigenere-cipher)
+
+La contraseña es frekey, y con el mismo rompe códigos, la contraseña resulta:
+
+```
+CLEARTEXT
+```
+
+**krypton6**
+
+Mismas herramientas: RANDOM
+
+**krypton7**: chosen plaintext attack
+
+La contraseña se cifra como `PNUKLYLWRQKGKBE`
+
+```
+krypton6@krypton:/krypton/krypton6$ cat krypton7
+PNUKLYLWRQKGKBE
+krypton6@krypton:/krypton/krypton6$ wc -c krypton7
+15 krypton7
+```
+
+Mi hipótesis es que si cifro los 27 plaintexts del alfabeto usando la llave,
+puedo luego buscar cuáles corresponden a cada letra en cada número.
+
+```
+cd $(mktemp -d)
+chmod 777 .
+ln -s /krypton/krypton6/keyfile.dat /krypton/krypton6/encrypt6 .
+echo 'AAAAAAAAAAAAAAA' > A.txt
+echo 'BBBBBBBBBBBBBBB' > B.txt
+echo 'CCCCCCCCCCCCCCC' > C.txt
+echo 'DDDDDDDDDDDDDDD' > D.txt
+echo 'EEEEEEEEEEEEEEE' > E.txt
+echo 'FFFFFFFFFFFFFFF' > F.txt
+echo 'GGGGGGGGGGGGGGG' > G.txt
+echo 'HHHHHHHHHHHHHHH' > H.txt
+echo 'IIIIIIIIIIIIIII' > I.txt
+echo 'JJJJJJJJJJJJJJJ' > J.txt
+echo 'KKKKKKKKKKKKKKK' > K.txt
+echo 'LLLLLLLLLLLLLLL' > L.txt
+echo 'MMMMMMMMMMMMMMM' > M.txt
+echo 'NNNNNNNNNNNNNNN' > N.txt
+echo 'OOOOOOOOOOOOOOO' > O.txt
+echo 'PPPPPPPPPPPPPPP' > P.txt
+echo 'QQQQQQQQQQQQQQQ' > Q.txt
+echo 'RRRRRRRRRRRRRRR' > R.txt
+echo 'SSSSSSSSSSSSSSS' > S.txt
+echo 'TTTTTTTTTTTTTTT' > T.txt
+echo 'UUUUUUUUUUUUUUU' > U.txt
+echo 'WWWWWWWWWWWWWWW' > W.txt
+echo 'XXXXXXXXXXXXXXX' > X.txt
+echo 'YYYYYYYYYYYYYYY' > Y.txt
+echo 'ZZZZZZZZZZZZZZZ' > Z.txt
+for i in *.txt; do
+   ./encrypt6 ${i} ${i%.txt}.cipher
+done
+```
+
+```
+grep -E 'P..............' *.cipher
+grep -E '.N.............' *.cipher
+grep -E '..U............' *.cipher
+grep -E '...K...........' *.cipher
+grep -E '....L..........' *.cipher
+grep -E '.....Y.........' *.cipher
+grep -E '......L........' *.cipher
+grep -E '.......W.......' *.cipher
+grep -E '........R......' *.cipher
+grep -E '.........Q.....' *.cipher
+grep -E '..........K....' *.cipher
+grep -E '...........G...' *.cipher
+grep -E '............K..' *.cipher
+grep -E '.............B.' *.cipher
+grep -E '..............E' *.cipher
+```
+
+LFSRISNOTRANDOM
+
+```
+krypton6@krypton:/tmp/tmp.aHe0cuYg8K$ grep -E 'P..............' *.cipher
+L.cipher:PTNEORJTJKVESYD
+krypton6@krypton:/tmp/tmp.aHe0cuYg8K$ grep -E '.N.............' *.cipher
+F.cipher:JNHYILDNDEPYMSX
+krypton6@krypton:/tmp/tmp.aHe0cuYg8K$ grep -E '..U............' *.cipher
+S.cipher:WAULVYQAQRCLZFK
+krypton6@krypton:/tmp/tmp.aHe0cuYg8K$ grep -E '...K...........' *.cipher
+R.cipher:VZTKUXPZPQBKYEJ
+krypton6@krypton:/tmp/tmp.aHe0cuYg8K$ grep -E '....L..........' *.cipher
+I.cipher:MQKBLOGQGHSBPVA
+krypton6@krypton:/tmp/tmp.aHe0cuYg8K$ grep -E '.....Y.........' *.cipher
+S.cipher:WAULVYQAQRCLZFK
+krypton6@krypton:/tmp/tmp.aHe0cuYg8K$ grep -E '......L........' *.cipher
+N.cipher:RVPGQTLVLMXGUAF
+krypton6@krypton:/tmp/tmp.aHe0cuYg8K$ grep -E '.......W.......' *.cipher
+O.cipher:SWQHRUMWMNYHVBG
+krypton6@krypton:/tmp/tmp.aHe0cuYg8K$ grep -E '........R......' *.cipher
+T.cipher:XBVMWZRBRSDMAGL
+krypton6@krypton:/tmp/tmp.aHe0cuYg8K$ grep -E '.........Q.....' *.cipher
+R.cipher:VZTKUXPZPQBKYEJ
+krypton6@krypton:/tmp/tmp.aHe0cuYg8K$ grep -E '..........K....' *.cipher
+A.cipher:EICTDGYIYZKTHNS
+krypton6@krypton:/tmp/tmp.aHe0cuYg8K$ grep -E '...........G...' *.cipher
+N.cipher:RVPGQTLVLMXGUAF
+krypton6@krypton:/tmp/tmp.aHe0cuYg8K$ grep -E '............K..' *.cipher
+D.cipher:HLFWGJBLBCNWKQV
+krypton6@krypton:/tmp/tmp.aHe0cuYg8K$ grep -E '.............B.' *.cipher
+O.cipher:SWQHRUMWMNYHVBG
+krypton6@krypton:/tmp/tmp.aHe0cuYg8K$ grep -E '..............E' *.cipher
+M.cipher:QUOFPSKUKLWFTZE
+```
+
+```
+krypton7@krypton:/krypton/krypton6$ cat keyfile.dat
+WEAKRANDOM
+```

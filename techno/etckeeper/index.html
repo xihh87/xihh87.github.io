@@ -1,0 +1,40 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Respaldar la configuración de tu compu</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Respaldar la configuración de tu compu</h1><nav id=TableOfContents></nav><p>Es buena práctica usar un sistema de control de versiones
+(p.e. <a href=https://git-scm.com/ title="Control de versiones distribuido." target=_blank rel=noopener>git</a>
+para mantener el historial de los cambios de configuración de tu máquina.</p><p><a href=http://etckeeper.branchable.com/ title="Herramientas para versionar tu configuración en Unix." target=_blank rel=noopener>etckeeper</a>
+facilita la gestión:</p><ul><li>Mantiene una lista de lo que está instalado y en qué versiones.</li><li>Hace un respaldo diario de la configuración.</li><li>Hace un respaldo cada que se actualiza el software.</li></ul><h1 id=cómo-usarlo><a href=#c%c3%b3mo-usarlo alt>Cómo usarlo</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Instalarlo normalmente:</p><pre tabindex=0><code>sudo apt-get install etckeeper
+sudo pacman install etckeeper
+</code></pre><p>Iniciar el repositorio para seguir la configuración:</p><pre tabindex=0><code>sudo etckeeper init
+</code></pre><p>Esto genera una lista de los paquetes instalados y los permisos.</p><p>Ahora cada que se modifica la configuración,
+se puede guardar qué se cambió y un mensaje de porqué:</p><pre tabindex=0><code>sudo etckeeper commit -m &#39;[Por qué cambié esto].&#39;
+</code></pre><h1 id=respaldar-automáticamente-la-configuración><a href=#respaldar-autom%c3%a1ticamente-la-configuraci%c3%b3n alt>Respaldar automáticamente la configuración</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Si se va a respaldar la información,
+debe mantenerse en un lugar privado y seguro
+porque guarda las contraseñas y otra información sensible.</p><p>Para agregar un repositorio:</p><pre tabindex=0><code>sudo etckeeper vcs remote add origin [URL]
+</code></pre><p>Donde <code>[URL]</code> es tu repositorio privado de configuración.</p><p>Para respaldar automáticamente la configuración,
+cambiar la línea de <code>/etc/etckeeper/etckeeper.conf</code> (en debian es el default) por:</p><pre tabindex=0><code># To push each commit to a remote, put the name of the remote here.
+# (eg, &#34;origin&#34; for git). Space-separated lists of multiple remotes
+# also work (eg, &#34;origin gitlab github&#34; for git).
+PUSH_REMOTE=&#34;origin&#34;
+</code></pre><h1 id=guardar-muchas-computadoras-en-un-sólo-lugar><a href=#guardar-muchas-computadoras-en-un-s%c3%b3lo-lugar alt>Guardar muchas computadoras en un sólo lugar</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Se puede guardar la configuración de varias compus en el mismo servidor,
+e incluso asociar varias al mismo repositorio:</p><pre tabindex=0><code>sudo etckeeper vcs checkout -b `hostname`
+sudo etckeeper vcs branch --set-upstream-to=origin/`hostname` `hostname`
+</code></pre><p>De esta manera, cada compu tendrá su rama
+y todas las configuraciones estarán en un lugar único.</p><p>Esto tiene la ventaja de que puedes aplicar los cambios de una compu en otras,
+aquí un ejemplo:</p><pre tabindex=0><code>sudo etckeeper vcs fetch --all # esto incluye las ramas de los otros
+sudo etckeeper vcs log --cc origin/compu2 # aquí se puede buscar el cambio deseado, p.e:
+# commit ac75206daf4c0106e86aea3ee94902a175c5b2c5
+# Author: Joshua Haase &lt;mi.correo.falso@mi-isp.com&gt;
+# Date:   Sat Aug 13 11:56:03 2016 -0500
+#
+#     Change something.
+sudo etckeeper vcs cherry-pick ac75206
+# si hay problemas, arreglarlos con: git mergetool
+</code></pre><p>Aquí se utiliza el comando cherry-pick de git para aplicar el cambio.</p><h1 id=revisar-que-la-configuración-funciona><a href=#revisar-que-la-configuraci%c3%b3n-funciona alt>Revisar que la configuración funciona</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Para revisar que funciona:</p><pre tabindex=0><code>sudo etckeeper vcs push
+</code></pre><h1 id=configurar-etckeeper-para-hacer-un-respaldo-de-configuración><a href=#configurar-etckeeper-para-hacer-un-respaldo-de-configuraci%c3%b3n alt>Configurar etckeeper para hacer un respaldo de configuración</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Se debe configurar un repositorio privado para evitar problemas de seguridad.
+Una vez configurado, se puede configurar para realizar un respaldo:</p><pre tabindex=0><code>sudo etckeeper vcs remote add origin &lt;URL&gt;
+sudo sed -i -e &#39;s#PUSH_REMOTE=&#34;&#34;#PUSH_REMOTE=&#34;origin&#34;#&#39; /etc/etckeeper/etckeeper.conf
+</code></pre><p>Para usar un sólo repositorio con varias ramas:</p><pre tabindex=0><code># Configurar auto-push
+sudo etckeeper vcs push -u origin `hostname`
+sudo sed -i -e &#39;s#git push &#34;$REMOTE&#34; master || true#git push &#34;$REMOTE&#34; || true#&#39; /etc/etckeeper/commit.d/99push
+sudo etckeeper commit -m &#39;Sincronizar con git.&#39;
+</code></pre></article></main></body></html>

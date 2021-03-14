@@ -1,0 +1,28 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Comentarios en docpad</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Comentarios en docpad</h1><nav id=TableOfContents><ul><li><a href=#instalar-el-complemento>Instalar el complemento</a></li><li><a href=#cambiar-el-bosquejo>Cambiar el bosquejo</a></li><li><a href=#consideraciones-de-seguridad>Consideraciones de seguridad</a></li></ul></nav><p>Quiero que esta página permita conversar,
+así que estuve buscando cómo agregar comentarios.</p><p>Aquí detallo el resultado de algunos experimentos.</p><h1 id=docpad-plugin-nativecomments><a href=#docpad-plugin-nativecomments alt>docpad-plugin-nativecomments</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>La <a href=https://bevry.me/ target=_blank rel=noopener>compañía que hace docpad</a> desarrolló este complemento.
+Lo que hace es muy simple:</p><ul><li>Agregar un formulario en las páginas que requieran comentarios,</li><li>El formulario envía una petición POST que se guarda en <a href=./docpad#estructura-de-archivos>la carpeta</a>
+<code>src/documents/comments/</code>,</li><li>Los comentarios se agregan a las páginas al momento de (re)generar la página web.</li></ul><h2 id=instalar-el-complemento><a href=#instalar-el-complemento alt>Instalar el complemento</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Desde la carpeta del proyecto ejecutamos:</p><pre><code>docpad install nativecomments
+</code></pre><h2 id=cambiar-el-bosquejo><a href=#cambiar-el-bosquejo alt>Cambiar el bosquejo</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>La <a href=https://github.com/docpad/docpad-plugin-nativecomments target=_blank rel=noopener>documentación del complemento</a>
+dice que hay que incluir en el bosquejo de la página que requiera comentarios:</p><pre><code>&lt;%- @getCommentsBlock() %&gt;
+</code></pre><p>El nombre para los bosquejos que usen este plugin debe terminar con doble <code>.eco</code> porque
+la salida de <code>getCommentsBlock</code> debe procesarse otra vez por <code>eco</code>.</p><p>Una alternativa que permite mayor control del diseño es agregar manualmente
+el formulario:</p><pre><code>&lt;form action=&quot;/comment&quot; method=&quot;POST&quot;&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;for&quot; value=&quot;&lt;%= @document.relativeBase %&gt;&quot; /&gt;
+&lt;label&gt;Author: &lt;input type=&quot;author&quot; name=&quot;author&quot; /&gt;&lt;/label&gt;
+&lt;label&gt;Title: &lt;input type=&quot;text&quot; name=&quot;title&quot; /&gt;&lt;/label&gt;
+&lt;label&gt;Body: &lt;textarea name=&quot;body&quot;&gt;&lt;/textarea&gt;&lt;/label&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Post Comment&quot; /&gt;
+&lt;/form&gt;
+</code></pre><p>Y la lista de comentarios:</p><pre><code>&lt;% if @getComments().length is 0: %&gt;&lt;p&gt;No comments yet&lt;/p&gt;&lt;% else: %&gt;
+&lt;ul&gt;&lt;% for comment in @getComments().toJSON(): %&gt;
+	&lt;li&gt;&lt;a href=&quot;&lt;%=comment.url%&gt;&quot;&gt;&lt;%=comment.title or comment.contentRenderedWithoutLayouts%&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;% end %&gt;&lt;/ul&gt;
+&lt;% end %&gt;
+</code></pre><h2 id=consideraciones-de-seguridad><a href=#consideraciones-de-seguridad alt>Consideraciones de seguridad</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Permitir que se publique lo que envía alguien más es un posible vector de ataque.
+Antes de publicar comentarios se debe limpiar lo que pueda causar problemas.</p><p>Este plugin de comentarios permite inyectar código a la página.
+Por ejemplo, el siguiente comentario arroja una alerta:</p><pre><code># Hola
+
+Este parece un comentario legítimo
+&lt;script&gt;alert(&quot;Pero tiene código malicioso&quot;)&lt;/script&gt;
+</code></pre><p>Esto es debido a que markdown permite agregar HTML.</p><p><strong>Pendiente</strong>: cómo limpiar lo problemático en los comentarios.</p></article></main><h2>Podría interesarte</h2><ul><li><a href=/techno/rss-usando-docpad/>Cómo generar RSS usando docpad</a></li><li><a href=/viento-y-anotaciones/howto-usar-mezzanine-con-grappelli-y-filebrowser-vanilla/>HOWTO: usar mezzanine con grappelli y filebrowser vanilla</a></li></ul></body></html>

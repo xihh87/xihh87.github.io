@@ -1,0 +1,20 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Cómo tratar valores atípicos en análisis econométricos</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Cómo tratar valores atípicos en análisis econométricos</h1><nav id=TableOfContents><ul><li><a href=#la-estrategia-que-elijo-por-ahora>La estrategia que elijo por ahora</a></li></ul></nav><p>Quiero analizar datos públicos acerca de las variables económicas de varias empresas.</p><p>Después de hacer la limpieza de los datos extrayendo únicamente:</p><ul><li>Ingresos</li><li>Ganancias</li><li>Activos</li><li>Pasivos</li><li>Patrimonio</li></ul><p>Tengo el problema de que aunque la mayoría de los datos caen dentro de una distribución
+pero todos los parámetros que estoy usando tienen valores atípicos
+que distorsionan el rango dinámico.</p><p>Para hacer figuras he tenido que redimensionar para obtener valores útiles.</p><p>Si tuviera razones para pensar que los valores extremos son erróneos,
+<a href=https://www.statology.org/remove-outliers-r/ target=_blank rel=noopener>podría</a>
+<a href=https://www.r-bloggers.com/2020/01/how-to-remove-outliers-in-r/ target=_blank rel=noopener>eliminarlos</a>
+<a href=https://www.datavedas.com/outlier-treatment/ target=_blank rel=noopener>o imputarlos</a>
+<a href=http://r-statistics.co/Outlier-Treatment-With-R.html target=_blank rel=noopener>como</a>
+<a href=https://statisticsglobe.com/remove-outliers-from-data-set-in-r target=_blank rel=noopener>todos</a>
+<a href=https://cxl.com/blog/outliers/ title="Este artículo me gusta especialmente porque explica 5 métodos" target=_blank rel=noopener>sugieren</a>.
+Sin embargo, <a href=https://www.theanalysisfactor.com/outliers-to-drop-or-not-to-drop/ target=_blank rel=noopener>no es válido eliminar valores atípicos sólo por ser atípicos</a>.</p><p>Parece que <a href=https://en.wikipedia.org/wiki/Censored_regression_model target=_blank rel=noopener>hay métodos para usar sólo los valores más probables</a>
+y formas de <a href=https://en.wikipedia.org/wiki/Heckman_correction target=_blank rel=noopener>corregir los sesgos que provocaría truncar las variables dependientes</a>.</p><p><a href=https://www.boj.or.jp/en/statistics/outline/exp/tk/data/extk03.pdf target=_blank rel=noopener>Hay estudios donde detectan los valores atípicos y los tratan como valores faltantes porque no representan la población</a>.</p><p>59% de los estudios médicos usan métodos estadísticos para la detección de valores atípicos,
+15% usan agrupamiento, 15% valor más cercano
+[@raw:inproceedings]</p><p>Los valores atípicos pueden ser errores y en ese caso deben descartarse,
+pero también pueden &ldquo;ser indicativos de características de la población que no serían descubiertas en el curso normal del análisis&rdquo;
+[@url:https://folk.ntnu.no/skoge/prost/proceedings/aiche-2004/pdffiles/papers/425u.pdf, p. 2].</p><p><a href=https://cxl.com/blog/outliers/ target=_blank rel=noopener>Conviene usar estimadores recortados para generar modelos predictores</a>.</p><h2 id=la-estrategia-que-elijo-por-ahora><a href=#la-estrategia-que-elijo-por-ahora alt>La estrategia que elijo por ahora</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Como los valores atípicos:</p><ul><li>No son representativos de la población</li><li>Distorsionan la escala de visualización</li></ul><p>Decidí que para las visualizaciones voy a mostrarlos como el valor en Q10 y Q90.
+Los valores atípicos también podrían mostrarse en un color distintivo,
+para el que podría usarse un valor faltante.</p><p>Sin embargo, si quisiera hacer un análisis predictivo,
+usaría un modelo que sea robusto a valores extremos
+ya que no tengo razones para descartarlos del conjunto de datos.</p></article></main></body></html>

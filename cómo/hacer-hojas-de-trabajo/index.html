@@ -1,0 +1,30 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Hacer hojas de trabajo</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Hacer hojas de trabajo</h1><nav id=TableOfContents><ul><li><a href=#requisitos>Requisitos</a></li><li><a href=#procedimiento>Procedimiento</a></li></ul></nav><p>Hice <a href=https://github.com:xihh87/pandoc-latex-template target=_blank rel=noopener>una plantilla de documento que me permite hacer cuestionarios rellenables en PDF</a>
+basada en <a href=https://github.com/Wandmalfarbe/pandoc-latex-template target=_blank rel=noopener>eisvogel</a>
+que usa <a href=/usr/share/doc/texlive-doc/latex/hyperref/manual.pdf><code>hyperref</code> para hacer formularios</a>.</p><p>Además hice una <a href=https://gitlab.com/xihh87/pandoc-build-server/ target=_blank rel=noopener>imagen de <code>docker</code> para construir mis sistemas</a>.</p><p>Por lo tanto, puedo usar algunos comandos para hacer varios formularios:</p><pre tabindex=0><code>% formulario en lo que queda del renglón
+\textline
+% formulario de varias líneas
+\textbox
+% formulario para pedacitos de tabla
+\textarea
+% para indicar sí / no
+\checkbox
+% agregar 5 checkboxes para calificaciones
+\fivestars
+</code></pre><h2 id=requisitos><a href=#requisitos alt>Requisitos</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=/c%C3%B3mo/registrarse-en-gitlab/>Una cuenta en GitLab</a> ó
+<a href=https://gitlab.com/xihh87/ppt target=_blank rel=noopener>instalar los requisitos de la plantilla</a>.</p><h2 id=procedimiento><a href=#procedimiento alt>Procedimiento</a> <a href=# alt="Regresar al inicio">↑</a></h2><ol><li><p>Clonar <a href=https://gitlab.com/xihh87/ppt title="Mi plantilla para compilar documentos y presentaciones en latex a partir de markdown usando `pandoc` y `manubot`." target=_blank rel=noopener>mi plantilla para hacer formularios</a>.</p><pre tabindex=0><code>NOMBRE_DE_PROYECTO=
+git clone https://gitlab.com/xihh87/ppt ${NOMBRE_DE_PROYECTO}
+cd ${NOMBRE_DE_PROYECTO}
+</code></pre><p>Consulta la <a href=https://github.com/Wandmalfarbe/pandoc-latex-template target=_blank rel=noopener>documentación de Eisvogel</a>
+y <a href=https://pandoc.org/MANUAL.html target=_blank rel=noopener>pandoc</a> para entender todas las posibilidades.</p></li><li><p>Configurar el documento <code>.env</code> según tu gusto.</p><pre tabindex=0><code>${EDITOR} .env
+</code></pre></li><li><p>Copiar alguna plantilla de pandoc del directorio <code>templates</code> y editarla.</p></li><li><p>Agregar tu repositorio para subir tu proyecto nuevamente a GitLab:</p><pre tabindex=0><code>git remote rename origin original
+USER=
+PROJECT=
+git remote add origin git@gitlab.com:${USER}/${PROJECT}.git
+</code></pre></li><li><p>Subir tus cambios a GitLab.</p><pre tabindex=0><code>git add .
+git commit -m &#34;${DESCRIPCION_DE_TUS_CAMBIOS}&#34;
+git push
+</code></pre></li><li><p>Puedes descargar tus datos desde tu proyecto en</p><pre tabindex=0><code>USER=
+PROJECT=
+xdg-open https://gitlab.com/${USER}/${PROJECT}/-/jobs
+</code></pre><p><figure><img src=./trabajos.png><figcaption>Dónde descargar tus archivos generados.</figcaption></figure></p></li></ol></article></main></body></html>

@@ -1,0 +1,15 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>¿Se puede usar múltiples EFI?</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>¿Se puede usar múltiples EFI?</h1><nav id=TableOfContents></nav><p>Tengo una computadora con Windows y</p><ul><li>no puedo desarrollar en ella correctamente</li><li>es diferente a mi servidor productivo.</li></ul><p>Intenté instalar Ubuntu y funciona correctamente,
+pero sólo tengo 100MB en la partición EFI,
+y para instalar el firmware de la tarjeta gráfica
+necesito más de los 18MB libres.</p><p>Es muy probable que si hago la partición de EFI más grande
+Windows deje de iniciar.
+Esto alguna vez me ocurrió en Windows 7.</p><p>Pensé que tal vez podría usar un EFI en un disco diferente
+para cada sistema sistema operativo pero
+parece que <a href=https://superuser.com/questions/1664442/windows-linux-uefi-dual-boot-does-efi-partition-need-resizing target=_blank rel=noopener>la forma recomendada es usar una única ESP</a>.</p><hr><p><a href=https://askubuntu.com/a/963417/1104697 target=_blank rel=noopener>Supuestamente sí es posible utilizar varias EFI</a>,
+sin embargo <strong>yo no lo he logrado</strong>.
+Sospecho que los BIOS toman la primer partición y usan esa,
+independientemente de que se registren varias.</p><p>Se tiene que generar la partición,
+se tiene que registrar como una entrada de EFI
+(puede hacerse con <a href=https://wiki.gentoo.org/wiki/Efibootmgr/es target=_blank rel=noopener>efibootmgr</a>).</p><hr><p>Para resolver el problema:</p><ol><li><p>Hice una partición EFI en el segundo disco duro.</p></li><li><p>Copie todos los archivos de la EFI original a esta nueva EFI.</p></li><li><p>Desactivé las opciones <code>boot,esp</code> en la EFI original usando <code>gparted</code>.</p></li></ol><p>De esta manera:</p><ul><li><p>no se utiliza la partición EFI original sino mi nueva partición EFI.</p></li><li><p>tengo la posibilidad de regresar la compu con EFI de windows
+dejo la partición EFI original sin cambios.</p></li><li><p>ahora tengo espacio suficiente para agregar firmware y actualizar.</p></li></ul></article></main></body></html>

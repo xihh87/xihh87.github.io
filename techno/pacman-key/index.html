@@ -1,0 +1,6 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Repo personal de Parabola</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Repo personal de Parabola</h1><nav id=TableOfContents><ul><li><a href=#importar-llave>Importar llave</a></li></ul></nav><p><a href=https://www.parabola.nu/ title="Una distro simple y libre." target=_blank rel=noopener>Parábola GNU/Linux-libre</a>
+permite hacer repositorios personales de manera sencilla&mldr;</p><h2 id=importar-llave><a href=#importar-llave alt>Importar llave</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Importar las llaves con <code>pacman-key</code> tiene un poco de truco.</p><p>Hay que generar una carpeta con un archivo llamado <code>pubring.gpg</code>:</p><pre tabindex=0><code>mkdir -p pacman-key-export
+gpg --export &gt; pacman-key-export/pubring.gpg
+</code></pre><p>Una vez que tenemos la llave en ese formato, se puede importar usando:</p><pre tabindex=0><code>sudo pacman-key import pacman-key-export
+</code></pre></article></main></body></html>

@@ -1,0 +1,135 @@
+---
+title: Notas de taller *Seguridad digital para periodistas y activistas*—Sergio Araiza
+author: Joshua Haase
+date: 2014-03-01
+draft: false
+private: false
+comments: true
+toc: true
+equations: false
+---
+
+## Presentación
+
+SocialTIC fortalecimiento de tecnologías digitales enfocadas a la defensa de derechos humanos.
+
+Temas que trata SocialTIC:
+
+- Activismo digital (infoactivismo).
+- Seguridad digital
+
+## ¿Por qué seguridad digital?
+
+- Seguridad digital =/= seguridad informática.
+
+La primera es la seguridad de las personas en su actuar digital.
+La segunda es acerca de programas.
+
+- Riesgo de informar (afectar de intereses).
+
+- NO podemos dejar la tecnología.
+- La seguridad no es total, es minimizar de riesgos.
+
+- Hay relación entre el actuar digital y la integridad física.
+
+- http://www.wired.com/dangerroom/
+
+**Tuiteros libres, PGJ desiste de acusación en su contra**
+
+- Se están generando leyes que atentan contra la libertad de expresión de parte del gobierno.
+
+- Jesús Ortega presentó denuncia contra usuarios en redes sociales por difamación.
+
+- **Grupo criminal ofrece 600 mil pesos para localizar a facebookero.**
+
+- **Tenemos que preocuparnos no sólo del ámbito informático, sino también del ámbito social y redes criminales**.
+
+- Gobiernos realizan espionaje de medios masivos.
+
+- Hay dos acciones posibles: desesperanza o tomar acción.
+
+## ¿qué es seguridad?
+
+- Los terroristas ganan si te asustas.
+
+Seguridad es:
+- ausencia de riesgo.
+- Confianza en algo o alguien.
+- estado de ánimo?
+- necesidad (2 en la pirámide de Maslow).
+
+### Riesgos
+
+- Virus
+- Daño de componentes
+- acceso a red
+- espionaje en redes sociales
+- escuchas en equipo de comunicación
+- geolocalización
+- robo de cómputo con información sensible
+
+### Seguridad es cuestión de hábitos
+
+- Revisar keyloggers
+- Usar antivirus (avg - tiene para android)
+- Respaldar información importante por lo menos 1 vez al mes (de preferencia cifrado)
+- Cifrado (almacenamiento y comunicación)
+- Navegación segura
+
+- La tecnología tiene un uso estratégico (p.e. seguro de vida de Julian Assange).
+
+### Vulnerabilidades de internet
+
+- Los datos
+- Puede haber problemas en cada uno de los pasos.
+-
+
+## 2a parte: necesidades específicas
+
+### Anonimato en internet
+
+* Tor
+* VPN
+* TorBrowser
+
+### Comunicación segura
+
+* Jitsi - chat seguro, llamadas móviles.
+* ChatSecure (móvil)
+* RedPhone (móvil) - Llamadas encriptadas.
+* TextSecure (móvil) - SMS cifrado.
+
+### Varias contraseñas
+
+* Keepass
+
+### Respaldo seguro de información
+
+* Truecrypt
+* Cloudfogger (móvil)
+
+---------
+
+1° de diciembre
+CIMAC
+
+---------
+
+Preguntas:
+
+¿qué antivirus recomiendas para linux?
+
+
+Recursos para seguridad informática
+-----------------------------------
+
+[Una aplicación web para vulnerar](http://google-gruyere.appspot.com/)
+
+[Lecciones y CTF](https://www.hacker101.com/)
+[Juegos CTF](https://ctf.hacker101.com/howtoplay)
+[CTF de juegos en la nube](http://flaws.cloud/)
+[Un compendio de CTF's](https://zaratec.github.io/ctf-practice/)
+
+- - -
+
+[Manual de Reverse Engineering](https://beginners.re/main.html)

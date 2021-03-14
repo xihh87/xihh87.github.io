@@ -1,0 +1,28 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Medir tiempo de trabajo en proyectos con timew</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Medir tiempo de trabajo en proyectos con <code>timew</code></h1><nav id=TableOfContents><ul><li><a href=#anotar-cosas-en-la-bitácora-de-trabajo>Anotar cosas en la bitácora de trabajo</a></li><li><a href=#otras-alternativas>Otras alternativas</a></li></ul></nav><p>Yo uso <a href=https://timewarrior.net/docs/ target=_blank rel=noopener><code>timewarrior</code></a>,
+paquete <code>timew</code> en Arch, BTW.</p><iframe class=speakerdeck-iframe style="border:0;background:rgba(0,0,0,.1)repeat padding-box;margin:0;padding:0;border-radius:6px;box-shadow:rgba(0,0,0,.2)0 5px 40px;width:560px;height:420px;overflow:auto" src=https://speakerdeck.com/player/03859b2c85f74d17ab2572e299faa2bf title='Introduction to Timewarrior' allowfullscreen mozallowfullscreen=true webkitallowfullscreen=true data-ratio=1.3333333333333333 frameborder=0></iframe><ol><li><p>Al empezar a trabajar en una tarea:</p><pre tabindex=0><code>timew track \
+    &#34;Descripción de la actividad&#34; \
+    +proyecto
+</code></pre></li><li><p>Al terminar la tarea o dejar de trabajar en ella.</p><pre tabindex=0><code>timew stop
+</code></pre></li><li><p>Si continúo sobre la última tarea que se detuvo.</p><pre tabindex=0><code>timew continue
+</code></pre><p>También puede continuarse una tarea anterior:</p><pre tabindex=0><code>timew summary \
+    from yesterday to now :ids
+timew continue @${TASK_ID}
+</code></pre></li><li><p>Al terminar el proyecto puedo reportar el tiempo copiando la salida de:</p><pre tabindex=0><code>timew summary \
+    from ${PROJECT_START} to ${PROJECT_END}
+</code></pre></li></ol><h2 id=anotar-cosas-en-la-bitácora-de-trabajo><a href=#anotar-cosas-en-la-bit%c3%a1cora-de-trabajo alt>Anotar cosas en la bitácora de trabajo</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://timewarrior.net/docs/ target=_blank rel=noopener>El manual de timewarrior</a>
+especifica dos instrucciones para asociar a las tareas:
+<a href=https://timewarrior.net/reference/timew-annotate.1/ target=_blank rel=noopener><code>timewarrior annotate</code></a>
+y <a href=https://timewarrior.net/reference/timew-tag.1/ target=_blank rel=noopener><code>timewarrior tag</code></a>.</p><p>No son equivalentes pero no está documentado cómo usarlo o en qué difieren.</p><p>Cada tarea que se guarda en un archivo de texto con el siguiente formato:</p><pre tabindex=0><code>inc &lt;tiempo_inicio&gt; - &lt;tiempo_fin&gt; # &#34;etiqueta&#34;, &#34;etiqueta larga&#34; # &#34;anotación&#34; &#34;anotación larga&#34;
+</code></pre><p>Al usar comandos de visualización como <code>task summary</code>:</p><pre tabindex=0><code>timew summary
+
+Wk  Date       Day Tags                                        Start      End    Time   Total
+--- ---------- --- ---------------------------------------- -------- -------- ------- -------
+W13 2022-03-31 Thu etiqueta, etiqueta larga                 10:00:00 10:15:00 0:15:00
+                   etiqueta de la siguiente tarea.          10:17:14 13:49:04 3:31:50 3:46:50
+
+                                                                                      3:46:50
+</code></pre><p>Por lo que puedo observar,
+las etiquetas se contabilizan y pueden buscarse,
+pero no sé cómo recuperar o usar las anotaciones, si es posible.</p><h2 id=otras-alternativas><a href=#otras-alternativas alt>Otras alternativas</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://web.archive.org/web/20190223215537/https://sachachua.com/blog/2007/12/clocking-time-with-emacs-org/ target=_blank rel=noopener>Se puede usar org-mode para medir el tiempo de los proyectos</a>
+y <a href=https://web.archive.org/web/20190224000805/http://sachachua.com/blog/2018/03/using-org-mode-latex-beamer-and-medibang-paint-to-make-a-childrens-book#comment-657421 target=_blank rel=noopener>para generar documentos de LaTeX</a>.</p><p><a href=https://plantuml.com/es/ target=_blank rel=noopener>PlantUML puede generar diagramas de Gantt y WBS a partir de la estructura de org-mode</a></p><p><a href=http://cachestocaches.com/2016/9/my-workflow-org-agenda/ target=_blank rel=noopener>Este es otro sistema de trabajo</a>.</p><p><a href=https://www.odoo.com/es_ES/ target=_blank rel=noopener>Odoo permite gestionar proyectos y medir el tiempo</a>.</p></article></main></body></html>

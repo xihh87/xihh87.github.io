@@ -1,0 +1,7 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Generar historial de versiones de archivos binarios.</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Generar historial de versiones de archivos binarios.</h1><nav id=TableOfContents></nav><p>Para configurar git para ver archivos binarios,
+hay que usar un programa para convertirlos en texto:</p><pre tabindex=0><code>FILETYPE=
+COMMAND=
+git config --global diff.$FILETYPE.textconv $COMMAND
+</code></pre><p>Agregar <code>$HOME/.config/git/attributes</code> el nombre de los archivos y su tipo:</p><pre tabindex=0><code>printf &#34;*.$FILETYPE\tdiff=$FILETYPE&#34; &gt;&gt; $HOME/.config/git/attributes
+</code></pre><h1 id=referencias><a href=#referencias alt>Referencias</a> <a href=# alt="Regresar al inicio">↑</a></h1><p><a href=https://www.onwebsecurity.com/configuration/diff-binary-files-docx-odt-pdf-with-git.html title="Peter Mosmans 2017-11-19" target=_blank rel=noopener>Diff binary files like docx, odt and pdf with git</a></p></article></main></body></html>

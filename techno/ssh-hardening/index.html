@@ -1,0 +1,28 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Hardening de SSH</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Hardening de SSH</h1><nav id=TableOfContents><ul><li><a href=#configurar-fail2ban-en-mis-servidores>Configurar <code>fail2ban</code> en mis servidores</a></li></ul></nav><p>Siempre hay bots buscando vulnerabilidades en las computadoras conectadas a internet
+y esa es una de las razones por las que es importante hacer hardening de tus servidores.</p><p>Ayer encontré que mi servidor de archivos tenía conexiones persistentes por SSH
+intentando adivinar la contraseña del usuario root.</p><p>En principio no podría entrar porque la configuración de SSH no permite usar <code>root</code> como usuario,
+pero me pareció lo suficientemente molesto para querer deshacerme de eso,
+y aproveché la oportunidad de explorar <code>fail2ban</code>
+para además configurarlo en mi servidor.</p><h2 id=configurar-fail2ban-en-mis-servidores><a href=#configurar-fail2ban-en-mis-servidores alt>Configurar <code>fail2ban</code> en mis servidores</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Agregué a <a href=https://gitlab.com/xihh87/my-workstation/ target=_blank rel=noopener>la configuración de mi compu</a>
+el servicio de <code>fail2ban</code>.</p><p>En uno de mis servidores el proceso consistía en la instalación porque está basado en Debian
+y las cosas generalmente funcionan bien (si no mueves mucho).</p><p>En el servidor que usa Arch,
+el proceso tomó más tiempo investigando cómo funciona
+y diagnosticando errores,
+porque la configuración por defecto de <code>fail2ban</code> para <code>nftables</code>
+intenta ejecutar el comando inválido <code>reject</code> en la regla que genera.</p><p>Este proceso configurar en Arch (localhost):</p><pre tabindex=0><code>$ git clone https://gitlab.com/xihh87/my-workstation/
+$ cd my-workstation
+$ mk start
+$ . .venv/bin/activate
+$ ansible localhost \
+    -m include_role \
+    -a name=ssh_hardening \
+    -e ban_program=nftables
+</code></pre><p>También se puede generar un pequeño libreto:</p><pre tabindex=0><code>---
+- hosts:
+    - miserver.example.com
+  vars:
+    ban_program: nftables
+  roles:
+    - hardening_ssh
+</code></pre></article></main></body></html>

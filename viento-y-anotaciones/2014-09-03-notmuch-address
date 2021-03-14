@@ -1,0 +1,10 @@
+# Notmuch
+
+https://github.com/aperezdc/notmuch-addrlookup-c
+
+```
+;; use notmuch address completion
+(require 'notmuch-address)
+(setq notmuch-address-command "/usr/bin/notmuch-addrlookup")
+(notmuch-address-message-insinuate)
+```

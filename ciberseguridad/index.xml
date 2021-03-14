@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ciberseguridad on Joshua Haase</title><link>https://joshua.haase.mx/ciberseguridad/</link><description>Recent content in Ciberseguridad on Joshua Haase</description><generator>Hugo -- gohugo.io</generator><language>es-mx</language><lastBuildDate>Tue, 08 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/ciberseguridad/index.xml" rel="self" type="application/rss+xml"/><item><title>Grabaciones de clase de ciberseguridad (Pr. 2022)</title><link>https://joshua.haase.mx/ciberseguridad/archive/2022-1/</link><pubDate>Tue, 08 Feb 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ciberseguridad/archive/2022-1/</guid><description>Triada de la Seguridad
+Laboratorio: Setup de entorno
+Laboratorio: Inicio de proyecto
+Troubleshooting entorno | AAA, riesgo
+Resolución de conflictos en GIT
+Laboratorio: Ejercicios para terminal
+Ética y estudios de caso
+Ética (II): divulgación responsable, bug bounties
+Cómo funciona un procesador: Fetch, Decode, Execute
+Laboratorio: Stack Overflow
+Permisos en Unix
+Cifrado clásico
+Cifrado asimétrico (202-02-10)
+GDB para overflow (2022-02-11)
+Cómo funciona la pila y cifrar con GPG (2022-02-15)
+Configuración de GIT para firmar con GPG</description></item></channel></rss>

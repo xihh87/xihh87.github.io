@@ -1,0 +1,10 @@
+#!/usr/bin/execlineb -P
+foreground {
+   pipeline {
+     yq -j eval tesis.yml
+   }
+   pipeline {
+   jq ".bibliography|.[]"
+   }
+   sed -re "s#\"##g"
+}

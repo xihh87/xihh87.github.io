@@ -1,0 +1,31 @@
+R
+=
+
+https://lukejharmon.github.io/ilhabela/instruction/2015/07/02/introduction-phylogenies-in-R/
+
+
+kraken
+======
+
+https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-3-r46
+
+
+Phylip
+======
+
+Vinuesa utiliza este software en perl.
+
+http://www.ccg.unam.mx/%7Evinuesa/Curso_UANL08/PDFs/Tutorial_uso_de_Phylip_y_su_automatizaci%C3%B3n_usando_Perl.pdf
+
+
+[Interactive Tree of Life](https://itol.embl.de/ "")
+==========================
+
+
+qiime2
+======
+
+[Los árboles filogenéticos deben visualizarse fuera de qiime](https://forum.qiime2.org/t/view-qiime2-org-does-not-show-phylogenetic-trees-because-of-size-and-lack-of-visual-info/1551 "")
+
+[Este foro](https://groups.google.com/forum/#!topic/qiime-forum/k6Mo-5kMy3A ) recomienda usar [archeopteryx](https://sites.google.com/site/cmzmasek/home/software/archaeopteryx "") y
+[ETEtoolkit](http://etetoolkit.org/ "A Python framework for the analysis and visualization of trees.")

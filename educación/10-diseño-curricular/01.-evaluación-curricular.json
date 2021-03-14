@@ -1,0 +1,90 @@
+[
+  {
+    "author": [
+      {
+        "family": "Brovelli",
+        "given": "Marta"
+      }
+    ],
+    "container-title": "Fundamentos en humanidades",
+    "id": "brovelli",
+    "issue": "4",
+    "issued": {
+      "date-parts": [
+        [
+          2001
+        ]
+      ]
+    },
+    "page": "101-122",
+    "publisher": "Universidad Nacional de San Luis",
+    "title": "Evaluación curricular",
+    "type": "article-journal",
+    "url": "https://dialnet.unirioja.es/descarga/articulo/1280055.pdf"
+  },
+  {
+    "author": [
+      {
+        "family": "Lewy",
+        "given": "Arieh"
+      }
+    ],
+    "id": "lewy",
+    "issued": {
+      "date-parts": [
+        [
+          1977
+        ]
+      ]
+    },
+    "publisher": "ERIC",
+    "title": "Handbook of Curriculum Evaluation.",
+    "type": "article-journal"
+  },
+  {
+    "author": [
+      {
+        "family": "Fraser",
+        "given": "Barry J"
+      }
+    ],
+    "container-title": "Evaluation in education",
+    "id": "fraser",
+    "issue": "1",
+    "issued": {
+      "date-parts": [
+        [
+          1981
+        ]
+      ]
+    },
+    "page": "1-93",
+    "publisher": "Elsevier",
+    "title": "Learning environment in curriculum evaluation: A review",
+    "title-short": "Learning environment in curriculum evaluation",
+    "type": "article-journal",
+    "volume": "5"
+  },
+  {
+    "author": [
+      {
+        "family": "Sobirov",
+        "given": "Sunnatullo"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2010
+        ]
+      ]
+    },
+    "title": "Curriculum Evaluation",
+    "container-title": "A Multidisciplinary Peer Reviewed Journal",
+    "id": "sobirov",
+    "page": "72",
+    "type": "article-journal",
+    "issn": "0975-3486",
+    "url": "https://d1wqtxts1xzle7.cloudfront.net/56610318/CURRICULUM_EVALUATION-with-cover-page-v2.pdf?Expires=1633924200&Signature=egN1k79fuqo2~iXupd~TZ1AWwcQVER1ZGiL7piIf0rgQWnePA6GBAiI3a6hjO2lUAcP63bZmPNtQ7KJXayox307On15SfPFO4fOXc4WFdGgMdtTKp66M5IDRb0gN5errzLxhYRa8wudFy0lFd7GUB00IsFji6IAJlOLB8v7T~wSoVi7zQdl2QPnU3fMQTTXpl1GSBFC3BuLKDH5WK69CGtH5mXJZfkGyAhkkOaG1WTlYbSnznHQvhlbXxQFqiUbO8SMoznXu6HMZ0kaRHEwFzNSVc7Vvkz2oTh7b~lcpu71vsjAIAelQuK3YFZt39CMHi90HtL~wGCSfOOqMhXGeOQ__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA"
+  }
+]

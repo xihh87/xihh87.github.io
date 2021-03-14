@@ -1,0 +1,142 @@
+[
+  {
+    "id": "url:jp-piaget",
+    "type": "motion_picture",
+    "title": "2017 Personality 06: Jean Piaget & Constructivism",
+    "source": "www.youtube.com",
+    "abstract": "In this lecture, I talk about the great developmental psychologist Jean Piaget, who was interested, above all, in the way that knowledge is generated and tra...",
+    "URL": "https://www.youtube.com/watch?v=BQ4VSRg4e8w",
+    "shortTitle": "2017 Personality 06",
+    "language": "en",
+    "author": [
+      {
+        "family": "Peterson",
+        "given": "Jordan"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2017",
+          1,
+          30
+        ]
+      ]
+    },
+    "accessed": {
+      "date-parts": [
+        [
+          "2021",
+          2,
+          12
+        ]
+      ]
+    }
+  },
+  {
+    "id": "url:nc-broccoli",
+    "type": "webpage",
+    "title": "Curse of the Chocolate-Covered Broccoli (or: Emotion in Learning)",
+    "container-title": "Nicky Case's Blog",
+    "abstract": "So earlier this year, I learnt my whole career was based on a lie. As one does.",
+    "URL": "https://blog.ncase.me/curse-of-the-chocolate-covered-broccoli-or-emotion-in-learning/",
+    "shortTitle": "Curse of the Chocolate-Covered Broccoli (or",
+    "author": [
+      {
+        "family": "Case",
+        "given": "Nicky"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2019",
+          12,
+          5
+        ]
+      ]
+    },
+    "accessed": {
+      "date-parts": [
+        [
+          "2021",
+          2,
+          12
+        ]
+      ]
+    }
+  },
+  {
+    "id": "isbn:9788471128041-custom",
+    "type": "book",
+    "title": "Psicología del niño",
+    "source": "Open WorldCat",
+    "URL": "https://elibro.net/ereader/elibrodemo/116205",
+    "ISBN": "9788471128041",
+    "language": "Spanish",
+    "author": [
+      {
+        "family": "Piaget",
+        "given": "Jean"
+      },
+      {
+        "family": "Inhelder",
+        "given": "Bärbel"
+      },
+      {
+        "family": "Delval",
+        "given": "Juan"
+      },
+      {
+        "family": "Lomelí",
+        "given": "Paz"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2016"
+        ]
+      ]
+    },
+    "accessed": {
+      "date-parts": [
+        [
+          "2021",
+          2,
+          12
+        ]
+      ]
+    }
+  },
+  {
+    "id": "url:josh-piaget",
+    "type": "report",
+    "title": "«La Psicología del Niño» por Jean Piaget",
+    "language": "Spanish",
+    "author": [
+      {
+        "family": "Haase",
+        "given": "Joshua"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2021",
+          2,
+          14
+        ]
+      ]
+    },
+    "accessed": {
+      "date-parts": [
+        [
+          "2021",
+          2,
+          14
+        ]
+      ]
+    }
+  }
+]

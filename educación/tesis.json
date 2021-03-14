@@ -1,0 +1,51 @@
+[
+  {
+    "id": "brunner_talk",
+    "type": "book",
+    "edition": "1. ed",
+    "event-place": "Oxford",
+    "ISBN": "9780198576136",
+    "language": "eng",
+    "number-of-pages": "144",
+    "publisher": "Oxford University Press",
+    "publisher-place": "Oxford",
+    "source": "K10plus ISBN",
+    "title": "Child's talk: learning to use language",
+    "title-short": "Child's talk",
+    "author": [
+      {
+        "family": "Bruner",
+        "given": "Jerome S."
+      },
+      {
+        "family": "Watson",
+        "given": "Rita"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "1983"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "bob_c_martin_youtube",
+    "type": "motion_picture",
+    "abstract": "\"Coding Better World Together\" is a set of master lessons from (Robert Cecil Martin), where he gives various lessons to students in the field of software engineering.",
+    "language": "en",
+    "source": "www.youtube.com",
+    "title": "Clean Code - Uncle Bob / Lesson 3",
+    "URL": "https://www.youtube.com/watch?v=Qjywrq2gM8o&t=718",
+    "accessed": {
+      "date-parts": [
+        [
+          "2023",
+          8,
+          16
+        ]
+      ]
+    }
+  }
+]

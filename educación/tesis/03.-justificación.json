@@ -1,0 +1,297 @@
+[
+  {
+    "id": "url:u-gone",
+    "type": "webpage",
+    "title": "Why Universities will disappear in less than 15 years. At least just like we know them",
+    "container-title": "Medium",
+    "abstract": "It’s not a secret Internet revolutionized everything, tourism, transportation, communications, health and for sure, education. But, in my…",
+    "URL": "https://medium.com/@hegel24horas/why-universities-will-disappear-in-less-than-15-years-at-least-just-like-we-know-them-1b5027ceb174",
+    "language": "en",
+    "author": [
+      {
+        "family": "Eisenhower",
+        "given": "Hegel"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2019",
+          4,
+          10
+        ]
+      ]
+    },
+    "accessed": {
+      "date-parts": [
+        [
+          "2021",
+          2,
+          14
+        ]
+      ]
+    }
+  },
+  {
+    "URL": "http://moglen.law.columbia.edu/audio/DSG-CUNY-BeforeAndAfterIP.mp3",
+    "language": "en",
+    "author": [
+      {
+        "family": "Moglen",
+        "given": "Eben"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2010",
+          11,
+          17
+        ]
+      ]
+    },
+    "type": "webpage",
+    "id": "url:http://moglen.law.columbia.edu/audio/DSG-CUNY-BeforeAndAfterIP.mp3",
+    "title": "Before and After Intelectual Property"
+  },
+  {
+    "id": "isbn:9789264477599",
+    "type": "book",
+    "title": "PISA 2018 Assessment and Analytical Framework",
+    "source": "Open WorldCat",
+    "abstract": "This report presents the conceptual foundations of the OECD Programme for International Student Assessment (PISA), now in its seventh cycle of comprehensive and rigorous international surveys of student knowledge, skills and well-being. Like previous cycles, the 2018 assessment covered reading, mathematics and science, with the major focus this cycle on reading literacy, plus an evaluation of students' global competence - their ability to understand and appreciate the perspectives and world views of others. Financial literacy was also offered as an optional assessment. The framework also includes the questionnaires distributed to students and school principals used to elicit information about student backgrounds and the school learning environment, as well as some questionnaires distributed to parents and teachers to assess factors associated with student outcomes. Students in some countries also completed further questionnaires on their educational trajectory, familiarity with information and communications technology, and well-being.",
+    "URL": "https://doi.org/10.1787/b25efab8-en",
+    "ISBN": "9789264937567",
+    "language": "English",
+    "author": [
+      {
+        "family": "OECD",
+        "given": ""
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2019"
+        ]
+      ]
+    },
+    "accessed": {
+      "date-parts": [
+        [
+          "2021",
+          2,
+          14
+        ]
+      ]
+    }
+  },
+  {
+    "URL": "https://files.eric.ed.gov/fulltext/EJ1081990.pdf",
+    "title": "Vygotsky's Zone of Proximal Development: Instructional Implications and Teachers' Professional Development",
+    "author": [
+      {
+        "family": "Shabani",
+        "given": "Karim"
+      },
+      {
+        "family": "Khatib",
+        "given": "Mohamad"
+      },
+      {
+        "family": "Ebadi",
+        "given": "Saman"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2015,
+          12,
+          23
+        ]
+      ]
+    },
+    "type": "webpage",
+    "id": "url:https://files.eric.ed.gov/fulltext/EJ1081990.pdf",
+    "container-title": "ISSN 1916-4742 (Print) | English language teaching | The ISSN Portal",
+    "abstract": "The current paper examines the instructional implications of Vygotsky's (1978) seminal notion of Zone of Proximal Development, originally developed to account for the learning potential of children, and investigates ZPD applications to the concept of teacher professional development.",
+    "accessed": {
+      "date-parts": [
+        [
+          "2021",
+          2,
+          15
+        ]
+      ]
+    }
+  },
+  {
+    "title": "Exploring Algebra as a Language-In-Use: A Study with 11–12 Year Olds Using Graphic Calculators",
+    "author": [
+      {
+        "family": "Cedillo Ávalos",
+        "given": "Tenoch Esaú"
+      }
+    ],
+    "language": "en",
+    "issued": {
+      "date-parts": [
+        [
+          "1996",
+          12
+        ]
+      ]
+    },
+    "URL": "https://core.ac.uk/download/pdf/33680124.pdf",
+    "id": "url:https://core.ac.uk/download/pdf/33680124.pdf",
+    "type": "thesis"
+  },
+  {
+    "URL": "https://emtemp.gcom.cloud/ngw/globalassets/en/publications/documents/top-priorities-for-it-leadership-vision-for-2021-ebook.pdf",
+    "type": "webpage",
+    "id": "url:https://emtemp.gcom.cloud/ngw/globalassets/en/publications/documents/top-priorities-for-it-leadership-vision-for-2021-ebook.pdf",
+    "title": "Top Priorities for IT: Leaderchip Vision for 2021",
+    "publisher": "Gartner"
+  },
+  {
+    "id": "doi:10.5644/ama2006-124.216",
+    "type": "article",
+    "title": "Continuous Assessment as a Good Motivational Tool in Medical Education",
+    "URL": "https://pubmed.ncbi.nlm.nih.gov/29957973/",
+    "author": [
+      {
+        "family": "Tariq Aftab",
+        "given": "Muhammad"
+      },
+      {
+        "family": "Hasan Tariq",
+        "given": "Muhammad"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2018",
+          5
+        ]
+      ]
+    },
+    "accessed": {
+      "date-parts": [
+        [
+          "2021",
+          5,
+          7
+        ]
+      ]
+    }
+  },
+  {
+    "id": "url:http://dbpmail.net/essays/2012-10-24-programming-literature.html",
+    "type": "webpage",
+    "title": "Programming as Literature",
+    "URL": "https://dbp.io/essays/2012-10-24-programming-literature.html",
+    "author": [
+      {
+        "family": "Patterson",
+        "given": "Daniel"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2012",
+          10,
+          24
+        ]
+      ]
+    },
+    "accessed": {
+      "date-parts": [
+        [
+          "2021",
+          4,
+          11
+        ]
+      ]
+    }
+  },
+  {
+    "URL": "https://repositorium.sdum.uminho.pt/bitstream/1822/23813/1/iceis2012_quimera_vf.pdf",
+    "type": "article",
+    "id": "url:https://repositorium.sdum.uminho.pt/bitstream/1822/23813/1/iceis2012_quimera_vf.pdf",
+    "title": "PROGRAM ANALYSIS AND EVALUATION USING QUIMERA",
+    "author": [
+      {
+        "family": "Fonte",
+        "given": "Daniela"
+      },
+      {
+        "family": "Vilas Boas",
+        "given": "Ismael"
+      },
+      {
+        "family": "da Cruz",
+        "given": "Daniela"
+      },
+      {
+        "family": "Lopes Garcarski",
+        "given": "Alda"
+      },
+      {
+        "family": "Rangel Henriques",
+        "given": "Pedro"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2012"
+        ]
+      ]
+    },
+    "accessed": {
+      "date-parts": [
+        [
+          "2021",
+          4,
+          11
+        ]
+      ]
+    }
+  },
+  {
+    "title": "Continuous Assessment as a Good Motivational Tool in Medical Education.",
+    "volume": "47",
+    "issue": "1",
+    "page": "76-81",
+    "container-title": "Acta medica academica",
+    "container-title-short": "Acta Med Acad",
+    "ISSN": "1840-2879",
+    "issued": {
+      "date-parts": [
+        [
+          2018,
+          5
+        ]
+      ]
+    },
+    "author": [
+      {
+        "given": "Muhammad Tariq",
+        "family": "Aftab"
+      },
+      {
+        "given": "Muhammad Hassan",
+        "family": "Tariq"
+      }
+    ],
+    "PMID": "29957973",
+    "DOI": "10.5644/ama2006-124.216",
+    "abstract": "Continuous assessment tests influence the learning needs of medical students at particular times but are also beneficial in scheduled learning, and act as motivating tool. These tests drive them to study by developing competition and optimism regarding the forthcoming result. This study has been designed to evaluate the role of these tests for medical students by learning about their motivation.",
+    "URL": "https://www.ncbi.nlm.nih.gov/pubmed/29957973",
+    "type": "article-journal",
+    "id": "doi:10.5644/ama2006-124.216"
+  }
+]

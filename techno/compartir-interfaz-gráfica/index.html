@@ -1,0 +1,66 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Compartir interfaz gráfica</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Compartir interfaz gráfica</h1><nav id=TableOfContents><ul><li><a href=#opciones-para-compartir-control-en-aplicaciones-gráficas>Opciones para compartir control en aplicaciones gráficas</a></li><li><a href=#cómo-usar-xpra-para-compartir-dispositivos>Cómo usar Xpra para compartir dispositivos</a></li><li><a href=#problemas-con-xpra>Problemas con <code>xpra</code></a></li><li><a href=#usar-xpra-desde-wayland>Usar <code>xpra</code> desde Wayland</a></li><li><a href=#otros-ejemplos-para-inspiración>Otros ejemplos para inspiración</a></li><li><a href=#otra-información-interesante>Otra información interesante</a></li></ul></nav><p>Quiero empoderar a los estudiantes del <a href=/csaw/>Taller de Ciberseguridad</a>
+para interactuar en el mismo proyecto en tiempo real
+usando una interfaz gráfica.</p><p>Eso nos permitiría ser más efectivos al <a href=../programar-en-masa/>programar en grupo</a>
+y simplificaría el trabajo de instalación
+que se haría sólo en <a href=https://gitlab.com/gcd-ibero/gestion-de-infraestructura/-/blob/51db6843fbbe657c6ca16768c212f8f1d3f57bef/taller-hacker-local/Vagrantfile target=_blank rel=noopener>la VM que compartimos</a>.</p><h2 id=opciones-para-compartir-control-en-aplicaciones-gráficas><a href=#opciones-para-compartir-control-en-aplicaciones-gr%c3%a1ficas alt>Opciones para compartir control en aplicaciones gráficas</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Compartir la pantalla puede hacerse con:</p><ul><li><p>Compartir controles desde aplicaciones de videoconferencia.</p><p>Tienen el problema de que no permiten usar la computadora para nada más,
+tienen que hacerse desde el equipo de cómputo en específico,
+y como no traduce el teclado puede enviar teclas distintas,
+o por ejemplo, apagar tu wifi.</p></li><li><p>VNC: al parecer <a href=https://t.me/sysarmymx/268887 target=_blank rel=noopener>&ldquo;muy lento y muy feo&rdquo;</a>.</p></li><li><p>SPICE:
+<a href=https://spice-space.org target=_blank rel=noopener><code>SPICE space</code></a>
+<a href=https://www.spice-space.org/multiple-clients.html target=_blank rel=noopener>puede gestionar varios clientes</a></p></li><li><p><a href=http://dmx.sourceforge.net/ target=_blank rel=noopener>Distributed Multihead X</a></p></li><li><p><a href=http://xpra.org/ target=_blank rel=noopener>Xpra</a>:</p><ul><li>se puede consultar directamente desde el navegador porque <a href=https://github.com/Xpra-org/xpra-html5 target=_blank rel=noopener>tiene un cliente HTML5</a>;</li><li><a href=https://github.com/Xpra-org/xpra/blob/master/README.md target=_blank rel=noopener>funciona en cualquier plataforma</a>.</li></ul></li></ul><h2 id=cómo-usar-xpra-para-compartir-dispositivos><a href=#c%c3%b3mo-usar-xpra-para-compartir-dispositivos alt>Cómo usar Xpra para compartir dispositivos</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Se puede iniciar desde el servidor:</p><pre tabindex=0><code>PROGRAM=dwm
+xpra start \
+    --sharing=yes \
+    --clipboard=yes \
+    --clipboard-direction=both
+</code></pre><p>También se puede iniciar de manera remota</p><pre tabindex=0><code>USER=
+SERVER=
+xpra start ssh://${USER}@${SERVER}/ \
+    --ssh=ssh \
+    --sharing=yes \
+    --clipboard=yes \
+    --clipboard-direction=both
+</code></pre><p>Para usar la interfaz gráfica compartida:</p><pre tabindex=0><code>USER=
+SERVER=
+REMOTE_DISPLAY=
+xpra attach ssh://${SERVER}/${REMOTE_DISPLAY} \
+    --ssh=ssh \
+    --sharing=yes \
+    --clipboard=yes \
+    --clipboard-direction=both \
+</code></pre><p>Para iniciar aplicaciones:</p><pre tabindex=0><code>APP=
+USER=
+SERVER=192.168.122.120
+REMOTE_DISPLAY=
+xpra attach \
+    --ssh=ssh \
+    --desktop-scaling=off \
+    --sharing=yes \
+    --clipboard=yes \
+    --clipboard-direction=both \
+    --start-child ${APP} ssh://${USER}@${SERVER}/${REMOTE_DISPLAY}
+</code></pre><h2 id=problemas-con-xpra><a href=#problemas-con-xpra alt>Problemas con <code>xpra</code></a> <a href=# alt="Regresar al inicio">↑</a></h2><ul><li><p>En casos no identificados,
+al conectar por SSH se muestra el error:</p><pre tabindex=0><code>Warning: failed to connect:
+ connection failed: &#39;canonicaldomains&#39;
+</code></pre><blockquote><p>Corregir usando la línea de comandos y la opción <code>--ssh=ssh</code></p></blockquote></li><li><p>En otros casos, se muestra un error de conexión:</p><pre tabindex=0><code>Error: failed to connect
+received uninterpretable nonsense:
+</code></pre><p>Este error <a href=https://github.com/Xpra-org/xpra/issues/3349 target=_blank rel=noopener>ocurre con versiones en específico</a>,
+<a href=https://github.com/Xpra-org/xpra/issues/3403 target=_blank rel=noopener>por falta de dependencias</a>,
+o <a href=https://github.com/Xpra-org/xpra/commit/1724025f0690a6aaf517a10dd8eb6bc243b6cc67 target=_blank rel=noopener>por una pre-lectura implementada incorrectamente</a>
+que <a href=https://github.com/Xpra-org/xpra/issues/3346 target=_blank rel=noopener>ocasiona la pérdida de un byte</a>.</p><p>Primero <a href=https://github.com/Xpra-org/xpra/blob/master/docs/FAQ.md#which-version-shall-i-be-using target=_blank rel=noopener>intenta actualizar a la última versión</a>
+si tu distribución no la implementa.</p><p>Al parecer este problema podría ser intermitente
+y volver a ejecutar el comando podría funcionar.</p></li><li><p>En algunos casos la imagen en pantalla no coincide con las entradas
+(p.e. el click con el mouse no corresponde con el lugar donde se ve el cursor).</p><p>Cuando esto pasa, generalmente maximizar
+y minimizar la ventana completa de Xpra resuelve el problema.</p><p><del>Se probó <a href=https://aur.archlinux.org/packages/xf86-video-dummy-xpra-patch target=_blank rel=noopener>xf86-video-dummy con parche para Xpra</a>
+para intentar resolver el problema pero no funcionó.</del></p></li><li><p>En algunos casos,
+los menúes de las GUIs no permanecen abiertos como en las aplicaciones locales.</p></li><li><p>La interfaz rootless no se comparte correctamente entre Linux y OSX,
+ni siquiera usando <a href=https://aur.archlinux.org/packages/xf86-video-dummy-xpra-patch target=_blank rel=noopener>los parches de xf86-video-dumy para xpra</a>.</p></li></ul><h2 id=usar-xpra-desde-wayland><a href=#usar-xpra-desde-wayland alt>Usar <code>xpra</code> desde Wayland</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>En las distros con Wayland,
+generalmente hay un proceso llamado <code>Xwayland</code>
+que permite ejecutar programas de X.</p><p>Para usar <code>xpra</code> desde una sesión que usa Wayland,
+es necesario decirle a la aplicación cómo conectarse con <code>Xwayland</code>
+y decirle que utilice X11 como backend.</p><p>En caso contrario simplemente fallará con el error:
+``.</p><pre tabindex=0><code>DISPLAY=:0
+env WAYLAND_DISPLAY=${DISPLAY} DISPLAY=${DISPLAY} GDK_BACKEND=X11 xpra
+</code></pre><h2 id=otros-ejemplos-para-inspiración><a href=#otros-ejemplos-para-inspiraci%c3%b3n alt>Otros ejemplos para inspiración</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://roscidus.com/blog/blog/2021/10/30/xwayland/ target=_blank rel=noopener>Un usuario intentó exponer <code>Xwayland</code> sobre una VM</a>,
+algo parecido al objetivo de este proyecto.</p><h2 id=otra-información-interesante><a href=#otra-informaci%c3%b3n-interesante alt>Otra información interesante</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://github.com/Xpra-org/xpra/issues/387 target=_blank rel=noopener>Posiblemente en el futuro, <code>xpra</code> soporte Wayland</a>,
+fue alguna vez parte de <a href=https://web.archive.org/web/20200924201011/https://www.xpra.org/trac/wiki/ProjectIdeas target=_blank rel=noopener>las ideas para el futuro de <code>xpra</code></a>.</p><p><a href=https://lwn.net/Articles/521147/ target=_blank rel=noopener>Sólo se recomienda confiar en SSH o TLS-SRP (posiblemente no implementado) para transmitir información segura en <code>xpra</code></a></p><p><a href=https://wayland-book.com/ target=_blank rel=noopener>Un libro acerca de Wayland</a></p></article></main></body></html>

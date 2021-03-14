@@ -1,0 +1,90 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>¿Cómo funciona internet?</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>¿Cómo funciona internet?</h1><nav id=TableOfContents><ul><li><a href=#las-reglas>Las reglas</a><ul><li><a href=#a-dónde-se-manda-la-información-ip>A dónde se manda la información (IP)</a></li><li><a href=#cómo-se-manda-la-información-tcp>Cómo se manda la información (TCP)</a></li></ul></li><li><a href=#internet-es-físico>Internet es físico</a><ul><li><a href=#una-red-pequeña>Una red pequeña</a></li><li><a href=#una-red-de-redes>Una red de redes</a></li><li><a href=#conexión-segura>Conexión segura</a></li><li><a href=#qué-es-un-servidor>Qué es un servidor</a></li><li><a href=#un-servidor-muchos-servicios>Un servidor, muchos servicios</a></li><li><a href=#cómo-sé-a-qué-servidor-conectarme-o-qué-es-un-dns>Cómo sé a qué servidor conectarme (o Qué es un DNS)</a></li><li><a href=#proveedor-de-servicio-de-internet-isp>Proveedor de Servicio de Internet (ISP)</a></li></ul></li><li><a href=#armando-el-rompecabezas>Armando el rompecabezas</a></li></ul></nav><p><a href=http://services.exeter.ac.uk/cmit/modules/the_internet/slides/sec-what-is-internet.html target=_blank rel=noopener>Estrictamente hablando internet es un protocolo de
+comunicaciones</a>
+que las computadoras usan para intercambiar información, aunque el
+término también se utiliza como la red de computadoras que utilizan éste
+protocolo de comunicaciones y los enlaces entre ellos.</p><p>Este documento explica a grandes rasgos y de manera simplificada cómo
+funciona «internet», tanto el protocolo como la infraestructura. Se
+aprecian comentarios, correcciones, extensiones…</p><h2 id=las-reglas><a href=#las-reglas alt>Las reglas</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><strong>Las reglas para la comunicación entre computadoras se establecen en
+<a href=http://en.wikipedia.org/wiki/Internet_Protocol_Suite target=_blank rel=noopener>los protocolos de internet</a></strong>,
+que incluyen (entre otros):</p><ul><li>La conexión física.</li><li>La identificación de cada computadora.</li><li>La comunicación entre cada computadora.</li><li>La manera en que se envían los datos.</li><li>La seguridad de la conexión.</li></ul><p>Son de particular interés:</p><h3 id=a-dónde-se-manda-la-información-ip><a href=#a-d%c3%b3nde-se-manda-la-informaci%c3%b3n-ip alt>A dónde se manda la información (IP)</a> <a href=# alt="Regresar al inicio">↑</a></h3><p><strong><a href=../las-computadoras-que-no-lo-parecen/>Cada computadora</a></strong> conectada a internet
+<strong>tiene un número de idenfificación único dentro de la red (dirección IP)</strong>.
+En la versión 4 del protocolo (IPv4) las direcciones son de 32 bits
+y nosotros las escribimos como cuatro números del 0 al 255,
+<strong>por ejemplo «192.168.1.254»</strong>
+(la que generalmente es del router).</p><p>32 bits son 4294967296 números en total,
+sin embargo <strong>todos los números posibles de IPv4 están asignados
+o son de uso restringido</strong>,
+por eso se está implementando <strong>IPv6</strong>,
+que <strong>es lo mismo pero con una mayor cantidad de números</strong> (128 bits),
+como ésos números son enormes
+se utilizan números del 0 al 9 y letras de A a F para representarlos
+y se utiliza «::» para abreviar los ceros intermedios,
+<strong>por ejemplo «ab13f::1»</strong>.</p><h3 id=cómo-se-manda-la-información-tcp><a href=#c%c3%b3mo-se-manda-la-informaci%c3%b3n-tcp alt>Cómo se manda la información (TCP)</a> <a href=# alt="Regresar al inicio">↑</a></h3><p><strong>El protocolo TCP dice cómo enviar y recibir</strong> la información.
+Simplificando:</p><ol><li><strong>Se parte la información en cachitos.</strong></li><li>Se calcula una suma de comprobación para cada parte.</li><li><strong>Se envía cada parte junto con su suma de comprobación.</strong></li><li><strong>Se envía el orden de las partes.</strong></li></ol><p>Cuando se recibe la información,
+se comprueba que cada parte haya llegado bien
+calculando la suma de comprobación de cada parte
+y se ordenan.</p><p><a href=https://web.archive.org/web/20091227072531/http://www.areas.net/comofunciona/conexion/3.htm target=_blank rel=noopener>Aquí esta misma información con dibujitos</a>.</p><h2 id=internet-es-físico><a href=#internet-es-f%c3%adsico alt>Internet es físico</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><strong>Para el intercambio de información debe existir una conexión física</strong>
+que puede ser <strong>mediante cables o campos electromágnéticos</strong> (redes inalámbricas).
+<strong>El ancho de banda es la velocidad de transmisión de éstos enlaces</strong>,
+ya sea por sus características físicas
+o alguna limitación artificial.</p><p><strong>Existen enlaces de alta velocidad que permiten la comunicación instantanea</strong>.
+En ocasiones se les llama backbones,
+<a href=http://www.nthelp.com/images/uunet.pdf target=_blank rel=noopener>aquí un mapa de algunos</a>.</p><h3 id=una-red-pequeña><a href=#una-red-peque%c3%b1a alt>Una red pequeña</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>Una red pueden ser sólo dos computadoras conectadas entre sí,
+muchas compartiendo una impresora o todas las computadoras de un área de trabajo,
+<strong>si todos los nodos están en un mismo lugar la red que forman es una «red local»</strong>.</p><p>Dependiendo de
+las características de la máquinas que conforman la red
+y el software que utilizan
+<strong>las conexiones entre los nodos pueden realizarse por ellos mismos
+o a través de <a href=../las-computadoras-que-no-lo-parecen/>una computadora especializada</a>
+llamada «enrutador» (router)</strong>.
+<strong>Cada conexión que se establece se realiza de par a par</strong>,
+ya sea de una computadora a otra o del router a cada computadora.</p><p>Una red pude estar conectada a otra
+si existe al menos una conexión a uno de sus nodos.
+<strong>Las computadoras que dirigen la información hacia afuera de la red local
+se llaman puertas de enlace</strong>.
+En redes pequeñas el router conecta un nodo de «internet» con la red local.</p><h3 id=una-red-de-redes><a href=#una-red-de-redes alt>Una red de redes</a> <a href=# alt="Regresar al inicio">↑</a></h3><p><strong>La prioridad del protocolo al enviar paquetes es que lleguen a su destino,
+no importa qué tan rápido o qué ruta tomen</strong>.
+Los enrutadores se organizan para enviar la información
+de la manera que implique menos esfuerzo.
+El proceso simplificado:</p><ol><li>Se envía una solicitud de conexión a la IP.</li><li>La solicitud se reenvía
+hasta que se encuentra la computadora con la IP correspondiente.</li><li>Cuando se ha encontrado, se calcula la vía más rápida.</li></ol><p>La ruta puede variar dependiendo de qué tan ocupados estén los nodos.</p><h3 id=conexión-segura><a href=#conexi%c3%b3n-segura alt>Conexión segura</a> <a href=# alt="Regresar al inicio">↑</a></h3><p><strong>La información que se envía en internet
+pasa a través de varias computadoras
+que pueden leerla, registrarla o hacer alguna modificación</strong>.
+Para evitar ésto se utilizan técnicas de cifrado,
+por eso se utilizan «http<strong>s</strong>», «<strong>s</strong>ftp», etcétera.</p><h3 id=qué-es-un-servidor><a href=#qu%c3%a9-es-un-servidor alt>Qué es un servidor</a> <a href=# alt="Regresar al inicio">↑</a></h3><p><em>Un servidor no tiene nada especial</em>,
+<strong>es una computadora que está alerta para enviar alguna información cuando se le pide</strong>.
+<strong>Cualquier computadora puede actuar como servidor</strong> si tiene el software adecuado,
+por ejemplo para servicios web:</p><ul><li><a href=http://httpd.apache.org/ target=_blank rel=noopener>apache</a>,</li><li><a href=http://www.cherokee-project.com/ target=_blank rel=noopener>cherokee</a>,</li><li><a href=http://nginx.org/ target=_blank rel=noopener>nginx</a>,entre otros.</li></ul><p>Si servidor debe atender muchas peticiones
+necesita mucha capacidad de procesamiento y ancho de banda suficiente.
+Generalmente en éstos casos
+se distribuye la carga entre varios servidores en diferentes regiones.</p><h3 id=un-servidor-muchos-servicios><a href=#un-servidor-muchos-servicios alt>Un servidor, muchos servicios</a> <a href=# alt="Regresar al inicio">↑</a></h3><p><strong>Un mismo servidor puede ofrecer varios servicios</strong> a la vez,
+<strong>para identificar cada servicio se utiliza un número
+que se conoce como «puerto»</strong>.
+El puerto se indica al momento de establecer la conexión,
+después de la IP,
+separado por dos puntos,
+<strong>por ejemplo: «192.168.1.254</strong>:<strong>80»</strong>.</p><p>El puerto de un servicio puede ser cualquiera,
+sin embargo existe una convención para los servicios más comunes,
+por ejemplo una página web utiliza el puerto 80.</p><h3 id=cómo-sé-a-qué-servidor-conectarme-o-qué-es-un-dns><a href=#c%c3%b3mo-s%c3%a9-a-qu%c3%a9-servidor-conectarme-o-qu%c3%a9-es-un-dns alt>Cómo sé a qué servidor conectarme (o Qué es un DNS)</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>Es posible establecer una conexión a un servidor utilizando su IP,
+google por ejemplo puede ser <a href=http://173.194.64.99 target=_blank rel=noopener>173.194.64.99</a>,
+pero <strong>recordar la IP de cada servidor es impráctico,
+en vez de ésto se utilizan listas con el nombre del servicio
+que apuntan a la IP correspondiente</strong>.
+Éstas listas son enormes y se distribuyen entre varios servidores,
+algunos de éstos servidores tienen la autoridad para designar los dominios
+y otros sólo tienen una copia.</p><p><strong>Un servidor que posee una lista con los nombres de la página web
+(dominios) se conoce como «Domain Name Server» (DNS)</strong>.
+El DNS puede ser de la compañía que provee el internet,
+un organismo independiente con su propio DNS,
+una institución internacional encargada de registrar los dominios,
+o incluso de algún particular.</p><p>Una explicación simplificada del proceso es:</p><ol><li>El explorador pide la IP de la página web al DNS.</li><li>El DNS responde con la IP.</li><li>Se establece una conexión con el servidor «IP».</li><li>Se solicita al servidor «IP» la página web.</li></ol><p><strong>La IP del DNS debe conocerse de antemano
+o se solicita al</strong> momento de establecer conexión
+con el <strong>proveedor del servicio de internet</strong>.</p><h3 id=proveedor-de-servicio-de-internet-isp><a href=#proveedor-de-servicio-de-internet-isp alt>Proveedor de Servicio de Internet (ISP)</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>El proveedor del servicio de internet es una entidad que posee un enlace a internet
+y vende la capacidad de conectarse a través de él.</p><h2 id=armando-el-rompecabezas><a href=#armando-el-rompecabezas alt>Armando el rompecabezas</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Internet es un protocolo de comunicación
+que incluye TCP (cómo se envía la información)
+e IP (a dónde se envía la información).</p><p>Para usarlo, las computadoras están interconectadas por medio de enlaces físicos.
+Algunas de las computadoras están dedicadas exclusivamente a ayudar a las demás a comunicarse (enrutadores),
+otras a proveer servicios (como wikipedia)
+y otras sólo piden o comparten información
+(pero no porque no puedan hacer más).</p></article></main></body></html>

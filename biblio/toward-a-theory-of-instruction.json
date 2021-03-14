@@ -1,0 +1,43 @@
+[
+	{
+		"id": "sebeok-1969",
+		"type": "article-journal",
+		"note": "publisher: John Wiley",
+		"source": "Google Scholar",
+		"title": "Style in language.",
+		"author": [
+			{
+				"family": "Sebeok",
+				"given": "Thomas A."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1960"
+				]
+			]
+		}
+	},
+	{
+		"id": "barker-1963",
+		"type": "article-journal",
+		"container-title": "Journal of Social Issues",
+		"note": "publisher: Blackwell Publishing",
+		"source": "Google Scholar",
+		"title": "On the nature of the environment.",
+		"author": [
+			{
+				"family": "Barker",
+				"given": "Roger G."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1963"
+				]
+			]
+		}
+	}
+]

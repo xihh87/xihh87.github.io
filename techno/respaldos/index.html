@@ -1,0 +1,97 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Cómo hago funcionar mi computadora</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Cómo hago funcionar mi computadora</h1><nav id=TableOfContents><ul><li><a href=#respaldo-de-datos>Respaldo de datos</a></li><li><a href=#sistema-operativo>Sistema operativo</a></li><li><a href=#origen-del-respaldo>Origen del respaldo</a></li><li><a href=#recuperar-mi-ambiente-de-trabajo>Recuperar mi ambiente de trabajo</a></li><li><a href=#configurar-la-aplicación-de-docker-para-usar-pass>Configurar la aplicación de docker para usar pass</a></li><li><a href=#la-información-que-me-interesa>La información que me interesa</a></li><li><a href=#respaldar-configuración-de-aplicaciones-en-servidor>Respaldar configuración de aplicaciones en servidor</a></li><li><a href=#respaldar-aws-rds>Respaldar AWS RDS</a></li></ul></nav><h2 id=respaldo-de-datos><a href=#respaldo-de-datos alt>Respaldo de datos</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://ntietz.com/blog/automating-my-laptop-backups/ target=_blank rel=noopener>Configurar respaldos automáticos</a>.</p><h2 id=sistema-operativo><a href=#sistema-operativo alt>Sistema operativo</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Usar alpine en i386 como escritorio por defecto es inviable:</p><ul><li>Las páginas web no funcionan (por el problema de JavaScript).</li></ul><p>Por el momento para pq usaré Debian en netinst,
+usando expert graphical mode
+y cifrando el disco con LVM.</p><h2 id=origen-del-respaldo><a href=#origen-del-respaldo alt>Origen del respaldo</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Mi último respaldo es de mayo de este año
+en un disco duro externo con ZFS.</p><p>En Debian, para configurar ZFS</p><pre tabindex=0><code>apt update
+apt install linux-headers-amd64
+apt install -t buster-backports dkms spl-dkms
+apt install -t buster-backports zfs-dkms zfsutils-linux
+</code></pre><pre tabindex=0><code>cryptsetup open /dev/sdX backup
+zpool import -o readonly=on xd
+</code></pre><h2 id=recuperar-mi-ambiente-de-trabajo><a href=#recuperar-mi-ambiente-de-trabajo alt>Recuperar mi ambiente de trabajo</a> <a href=# alt="Regresar al inicio">↑</a></h2><ul><li><p><input checked disabled type=checkbox> Recuperar mis claves y configuración de ssh</p></li><li><p><input checked disabled type=checkbox> Recuperar mi clave GPG</p></li><li><p><input checked disabled type=checkbox> Recuperar mi configuración de git</p><pre tabindex=0><code>rsync -avr /xd/home/.gnupg/ $HOME/.gnupg/
+rsync -avr /xd/home/.ssh/ $HOME/.ssh/
+rsync -avr /xd/home/.gitconfig /xd/home/.gitattributes $HOME/
+</code></pre></li><li><p><input checked disabled type=checkbox> Recuperar mis contraseñas</p><pre tabindex=0><code>rsync -avr /xd/home/.password-store/ $HOME/.password-store/
+</code></pre></li><li><p><input checked disabled type=checkbox> Recuperar mi directorio de trabajo</p><pre tabindex=0><code>rsync -avr /xd/home/xihh/ $HOME/xihh/
+cd $HOME/xihh
+git config
+</code></pre></li><li><p><input checked disabled type=checkbox> Instalar aplicaciones que uso para editar gráficos:</p><pre tabindex=0><code>apt-get install -y
+    #pinta
+    gimp
+    gpaint
+    gnome-paint
+    inkscape
+</code></pre></li><li><p><input checked disabled type=checkbox> Instalar las dependencias de mis scripts</p><pre tabindex=0><code>apt-get install -y
+    9base
+    dwm
+    hunspell
+    hunspell-es
+    inotify-tools
+    s6
+    silversearcher-ag
+    taskwarrior
+    vim
+    youtube-dl
+gcl https://github.com/mikebobroski/tasknote
+gcl https://github.com/v4hn/snotes
+echo &#39;export EDITOR=vis
+export PATH=$HOME/xihh/cmd:/usr/lib/execline/bin:$HOME/cmd:$PATH:/usr/lib/plan9/bin
+
+[ `tty` == /dev/tty1 ] &amp;&amp; startx&#39; &gt;&gt; ~.bashrc
+</code></pre><pre tabindex=0><code>spellcheck
+</code></pre><pre tabindex=0><code>gcl https://github.com/resurrecting-open-source-projects/scrot
+sudo apt-get install -y
+    autoconf-archive
+    giblib-dev
+    libxfixes-dev
+    libxcursor-dev
+gcl https://github.com/xihh87/scrot --branch xihh
+cd $(repo scrot)
+./autogen.sh
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+./configure --prefix=/usr
+make
+</code></pre><pre tabindex=0><code># Translate using WordReference
+apt:
+  - python3-bs4
+</code></pre></li><li><p><input checked disabled type=checkbox> <a href=https://gitlab.com/xihh87/qmail-config/ target=_blank rel=noopener>Instalar las herramientas de s6</a>.</p><pre tabindex=0><code>gcl git@gitlab.com:xihh87/qmail-config
+cd $(repo qmail-config)
+mk skarnet s6-on-systemd
+</code></pre></li><li><p><input checked disabled type=checkbox> Configurar dwm</p><pre tabindex=0><code>sudo apt-get install libx11-dev libxft-dev libxinerama-dev libx11-xcb-dev libxcb-res0-dev
+gcl github.com/xihh/dwm-xihh
+cd $(repo dwm-xihh)
+make
+sudo mv /usr/bin/dwm{,debian}
+sudo mv dwm /usr/bin
+</code></pre><p>Configurar xsession para ejecutar mi versión de dwm.</p><pre tabindex=0><code>sudo vis /usr/share/xsessions/dwm.desktop
+[Desktop Entry]
+Encoding=UTF-8
+Name=Dwm
+Comment=Dynamic window manager
+Exec=/home/x/xihh/cmd/dwm
+Icon=dwm
+Type=XSession
+</code></pre></li><li><p><input checked disabled type=checkbox> Configurar <code>vis</code>:</p><pre tabindex=0><code>$ vcsh init vis
+$ vcsh enter vis
+$ git remote add origin https://github.com/xihh87/visconfig
+$ git pull origin master
+</code></pre></li><li><p><input disabled type=checkbox> Configurar ST (<code>task 999a81ec</code>)</p></li><li><p><input disabled type=checkbox> Agregar a ST el parche de retroceder página.</p></li><li><p><input checked disabled type=checkbox> <a href=https://github.com/LukeSmithxyz/st target=_blank rel=noopener><code>st</code> puede mostrar emojis si se instala libxft-bgra</a></p><pre tabindex=0><code>aur libxft-bgra
+cd  ~/src/aur.archlinux.org/libxft-bgra
+makechrootpkg -- -si
+pacman -U /home/packages/libxft-bgra-2.3.3.r7.7808631e-1-x86_64.pkg.tar.zst
+</code></pre></li><li><p><input disabled type=checkbox> Configurar bloqueo de hosts</p><pre tabindex=0><code></code></pre></li><li><p><input disabled type=checkbox> Aplicaciones para análisis de datos</p><pre tabindex=0><code>apt:
+visidata
+</code></pre><pre tabindex=0><code>https://github.com/BurntSushi/xsv
+</code></pre></li><li><p><input checked disabled type=checkbox> Aplicaciones para multimedia</p></li></ul><h2 id=configurar-la-aplicación-de-docker-para-usar-pass><a href=#configurar-la-aplicaci%c3%b3n-de-docker-para-usar-pass alt>Configurar la aplicación de docker para usar pass</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://docs.docker.com/engine/reference/commandline/login/#credentials-store target=_blank rel=noopener>La configuración se explica en la página oficial de docker</a>
+donde dicen cómo activar <a href=https://github.com/docker/docker-credential-helpers/ target=_blank rel=noopener>los gestores de contraseñas para docker</a>.</p><p>En Arch, se encuentra en AUR <code>paru -S docker-credential-pass</code>.</p><ul><li><input disabled type=checkbox> Configurar docker desde un repositorio público de configuración.</li></ul><h2 id=la-información-que-me-interesa><a href=#la-informaci%c3%b3n-que-me-interesa alt>La información que me interesa</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Lo principal que pasa entre las computadoras que utilizo son:</p><ul><li>Mi repositorio personal de reflexiones, procedimientos y código.</li><li>Mi entorno de programación.</li><li>Algunos repositorios de configuración:<ul><li>id</li></ul></li><li>Algunos libros.</li><li>En ocasiones, la bibliografía de mis proyectos.</li></ul><p>Hoy concluí que necesito un lugar para tener la versión canónica de mis repositorios
+para poder usarlos de forma efectiva en varias computadoras.</p><p>Todavía tengo que desarrollar <a href=../gestionar-secretos/>el modelo de seguridad</a>.</p><h2 id=respaldar-configuración-de-aplicaciones-en-servidor><a href=#respaldar-configuraci%c3%b3n-de-aplicaciones-en-servidor alt>Respaldar configuración de aplicaciones en servidor</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Algunas de las aplicaciones que uso
+tienen una base de datos que me gustaría respaldar.</p><p><a href=https://electrictoolbox.com/mysqldump-schema-only/ target=_blank rel=noopener>mysql</a>:</p><pre tabindex=0><code>mysqldump --no-data somedatabasename dump_schema_mysql.out
+mysqldump -d -u ${USER} -p ${DATABASE} ${TABLE1} … ${TABLE_N}
+</code></pre><p>También se puede usar <a href=https://linux.die.net/man/1/mysqlhotcopy target=_blank rel=noopener><code>mysqlhotcopy</code></a></p><p><a href=https://chrisnewland.com/postgres-dump-database-schema-with-or-without-data-61 target=_blank rel=noopener>postgresql</a>:</p><pre tabindex=0><code># se puede agregar `-s` para tomar únicamente el esquema:
+pg_dump -C DB_NAME &gt; /tmp/schema_dump
+</code></pre><h2 id=respaldar-aws-rds><a href=#respaldar-aws-rds alt>Respaldar AWS RDS</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Tengo la impresión de que el MySQL que usa RDS hace respaldos diferentes
+para dificultar la migración hacia otros sistemas.</p><p>La diferencia principal consiste en ordenar los campos alfabéticamente
+en vez de mantenerlos en el orden de la base de datos.</p><p>Para resolver ese problema,
+se puede generar un pequeño script que en cada
+<code>INSERT INTO `table` VALUES</code>
+agregue los campos de la table.</p></article></main></body></html>

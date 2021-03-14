@@ -1,0 +1,23 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Fotografías de archivos usando btrfs</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Fotografías de archivos usando <code>btrfs</code></h1><nav id=TableOfContents><ul><li><a href=#generar-el-sistema-de-archivos>Generar el sistema de archivos</a></li><li><a href=#generar-fotografías-de-proyectos>Generar fotografías de proyectos</a></li></ul></nav><p>Es bueno tener un historial del trabajo que hacemos y
+las múltiples etapas en que cambiamos cosas.
+Este control de versiones nos permite volver a cuando todo estaba bien,
+hacer experimentos, comparar lo que funciona y no, etcétera.</p><p>Para archivos de texto
+<a href=http://www.git-scm.com/ title="Un sistema de control de versiones distribuido y eficiente." target=_blank rel=noopener><code>git</code></a>
+es fantástico.
+Sin embargo git no funciona bien para archivos binarios,
+que es donde entra <a href=https://btrfs.wiki.kernel.org/index.php/Main_Page title="El sistema de archivos de mantequilla «butter file system»." target=_blank rel=noopener>btrfs</a>
+que puede guardar &ldquo;fotografías&rdquo; de los archivos
+utilizando sólo el espacio necesario para la información original y los cambios entre ellos.</p><h1 id=btrfs><a href=#btrfs alt>Btrfs</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Este sistema de archivos tiene una clase de &ldquo;directorios&rdquo; especiales llamados subvolúmenes
+que apuntan al contenido en disco (dividido en pedacitos) para cada archivo.</p><p>Se pueden generar varios subvolúmenes apuntando a la misma información,
+pero configurados para que al modificar algo en los archivos sólo se escriban los pedazos modificados.</p><p>Así se implementan las fotografías, utilizando subvolúmenes que apuntan a casi la misma información.</p><h2 id=generar-el-sistema-de-archivos><a href=#generar-el-sistema-de-archivos alt>Generar el sistema de archivos</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Si tenemos algún disco o partición vacíos, podemos generar el sistema de archivos sobre uno de ellos o sobre todos:</p><pre><code> mkfs.btrfs [ -L &lt;nombre-sistema-de-archivos&gt; ]  /dev/&lt;disco-o-partición-1&gt; [ ... /dev/&lt;disco_n&gt;]
+</code></pre><p><strong>NOTAS</strong>:</p><ul><li>Lo que está entre <code>[]</code> es opcional.</li><li>Lo que está entre <code>&lt;></code> debe cambiarse.</li></ul><p>Tener varios discos es conveniente para usar balanceo de carga y respaldo de información.
+Para una computadora personal generalmente no es una opción.</p><h2 id=generar-fotografías-de-proyectos><a href=#generar-fotograf%c3%adas-de-proyectos alt>Generar fotografías de proyectos</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Lo primero que hay que hacer es generar un subvolumen para el proyecto
+que para nuestros fines puede entenderse como un directorio especial
+que está aislado de los otros subvolúmenes:</p><pre><code>btrfs subvolume create &lt;proyecto&gt;
+</code></pre><p>Podemos hacer un archivo donde poner las fotos:</p><pre><code>mkdir &lt;archivado&gt; # Así o con tu administrador de archivos
+</code></pre><p>Para sacar una fotografía:</p><pre><code>btrfs subvolume snapshot -r &lt;proyecto&gt; &lt;archivado&gt;/&lt;nombre-de-la-foto-(versión)&gt;
+</code></pre><p><strong>NOTAS</strong>:</p><ul><li><p>En realidad podrían generarse dentro del mismo subvolumen,
+pero prefiero generar el archivado para mantener el orden.</p></li><li><p>La opción <code>-r</code> es opcional y para hacer las versiones de sólo lectura.
+Si el objetivo es guardar una version que funciona yo activaría esta opción,
+si el objetivo es un experimento, la dejaría desactivada.</p></li></ul></article></main></body></html>

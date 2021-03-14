@@ -1,0 +1,12 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Registro de una sesión de terminal</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Registro de una sesión de terminal</h1><nav id=TableOfContents></nav><p><a href=http://www.brain-dump.org/projects/abduco/ title="Un programa para gestión de sesiones en la terminal." target=_blank rel=noopener>abduco</a>
+es un programa simple que permite mantener programas corriendo aunque no tengamos la terminal abierta.</p><p>Es un poco como tmux o screen pero sólo tiene la funcionalidad de mantener la sesión
+y usa <a href=http://www.brain-dump.org/projects/dvtm/ title="Un gestor de ventanas para la terminal, al estilo de dwm." target=_blank rel=noopener>dvtm</a>
+para mostrar muchos programas a la vez y las demás monadas de screen.</p><p>Y el programa puede usarse para conectarse al output de la sesión,
+que puede guardarse utilizando una redirección simple:</p><pre><code>SESION=nombre-sesion
+abduco -n $SESION; abduco -r $SESION &gt; $SESION.log &amp;
+</code></pre><p>Luego, una sesión puede usarse y será registrada automáticamente:</p><pre><code>abduco -a $SESION
+</code></pre><p>El log es un archivo binario que muestra la salida de la terminal.
+Todavía no resuelvo cómo leerlo si se hace limpieza de pantalla y etc,
+pero si no hay salidas especiales se puede ver el log usando:</p><pre><code>cat $SESION.log
+</code></pre><p><strong>PENDIENTE</strong>: Buscar cómo evaluar mostrar la historia como video.</p></article></main></body></html>

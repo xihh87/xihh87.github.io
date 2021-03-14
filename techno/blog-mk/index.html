@@ -1,0 +1,130 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Generar un sitio web con MK y pandoc</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Generar un sitio web con MK y pandoc</h1><nav id=TableOfContents><ul><li><a href=#generar-índices>Generar índices</a></li><li><a href=#copiar-el-contenido-estático>Copiar el contenido estático</a></li><li><a href=#lo-que-sigue>Lo que sigue</a></li></ul></nav><p><a href=http://doc.cat-v.org/bell_labs/mk/mk.pdf title="Un sucesor para `make`." target=_blank rel=noopener><code>mk</code></a>
+es un programa para automatizar tareas
+y <a href=http://pandoc.org/ title="Conversor universal de documentos." target=_blank rel=noopener><code>pandoc</code></a>
+permite transformar a muchos formatos documentos escritos en
+un formato sencillo llamado <a href=http://commonmark.org/help/ title="Un intento de estandarizar MarkDown llamado CommonMark." target=_blank rel=noopener>markdown</a>.</p><p>Pandoc permite generar pdf, epub y una página web a partir del mismo documento.</p><h1 id=agregar-partes-a-pandoc><a href=#agregar-partes-a-pandoc alt>Agregar partes a Pandoc</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>En el <a href=https://github.com/jgm/pandoc-templates title="Plantillas de pandoc para personalizar." target=_blank rel=noopener>repositorio de plantillas de pandoc</a>
+se indican los lugares donde se agregará a cada uno de los formatos
+los archivos que se indican en las variables «include»:</p><pre tabindex=0><code>---
+title: &#34;&#34;
+author: &#34;&#34;
+date: &#34;&#34;
+header-includes:
+	- &#34;partes/campechana.nomia.mx/semantic&#34;
+include-before:
+	- &#34;partes/campechana.nomia.mx/iniciar&#34;
+include-after:
+	- &#34;partes/campechana.nomia.mx/terminar&#34;
+---
+</code></pre><p>Esto agregará el contenido de los archivos,
+cuyo contenido debería variar en función del formato de destino,
+es más práctico agregarlo en la línea de comandos como sigue:</p><pre tabindex=0><code>pandoc \
+	--from markdown \
+	--to html \
+	--include-before partes/campechana.nomia.mx/iniciar \
+	--inlude-after partes/campechana.nomia.mx/terminar \
+	--header-includes partes/campechana.nomia.mx/semantic \
+	archivo.md
+</code></pre><p>Y se puede abreviar como:</p><pre tabindex=0><code>pandoc \
+	-f markdown \
+	-t html \
+	-B partes/campechana.nomia.mx/iniciar \
+	-A partes/campechana.nomia.mx/terminar \
+	-H partes/campechana.nomia.mx/semantic \
+	archivo.md
+</code></pre><h1 id=automatizar-la-tarea-con-mk><a href=#automatizar-la-tarea-con-mk alt>Automatizar la tarea con MK</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Para convertir un archivo de markdown dentro de la carpeta <code>sitios/</code>
+a página web dentro de la carpeta <code>web/</code>,
+dentro del <code>mkfile</code> se agregan las siguientes instrucciones:</p><pre tabindex=0><code>all:VEQ:	indexes	static
+	bin/targets | xargs mk
+
+clean:VEQ:
+	rm -r web
+
+static:VEQ:
+	bin/static | xargs mk
+	rsync -r static/ web/
+
+indexes:VEQ:
+	mk -f indexes.mk
+
+&#39;web/(.*)\.(png|jpe?g|pdf)&#39;:RQ:	&#39;sitios/\1\.\2&#39;
+	mkdir -p `dirname &#34;$target&#34;`
+	cp &#34;$prereq&#34; &#34;$target&#34;
+
+web/%/index.html:Q:	sitios/%.md
+	mkdir -p `dirname &#34;$target&#34;`
+	pandoc \
+		--smart \
+		-f markdown \
+		-t html \
+		--standalone \
+		-H partes/campechana.nomia.mx/semantic \
+		-B partes/campechana.nomia.mx/iniciar \
+		-A partes/campechana.nomia.mx/terminar \
+		--template &#34;tpl/semantic.html&#34; \
+		&#34;$prereq&#34; \
+		-o &#34;$target&#34;&#39;.build&#39; \
+	&amp;&amp; mv &#34;$target&#34;&#39;.build&#39; &#34;$target&#34;
+</code></pre><p>Para indicar qué se va a convertir de markdown a html,
+yo guardo el siguiente script como <code>bin/targets</code>:</p><pre tabindex=0><code>#!/bin/sh
+find -L sitios \
+	-type f \
+	-name &#39;*.md&#39; \
+| sed -r \
+	-e &#39;s#^sitios#web#g&#39; \
+	-e &#39;s#^(.*)\.md$#\1/index.html#g&#39;
+</code></pre><p>El script busca dentro de la carpeta <code>sitios</code> los archivos cuyo nombre termina en <code>.md</code>,
+cambia la carpeta y el nombre para indicar qué páginas web deben hacerse.</p><h2 id=generar-índices><a href=#generar-%c3%adndices alt>Generar índices</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Además agregué otro script que hace los índices en <code>bin/campechana-links</code> de las páginas
+y los guarda como <code>.md</code> para que se generen las secciones del sitio:</p><pre tabindex=0><code>#!/usr/bin/awk -f
+/\.md$/ {
+	CMD = &#34;bin/pandoc-get title &#34; $1
+	CMD | getline title
+	CMD = &#34;bin/pandoc-get author &#34; $1
+	CMD | getline author
+	sub(&#34;.md$&#34;, &#34;/&#34;, $1)
+	sub(&#34;^sitios/&#34;, &#34;https://&#34;, $1)
+	link = $1
+	printf(&#34;&lt;a class=\&#34;item\&#34; href=\&#34;&#34; link &#34;\&#34;&gt;&#34; \
+		&#34;&lt;h2 class=\&#34;ui header\&#34;&gt;&#34; \
+			&#34;&lt;div class=\&#34;content\&#34;&gt;&#34; \
+				title \
+				&#34;&lt;div class=\&#34;sub header\&#34;&gt;&#34; author &#34;&lt;/div&gt;&#34; \
+			&#34;&lt;/div&gt;&#34; \
+		&#34;&lt;/h2&gt;&#34; \
+	&#34;&lt;/a&gt;\n&#34;)
+}
+</code></pre><p>Ese script depende de que <code>bin/pandoc-get</code> sea un script con permiso de ejecución
+con el siguiente contenido:</p><pre tabindex=0><code>#!/bin/sh
+WORD=&#34;$1&#34;; shift
+grep -i &#34;$WORD&#34; &#34;$@&#34; \
+| sed -r \
+	-e &#39;s#^[ \t]*&#39;&#34;$WORD&#34;&#39;[ :=]+##g&#39; \
+	-e &#39;s#&#34;##g&#39;
+</code></pre><p>Y por último <code>indexes.mk</code> dice cómo generar los índices:</p><pre tabindex=0><code>indexes:VEQ:
+	bin/indexes \
+	| xargs mk -f indexes.mk
+
+sitios/%.md:Q:	sitios/%/
+	bin/sections \
+		&#34;$prereq&#34; \
+	&gt; &#34;$target&#34;
+</code></pre><p>Depende de <code>bin/sections</code>:</p><pre tabindex=0><code>#!/bin/sh
+find -L &#34;$@&#34; \
+	-type f \
+	-name &#39;*.md&#39; \
+| xargs mtime \
+| sort -nr \
+| awk &#39;{print $2}&#39; \
+| bin/campechana-links \
+| bin/relative-links
+</code></pre><h2 id=copiar-el-contenido-estático><a href=#copiar-el-contenido-est%c3%a1tico alt>Copiar el contenido estático</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><code>bin/static</code> indica qué debe copiarse tal cual desde <code>sitios/</code> hacia <code>web</code>,
+para manejar las imágenes necesarias como parte del contenido:</p><pre tabindex=0><code>#!/bin/sh
+find -L sitios \
+	-type f \
+| grep -E \
+	-e &#39;\.png$&#39; \
+	-e &#39;\.pdf$&#39; \
+	-e &#39;\.jpe?g$&#39; \
+| sed -r \
+	-e &#39;s#^sitios#web#g&#39;
+</code></pre><p>Sólo copia imágenes png, jpg y pdf.</p><h2 id=lo-que-sigue><a href=#lo-que-sigue alt>Lo que sigue</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>La última versión de estos scripts puede encontrarse en:</p><p>&lt;></p></article></main></body></html>

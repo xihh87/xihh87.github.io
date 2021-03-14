@@ -1,0 +1,32 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>USB para diagnóstico</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>USB para diagnóstico</h1><nav id=TableOfContents><ul><li><a href=#objetivos>Objetivos</a></li><li><a href=#ejecución>Ejecución</a></li><li><a href=#quickstarthttpsskarnetorgsoftwares6-linux-initquickstarthtml-quickstart-and-faq-for-s6-linux-init><a href=https://skarnet.org/software/s6-linux-init/quickstart.html title="Quickstart and FAQ for s6-linux-init">Quickstart</a></a></li></ul></nav><h2 id=objetivos><a href=#objetivos alt>Objetivos</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Quiero una usb que:</p><ul><li><p>Inicie linux desde RAM (para hacer diagnósticos)
+para arquitecturas <code>x86</code> y <code>x86_64</code>.</p></li><li><p>Pueda iniciar desde EFI o bios.</p></li><li><p>Pueda instalar debian, ubuntu, arch, alpine.</p></li><li><p>El sistema operativo ocupe poco espacio.</p></li><li><p>Pueda guardar información cifrada.</p></li><li><p>Lleve git, mi editor de texto favorito y snotes.</p></li><li><p>Pueda abrir los sistemas de archivos: zfs, ntfs, vfat, ext4
+(mis discos de respaldo de información usan zfs).</p></li><li><p>Pueda conectarse a servidores remotos usando sshfs.</p></li><li><p>Tenga instalado nnn para explorar directorios.</p></li></ul><h2 id=ejecución><a href=#ejecuci%c3%b3n alt>Ejecución</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Elegí <a href=https://alpinelinux.org/ title="Una distribución linux ligera, simple, segura" target=_blank rel=noopener>Alpine Linux</a>
+porque inicia desde la RAM, parece sencilla de modificar y cumple con todos los requisitos.</p><p>Estoy usando la construcción de la USB
+para probar las capacidades del sistema <a href=https://skarnet.org/software/s6/ title="skarnet.org's small & secure supervision software suite." target=_blank rel=noopener>s6</a>,
+porque estoy enamorado de sus capacidades de supervisión.</p><h2 id=quickstarthttpsskarnetorgsoftwares6-linux-initquickstarthtml-quickstart-and-faq-for-s6-linux-init><a href=#quickstarthttpsskarnetorgsoftwares6-linux-initquickstarthtml-quickstart-and-faq-for-s6-linux-init alt><a href=https://skarnet.org/software/s6-linux-init/quickstart.html title="Quickstart and FAQ for s6-linux-init" target=_blank rel=noopener>Quickstart</a></a> <a href=# alt="Regresar al inicio">↑</a></h2><p>[x] Instalar las dependencias de s6-linux-init:
+- skalibs
+- execline
+- s6-portable-utils
+- s6-linux-utils
+- s6</p><pre><code>En el sistema base (`/`) ya está instalado
+¿Será necesario instalarlo en initramfs?
+
+```
+# https://unix.stackexchange.com/questions/338962/install-apk-tool-on-alpine-linux
+ag-usb:/dev/shm$ sudo apk add -vvv -p ./initramfs --initdb -U --allow-untrusted --initramfs-diskless-boot --repositories-file /etc/apk/repositories execline s6 s6-rc s6-portable-utils s6-linux-utils s6-linux-init
+```
+</code></pre><p>[x] Install s6-linux-init itself.</p><p>[x] Save your old /sbin/init binary.</p><p>[x] Save and remove your old /etc/s6-linux-init directory, if you have one.</p><p>[x] Make sure you have a /run directory.</p><p>[x] Write a machine initialization script in /etc/rc.init and a machine shutdown script in /etc/rc.shutdown. Make sure they are executable. See below for more information on how to write these scripts.</p><p>[x] Check that your devtmpfs is automounted by your kernel at boot time.
+If it is not, add the -d 1 option to the s6-linux-init-maker command line below.</p><pre><code>```
+# https://superuser.com/questions/287371/obtain-kernel-config-from-currently-running-linux-system
+modprobe configs
+zgrep DEVTMPFS /proc/config.gz
+gunzip -c /proc/config.gz | grep DEVTMPFS
+```
+</code></pre><p>[x] As root, run:</p><pre><code>```
+rm -rf /tmp/s6-linux-init /tmp/init
+s6-linux-init-maker /tmp/s6-linux-init
+mv /tmp/s6-linux-init /etc/
+ln -sf /etc/s6-linux-init/init /sbin/init
+```
+</code></pre></article></main></body></html>

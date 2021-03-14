@@ -1,0 +1,216 @@
+---
+title: Explorar la enseñanza de programación y ciberseguridad de acuerdo al paradigma constructivista usando actividades dirigidas e integración continua
+subtitle: "Seminario de Tesis I"
+biblio-style: apa
+biblio-title: Referencias
+bibliography:
+- 01-técnicas-pedagógicas/07.-examen-final.json
+- tesis/03.-justificación.json
+- 01-técnicas-pedagógicas/04.-aprendizaje.json
+author:
+- Joshua Ismael Haase Hernández $\\$
+- "Facilitadora: Miriam Trinidad Espejel"
+date: 2021-08-15 $\newline$ $\newline$ ![](uco.png){width=3cm}
+theme: metropolis
+slide-level: 2
+---
+
+Desde hace mucho tiempo soñamos ~~y tememos~~ que los robots van a hacer nuestro trabajo
+------------------------------------------------------------------------------------
+
+![](https://live.staticflickr.com/7101/13193883615_f80917b84b_b.jpg "https://www.flickr.com/photos/chryslergroup/13193883615/ CC-BY-NC-SA")
+
+Desde hace mucho tiempo ~~soñamos y~~ tememos que los robots van a hacer nuestro trabajo
+------------------------------------------------------------------------------------
+
+![La tecnología destruye trabajos, pero generalmente surgen nuevos trabajos para reemplazarlos, alguien tiene que mantener funcionando a los robots](https://res.cloudinary.com/people-matters/image/upload/w_624,h_351,c_scale,q_auto,f_auto/v1477030606/1477030605.jpg "https://www.peoplematters.in/article/hr-technology/how-to-buy-hr-tech-payroll-leave-attendance-system-part-1-14381 CC-NC-SA"){width=8cm}
+
+La demanda de posiciones de ciberseguridad crece cada año
+-------------------------------------------------------
+
+![](/home/x/web/www.austcyber.com/sites/default/files/inline-images/fig11.png )
+
+Hay más trabajos de desarrollo y ciberseguridad que personal capacitado
+-----------------------------------------------------------------------
+
+::: incremental
+::::: {.columns}
+:::: {.column width=50%}
+![Estimación del crecimiento de la oferta y demanda en ciberseguridad (Frost, 2017)](/home/x/web/blog.isc2.org/.a/6a00e54f109b67883401b8d2991216970c-600wi.jpg){width=1.2\paperwidth height=1.2\paperheight}
+::::
+:::: {.column width=50%}
+![Demanda de personal de ciberseguridad no cubierta por país países (Cibersecurity Workforce Study, 2020)](/home/x/shots/2021-08-15-09-37-08.png)
+::::
+:::::
+:::
+
+Los nuevos trabajos requieren mucha capacidad de abstracción que suele aterrorizar a los estudiantes
+------------------------------------------------------------
+
+::: incremental
+::::: {.columns}
+:::: {.column width=50%}
+-   Memorizar conceptos abstractos. $\newline$ $\newline$
+
+    [![](01-técnicas-pedagógicas/07.-examen-final/conceptos-abstractos.png)]()
+
+<!--
+Se les enseña un método y se les hace repetirlo muchas veces (p.e. Baldor)
+
+-   Muchas veces ni el profesor entiende:
+    -  por qué los métodos funcionan
+    -  cómo y cuándo aplicarlos
+-->
+::::
+:::: {.column width=50%}
+
+-   Repetir métodos que no entienden. $\newline$
+
+    [![](01-técnicas-pedagógicas/07.-examen-final/math-is-math.jpg)](https://www.youtube.com/watch?v=3M3UotI2Dpg "¿Por qué cambiaron las matemáticas?")
+::::
+:::::
+:::
+
+
+## Bien aplicado, el aprendizaje por descubrimiento es muy efectivo [@url:https://core.ac.uk/download/pdf/33680124.pdf]
+
+::: incremental
+::::: {.columns}
+:::: {.column width=50%}
+![](01-técnicas-pedagógicas/07.-examen-final/tesis-tenoch.pdf)
+::::
+:::: {.column width=50%}
+![](01-técnicas-pedagógicas/07.-examen-final/libro-tenoch.gif)
+::::
+:::::
+:::
+
+:::{notes}
+-   Actividades por descubrimiento $\newline$ $\newline$
+
+-   Progresa en función de las habilidades
+:::
+
+:::{notes}
+Las técnicas de ludificación permiten integrar la tecnología en el trabajo cotidiano [@isbn:978-1449397678]
+:::
+
+## La ciberseguridad también requiere este tipo de abstracción
+
+::: incremental
+::::: {.columns}
+:::: {.column width=50%}
+![Proceso usado en desarrollo [@url:http://www.atuservicio.net/wp-content/uploads/beneficios-integracion-continua-768x768.png]](01-técnicas-pedagógicas/07.-examen-final/integración.png)
+::::
+:::: {.column width=50%}
+-   Usar procesos comunes en industria $\newline$
+-   Retroalimentación automática como la calculadora $\newline$
+-   Ejercicios para desarrollar habilidades $\newline$
+::::
+:::::
+:::
+
+Proyecto
+========
+
+## Objetivo General: Proponer un sistema automatizado para la enseñanza de ciberseguridad fundamentado en el paradigma constructivista.
+
+::: incremental
+Objetivos específicos
+
+1.  Definir criterios para evaluar avance en ciberseguridad.
+
+2.  Diseñar evaluación de acuerdo a los criterios definidos.
+
+3.  Implementar sistema automatizado de evaluación.
+:::
+
+Alcance
+-------
+
+-   Por cuestiones de tiempo este proyecto se concentrará en el rol de la evaluación
+
+## Hipótesis
+
+:::incremental
+1.  Para desarrollar buenos hábitos de
+    es mejor la retroalimentación inmediata y continua
+    es mejor que la retroalimentación únicamente al tiempo de evaluación.
+
+    **Hipótesis Nula**: No hay diferencia en el desarrollo de buenos hábitos de
+    entre usar retroalimentación inmediata automatizada
+    y la retroalimentación usada por el profesor.
+
+2.  Los estudiantes que usan la revisión automatizada
+    preferirían seguir utilizando revisión automatizada de su código.
+
+    **Hipótesis Nula**: Los estudiantes serían indiferentes al uso de la revisión automatizada.
+:::
+
+
+Metodología
+===========
+
+Ciberseguridad
+------------
+
+:::incremental
+-   Generar infraestructuras personalizadas para trabajo.
+
+-   Generar códigos de respuesta diferentes para cada estudiante.
+
+-   Esconder los códigos detrás de una vulnerabilidad conocida.
+
+-   Proveer una solución de referencia para verificar que es posible resolverlos.
+:::
+
+Programación
+------------
+
+:::incremental
+-   Desarrollar ejercicios basados en pruebas.
+
+-   Desarrollar proyectos progresivos en equipos.
+
+-   Proveer una solución de referencia para verificar que es posible resolver.
+:::
+
+
+Marco legal
+===========
+
+El acceso a la educación es parte de los derechos humanos y forma parte de los objetivos de desarrollo sostenible
+------------------------------------------------------------------------------------------------------------
+
+::: incremental
+::::: {.columns}
+:::: {.column width=50%}
+![](https://ia800405.us.archive.org/24/items/DeclaracionUniversalDerechosHumanosEdIntBookcover/DeclaracionUniversalDerechosHumanosEdIntCoverbook.jpg)
+::::
+:::: {.column width=50%}
+![](/home/x/web/www.gob.mx/cms/uploads/article/main_image/42349/4.jpg)
+::::
+:::::
+:::
+
+El derecho a la educación está considerado en el Art. 3 de la Carta Magna
+--------------------------------------------------------------------------
+
+![](https://i.pinimg.com/originals/bd/43/a6/bd43a600b1a033cd11b3a1251c5a65d2.jpg){height=100%}
+
+En particular el tema de la evaluación se desarrolla en la Ley General de Educación
+-----------------------------------------------------------
+
+:::incremental
+-   El artículo 22 de la *Ley General de Educación* establece la necesidad de la evaluación.
+
+-   El Art. 29, establece que debe hacerse de acuerdo al programa educativo.
+
+-   El Art. 67, establece como objetivos de la evaluación:
+
+    -   el diagnóstico para identificar estudiantes sobresalientes y
+
+    -   dar atención a quiénes la necesitan
+:::
+
+## Referencias {.allowframebreaks}

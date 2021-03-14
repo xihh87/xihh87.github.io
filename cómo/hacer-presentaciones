@@ -1,0 +1,20 @@
+---
+title: Cómo hacer presentaciones de markdown
+author: Joshua Haase
+date: 2021-02-27
+---
+
+1.  Usar la plantilla de Bioinformática Aplicada a tu proyecto:
+
+```
+new batpi
+```
+
+2.  Compilar con el mkfile de `~/src/gitlab.com/da-vis/datonomia`
+
+```
+find -name '*.md' \
+| sed -e 's#\.md$#.pdf' \
+| xargs \
+   mk -f ~/src/gitlab.com/da-vis/datonomia/material/mkfile
+```

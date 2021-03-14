@@ -1,0 +1,63 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Secretos en docker</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Secretos en <code>docker</code></h1><nav id=TableOfContents></nav><p>Me gusta que se puede gestionar la infraestructura de desarrollo para cualquier proyecto
+y que con ese mismo archivo se puede desplegar infraestructura productiva.</p><p>Sin embargo,
+la manera tradicional de usar
+usar variables para entregar secretos es inseguro,
+porque cualquiera con acceso al sistema puede leerlas.
+Por eso <a href=https://blog.gitguardian.com/hunting-for-secrets-in-docker-hub/ target=_blank rel=noopener>hay investigadores de seguridad buscando secretos en docker</a></p><p><a href=https://pythonspeed.com/articles/build-secrets-docker-compose/ target=_blank rel=noopener>Para agregar secretos durante la construcción de las imágenes se puede usar <code>BuildKit</code></a>.</p><p><a href=https://stackoverflow.com/questions/22651647/docker-and-securing-passwords#22652670 target=_blank rel=noopener>Parece que no había una buena manera para guardar contraseñas en docker</a>
+hasta que <a href=https://www.docker.com/blog/docker-secrets-management/ target=_blank rel=noopener>agregaron los secretos como objetos a <code>docker swarm</code></a>.
+<a href=https://docs.docker.com/engine/swarm/secrets/ title="Documentación oficial para gestionar secretos de Docker." target=_blank rel=noopener>Aquí un instructivo de cómo usarlos</a>.</p><p><a href=https://www.rockyourcode.com/using-docker-secrets-with-docker-compose/ target=_blank rel=noopener>En <code>docker-compose</code> se pueden declarar una sección de secretos</a>
+que tomaría los secretos desde <code>docker swarm</code>.</p><p><a href=https://docs.docker.com/engine/swarm/secrets/ target=_blank rel=noopener>La sintaxis para agregar secretos en docker-compose</a>:</p><pre tabindex=0><code>services:
+  image_with_secret_file_support:
+    environment:
+      VARIABLE_NAME_FILE=/run/secrets/secret_name
+    secrets:
+      - secret_name
+    […]
+secrets:
+  secret_name:
+    file: path/to/secret
+</code></pre><p>Si se usa swarm, a partir de la versión 3,
+<a href=https://www.rockyourcode.com/using-docker-secrets-with-docker-compose/ target=_blank rel=noopener>se pueden usar secretos creados desde la consola de docker</a>:</p><pre tabindex=0><code>services:
+  name
+    image: image_with secret support
+    secrets:
+    - secret_name
+
+secrets:
+  secret_name:
+    external: true
+</code></pre><p>En versiones anteriores, <a href=https://pythonspeed.com/articles/build-secrets-docker-compose/ target=_blank rel=noopener>se tenía que gestionar el secreto como un montaje secreto</a></p><pre tabindex=0><code>docker build --no-cache -t image \
+  --secret id=thepassword,src=/tmp/password \
+  --progress=plain. 2&gt;&amp;1 | grep secret
+</code></pre><p>Los secretos en docker son archivos ¿de lectura única?
+que evitan que los secretos se encuentren públicos en los metadatos de los contenedores.</p><p>Surgieron porque <a href=https://github.com/moby/moby/issues/13490 target=_blank rel=noopener>son una necesidad importante y no había una buena implementación</a></p><p>Generalmente, se pueden usar con este código en el entrypoint:</p><pre tabindex=0><code>if [ -f ${VARIABLE_NAME_FILE} ]; then
+    export VARIABLE_NAME=$(cat ${VARIABLE_NAME_FILE})
+fi
+</code></pre><p><a href=https://medium.com/@adrian.gheorghe.dev/using-docker-secrets-in-your-environment-variables-7a0609659aab target=_blank rel=noopener>Adrian Gheorghe recomienda hacer una función con este fin</a>:</p><pre tabindex=0><code>#!/usr/bin/env bash
+
+set -e
+
+file_env() {
+   local var=&#34;$1&#34;
+   local fileVar=&#34;${var}_FILE&#34;
+   local def=&#34;${2:-}&#34;
+
+   if [ &#34;${!var:-}&#34; ] &amp;&amp; [ &#34;${!fileVar:-}&#34; ]; then
+      echo &gt;&amp;2 &#34;error: both $var and $fileVar are set (but are exclusive)&#34;
+      exit 1
+   fi
+   local val=&#34;$def&#34;
+   if [ &#34;${!var:-}&#34; ]; then
+      val=&#34;${!var}&#34;
+   elif [ &#34;${!fileVar:-}&#34; ]; then
+      val=&#34;$(&lt; &#34;${!fileVar}&#34;)&#34;
+   fi
+   export &#34;$var&#34;=&#34;$val&#34;
+   unset &#34;$fileVar&#34;
+}
+
+file_env &#34;MYSQL_PASSWORD&#34;
+</code></pre><p>Además de estas opciones,
+<a href=https://www.rockyourcode.com/using-docker-secrets-with-docker-compose/ target=_blank rel=noopener>se pueden usar gestores externos para compartir secretos</a>,
+por ejemplo <a href=https://www.vaultproject.io/ target=_blank rel=noopener>vault</a>.</p></article></main></body></html>

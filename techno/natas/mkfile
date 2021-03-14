@@ -1,0 +1,18 @@
+help:VQ:	## show this help
+
+
+decode-key:V: ## show decoded key from natas11
+	docker run -t \
+		--rm --name natas11 \
+		-v "$PWD":/usr/src/myapp \
+		-w /usr/src/myapp \
+		php:7.4-cli \
+		php decode_key.php
+
+cookie:V: ## cookie from natas11
+	docker run -t \
+		--rm --name natas11 \
+		-v "$PWD":/usr/src/myapp \
+		-w /usr/src/myapp \
+		php:7.4-cli \
+		php natas11_create_cookie.php

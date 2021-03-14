@@ -1,0 +1,64 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Explorando ensamblador</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Explorando ensamblador</h1><nav id=TableOfContents><ul><li><a href=#qué-herramientas-necesitamos>¿Qué herramientas necesitamos?</a></li><li><a href=#cómo-podemos-programar-en-ensamblador>Cómo podemos programar en ensamblador</a></li><li><a href=#depurar-código-de-ensamblador>Depurar código de ensamblador</a></li><li><a href=#formatos-de-objeto>Formatos de objeto</a></li><li><a href=#algunas-fuentes-para-inspiración>Algunas fuentes para inspiración</a></li></ul></nav><p><a href=https://www.thoughtco.com/first-computer-charles-babbages-1221836 target=_blank rel=noopener>Las primeras computadoras</a>
+se programaban moviendo los interruptores del mecanismo.</p><p>Era tan difícil, que Alan Turing declaró que:</p><blockquote><p>&ldquo;Se necesitará una gran cantidad de matemáticos hábiles&rdquo;</p></blockquote><p>Actualmente tenemos muchas comodidades para usar las computadoras:</p><ul><li>Interfaz gráfica</li><li>Lenguajes de programación de alto nivel</li></ul><p>Pero al final, para que funcione todo se tiene que traducir al lenguaje máquina.</p><p>Si te quieres dar una idea de cómo funciona el &ldquo;cerebro&rdquo; de una computadora
+<a href=https://tools.withcode.uk/cpu/ target=_blank rel=noopener>puedes jugar con esta micro computadora</a>
+y programar un juego de adivinar un número.</p><hr><p>Nuestras computadoras
+tienen <a href=https://www.amd.com/system/files/TechDocs/40332.pdf title="Referencia de architectura" target=_blank rel=noopener>muchas más instucciones</a>
+(este es <a href=http://cons.mit.edu/sp17/x86-64-architecture-guide.html target=_blank rel=noopener>un resumen simplificado</a>).</p><p>El código que se ejecuta depende de</p><ul><li>la arquitectura del procesador,</li><li>el sistema operativo,</li><li>el código definido en las bibliotecas del sistema</li></ul><p>El ensamblador traducirá
+palabras fáciles de asociar con su significado (mnemónicos)
+a instrucciones binarias.</p><p>La sintaxis es diferente para cada ensamblador, arquitectura, etc.</p><p>Las funciones en programas normales
+<a href=https://hackeradam.com/x86-64-calling-conventions/ target=_blank rel=noopener>usan una cierta convención</a>
+para guardar la información de los registros que se sobreescriben
+cuando se llama la función.</p><h2 id=qué-herramientas-necesitamos><a href=#qu%c3%a9-herramientas-necesitamos alt>¿Qué herramientas necesitamos?</a> <a href=# alt="Regresar al inicio">↑</a></h2><ul><li><a href=https://www.nasm.us/ target=_blank rel=noopener>NASM</a></li><li><a href=https://gcc.gnu.org/ target=_blank rel=noopener>GCC</a></li><li><a href=https://www.gnu.org/software/binutils/ target=_blank rel=noopener>binutils</a></li></ul><h2 id=cómo-podemos-programar-en-ensamblador><a href=#c%c3%b3mo-podemos-programar-en-ensamblador alt>Cómo podemos programar en ensamblador</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Una vez que entendemos <a href=https://tools.withcode.uk/cpu/ target=_blank rel=noopener>cómo funciona el procesador</a>
+y tenemos a la mano las listas de funciones que podemos usar:</p><ul><li><p><a href=https://web.archive.org/web/20080901233236/docs.cs.up.ac.za/programming/asm/derick_tut/syscalls.html target=_blank rel=noopener>sistema operativo</a>:</p><pre tabindex=0><code>; 32 bit interrupt.
+; this may be slow: https://lkml.org/lkml/2002/12/9/13
+;
+mov eax ; syscall
+mov ebx ; arg1
+mov ecx ; arg2
+mov edx ; arg3
+mov esi ; arg4
+mov edi ; arg5
+; mov edp ; arg6: no se guarda, no lo uses si no sabes lo que haces
+int 0x80 ;
+</code></pre><pre tabindex=0><code>; 32 bit sysenter
+;
+mov eax ; syscall
+mov ebx ; arg1
+mov ecx ; arg2
+mov edx ; arg3
+mov esi ; arg4
+mov edi ; arg5
+; mov edp ; no se guarda, no lo uses si no sabes lo que haces
+sysenter ;
+</code></pre></li><li><p><a href=https://filippo.io/linux-syscall-table/ title="Una lista buscable de llamadas para x86 (en el futuro) y x64." target=_blank rel=noopener>funciones en c</a></p><pre tabindex=0><code>; x64 glibc syscall
+; https://github.com/torvalds/linux/blob/v3.13/arch/x86/kernel/entry_64.S#L569-L591
+; https://github.molgen.mpg.de/git-mirror/glibc/blob/glibc-2.15/sysdeps/unix/sysv/linux/x86_64/syscall.S#L24-L42
+mov rax, SYSCALL_NUMBER
+mov rdi, ARGV1
+mov rsi, ARGV2
+mov rdx, ARGV3
+mov r10, ARGV4
+mov r8, ARGV5
+mov r9, ARGV6
+syscall
+</code></pre><pre tabindex=0><code>; x86
+mov r9, ARGV6
+mov r8, ARGV5
+mov rcx, ARGV4
+mov rdx, ARGV3
+mov rsi, ARGV2
+mov rdi, ARGV1
+xor eax, eax
+call funcion
+</code></pre></li></ul><p>Podemos programar en ensamblador directamente usando los registros de la computadora.
+También podemos acceder a las llamadas del sistema operativo
+y las llamadas a funciones compiladas.</p><p>Al parecer en Linux <a href=https://man7.org/linux/man-pages/man7/vdso.7.html target=_blank rel=noopener>este es el elemento que se encarga de llamar las funciones normalmente</a>
+y se recomienda usar <a href=# title="Estas arrobas significan que no he investigado esto"><code>☐</code></a> para llamar las funciones.</p><p>Al acoplarlo con la llamada estándar a sistema:</p><pre tabindex=0><code></code></pre><p>Y compilar el programa con:</p><pre tabindex=0><code>$ nasm -f ${FORMAT:-elf64} -o ${EJECUTABLE} ${CÓDIGO}
+</code></pre><h2 id=depurar-código-de-ensamblador><a href=#depurar-c%c3%b3digo-de-ensamblador alt>Depurar código de ensamblador</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://stackoverflow.com/a/47383466/10467443 target=_blank rel=noopener>Para depurar código en ensamblador, es necesario activar la bandera STABS</a>:</p><pre tabindex=0><code>$ nasm -F stabs -o ${EJECUTABLE} ${CÓDIGO}
+</code></pre><h2 id=formatos-de-objeto><a href=#formatos-de-objeto alt>Formatos de objeto</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Un <code>bin</code> contiene únicamente el código generado.
+No es posible ejecutarlo directamente
+a menos que se cargue en el lugar de la memoria apropiado.</p><p><a href=https://stackoverflow.com/questions/6828631/how-to-generate-plain-binaries-like-nasm-f-bin-with-the-gnu-gas-assembler target=_blank rel=noopener>Se puede generar un <code>bin</code> con el siguiente comando</a>:</p><pre tabindex=0><code>nasm -f bin -o ${COMPILADO} ${CÓDIGO}
+</code></pre><p><a href=https://stackoverflow.com/questions/12138433/object-file-to-binary-code target=_blank rel=noopener>También se puede extraer uno o varios segmentos binarios a partir del <code>ELF</code></a>:</p><pre tabindex=0><code>$ objcopy -j ${SECTION:-.all} -O binary ${PROGRAMA}.elf ${OBJETO}.bin
+</code></pre><h2 id=algunas-fuentes-para-inspiración><a href=#algunas-fuentes-para-inspiraci%c3%b3n alt>Algunas fuentes para inspiración</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Aquí hay <a href=https://github.com/cirosantilli/x86-assembly-cheat title="supuestamente una nueva versión en: https://github.com/cirosantilli/linux-kernel-module-cheat#userland-assembly " target=_blank rel=noopener>muchos ejemplos de ensamblador</a>
+para varias combinaciones de arquitecuta y ensamblador.</p><p><a href=https://www.cs.virginia.edu/~evans/cs216/guides/x86.html target=_blank rel=noopener>Un buen primer de ensamblador con <code>nasm</code> en x86</a>.</p><p><a href='https://docs.microsoft.com/en-us/cpp/build/x64-calling-convention?view=msvc-170' target=_blank rel=noopener>Convención de llamada a funciones en Windows para <code>x64</code></a></p><p><a href='https://docs.microsoft.com/en-us/cpp/build/stack-usage?view=msvc-170' target=_blank rel=noopener>Explicación de la pila por parte de Microsoft</a></p><p><a href='https://docs.microsoft.com/en-us/cpp/build/x64-software-conventions?redirectedfrom=MSDN&amp;view=msvc-170' title="No tengo idea de si estas difieren o no de otros sistemas operativos." target=_blank rel=noopener>Otras convenciones para <code>x64</code> por parte de Microsoft</a></p></article></main></body></html>

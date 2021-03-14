@@ -1,0 +1,7 @@
+Herramienta	URL	Descripción
+hugo	https://gohugo.io	Un sistema para generar contenido web estático.
+stackbit	https://www.stackbit.com/	Integra una variedad de CMS, generador de contenido estático, plantillas y git.
+lista-cdn	https://flaviocopes.com/cdn/	Una lista de CDN que se pueden utilizar.
+jamstack	https://jamstack.org/resources/	Un listado de herramientas que se pueden usar para generar contenido estático.
+CloudFlare	https://www.cloudflare.com/plans/	CDN con plan gratuito para sitios pequeños.
+Netlify	https://www.netlify.com/	Servicio Web para tener un sitio web asociado con git, tienen un CMS hecho con ReactJS.

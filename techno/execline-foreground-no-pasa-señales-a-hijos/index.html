@@ -1,0 +1,34 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Foreground no pasa señales a sus hijos</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Foreground no pasa señales a sus hijos</h1><nav id=TableOfContents></nav><p>I have an editor wrapper script in bash like this:</p><pre tabindex=0><code>editor ${file}
+spell-check ${file}
+vcs-commit ${file}
+</code></pre><p>I translated it to execline (pseudocode):</p><pre tabindex=0><code>foreground {
+   editor ${file}
+}
+foreground {
+  spellcheck ${file}
+}
+vcs-commit ${file}
+</code></pre><p>On bash, the editor receives ^C and ignores the signal properly.</p><p>On execline, foreground receives ^C and closes the whole script,
+maybe causing me to lose the work done so far.</p><p>Two possible solutions would be:</p><ol><li><p>Add a <code>-s</code> option to foreground to allow children to handle it&rsquo;s signals.</p></li><li><p>Add a <code>-i</code> to specify which signals to ignore that can be used many times.</p></li></ol><p>Is the signal passing solution already implemented on skalibs/libstddjb?</p><p>If so, the change may be to add a branch on line 27 of <code>el_execsequence.c</code>
+to use the appropriate function instead of child_spawn0.</p><p>Or a branch on line 13 of <code>foreground.c</code> which uses an alternative <code>el_execsequence.c</code>
+which passes the signals it receives to its childs.</p><p>If there is no such function, I think this may be implemented as a self-pipe on <code>foreground.c</code>
+which either ignores some specified signal or sends the signal to its child.</p><p>If you find any of these solutions appropriate, I&rsquo;ll try to implement it.</p><p>Which solution appeals most to you?</p><hr><blockquote><p>On bash, the editor receives ^C and ignores the signal properly.</p><p>On execline, foreground receives ^C and closes the whole script,
+maybe causing me to lose the work done so far.</p></blockquote><p>execline was not designed to handle interactive scripts: you need
+some extra tooling in the presence of job control.</p><p>Your problem here is that you have an interactive program, editor,
+that can receive job control commands while running in the same
+process group as the whole script, so job control commands, which
+send signals to the process group, affect the whole script instead of
+just the editor process. You need to run editor in another process
+group (or another session).</p><p>To achieve that, replace &ldquo;foreground { editor ${file} }&rdquo; with
+&ldquo;foreground { setsid editor ${file} }&rdquo;.</p><p>That will create a new session for editor to run in. If you have
+s6 installed, you can also use s6-setsid -g instead - that will create
+a new process group without creating a new session.</p><p>Hope this helps,</p><p>&ndash;
+Laurent</p><hr><p>El dom, 27 jun 2021 a las 6:33, Laurent Bercot (<a href=mailto:ska-skaware@skarnet.org>ska-skaware@skarnet.org</a>) escribió:</p><blockquote><pre><code>execline was not designed to handle interactive scripts: you need
+some extra tooling in the presence of job control.
+</code></pre></blockquote><p>Isn&rsquo;t job control the task of commands such as <code>foreground</code> and <code>background</code>?</p><p>Is your opinion that this modified foreground is outside the scope of execline,
+ant thus there should it be a toolset for job control?</p><blockquote><pre><code>To achieve that, replace &quot;foreground { editor ${file} }&quot; with
+&quot;foreground { s6-setsid -g editor ${file} }&quot;.
+</code></pre></blockquote><p>Thanks, this is half the answer, now the editor receives the signals,
+the other half of the answer is spwaning the next process
+when the editor exits.</p><p>As of now, on the terminal one needs to use <code>fg</code> to continue the process.</p><hr><p><a href=http://cr.yp.to/docs/selfpipe.html target=_blank rel=noopener>http://cr.yp.to/docs/selfpipe.html</a></p><p><a href=https://www.sitepoint.com/the-self-pipe-trick-explained/ target=_blank rel=noopener>https://www.sitepoint.com/the-self-pipe-trick-explained/</a></p><p><a href=https://lwn.net/Articles/177897/ target=_blank rel=noopener>https://lwn.net/Articles/177897/</a></p><p><a href=https://www.man7.org/tlpi/code/online/diff/altio/self_pipe.c.html target=_blank rel=noopener>https://www.man7.org/tlpi/code/online/diff/altio/self_pipe.c.html</a></p><p><a href='https://news.ycombinator.com/item?id=27185522' target=_blank rel=noopener>https://news.ycombinator.com/item?id=27185522</a></p></article></main></body></html>

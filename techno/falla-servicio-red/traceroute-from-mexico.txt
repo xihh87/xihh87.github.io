@@ -1,0 +1,22 @@
+$ sudo traceroute -T -p 22 hurlab.med.und.edu
+traceroute to hurlab.med.und.edu (134.129.167.14), 30 hops max, 60 byte packets
+ 1  192.168.105.254 (192.168.105.254)  0.393 ms  0.361 ms  0.335 ms
+ 2  10.0.0.2 (10.0.0.2)  0.722 ms * *
+ 3  * * *
+ 4  * * *
+ 5  * * *
+ 6  * * *
+ 7  * hu0-0-0-1.rcr21.mex01.atlas.cogentco.com (38.104.248.153)  3.354 ms  3.323 ms
+ 8  be3004.rcr22.mfe02.atlas.cogentco.com (154.54.41.130)  16.304 ms be2692.rcr21.mfe02.atlas.cogentco.com (154.24.23.25)  16.190 ms  15.965 ms
+ 9  be2887.ccr21.iah01.atlas.cogentco.com (154.54.47.33)  25.386 ms  23.625 ms be2888.ccr22.iah01.atlas.cogentco.com (154.54.47.45)  23.652 ms
+10  be2441.ccr21.dfw01.atlas.cogentco.com (154.54.41.66)  30.110 ms * *
+11  * * *
+12  * * *
+13  * * *
+14  DCN-LLC-DBA.ear2.Denver1.Level3.net (4.34.47.14)  78.717 ms  76.503 ms  76.503 ms
+15  10ge1-8.core1.sea1.he.net (64.62.199.237)  99.881 ms  116.503 ms  116.458 ms
+16  100ge10-2.core1.msp1.he.net (184.105.223.194)  91.844 ms  91.844 ms  91.829 ms
+17  * * *
+18  i2-und-1.nodak.edu (165.234.20.1)  107.260 ms  107.985 ms  106.502 ms
+19  134.129.205.10 (134.129.205.10)  105.995 ms  106.423 ms  105.949 ms
+20  hurlab.med.und.edu (134.129.167.14)  106.225 ms  106.522 ms  106.529 ms

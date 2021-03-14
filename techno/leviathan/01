@@ -1,0 +1,44 @@
+No funcionó buscar las cadenas en el programa.
+
+```
+leviathan1@leviathan:/tmp/cm6xsZ$ strings ~/check | tail +14 | head
+PTRhp
+QVh;
+secrf
+love
+UWVS
+t$,U
+[^_]
+password:
+/bin/sh
+Wrong password, Good Bye ...
+```
+
+```
+leviathan1@leviathan:/tmp/cm6xsZ$ cat /etc/leviathan_pass/leviathan1
+rioGegei8m
+```
+
+```
+gdb check
+break main
+break strcmp
+command
+  info registers
+  bt full
+end
+run
+```
+
+```
+frame_dummy
+```
+
+```
+hexdump check | less
+sex.secret.god.love
+```
+
+La contraseña del programa es `sex`.
+
+ougahZi8Ta

@@ -1,0 +1,101 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Cómo enviar mensajes seguros</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Cómo enviar mensajes seguros</h1><nav id=TableOfContents><ul><li><a href=#cifrado-simétrico>Cifrado simétrico</a><ul><li><a href=#puntos-débiles>Puntos débiles</a></li></ul></li><li><a href=#cifrado-asimétrico>Cifrado asimétrico</a><ul><li><a href=#puntos-débiles-1>Puntos débiles</a></li></ul></li><li><a href=#cifrado-híbrido>Cifrado híbrido</a><ul><li><a href=#puntos-débiles-2>Puntos débiles</a></li></ul></li><li><a href=#funciones-resumen-o-cómo-saber-que-la-información-llegó-completa-y-correcta>Funciones resumen (o cómo saber que la información llegó completa y correcta)</a></li><li><a href=#firma-digital-o-cómo-saber-quién-envía-el-mensaje>Firma digital (o cómo saber quién envía el mensaje)</a></li><li><a href=#generar-contraseñas-seguras>Generar contraseñas seguras</a></li><li><a href=#generar-un-par-de-claves-pública-y-privada>Generar un par de claves (pública y privada)</a><ul><li><a href=#en-terminal>En terminal</a></li><li><a href=#interfaz-gráfica-gnulinux>Interfaz gráfica (GNU/Linux)</a></li></ul></li><li><a href=#intercambiar-claves-públicas>Intercambiar claves públicas</a><ul><li><a href=#publicar-la-clave>Publicar la clave</a><ul><li><a href=#en-terminal-1>En terminal</a></li><li><a href=#gráficamente>Gráficamente</a></li></ul></li></ul></li><li><a href=#descargar-una-clave>Descargar una clave</a><ul><li><a href=#en-terminal-2>En terminal</a></li><li><a href=#gráficamente-1>Gráficamente</a></li></ul></li><li><a href=#revisar-la-huella-de-una-clave>Revisar la huella de una clave</a><ul><li><a href=#en-terminal-3>En terminal</a></li><li><a href=#en-seahorse>En seahorse</a></li></ul></li><li><a href=#cifrar-información>Cifrar información</a><ul><li><a href=#al-consultar-páginas-de-internet>Al consultar páginas de internet</a></li></ul></li><li><a href=#para-enviar-correos-electrónicos>Para enviar correos electrónicos</a></li><li><a href=#retroshare>Retroshare</a><ul><li><a href=#intercambiar-clave-pública-en-retroshare>Intercambiar clave pública en RetroShare</a></li></ul></li></ul></nav><p>La criptografía <strong>desarrolla métodos para enviar mensajes que no puedan ser leídos sin autorización</strong>
+(algoritmos de cifrado).</p><p>Aquí explico cómo usar algunos métodos de criptografía
+para asegurar la confidencialidad e integridad información que guardamos y enviamos,
+primero explico a grandes rasgos cómo funcionan
+y después <a href=#c%C3%B3mo>cómo hacerlo</a>.</p><p>Éste manual está devuelto al dominio público.
+Puede copiarse o modificarse libremente
+siempre y cuando se reconozca su autoría.</p><h2 id=cifrado-simétrico><a href=#cifrado-sim%c3%a9trico alt>Cifrado simétrico</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Ésta forma de criptografía usa <strong>una operación con el mensaje y la clave que puede deshacerse sólo si se conoce la clave</strong>.
+La idea es que conocer el algoritmo de cifrado no debe ser útil si no se conoce la contraseña,
+por eso se dice que la fortaleza del cifrado está en la contraseña y no en el algoritmo.</p><h3 id=puntos-débiles><a href=#puntos-d%c3%a9biles alt>Puntos débiles</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>La seguridad del cifrado depende de las características de la contraseña.
+<strong>Para que el sistema sea seguro la contraseña debe ser aleatoria y suficientemente larga</strong>
+(128 bits suelen ser suficiente).</p><p>El principal problema de éstos métodos es que <strong>el intercambio de la contraseña debe ser seguro</strong>.
+Para solucionar el problema del intercambio seguro de contraseña se utiliza el cifrado asimétrico.</p><h2 id=cifrado-asimétrico><a href=#cifrado-asim%c3%a9trico alt>Cifrado asimétrico</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>La criptografía asimétrica <strong>utiliza operaciones matemáticas
+difíciles de calcular,
+difíciles de deshacer,
+pero donde se puede hacer trampa</strong>:
+con la información adecuada, es fácil calcular el inverso.</p><p>Acá un <a href=http://www.doc.ic.ac.uk/~rh/files/uni/teaching/adv_maths/09/lecture2.pdf title="Why, thanks to the beauty of prime numbers, RSA is secure - at least for the moment." target=_blank rel=noopener>ejemplo explicado matemáticamente: RSA</a>.</p><p>Utilizando ése principio se genera <strong>un par de claves</strong>:</p><ul><li><strong>Clave pública</strong> que se utiliza <strong>para realizar el cifrado</strong>.</li><li><strong>Clave privada</strong> que tiene la información necesaria <strong>para descifrar el mensaje</strong>.</li></ul><p>Las dos son números relacionados entre sí matemáticamente,
+pero <strong>no se puede encontrar la clave privada a partir de la clave pública</strong>.</p><p>En éste tipo de criptografía,
+<strong>los mensajes cifrados con la clave pública sólo los puede leer quien tenga la clave privada</strong>.</p><p>La ventaja de éste método es que no se necesita un canal seguro para enviar la clave
+y de hecho en ocasiones se utiliza para enviar una clave para después utilizar el cifrado simétrico
+porque <strong>el cifrado simétrico requiere menos recursos</strong>.</p><h3 id=puntos-débiles-1><a href=#puntos-d%c3%a9biles-1 alt>Puntos débiles</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>No se necesita envía la clave por un canal seguro,
+pero alguien podría aprovecharse de eso y cambiar la clave por una falsa.
+Entonces podría estar en medio de la comunicación,
+descifrando los mensajes y reenviándolos a quien corresponde.
+Este es el ataque del hombre en el medio (MITM).</p><p>Por eso, <strong>debe verificarse la clave pública que se está usando</strong>.</p><p>Al igual que con el cifrado simétrico el tamaño de la contraseña influye en la seguridad,
+<strong>el par de clave deben ser suficientemente grande</strong> (1024 bits o más).</p><p>Otro posible problema es que alguien capture la clave privada.
+Para hacer más difícil que puedan descifrarse los mensajes si esto pasa,
+se suele proteger la clave privada con una frase de paso (contraseña larga).</p><h2 id=cifrado-híbrido><a href=#cifrado-h%c3%adbrido alt>Cifrado híbrido</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><strong>Utiliza cifrado asimétrico para enviar la contraseña
+y entonces utilizar cifrado simétrico</strong>.
+Suele ser más seguro y utilizar menos recursos que el cifrado asimétrico únicamente,
+suele utilizar una contraseña simétrica diferente para cada sesión de comunicación.
+Así es cómo funciona el protocolo que se utiliza para enviar información segura
+en las páginas de internet (TLS),
+incluyendo los bancos.</p><h3 id=puntos-débiles-2><a href=#puntos-d%c3%a9biles-2 alt>Puntos débiles</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>Igual que cualquier otra forma de cifrado, puede ser susceptible a ataques.
+<strong>El usuario es el eslabón más débil de la cadena de seguridad,
+después el sistema que se utiliza</strong>
+(podría tener un programa que espíe lo que haces, incluyendo las contraseñas).</p><h2 id=funciones-resumen-o-cómo-saber-que-la-información-llegó-completa-y-correcta><a href=#funciones-resumen-o-c%c3%b3mo-saber-que-la-informaci%c3%b3n-lleg%c3%b3-completa-y-correcta alt>Funciones resumen (o cómo saber que la información llegó completa y correcta)</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Las funciones resumen (también conocidas como hash) devuelven un
+<strong>resultado de longitud fija</strong> y son tales que <strong>un pequeño cambio en el
+archivo que se resume devuelve</strong> como resultado <strong>un resumen distinto</strong>.</p><p>Archivos diferentes pueden tener el mismo resumen y por eso <strong>debe ser
+difícil fabricar un archivo que intencionalmente tenga el mismo resumen
+que otro</strong>. Es improbable que un archivo del mismo tamaño tenga el mismo
+resumen por lo que <strong>si el archivo tiene el tamaño y resumen esperado</strong>
+casi con certeza <strong>la información llegó completa y correctamente</strong>.</p><h2 id=firma-digital-o-cómo-saber-quién-envía-el-mensaje><a href=#firma-digital-o-c%c3%b3mo-saber-qui%c3%a9n-env%c3%ada-el-mensaje alt>Firma digital (o cómo saber quién envía el mensaje)</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>La firma digital <strong>es una manera de asegurar que el mensaje proviene del
+remitente que dice provenir y que no ha sido alterado</strong>. Una manera de
+implementarla es encriptando con la clave privada una función resumen
+del documento, de manera que sólo se descifra con la clave pública.</p><p>La firma digital es aún más difícil de colisionar que la función
+resumen.</p><h2 id=generar-contraseñas-seguras><a href=#generar-contrase%c3%b1as-seguras alt>Generar contraseñas seguras</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Una frase de paso es una contraseña formada por varias palabras.
+Como todas las contraseñas es más segura mientras más larga y aleatoria sea.</p><p><figure><img src=https://imgs.xkcd.com/comics/password_strength.png></figure></p><p>Un método para generar frases de paso <a href=https://xkcd.com/936/ target=_blank rel=noopener>seguras y fáciles de recordar</a>
+es seleccionar <a href=http://world.std.com/~reinhold/diceware_espanol/listas_diceware_en_espanol.htm target=_blank rel=noopener>palabras de una lista</a>
+de acuerdo con un tiro de cinco dados.
+El método se llama <a href=http://world.std.com/~reinhold/diceware.html target=_blank rel=noopener>Diceware</a>.</p><p>Utilizar 4 o 5 palabras generalmente es suficiente
+pero pueden usarse más para aumentar la seguridad.</p><p>A partir de 2014, conviene usar 6+ palabras
+para protegerse de organizaciones con suficiente poder computacional.</p><p>Existen varios <a href=http://www.cryptosmith.com/password-sanity/dilemma target=_blank rel=noopener>consejos para generar y manejar contraseñas seguras</a>.</p><h2 id=generar-un-par-de-claves-pública-y-privada><a href=#generar-un-par-de-claves-p%c3%bablica-y-privada alt>Generar un par de claves (pública y privada)</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Para generar un par de claves para criptografía asimétrica es <a href=http://www.gnupg.org/ target=_blank rel=noopener>GNU Privacy Guard (GPG)</a>,
+en GNU/Linux generalmente viene instalado junto con «seahorse»
+que es una bonita interfaz gráfica.</p><p>Para windows debe <a href=http://gpg4win.org/ target=_blank rel=noopener>descargarse</a>.</p><p>En mac se puede instalar con brew:</p><pre tabindex=0><code>brew install gpg2
+</code></pre><h3 id=en-terminal><a href=#en-terminal alt>En terminal</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>Hay que abrir «terminal» en GNU/Linux o «línea de comandos» en Windows y
+ejecutar los siguientes comandos:</p><ol><li><code>gpg --gen-key</code></li><li>Responder a las preguntas.</li></ol><p>Una de las preguntas es la frase de paso
+que evita que si alguien pueda usar la clave pública si la robó.
+Es recomendable <a href=#generar-contrase%c3%b1as-seguras>usar un método aleatorio para generar la frase de paso</a>.</p><h3 id=interfaz-gráfica-gnulinux><a href=#interfaz-gr%c3%a1fica-gnulinux alt>Interfaz gráfica (GNU/Linux)</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>Un programa sencillo de utilizar para manejar claves públicas es
+«seahorse», funciona en GNU/Linux:</p><ol><li><p>Abrir «seahorse» (generalmente tiene un nombre en el menú parecido a
+«Contraseñas y claves»)</p></li><li><p>Menú «Archivo > Nuevo» (Control + N)</p></li><li><p>Seleccionar «Clave GPG» y rellenar los datos. Hay que <strong>revisar muy
+bien los datos porque no pueden cambiarse después</strong>.</p><p>En las opciones avanzadas se puede cambiar el tipo de clave, su
+longitud (bits) y la fecha en que expira. Por seguridad es mejor que
+expire en algún momento (se puede renovar su periodo de
+validez después).</p></li><li><p>Aceptar y hacer otras cosas mientras se genera el par de claves para
+cifrado asimétrico.</p></li></ol><h2 id=intercambiar-claves-públicas><a href=#intercambiar-claves-p%c3%bablicas alt>Intercambiar claves públicas</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Una forma relativamente sencilla de evadir el encriptado asimétrico
+es proporcionar una clave falsa al remitente,
+recibir el mensaje y reenviarlo al destinatario con la clave correcta.</p><p>Para evitar éste tipo de ataque
+<strong>se debe comprobar la huella de la clave asimétrica con el destinatario</strong>.</p><p>Una medida extra de seguridad
+que puede dificultar la falsificación de las claves públicas
+si se usa correctamente es <strong><a href=#firma>firmar</a> las claves
+si es totalmente seguro que es la clave correcta</strong>,
+de ésta manera quienes confíen en
+nosotros pueden saber que ésa clave ha sido comprobada por nosotros.</p><p>Cada clave tiene un número identificador
+que se puede utilizar para intercambiar la clave mediante «servidores de claves»,
+el método se describe a continuación.</p><h3 id=publicar-la-clave><a href=#publicar-la-clave alt>Publicar la clave</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>Se puede utilizar algún servidor de claves públicas para intercambiar la clave:</p><h4 id=en-terminal-1><a href=#en-terminal-1 alt>En terminal</a> <a href=# alt="Regresar al inicio">↑</a></h4><p>En la línea de comandos:</p><ol><li>Para ver el ID de la clave se utiliza el comando: <code>gpg --list-keys</code>
+La línea que tienen nuestro nombre muestra un número como
+«<code>4096R/7B44ABF9</code>» dónde la primera parte indica longitud y tipo de
+la clave. La parte después de la «/» es el ID que usaremos en la
+siguiente instrucción.</li><li><code>gpg --send-keys --keyserver pgp.rediris.es ID</code></li></ol><h4 id=gráficamente><a href=#gr%c3%a1ficamente alt>Gráficamente</a> <a href=# alt="Regresar al inicio">↑</a></h4><p>Seahorse tiene un menú para sincronizar las claves públicas en los
+servidores de claves:</p><ol><li>Abrir seahorse.</li><li>Menú «Remota > Sincronizar y publicar claves…».</li><li>Elegir el servidor y apretar «sincronizar».</li></ol><h2 id=descargar-una-clave><a href=#descargar-una-clave alt>Descargar una clave</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Si se conoce el ID de la clave y la clave está publicada en un servidor
+de claves, entonces se puede descargar de ésta manera:</p><h3 id=en-terminal-2><a href=#en-terminal-2 alt>En terminal</a> <a href=# alt="Regresar al inicio">↑</a></h3><p><code>gpv - recv-keys --keyserver pgp.rediris.es ID</code></p><p><code>gpg --keyserver keys.openpgp.org --refresh-keys</code></p><h3 id=gráficamente-1><a href=#gr%c3%a1ficamente-1 alt>Gráficamente</a> <a href=# alt="Regresar al inicio">↑</a></h3><ol><li>Abrir seahorse.</li><li>Menú «Remota > Encontrar claves remotas…».</li><li>Escribir el ID que nos proporcionen.</li></ol><h2 id=revisar-la-huella-de-una-clave><a href=#revisar-la-huella-de-una-clave alt>Revisar la huella de una clave</a> <a href=# alt="Regresar al inicio">↑</a></h2><h3 id=en-terminal-3><a href=#en-terminal-3 alt>En terminal</a> <a href=# alt="Regresar al inicio">↑</a></h3><p><code>gpg --fingerprint</code></p><h3 id=en-seahorse><a href=#en-seahorse alt>En seahorse</a> <a href=# alt="Regresar al inicio">↑</a></h3><ol><li>En la pestaña «Otras claves» seleccionar la clave que queremos
+comprobar y utilizar el botón derecho, seleccionar la
+opción «propiedades».</li><li>En la pestaña «Detalles» viene escrita la huella.</li></ol><h2 id=cifrar-información><a href=#cifrar-informaci%c3%b3n alt>Cifrar información</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Existen varias herramientas de software libre
+que pueden usarse para cifrar información,
+aquí recopilo algunas:</p><h3 id=al-consultar-páginas-de-internet><a href=#al-consultar-p%c3%a1ginas-de-internet alt>Al consultar páginas de internet</a> <a href=# alt="Regresar al inicio">↑</a></h3><p><a href=/crypto/internet/#seguridad>Es relativamente sencillo alterar o leer la información que se envía por internet</a>.
+Lo normal es que eso no pase,
+pero si <a href=/crypto/internet/#servidor>los servidores</a> pueden usar TLS (https)
+se puede evitar ése problema.</p><p><del><a href=https://www.eff.org/https-everywhere target=_blank rel=noopener>Este plugin para Firefox redirige las páginas a su versión segura</a>.
+Vale la pena probarlo.</del></p><h2 id=para-enviar-correos-electrónicos><a href=#para-enviar-correos-electr%c3%b3nicos alt>Para enviar correos electrónicos</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Un <a href=https://addons.mozilla.org/en-US/thunderbird/addon/enigmail/ target=_blank rel=noopener>plugin de Thunderbird permite mandar y recibir correo electrónico cifrado de manera
+sencilla</a>
+si <a href=#generar_claves>ya se generó un par de claves</a>.</p><h2 id=retroshare><a href=#retroshare alt>Retroshare</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Retroshare es una <strong>plataforma de comunicación segura p2p</strong>.
+Permite utilizar mensajería instantánea,
+enviar mensajes estilo «e-mail»,
+transmitir archivos,
+generar foros,
+y enviar mensajes públicos (canales en RetroShare).</p><p>Funciona en Windows, GNU/Linux, OSX, BSD y es sencillo de usar,
+puede <a href=http://retroshare.sourceforge.net/downloads.html target=_blank rel=noopener>descargarse de aquí</a>.</p><p>Lo primero que pide es que se genere una <a href=#asim%C3%A9trico>clave pública</a>
+y <strong>para agregar contactos se debe intercambiar claves públicas</strong>.</p><h3 id=intercambiar-clave-pública-en-retroshare><a href=#intercambiar-clave-p%c3%bablica-en-retroshare alt>Intercambiar clave pública en RetroShare</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>La clave pública puede enviarse como texto o como un <code>archivo.rsc</code>,
+se puede enviar por correo o intercambiar en persona,
+aplican las <a href=#intercambio>consideraciones del intercambio de claves públicas</a>.</p><p>}</p></article></main></body></html>

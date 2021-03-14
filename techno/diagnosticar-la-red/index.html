@@ -1,0 +1,65 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Cómo diagnosticar tus problemas de red</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Cómo diagnosticar tus problemas de red</h1><nav id=TableOfContents><ul><li><a href=#cómo-diagnosticar-una-red>Cómo diagnosticar una red</a></li></ul></nav><p>Poder intercambiar información es la característica que le da valor a las computadoras.</p><p>Internet nos da acceso a todo el conocimiento de la humanidad
+y aprovechando eso podemos resolver problemas que solos no podríamos.</p><p>Tenemos al alcance toda la sabiduría y conocimiento de la humanidad
+y aunque no podemos usarla toda al mismo tiempo
+(miren lo que le pasó a Fausto),
+vivir en estos tiempos nos permite resolver cualquier problema.</p><p>Por eso es tan terrible cuándo tu internet no funciona
+o no puedes administrar el servidor desde la red de tu institución.</p><p><strong>Encontrar la causa del problema es el 80% de la solución</strong></p><p>Diagnosticar una red no es difícil,
+pero tiene que hacerse paso a paso
+porque tiene muchas partes móviles
+y para resolver los problemas
+necesitas encontrar exactamente la causa.</p><p>Otro problema común, es que normalmente,
+incluso siendo administrador,
+no tienes el control de toda la red
+y para resolver problemas necesitas comunicarte con las personas apropiadas,
+además de demostrarles dónde está el problema.</p><p>Muchos amigos y estudiantes han tenido estos problemas
+y por eso quiero hacer esta guía para el diagnóstico del problema.</p><h2 id=cómo-diagnosticar-una-red><a href=#c%c3%b3mo-diagnosticar-una-red alt>Cómo diagnosticar una red</a> <a href=# alt="Regresar al inicio">↑</a></h2><ol><li><p>La primera cosa que hay que revisar es que el enlace exista.</p><p>Incluso si estamos pensando en máquinas virtuales,
+hay un programa que actúa como si fuera enlace físico.</p><p>Revisar que los cables están conectados,
+que conducen la electricidad, luz.</p><p>Revisar que existan las interfaces virtuales
+que actúan como si fueran cables o switches.</p><p>Si la interfaz no existe,
+o está mal conectada/configurada,
+no podemos acceder a los datos.</p><p>Si el enlace está interrumpido o no existe,
+ese es el primer problema que tenemos que resolver.</p></li><li><p>Revisar que nuestro equipo local está configurado correctamente.</p><ul><li><p>Revisar que nuestra computadora tiene la IP correcta</p><pre tabindex=0><code>$ ip a | grep inet    # linux
+</code></pre><pre tabindex=0><code>&gt; ipconfig /a   # windows
+</code></pre></li><li><p>Revisar que existe comunicación hacia la puerta de acceso (gateway).</p><pre tabindex=0><code>$ ip r
+default via 192.168.1.254 dev wlp1s0 proto dhcp metric 600
+...
+$ ping -c 3 192.168.1.254
+PING 192.168.1.254 (192.168.1.254) 56(84) bytes of data.
+64 bytes from 192.168.1.254: icmp_seq=1 ttl=64 time=0.977 ms
+64 bytes from 192.168.1.254: icmp_seq=2 ttl=64 time=1.20 ms
+64 bytes from 192.168.1.254: icmp_seq=3 ttl=64 time=1.34 ms
+
+--- 192.168.1.254 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 0.977/1.174/1.343/0.150 ms
+</code></pre></li></ul></li><li><p>Verificar que el sistema de nombres de dominio (DNS)
+nos entrega información correcta.</p><p>Queremos asegurarnos de que podemos encontrar los sitios conectados a internet.</p><pre tabindex=0><code>$ drill google.com
+$ dig google.com
+</code></pre></li><li><p>Tenemos salida a internet.</p><pre tabindex=0><code>$ ping -c 3 8.8.8.8
+</code></pre><p>A veces la red bloquea solicitudes de diagnóstico <code>ICMP</code>
+y ping no nos da resultados a pesar de que los servicios están activos,
+en ese caso conviene probar la dirección y puerto que ofrecen el servicio.</p><pre tabindex=0><code>$ nc -vzw1 8.8.8.8 53
+Connection to 8.8.8.8 53 port [tcp/domain] succeeded!
+</code></pre></li><li><p>Una buena manera de mantener la seguridad de tu infraestructura
+es asegurarte de que no se pueda hacer nada
+y luego trabajar en las reglas que permiten hacer lo que debe hacerse.</p><p>Si un cortafuegos está cortando el paso hacia el servicio,
+al intentar consultar el servicio
+verás un mensaje como este:</p><pre tabindex=0><code>$ nc -vzw1 mi.servidor.com 80
+Connection to mi.servidor.com 80 connection timed out
+</code></pre><p>Si el servicio no está activo,
+verás un mensaje como este:</p><pre tabindex=0><code>$ nc -vzw1 mi.servidor.com 80
+mi.servidor.com [] 80 (http): conexion refused
+</code></pre></li><li><p>El equipo al que nos conectamos,
+redirige el tráfico hacia donde debe.</p><p>Hay muchas buenas razones por las que el equipo al que te conectas
+no funciona como esperarías.</p><p>Una buena prueba para hacer es verificar que hay un camino que permite acceder al servicio.</p><pre tabindex=0><code>$ traceroute mi.servidor.com
+</code></pre><p>Esto debería mostrar los sitios intermedios,
+si muestra un montón de estrellas al final hay dos opciones:</p><ul><li><p>Los protocolos de diagnóstico están bloqueados</p><p>Para descartar esta opción,
+podemos hacer una traza con el protocolo y puerto que utiliza el servicio.</p><pre tabindex=0><code>$ PUERTO=80
+$ sudo traceroute -T -p ${PUERTO} mi.servidor.com
+</code></pre><p>Si este comando funciona,
+el protocolo de diagnóstico está bloqueado.</p></li><li><p>No existe un camino para llegar al servicio</p><p>Si la traza desde el servicio es incorrecta,
+significa que no hay un camino para llegar al servicio
+y aquí tienes la información de el último lugar al que llega,
+esa información puedes enviársela al administrador de la red
+para que te ayude a resolver el problema.</p></li></ul></li></ol></article></main></body></html>

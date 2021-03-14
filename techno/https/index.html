@@ -1,0 +1,49 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Ejemplo para generar certificado de let&amp;rsquo;s encrypt</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Ejemplo para generar certificado de let&rsquo;s encrypt</h1><nav id=TableOfContents><ul><li><a href=#generar-un-certificado-auto-firmado>Generar un certificado auto-firmado</a></li><li><a href=#configurar-un-certificado-con-certbot>Configurar un certificado con certbot</a></li><li><a href=#generar-un-certificado-multidomino-dominiocom>Generar un certificado multidomino <code>*.dominio.com</code></a></li><li><a href=#generar-un-certificado-multidominio-dominiocom-con-traefik>Generar un certificado multidominio <code>*.dominio.com</code> con <code>traefik</code></a></li></ul></nav><h2 id=generar-un-certificado-auto-firmado><a href=#generar-un-certificado-auto-firmado alt>Generar un certificado auto-firmado</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Para generar un certificado auto firmado:</p><pre tabindex=0><code>DIRECTORY=
+COUNTRY_CODE=
+STATE=
+LOCALITY=
+ORGANIZATION=
+FQDN=
+openssl req \
+	-x509 \
+	-newkey rsa:2048 \
+	-keyout ${DIRECTORY}/${FQDN}.key \
+	-out ${DIRECTORY}/${FQDN}.crt \
+	-days 3560 \
+	-nodes \
+	-subj &#34;/C=${COUNTRY_CODE}/ST=${STATE}/L=${LOCALITY}/O=${ORGANIZATION}/CN=${FQDN}&#34;
+</code></pre><h2 id=configurar-un-certificado-con-certbot><a href=#configurar-un-certificado-con-certbot alt>Configurar un certificado con certbot</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Para configurar el certificado de https (pueden usarse muchos dominios):</p><pre tabindex=0><code>certbot certonly \
+	-a webroot \
+	--server https://acme-v01.api.letsencrypt.org/directory \
+	--logs-dir=/etc/nginx/ssl/certbot \
+	--webroot-path=/etc/nginx/ssl/certbot \
+	--config-dir=/etc/nginx/ssl/certbot \
+	--work-dir=/etc/nginx/ssl/certbot \
+	-d [subdominio] \
+	-d [subdominio]
+</code></pre><p>Para renovar los certificados:</p><pre tabindex=0><code>certbot	\
+	renew	\
+	--config-dir=/etc/nginx/ssl/certbot \
+	--server https://acme-v01.api.letsencrypt.org/directory \
+	--logs-dir=/etc/nginx/ssl/certbot \
+	--webroot-path=/etc/nginx/ssl/certbot \
+	--work-dir=/etc/nginx/ssl/certbot
+</code></pre><p>Para que el proceso de renovación automático se lleve a cabo,
+se agrega al crontab el comando anterior con los primeros cinco campos:</p><pre tabindex=0><code>* * 26 * * certbot renew [...]
+</code></pre><p>Tomado de <a href=https://gist.github.com/renchap/c093702f06df69ba5cac#file-readme-md target=_blank rel=noopener></a></p><p><a href=https://www.digitalocean.com/community/tutorials/how-to-create-let-s-encrypt-wildcard-certificates-with-certbot target=_blank rel=noopener>Puede hacerse un certificado multidominio si tienes un proveedor de DNS soportado por certbot</a></p><p>Si tu cliente no está soportado por los plugins de DNS de certbot
+<a href=https://cloudness.net/certbot-dns-challenge/ target=_blank rel=noopener>puedes hacer manualmente el proceso para registrar certificados de «Let&rsquo;s Encrypt»</a></p><h2 id=generar-un-certificado-multidomino-dominiocom><a href=#generar-un-certificado-multidomino-dominiocom alt>Generar un certificado multidomino <code>*.dominio.com</code></a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Generar la <a href=https://doc.livedns.gandi.net target=_blank rel=noopener>llave API</a>.</p><p>Crear un archivo de configuración con las
+siguientes credenciales:</p><pre tabindex=0><code># live dns v5 api key
+dns_gandi_api_key=APIKEY
+# optional organization id, remove it if not used
+# if you use certbot&lt;1.7.0 please use certbot_plugin_gandi:dns_sharing_id=SHARINGID
+dns_gandi_sharing_id=SHARINGID
+</code></pre><p>Instalar certbot y <a href=https://github.com/obynio/certbot-plugin-gandi target=_blank rel=noopener>el plugin para gandi</a></p><p>Generar el certificado:</p><pre tabindex=0><code>certbot certonly --authenticator dns-gandi --dns-gandi-credentials /etc/letsencrypt/gandi/gandi.ini -d domain.com -d \*.domain.com --server https://acme-v02.api.letsencrypt.org/directory
+</code></pre><h2 id=generar-un-certificado-multidominio-dominiocom-con-traefik><a href=#generar-un-certificado-multidominio-dominiocom-con-traefik alt>Generar un certificado multidominio <code>*.dominio.com</code> con <code>traefik</code></a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Se puede generar un certificado TLS comodín
+que cubre todos los subdominios dentro de tu dominio.</p><p>Para generarlo con let&rsquo;s encrypt
+necesitas <a href=https://letsencrypt.org/docs/challenge-types/#dns-01-challenge target=_blank rel=noopener>demostrar que tienes control del DNS</a>:</p><p><figure><img src=https://doc.traefik.io/traefik/v2.0/https/acme/#dnschallenge><figcaption><code>traefik</code> puede generar estos cerficados automáticamente
+si tiene los accesos correctos</figcaption></figure>,
+igual que <a href=https://go-acme.github.io/lego/dns/gandi/ target=_blank rel=noopener>otras aplicaciones</a></p><ul><li><p><a href=https://doc.livedns.gandi.net target=_blank rel=noopener>Generar una clave para el DNS</a></p></li><li><p><a href=https://doc.traefik.io/traefik/v2.0/https/acme/#dnschallenge target=_blank rel=noopener>Configurar <code>traefik</code> para usar el dns</a></p></li><li><p><a href=https://doc.traefik.io/traefik/v2.0/routing/routers/#certresolver target=_blank rel=noopener>Configurar la generación dinámica del certificado TLS</a></p></li></ul><p><a href=https://community.traefik.io/t/traefik-setup-w-1-service-and-multiple-domains-different-tlds-ssl-tls/7017 target=_blank rel=noopener><code>traefik</code> puede usar distintos certificados TLS</a>
+si se configuran manualmente,
+o si se usa la configuración de reto HTTP.
+<a href=https://www.reddit.com/r/Traefik/comments/d92wxs/multidomain_in_trafik/f1eftdm target=_blank rel=noopener>No sirve la configuración de reto DNS para múltiples dominios con <code>traefik</code></a></p><hr><p><a href=https://traefik.io/blog/traefik-2-tls-101-23b4fbee81f1/ target=_blank rel=noopener>https://traefik.io/blog/traefik-2-tls-101-23b4fbee81f1/</a></p></article></main></body></html>

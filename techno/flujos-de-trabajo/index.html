@@ -1,0 +1,81 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Flujos de trabajo usando módulos de mk.</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Flujos de trabajo usando módulos de <code>mk</code>.</h1><nav id=TableOfContents><ul><li><a href=#existen-módulos-para-resolver-un-problema-específico>Existen módulos para resolver un problema específico</a></li></ul><ul><li><a href=#conexión-entre-módulos>Conexión entre módulos</a></li><li><a href=#resultados-importantes>Resultados importantes</a></li></ul><ul><li><a href=#date-2019-01-11>title: &ldquo;Flujos de trabajo de Bioinformática en INMEGEN&rdquo;
+author: &ldquo;Joshua Haase&rdquo;
+date: &ldquo;2019-01-11&rdquo;</a></li><li><a href=#date-2019-03-04>title: &ldquo;Cómo enviar flujos de trabajo&rdquo;
+author: &ldquo;Joshua Haase&rdquo;
+date: &ldquo;2019-03-04&rdquo;</a></li></ul></nav><p>Usar <code>mk</code> para generar el diagrama de <code>makeflow</code> que usa <code>mk</code> para ejecutar los procesos:</p><pre tabindex=0><code>%.makeflow: %
+	echo ${target}:	${prereq}\n\tmk\t${target}
+</code></pre><hr><p><a href=./nextflow.md><code>nextflow</code></a></p><hr><p>Para construir flujos de trabajo,
+a partir de módulos de análisis escritos en <code>mk</code>
+se utiliza una plantilla de flujo de trabajo:</p><pre tabindex=0><code>PROYECTO=[proyecto]
+#
+# Generar proyecto nuevo.
+#
+new mkpipe ${PROYECTO}
+</code></pre><h2 id=existen-módulos-para-resolver-un-problema-específico><a href=#existen-m%c3%b3dulos-para-resolver-un-problema-espec%c3%adfico alt>Existen módulos para resolver un problema específico</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Dentro del directorio <code>proyecto</code> que se generó,
+se pueden agregar los módulos con el comando:</p><pre tabindex=0><code>RAMA=[rama]
+URL=[URL]
+MODULO=[módulo]
+#
+# Descargar y configurar módulo.
+#
+git submodule add --branch ${RAMA} ${URL} ${MODULO}
+</code></pre><p><a href=https://git-scm.com/book/en/v1/Git-Tools-Subtree-Merging target=_blank rel=noopener>https://git-scm.com/book/en/v1/Git-Tools-Subtree-Merging</a>
+<a href=https://www.atlassian.com/blog/git/alternatives-to-git-submodule-git-subtree target=_blank rel=noopener>https://www.atlassian.com/blog/git/alternatives-to-git-submodule-git-subtree</a></p><p><a href=https://makingsoftware.wordpress.com/2013/02/16/using-git-subtrees-for-repository-separation/ target=_blank rel=noopener><code>git subtree</code> is better than the alternatives</a>
+<a href=https://codingkilledthecat.wordpress.com/2012/04/28/why-your-company-shouldnt-use-git-submodules/ target=_blank rel=noopener><code>git submodules</code> should not be used</a></p><h1 id=conectar-el-flujo-de-trabajo><a href=#conectar-el-flujo-de-trabajo alt>Conectar el flujo de trabajo</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Se utiliza una plantilla para conectar los módulos:</p><pre tabindex=0><code>002-mod2:V:	001-mod1
+	run_module
+
+001-mod1:V:	init
+	run_module
+
+init:
+	#configuración del módulo
+	touch init
+</code></pre><p>Si los enlaces simbólicos se guardan en el proyecto global,
+puede utilizarse un script de <code>execline</code> para ejecutarlo todo
+en orden:</p><pre tabindex=0><code>#!/usr/bin/execlineb
+if { cd 001-mod1 run_module }
+if {cd 002-mod2 run_module }
+cd 003 run_module
+</code></pre><h2 id=conexión-entre-módulos><a href=#conexi%c3%b3n-entre-m%c3%b3dulos alt>Conexión entre módulos</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>La configuración del <code>init</code> debería generarse a partir del <code>mkfile</code>.
+Existen los siguientes casos para la conexión results -> data:</p><ul><li>Un módulo tiene un predecesor.</li><li>Un módulo tiene varios predecesores.</li></ul><p>Ambos casos se solucionan apuntando el directorio de resultados del predecesor al data del siguiente módulo.</p><h2 id=resultados-importantes><a href=#resultados-importantes alt>Resultados importantes</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Algunos resultados pueden ser importantes y ser marcados como resultados finales,
+en ese caso, los data podrían vincularse al lugar donde se guardarán los resultados.</p><ul><li><p>¿Cómo se gestionan esos archivos intermedios?
+Decidir los archivos importantes y apuntar <code>data</code> del módulo que corresponde a su destino</p></li><li><p>Esa lista puede ser de la forma <code>origen &lt;tab> destino</code></p></li></ul><h1 id=mover-módulos-de-sitio><a href=#mover-m%c3%b3dulos-de-sitio alt>Mover módulos de sitio</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Convención:</p><p>los módulos se ejecutan en orden
+y se va entrando recursivamente en cada una de las carpetas que comienzan con un número.</p><p>Si varios módulos tienen el mismo número,
+pueden ejecutarse en paralelo.</p><p>Alternativa:</p><p>Se va entrando en los módulos hasta completar el proceso.</p><pre tabindex=0><code>git mv [origin] [target]
+</code></pre><h1 id=registrar-un-módulo-de-sólo-lecturahttpssushihangovergithubiogit-set-up-a-fetch-only-remote-><a href=#registrar-un-m%c3%b3dulo-de-s%c3%b3lo-lecturahttpssushihangovergithubiogit-set-up-a-fetch-only-remote- alt><a href=https://sushihangover.github.io/git-set-up-a-fetch-only-remote/ target=_blank rel=noopener>Registrar un módulo de sólo lectura</a></a> <a href=# alt="Regresar al inicio">↑</a></h1><pre tabindex=0><code>git remote add sequencing-info gitolite@urania:josh/ldg-sequencing-info
+git remote set-url --add --push sequencing-info DISABLE
+git fetch -a sequencing-info
+git merge --allow-unrelated-histories sequencing-info/ldg
+</code></pre><h1 id=módulos-de-información><a href=#m%c3%b3dulos-de-informaci%c3%b3n alt>Módulos de información</a> <a href=# alt="Regresar al inicio">↑</a></h1><p><a href=https://sushihangover.github.io/git-set-up-a-fetch-only-remote/ target=_blank rel=noopener>https://sushihangover.github.io/git-set-up-a-fetch-only-remote/</a></p><hr><h2 id=date-2019-01-11><a href=#date-2019-01-11 alt>title: &ldquo;Flujos de trabajo de Bioinformática en INMEGEN&rdquo;
+author: &ldquo;Joshua Haase&rdquo;
+date: &ldquo;2019-01-11&rdquo;</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Existe un sólo <code>mkfile</code> que coordina el trabajo y las dependencias.
+Si se siguió <a href=./generar-targets-a-partir-de-mkfile>el procedimiento</a>,
+se puede utilizar cada etapa para generar un archivo de condor.</p><pre tabindex=0><code>_STEP=
+targets.${_STEP} | condor-sub condor/${_STEP} &gt; condor/${_STEP}.sub
+# alternativamente se puede mandar cada etapa consecutivamente
+targets.${_STEP} | condor-sub condor.header | condor_submit
+</code></pre><p>Teniendo un archivo de condor se puede utilizar un dag:</p><pre tabindex=0><code>JOB     000     condor/taxa_identified_counts.sub
+JOB     001     condor/taxa_counts_by_experiment.sub
+JOB     002     condor/taxa_dendrogram.sub
+JOB     003     condor/taxa_abundance_report.sub
+PARENT  000     CHILD   001
+PARENT  001     CHILD   002
+PARENT  001     CHILD   003
+</code></pre><p>Sin embargo, esto tiene el problema de que si un job termina mal, todos se mueren.
+Se puede agregar:</p><pre tabindex=0><code>RETRY ALLNODES 3
+</code></pre><p>Los DAG de condor son intrabajables,
+porque en caso de que un sólo job falle, se cancela todo el nodo.
+¿Podríamos generar dag individuales para cada archivo final?</p><hr><h2 id=date-2019-03-04><a href=#date-2019-03-04 alt>title: &ldquo;Cómo enviar flujos de trabajo&rdquo;
+author: &ldquo;Joshua Haase&rdquo;
+date: &ldquo;2019-03-04&rdquo;</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Utilizar un condor_dag para todos los trabajos es muy frágil
+porque ante la falla de un único job, todo se cancela.</p><p>Para generar automáticamente los dag, se debe hacer uno por resultado final,
+cada uno con sus archivos .sub</p><p>Análisis continuo para aumentar la reproducibilidad de los estudios.
+[@doi:10.1038/nbt.3780 ]</p><p>Varios armazones de flujos de trabajo
+[@doi:10.1016/j.compbiolchem.2007.08.009 ]</p><p>Propuestas de 2008 acerca de cómo hacer flujos de trabajo
+y un listado extenso de qué herramientas podrían utilizarse.
+[@doi:10.1093/bib/bbm056 ]</p><p>La bioinformática requiere colaboración de biólogos y bioinformáticos.
+R es un buen lenguaje para el análisis de datos.
+Para interpretar los resultados ayudan: <a href=www.broad.mit.edu/cancer/software/genepatter/>GenePattern</a>, <a href=www.exploratoryvisualanalysis.org>EVA</a>, IPA.
+[@doi:10.1002/jcp.21218 ]</p><p>Varios flujos de trabajo implementados en CWL y NextFlow.
+[@doi:10.1186/s12859-018-2446-1 ]</p><hr></article></main></body></html>

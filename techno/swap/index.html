@@ -1,0 +1,20 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>¿Ponerle swap a un servidor?</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>¿Ponerle swap a un servidor?</h1><nav id=TableOfContents><ul><li><a href=#qué-es-el-área-de-intercambio-y-por-qué-conviene-usarla>Qué es el área de intercambio y por qué conviene usarla</a></li><li><a href=#qué-problemas-puede-haber-si-no-uso-área-de-intercambio-en-mi-servidor>Qué problemas puede haber si no uso área de intercambio en mi servidor</a></li><li><a href=#recomendaciones-de-configuración>Recomendaciones de configuración</a></li></ul></nav><p>Ayer configuré un servidor con un terabyte de memoria
+y pensé que tal vez no necesito agregarle área de intercambio.</p><p>Sin embargo, antes de dejar esa decisión en firme,
+quise investigar qué problemas me podría traer no tener área de intercambio.</p><p>Éstas son mis conclusiones.</p><h2 id=qué-es-el-área-de-intercambio-y-por-qué-conviene-usarla><a href=#qu%c3%a9-es-el-%c3%a1rea-de-intercambio-y-por-qu%c3%a9-conviene-usarla alt>Qué es el área de intercambio y por qué conviene usarla</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>El área de intercambio (swap space) es un espacio de disco
+que se utiliza para guardar la memoria no utilizada.</p><p>Como exceptuando el caché del CPU,
+la memoria RAM es el lugar de almacenamiento que funciona más rápidamente
+y el disco duro es el lugar de almacenamiento más lento,
+cuando se escribe constantemente en el área de intercambio
+el rendimiento de la computadora disminuye.</p><p>Podría uno pensar que la respuesta es
+<a href=#invalid title="@no encuentro el stack overflow donde encontré esto@">&ldquo;agregar más memoria o usar menos memoria&rdquo;</a></p><p><a href=https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-swapspace#tb-recommended-system-swap-space target=_blank rel=noopener>RedHat recomienda siempre agregar memoria de intercambio a tus servidores</a></p><p>El mecanismo exacto del funcionamiento de la memoria de intercambio
+se documenta en <a href=https://www.kernel.org/doc/gorman/html/understand/understand014.html target=_blank rel=noopener>la gestión del intercambio</a>
+y <a href=https://www.kernel.org/doc/gorman/html/understand/understand013.html target=_blank rel=noopener>reclamación de páginas de memoria</a></p><h2 id=qué-problemas-puede-haber-si-no-uso-área-de-intercambio-en-mi-servidor><a href=#qu%c3%a9-problemas-puede-haber-si-no-uso-%c3%a1rea-de-intercambio-en-mi-servidor alt>Qué problemas puede haber si no uso área de intercambio en mi servidor</a> <a href=# alt="Regresar al inicio">↑</a></h2><ul><li><p>El asesino de procesos de memoria,
+mataría tus procesos sin aviso
+cuando se acabe la memoria.</p></li><li><p>Si no almacenas contenido en la RAM y no lo usas,
+ocuparía espacio que no puede usarse para otras aplicaciones.</p></li></ul><h2 id=recomendaciones-de-configuración><a href=#recomendaciones-de-configuraci%c3%b3n alt>Recomendaciones de configuración</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Agregar a <code>/etc/sysctl.d</code> un archivo para configurar la swap:</p><pre tabindex=0><code>vm.swappiness=10
+vm.vfs_cache_pressure=50
+</code></pre><p>Para limitar la cantidad de memoria que se desaloja
+y usar la memoria como caché de archivos.
+En general eso podría aumentar el rendimiento del servidor.</p><p>Otra forma de mejorar el rendimiento sería
+<a href=https://haydenjames.io/linux-performance-almost-always-add-swap-part2-zram/ target=_blank rel=noopener>comprimir la memoria no utilizada</a>.</p></article></main></body></html>

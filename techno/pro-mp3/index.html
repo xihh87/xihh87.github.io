@@ -1,0 +1,19 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Editar audio desde la línea de comandos</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Editar audio desde la línea de comandos</h1><nav id=TableOfContents></nav><p>Si a veces quieres guardar los fragmentos de audio
+y tienes ya sea afinidad por la línea de comandos
+o una compu muy vieja,
+este proceso puede ser para tí.</p><p>Si el audio que quieres está dentro de un video,
+puedes extraer el video usando</p><pre><code>ffmpeg -i “nombre.formato” -vn -ac 2 -ar 44100 -ab 320k -f mp3 audio.mp3
+</code></pre><h1 id=recortar-los-pedacitos><a href=#recortar-los-pedacitos alt>Recortar los pedacitos</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Para extraer los pedacitos abrí el archivo con reproductor de video.</p><pre><code>mpv --osd-fractions audio.mp3
+</code></pre><p>Dejé en reproducción y cada que decía algo interesante,
+anotaba inicio y fin en el comando:</p><pre><code>sox audio.mp3 nombre-fragmento trim &lt;inicio&gt; &lt;fin&gt;
+</code></pre><p><code>inicio</code> y <code>fin</code> se indican de la forma &ldquo;hh:mm:ss.ms&rdquo;.</p><h1 id=juntar-los-pedacitos><a href=#juntar-los-pedacitos alt>Juntar los pedacitos</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Para hacer un sólo audio, se pueden combinar los fragmentos con el comando</p><pre><code>sox -m in1.mp3 in2.mp3 in3.mp3 out.mp3
+</code></pre><p>Probablemente se pueda hacer con <code>mp3wrap</code>, pero no revisé esto.</p><h1 id=agregar-la-imagen><a href=#agregar-la-imagen alt>Agregar la imagen</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Si al teminar queremos agregar una imagen:</p><pre><code>ffmpeg -i input.mp3 -i cover.jpg -map_metadata 0 -map 0 -map 1 output.mp3
+</code></pre><p>Otra opción es:</p><pre><code>for f in ${FILES[@]}; do echo lame --ti cover.jpg $f; done
+</code></pre><p>Y si se tiene el</p><pre><code>for f in ./*.mp3; do ffmpeg -i &quot;$f&quot; -i cover.jpg -map_metadata 0 -map 0 -map 1 out-&quot;${f#./}&quot;; done
+</code></pre><h1 id=etiquetar-los-pedacitos><a href=#etiquetar-los-pedacitos alt>Etiquetar los pedacitos</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>El etiquetado lo realicé de forma manual, sin embargo, <code>picard</code> alivianó el trabajo:</p><pre><code> picard *.mp3
+</code></pre><p>Para generar etiquetas, también puede usarse:</p><pre><code> mp3info -a &lt;artista&gt; -y &lt;año&gt; -l &lt;album&gt; -n &lt;pista&gt; -t &lt;title&gt; &lt;archivo.mp3&gt;
+</code></pre><p>o para entrar en modo interactivo:</p><pre><code> mp3info -i &lt;archivo.mp3&gt;
+</code></pre><h1 id=descargar-el-video><a href=#descargar-el-video alt>Descargar el video</a> <a href=# alt="Regresar al inicio">↑</a></h1><pre><code>youtube-dl &lt;URL&gt;
+</code></pre><h1 id=extraer-el-mp3><a href=#extraer-el-mp3 alt>Extraer el mp3</a> <a href=# alt="Regresar al inicio">↑</a></h1><pre><code>ffmpeg -i &quot;$FILE&quot; -vn -ac 2 -ar 44100 -ab 320k -f mp3 &quot;$OUT&quot;.mp3 &gt;/dev/null
+</code></pre><h1 id=enlaces><a href=#enlaces alt>Enlaces</a> <a href=# alt="Regresar al inicio">↑</a></h1><p><a href=https://peppoj.net/2010/09/how-to-extract-audio-from-video-using-ffmpeg/ target=_blank rel=noopener>https://peppoj.net/2010/09/how-to-extract-audio-from-video-using-ffmpeg/</a></p><p><a href=http://unix.stackexchange.com/questions/84915/add-album-art-cover-to-mp3-ogg-file-from-command-line-in-batch-mode target=_blank rel=noopener>http://unix.stackexchange.com/questions/84915/add-album-art-cover-to-mp3-ogg-file-from-command-line-in-batch-mode</a></p></article></main></body></html>

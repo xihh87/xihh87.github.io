@@ -1,0 +1,79 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Plantilla para documentos Ibero</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Plantilla para documentos Ibero</h1><nav id=TableOfContents><ul><li><a href=#objetivos>Objetivos</a></li><li><a href=#plan-de-trabajo>Plan de trabajo</a></li></ul></nav><p>Quiero generar una plantilla en LaTeX
+para generar documentos en la Universidad Iberoamericana
+que a diferencia de usar un formato todo el tiempo
+me permite enfocarme en los contenidos.</p><h2 id=objetivos><a href=#objetivos alt>Objetivos</a> <a href=# alt="Regresar al inicio">↑</a></h2><ul><li><p>☑ Imagen institucional</p><p>Guardé ejemplos en <code>cd $(repo ibero$)/ejemplos-plantilla/</code></p><p>☑ Podría extraer las tipografías de los avisos institucionales.</p><pre><code>  ~~https://www.pdftron.com/documentation/linux/guides/features/extraction/text-extract/~~
+
+  Puedo listar las tipografías del pdf usando
+  [Posiblemente funcione `pdffonts` de poppler-utils](https://www.makeuseof.com/how-to-analyze-pdf-file-fonts/):
+
+  ```
+  $ cd $(repo ibero$)/ejemplos-plantilla/
+  $ pdffonts avisos-institucionales.pdf
+  name                                 type              encoding         emb sub uni object ID
+  ------------------------------------ ----------------- ---------------- --- --- --- ---------
+  QAPTWQ+EuphemiaUCAS                  TrueType          WinAnsi          yes yes yes    164  0
+  HSKMAI+EuphemiaUCAS-Bold             TrueType          WinAnsi          yes yes yes    166  0
+  IAUSOG+EuphemiaUCAS                  CID TrueType      Identity-H       yes yes yes     66  0
+  GKAGMK+Symbol                        CID TrueType      Identity-H       yes yes yes     65  0
+  GKAGMK+Arial-BoldMT                  TrueType          WinAnsi          yes yes yes     75  0
+  FCQAYM+Wingdings3                    CID TrueType      Identity-H       yes yes yes     77  0
+  ```
+
+  Tal vez se puede usar [este servicio web para extraer tipografías](http://luc.devroye.org/pdfextract.html )
+
+  [O usar las herramientas de `mupdf`](https://stackoverflow.com/questions/3488042/how-can-i-extract-embedded-fonts-from-a-pdf-as-valid-font-files )
+
+  ```
+  $ mutool extract ../avisos-institucionales.pdf
+  extracting font-0064.ttf
+  extracting font-0068.ttf
+  extracting font-0072.ttf
+  extracting font-0079.ttf
+  extracting font-0163.ttf
+  extracting font-0165.ttf
+  $ ls
+  font-0064.ttf  font-0068.ttf  font-0072.ttf  font-0079.ttf  font-0163.ttf  font-0165.ttf
+  ```
+
+  [Encontré la tipografía EuphemiaUCAS](https://www.ffonts.net/Euphemia-UCAS.font.download )
+  y [su versión oscura](https://blogfonts.com/euphemia-ucas-bold.font )
+</code></pre></li><li><p>☑ Establezca el trabajo del Departamento de Estudios de Ingeniería para la Innovación</p></li><li><p>☑ Vista profesional.</p><p>Parece que eisvogel con el logo del Grupo de Ciencia de Datos
+se ve suficientemente profesional.</p></li><li><p>☑ Cambiar las líneas a color ibero.</p><p>La plantilla es <code>scrlayer-scrpage</code></p><p><del>Parece que ese color está definido en la línea 684 de la plantilla.</del>
+Cambiar este color no tiene efecto en el color de las líneas</p><p>Quitar headsepline,footsepline sí quita la línea de separación.</p><pre tabindex=0><code>\usepackage[headsepline,footsepline]{scrlayer-scrpage}
+</code></pre><p>Este comando, cambia el color de todo el encabezado y los pies <a href=https://tex.stackexchange.com/questions/197482/how-to-change-headsepline-color-in-koma-scriptclasses target=_blank rel=noopener>2</a>:</p><pre tabindex=0><code>\renewcommand{\headfont}{\color{red}\normalfont\slshape}
+</code></pre><p>Este código logra el objetivo:</p><pre tabindex=0><code>\setheadsepline{1pt}[\color{ibero}]
+\setfootsepline{1pt}[\color{ibero}]
+</code></pre></li><li><p>☑ Probar imagen de Ibero en la portada</p><p>/home/x/web/ibero.mx/sites/all/themes/ibero/descargables/acercade/Ideario.pdf</p><p>Esta imagen no funciona con la portada común,
+se tendría que bajar la imagen de ibero o cambiar algo.</p><p>Si los experimentos de hoy funcionan,
+copiar a mi plantilla <code>~/tpl/ibero</code> los cambios de
+<code>cyber-range-practicas-ciberseguridad.md</code>.</p></li><li><p>☑ Probar el banner en el header.</p><p>No funciona mal en el pie de página en vez del letrero.</p></li><li><p>☑ Generar paleta de colores ibero en el documento.</p><ul><li><p>☑ Tomar los colores de los avisos institucionales:</p><p>rojo ibero: #ed1c24
+gris claro encabezados: #bdbcbc
+gris oscuro encabezados: #959494
+gris tablas: #e1e0e0
+gris texto: #393536
+gris títulos: #393536
+gris pie de página: #7b7979
+gris líneas notas, letras tablas: #231f20</p></li><li><p>☑ Configurar los colores del texto.</p><pre tabindex=0><code>\renewcommand{\headfont}{\color{red}\normalfont\slshape}
+</code></pre><p><a href=https://tex.stackexchange.com/questions/313149/headers-and-font-in-koma-script#313156 target=_blank rel=noopener>https://tex.stackexchange.com/questions/313149/headers-and-font-in-koma-script#313156</a></p></li></ul></li><li><p>☑ Agregar la posibilidad de usar una marca de agua</p><pre tabindex=0><code>\usepackage{expl3}
+\ExplSyntaxOn
+\clist_const:Nn \l_my_watermarkpages {1,2,4,8}% list with the selected page numbers
+\newcommand\watermark[1]
+  {\makebox[0pt][c]
+    {\scalebox{3.1}% scaling
+      {\rotatebox[origin=bc]{45}% rotating
+        {\Huge\bfseries\textcolor{lightgray}% font settings
+          {\clist_if_in:NVTF \l_my_watermarkpages {#1}
+            {\watermarktext}{}
+  }}}}}
+\ExplSyntaxOff
+\newcommand\watermarktext{Only selected Pages}
+
+\DeclareNewLayer[
+  background,
+  %textarea,
+  mode=picture,
+  contents={\putC{\watermark{\the\value{page}}}}
+]{watermark}
+\AddLayersToPageStyle{@everystyle@}{watermark}
+</code></pre><p><a href=https://tex.stackexchange.com/a/400998 target=_blank rel=noopener>https://tex.stackexchange.com/a/400998</a></p></li></ul><h2 id=plan-de-trabajo><a href=#plan-de-trabajo alt>Plan de trabajo</a> <a href=# alt="Regresar al inicio">↑</a></h2><ul><li><p>☑ Generar un repositorio con la plantilla</p><p>${HOME}/src/gitlab.com/xihh87/latex-templates</p></li><li><p>🗵 Hacer una plantilla de LaTeX o ConTeXt</p><p>Parece que ya existía una plantilla que puedo aprovechar (eisvogel)</p></li></ul></article></main></body></html>

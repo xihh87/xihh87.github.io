@@ -1,0 +1,182 @@
+%
+% Joshua Haase
+% 2015-03-10
+
+ - La estructura de la inducción es $b -> a$.
+
+De acuerdo.
+
+ - El valor de verdad de $b$ no importa para la estructura de $b -> a$.
+
+Sí importa.
+La proposición es verdadera o falsa dependiendo de la relación entre los valores,
+aunque sólo haya un caso en el que sea falso.
+
+    ------------------------------
+       $a$       $b$     $b -> a$
+    --------- --------- ----------
+        F         F         V
+
+        F         V         F
+
+        V         F         V
+
+        V         V         V
+
+    ------------------------------
+    : Tabla de verdad para la proposición $b -> a$
+
+ - La ciencia está basada en la inducción, por lo tanto no sirve.
+
+La ciencia apesta.
+Sirve para bien poco y
+es mucho desperdicio.
+
+Pero las alternativas apestan aún más,
+sirven para aún más poco y
+la basura es oro a comparación.
+
+ - La inducción no se puede comprobar.
+
+La muestra necesaria para comprobar la inducción es órdenes de magnitud mayor que
+la necesaria para comprobar la deducción.
+
+La deducción sólo es posible si conoces el universo completo.
+
+No conocemos el universo completo,
+por lo que sólo podemos suponer mediante inducción.
+
+Eso no significa que el método sea inútil,
+pero sí que necesitamos mucha suerte para falsar nuestras suposiciones.
+
+Y ciertamente el mundo que entendemos por medio de la ciencia es deforme,
+falso si así quieres llamarlo,
+porque no corresponde enteramente a la realidad (si es que eso existe),
+mas aún,
+probablemente muy poco de lo que entendemos le corresponde.
+
+Sin embargo, eso no significa que todo lo que entendemos es falso ni
+que cada parte de nuestra estructura mental es incompatible con el universo.
+
+ - La lógica puede expresar cualquier cosa, por lo tanto no sirve.
+
+Es precisamente el hecho de que puede expresar las cosas lo que lo hace útil.
+Es como si me dijeras que mi lenguaje no sirve porque puede expresar cualquier cosa.
+
+Decirlo así sería un error,
+porque aunque un lenguaje pueda expresar un infinito ~~pequeño~~ de cosas,
+el universo tiene un infinito más grande de cosas.
+
+Y aún más la lógica sirve precisamente porque no nos permite expresar cierto tipo de cosas,
+que de acuerdo a nuestra percepción y estructura mental no se dan en el mundo.
+
+ - Pero la lógica no puede ser fundamento del conocimiento.
+
+De acuerdo.
+Que puedas decirlo no significa que sea verdad.
+
+Que no puedas decirlo tampoco significa que no sea verdad.
+
+ - La lógica no puede abarcar al mundo, por lo tanto no sirve.
+
+Que la lógica no pueda expresarlo todo no implica que
+todo lo que exprese la lógica es falso.
+
+Puede ser el caso de que todo lo que expresemos usando la lógica sea falso
+(muy improbable),
+pero es muy difícil que sea falso todo lo que es posible espresar con lógica,
+en un infinito ~~pequeño~~ de cosas expresables aún si la probabilidad de verdad es muy baja,
+la esperanza matemática es alta.
+
+$E(x) = p(x) * X$
+
+Donde:
+    $E$ es la esperanza matemática de $x$,
+    $p$ es la probabilidad de $x$ y
+    $X$ es la magnitud de $x$.
+
+ - La lógica no es unívoca.
+
+Intenta expresar «cuando lo vio, se lo comió» en lenguaje lógico y que contenga ambigüedad.
+
+La oración puede expresar cualquiera de estas cosas (pero no está limitada a éstas posibilidades):
+
+	A V(B) -> A C(B)
+	A V(B) -> B C(A)
+	B V(A) -> A C(B)
+	B V(A) -> B C(A)
+	B V(A) -> A C(D)
+	B V(A) -> B C(D)
+	B V(D) -> A C(B)
+
+    Donde:
+	A es un individuo,
+	B es otro individuo,
+	D otro individuo más,
+	( A =/= B =/= D ),
+	V es el predicado ver,
+	C es el predicado comer.
+
+ - Pero que lo diga la lógica no significa que es verdadero.
+
+De acuerdo,
+la lógica trata la forma y no el contenido.
+
+ - Pero puedes decir cualquier cosa con lógica.
+
+Las ventajas de la lógica son:
+
+    - que puedes decir menos cosas de manera lógica que de manera ilógica y
+        suponiendo que ese lenguaje comparte al menos un poco de estructura con el mundo,
+        las cosas que quedan son más probablemente ciertas y seguramente falsables.
+
+    - que expresa las cosas sin ambiguedades.
+
+ - $a -> b$ puede ser cualquier cosa.
+
+Sí, pero al momento de proponer las cosas lo defines.
+En ese momento dice sólo una cosa.
+
+ - Pero la lógica no tiene sentido.
+
+No, tiene forma.
+Su forma impide que se formen algunos sentidos, aunque no todos.
+
+ - La lógica no es válida.
+
+¿Qué significa siquiera ésto?
+
+ - Lo que pasa es que tienes fe en que el mundo comparte alguna estructura con nuestro lenguaje y te perturba pensar que no es así.
+    Te perturba tanto que estás gritando.
+
+Ciertamente tengo fe en que podemos pensar un poco del mundo.
+
+Y es que somos parte del mundo.
+Estamos hechos de lo mismo y
+funcionamos bajo las mismas reglas si es que las hay.
+
+Que hay más de lo que podemos contar o comprender, sí.
+Pero
+¿Qué te hace pensar que no podemos conocer siquiera cuatro objetos del universo?
+
+ - El mundo no comparte estructura con el lenguaje.
+
+Esta es una afirmación muy fuerte.
+Podría ser el caso tanto como podría no ser el caso.
+Podría ser el caso sólo parcialmente y en mayor o menor medida.
+
+Pero la **posibilidad** de que no sea el caso no es **prueba** de que no sea el caso.
+
+ - Me estás tratando como idiota.
+    Tu argumento básicamente ha sido «tu lógica está mal».
+
+Yo no dije que la lógica estuviera mal.
+La forma de tus argumentos es impecable.
+
+El problema son las premisas implícitas.
+Si pedir que se hagan explícitas y atacarlas es considerar a alguien tonto,
+me gusta ser considerado tonto de esa forma que requiere inteligencia de ambas partes.
+
+Y para que lo sepas,
+a quien considero tonto no le pido esforzarse así
+(sería pedir demasiado).

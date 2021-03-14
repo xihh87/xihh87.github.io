@@ -1,0 +1,46 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Correo desde la consola</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Correo desde la consola</h1><nav id=TableOfContents><ul><li><a href=#configurar-msmtp>Configurar msmtp</a></li><li><a href=#enviar-correo>Enviar correo</a></li></ul></nav><p>Por azares del destino reviso mi correo electrónico con emacs-notmuch
+y generalmente estoy contento con eso.</p><p>Sin embargo configurar el envío con varios correos es difícil
+(lo he hecho, me tardé un rato y no he querido volverlo a hacer).
+Parte del problema es que la mayoría de los programas
+que emacs puede usar para enviar correos son demasiado complejos.</p><p>Sin embargo encontré <a href=http://msmtp.sourceforge.net/ title="Mini ~~cliente para~~ SMTP, o sea correo." target=_blank rel=noopener>msmtp</a>,
+que se configura de manera muy simple y puede enviar correo desde la línea de comando.</p><pre tabindex=0><code>sudo apt-get install -y
+	emacs-nox
+	elpa-notmuch
+</code></pre><h2 id=configurar-msmtp><a href=#configurar-msmtp alt>Configurar msmtp</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>La configuración es un archivo de texto muy sencillo donde se escribe:</p><pre tabindex=0><code class="language-data[file=~/.msmtprc]" data-lang="data[file=~/.msmtprc]"># Set default values for all following accounts.
+defaults
+auth           on
+tls            on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile        ~/.msmtp.log
+
+account        cuenta1
+host           smtp.gmail.com
+port           587
+from           cuenta1@gmail.com
+user           cuenta1
+passwordeval   &#34;pass cuenta1@gmail.com&#34;
+
+account        cuenta2
+host           mail.correo.net
+port           25
+from           cuenta2@correo.net
+user           cuenta2
+passwordeval   &#34;pass cuenta2@correo.net&#34;
+</code></pre><p>En mi caso utilizo <a href=http://www.passwordstore.org/ title="Un gestor de contraseñas muy sencillo." target=_blank rel=noopener>pass</a>
+para entregarle la contraseña a msmtp.
+Así no tengo que escribirla en el archivo de configuración.</p><h2 id=enviar-correo><a href=#enviar-correo alt>Enviar correo</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>msmtp envía lo que se le entrega directamente (stdin).</p><p>Para enviar un correo, se puede utilizar el comando</p><pre><code>msmtp -a cuenta1 -- destinatario@mail.com dest2@dom2.com
+</code></pre><p>El programa entonces esperará que uno escriba el correo
+y termine con CTL+D.</p><p>Otra manera para enviar el correo es escribir un archivo
+y luego enviárselo con cat:</p><pre><code>cat archivo | msmtp -a cuenta1 -- destinatario@mail.com dest2@dom2.com
+</code></pre><h1 id=configurar-notmuch><a href=#configurar-notmuch alt>Configurar notmuch</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Para enviar correo utilizando msmtp,
+hice un script llamado <code>sendmail</code> en la primera ruta de mi <code>$PATH</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#75715e>#!/bin/sh
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>msmtp <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>	--read-envelope-from <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>	--read-recipients <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>	<span style=color:#e6db74>&#34;</span>$@<span style=color:#e6db74>&#34;</span>
+</span></span></code></pre></div><p>Para que juegue bien con emacs,
+agregué a <code>~/.emacs</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-emacs data-lang=emacs><span style=display:flex><span> <span style=color:#f92672>&#39;</span>(message-send-mail-function (quote message-send-mail-with-sendmail))
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#39;</span>(message-sendmail-f-is-evil <span style=color:#66d9ef>t</span>)
+</span></span><span style=display:flex><span> <span style=color:#f92672>&#39;</span>(mml-secure-openpgp-encrypt-to-self <span style=color:#66d9ef>t</span>)
+</span></span></code></pre></div></article></main></body></html>

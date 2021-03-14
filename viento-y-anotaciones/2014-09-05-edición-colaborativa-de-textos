@@ -1,0 +1,28 @@
+[Gobby](https://github.com/gobby/gobby/wiki ) permite que varias personas trabajen el mismo *texto* a la vez.
+
+Para instalarlo:
+
+    sudo pacman -Sy gobby infinoted # parabola/archlinux
+    sudo apt-get install gobby-infinote infinoted # trisquel/ubuntu/debian
+
+Una vez instalado, se puede [configurar infinoted](https://github.com/gobby/gobby/wiki/Dedicated%20Server )
+para alojar el contenido desde nuestra máquina.
+
+# Configuración de infinoted
+
+Se debe generar una carpeta para guardar la configuración.
+Para [cifrar el contenido](TLS), se debe generar [un par de llaves criptográficas]() y un certificado:
+
+    infinoted-0.6 --create-key --create-certificate # dependiendo de la versión del server.
+
+Claro que si queremos tener el servidor en internet, es preferible [comprar el certificado]() a una [entidad certificadora]().
+
+
+----
+
+Hay [otros](https://github.com/hackmdio/codimd "Este es el de los desarrolladores de hackmd.io")
+[editores](http://etherpad.org/ "")
+[de texto](https://gomockingbird.com/ "")
+[colaborativos](http://www.codingmonkeys.de/subethaedit/ "")
+que utilizan [operational transformation](http://www.codecommit.com/blog/java/understanding-and-applying-operational-transformation "")
+y [una página que promueve el modelo](http://operational-transformation.github.io/ "Operational Transformation")

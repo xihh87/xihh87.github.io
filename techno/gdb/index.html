@@ -1,0 +1,44 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Notas acerca de GDB.</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Notas acerca de GDB.</h1><nav id=TableOfContents><ul><li><a href=#detener-la-ejecución-del-programa>Detener la ejecución del programa</a></li><li><a href=#mostrar-lo-que-está-pasando>Mostrar lo que está pasando</a></li><li><a href=#ejecutar-comandos-en-cada-descanso>Ejecutar comandos en cada descanso</a></li><li><a href=#mirar-la-pila>Mirar la pila</a></li><li><a href=#diagnosticar-la-muerte-de-un-programa>Diagnosticar la muerte de un programa</a></li><li><a href=#diagnosticar-al-hijo-o-al-padre>Diagnosticar al hijo o al padre</a></li><li><a href=#mejorar-la-información-que-da-gdb-por-defecto>Mejorar la información que da gdb por defecto</a></li><li><a href=#si-quieres-simplificar-el-uso-de-gdb-puedes-utilizar-una-interfaz-gráfica>Si quieres simplificar el uso de GDB puedes utilizar una interfaz gráfica</a></li><li><a href=#tutoriales>Tutoriales</a></li></ul></nav><p>El programa que quieres analizar se debe compilar
+con las banderas de compilación (<code>CCFLAGS</code>) <code>-g</code> o <code>--debug</code>
+para mantener los nombres de variables y a veces de funciones.</p><p>También se pueden usar los símbolos de depurado desde un archivo a parte.</p><pre tabindex=0><code>gdb programa
+</code></pre><h2 id=detener-la-ejecución-del-programa><a href=#detener-la-ejecuci%c3%b3n-del-programa alt>Detener la ejecución del programa</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Para detener el programa en algún momento,
+se usa <code>break ${FUNCTION_OR_LINE} [ if ${CONDITION} ]</code>
+para generar un punto de descanso.</p><p>Se puede hacer condicional a un descanso
+después de haberlo establecido:</p><pre tabindex=0><code>cond ${BREAKPOINT} ${CONDITION}
+</code></pre><p>El descanso puede eliminarse en cualquier momento:</p><pre tabindex=0><code>del ${BREAKPOINT}
+</code></pre><p>En todos estos ejemplos <code>${BREAKPOINT}</code> es un número
+que depende del orden en que estableciste el descanso.</p><h2 id=mostrar-lo-que-está-pasando><a href=#mostrar-lo-que-est%c3%a1-pasando alt>Mostrar lo que está pasando</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Se puede mostrar los valores de las variables con <code>print variable</code>,
+los punteros se tienen que derefenciar: <code>print *puntero</code>,
+los arreglos se pueden ver <code>print *array@len</code>.</p><p>Se puede configurar para mostrar los valores cada descanso usando <code>display</code> en vez de <code>print</code>.</p><h2 id=ejecutar-comandos-en-cada-descanso><a href=#ejecutar-comandos-en-cada-descanso alt>Ejecutar comandos en cada descanso</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Ejecutar comandos con cada breakpoint:</p><pre tabindex=0><code>break ${SET_BREAKPOINT}
+commands ${BREAKPOINT}
+${COMMANDS}
+end
+</code></pre><p>Para ver las variables locales: <code>info locals</code> o <code>bt full</code>.</p><p>Se puede usar <code>commands</code> dentro de un ciclo:</p><pre tabindex=0><code>break ${SET_BREAKPOINT}
+commands ${BREAKPOINT}
+  break ${INNER_BREAKPOINT}
+  commands
+    ${INNER_COMMANDS}
+  end
+end
+</code></pre><pre tabindex=0><code>for ()
+</code></pre><p>Se puede hacer un script para automatizar el comando:</p><pre tabindex=0><code>gdb --command=archivo ./programa-compilado
+</code></pre><p>Para ver el código que se está explorando actualmente: <code>list</code>.</p><pre tabindex=0><code>disassemble ${FUNCTION_OR_MEMORY_ADDR}
+</code></pre><p>Activar y desactivar los breakpoints:</p><pre tabindex=0><code>enable ${BREAKPOINTS}
+disable ${BREAKPOINTS}
+</code></pre><p>Se puede avanzar una única instrucción con el comando <code>si</code>.</p><h2 id=mirar-la-pila><a href=#mirar-la-pila alt>Mirar la pila</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Para ver direcciones de memoria se puede usar el comando <code>x</code> que sirve para examinar.
+La sintaxis del comand es <code>x/${NUM}${FMT}${SIZE} ${MEMORY_ADDRESS}</code>.</p><p>Para ver el contenido del stack de una función a otra podrías usar:</p><pre tabindex=0><code>x/40xg $rsb
+</code></pre><p>Puedes ver más detalles usando en la consola de <code>GDB</code>: <code>help x</code>.</p><h2 id=diagnosticar-la-muerte-de-un-programa><a href=#diagnosticar-la-muerte-de-un-programa alt>Diagnosticar la muerte de un programa</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Si tu sistema está configurado para hacerlo,
+cada que un programa muere inesperadamente
+sus recuerdos antes de morir se guardan en un archivo.</p><p>Aparentemente <a href=https://stackoverflow.com/a/14082174/10467443 title="systemd guarda los volcados de memoria en su bitácora" target=_blank rel=noopener><code>systemd</code> guarda estos archivos en su bitácora</a>
+y se pueden consultar con el comando:</p><pre tabindex=0><code>coredumpctl dump ${QUERY} --output ${FILENAME}
+</code></pre><h2 id=diagnosticar-al-hijo-o-al-padre><a href=#diagnosticar-al-hijo-o-al-padre alt>Diagnosticar al hijo o al padre</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Cuando <a href=https://stackoverflow.com/a/6199292/10467443 title="Stack Overflow donde encontré esto" target=_blank rel=noopener>un proceso se bifurca, puedes elegir qué proceso diagnosticar</a>:</p><pre tabindex=0><code>set follow-fork-mode # [ child | parent ]
+</code></pre><p>Seguramente puedes dejar de diagnosticar el programa cuándo se convierte en otro:</p><pre tabindex=0><code>☐ PENDIENTE
+</code></pre><p><a href=https://sourceware.org/gdb/onlinedocs/gdb/Forks.html target=_blank rel=noopener>Documentación para diagnóstico de bifurcaciones en GDB</a></p><h2 id=mejorar-la-información-que-da-gdb-por-defecto><a href=#mejorar-la-informaci%c3%b3n-que-da-gdb-por-defecto alt>Mejorar la información que da gdb por defecto</a> <a href=# alt="Regresar al inicio">↑</a></h2><ul><li><p><a href=https://github.com/hugsy/gef title="Se pronuncia «Jeff» (ʤɛf en IPA)." target=_blank rel=noopener><code>gef</code></a>
+mejora la información de los descansos y agrega comandos.
+Medio me gusta.</p></li><li><p><a href=https://github.com/snare/voltron target=_blank rel=noopener><code>Voltron</code></a>
+también parece que puede mejorar varios programas.
+No lo he usado.</p></li><li><p><a href=https://github.com/longld/peda target=_blank rel=noopener>PEDA</a></p></li></ul><p>Para explorar binarios para ingeniería inversa
+conviene usar algo más parecido a <a href=https://cutter.re/ title="Porque R2 directamente necesita demasiada dedicación." target=_blank rel=noopener>cutter</a></p><h2 id=si-quieres-simplificar-el-uso-de-gdb-puedes-utilizar-una-interfaz-gráfica><a href=#si-quieres-simplificar-el-uso-de-gdb-puedes-utilizar-una-interfaz-gr%c3%a1fica alt>Si quieres simplificar el uso de GDB puedes utilizar una interfaz gráfica</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Algunos ejemplos:</p><ul><li><p><a href=https://www.gnu.org/software/ddd/ title="Se ve medio feo, no lo he probado." target=_blank rel=noopener><code>ddd</code></a></p></li><li><p><a href><code>nemiver</code></a>
+una interfaz gráfica con GTK para</p></li></ul><p>También puedes usar depuradores alternativos:</p><ul><li><a href=https://github.com/eteran/edb-debugger title="Un depurador con una intefaz gráfica padre" target=_blank rel=noopener><code>edb</code></a>
+me gusta porque muestra gráficamente la memoria</li></ul><h2 id=tutoriales><a href=#tutoriales alt>Tutoriales</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://wiki.gentoo.org/wiki/Stack-smashing-debugging-guide target=_blank rel=noopener>Diagnosticar buffer overrun</a></p><p><a href=https://intquestion.wordpress.com/2008/09/14/how-to-debug-a-corrupted-stack/ target=_blank rel=noopener>Diagnosticar una pila corrupta</a></p><p><a href=https://bob.cs.sonoma.edu/IntroCompOrg-x64/bookap3.html target=_blank rel=noopener>Usar <code>gdb</code> en el ensamblador</a></p></article></main></body></html>

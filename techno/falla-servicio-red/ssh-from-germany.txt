@@ -1,0 +1,157 @@
+OpenSSH_7.2p2, OpenSSL 1.0.2h  3 May 2016
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug2: resolving "hurlab.med.und.edu" port 22
+debug2: ssh_connect_direct: needpriv 0
+debug1: Connecting to hurlab.med.und.edu [134.129.167.14] port 22.
+debug1: Connection established.
+debug1: identity file /home/joshpar/.ssh/id_rsa type 1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/joshpar/.ssh/id_rsa-cert type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/joshpar/.ssh/id_dsa type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/joshpar/.ssh/id_dsa-cert type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/joshpar/.ssh/id_ecdsa type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/joshpar/.ssh/id_ecdsa-cert type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/joshpar/.ssh/id_ed25519 type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/joshpar/.ssh/id_ed25519-cert type -1
+debug1: Enabling compatibility mode for protocol 2.0
+debug1: Local version string SSH-2.0-OpenSSH_7.2
+debug1: Remote protocol version 2.0, remote software version OpenSSH_7.2p2 Ubuntu-4ubuntu2.1
+debug1: match: OpenSSH_7.2p2 Ubuntu-4ubuntu2.1 pat OpenSSH* compat 0x04000000
+debug2: fd 3 setting O_NONBLOCK
+debug1: Authenticating to hurlab.med.und.edu:22 as 'guillermo'
+debug3: hostkeys_foreach: reading file "/home/joshpar/.ssh/known_hosts"
+debug3: record_hostkey: found key type ECDSA in file /home/joshpar/.ssh/known_hosts:2
+debug3: load_hostkeys: loaded 1 keys from hurlab.med.und.edu
+debug3: order_hostkeyalgs: prefer hostkeyalgs: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521
+debug3: send packet: type 20
+debug1: SSH2_MSG_KEXINIT sent
+debug3: receive packet: type 20
+debug1: SSH2_MSG_KEXINIT received
+debug2: local client KEXINIT proposal
+debug2: KEX algorithms: curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,ext-info-c
+debug2: host key algorithms: ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ssh-rsa
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,3des-cbc
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,3des-cbc
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com,zlib
+debug2: compression stoc: none,zlib@openssh.com,zlib
+debug2: languages ctos:
+debug2: languages stoc:
+debug2: first_kex_follows 0
+debug2: reserved 0
+debug2: peer server KEXINIT proposal
+debug2: KEX algorithms: curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1
+debug2: host key algorithms: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com
+debug2: compression stoc: none,zlib@openssh.com
+debug2: languages ctos:
+debug2: languages stoc:
+debug2: first_kex_follows 0
+debug2: reserved 0
+debug1: kex: algorithm: curve25519-sha256@libssh.org
+debug1: kex: host key algorithm: ecdsa-sha2-nistp256
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug3: send packet: type 30
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug3: receive packet: type 31
+debug1: Server host key: ecdsa-sha2-nistp256 SHA256:DYDjYyhNPcXZTRtSlYLBzldOcEzYFM1nHGs1jDzcTS0
+debug3: hostkeys_foreach: reading file "/home/joshpar/.ssh/known_hosts"
+debug3: record_hostkey: found key type ECDSA in file /home/joshpar/.ssh/known_hosts:2
+debug3: load_hostkeys: loaded 1 keys from hurlab.med.und.edu
+debug3: hostkeys_foreach: reading file "/home/joshpar/.ssh/known_hosts"
+debug3: record_hostkey: found key type ECDSA in file /home/joshpar/.ssh/known_hosts:2
+debug3: load_hostkeys: loaded 1 keys from 134.129.167.14
+debug1: Host 'hurlab.med.und.edu' is known and matches the ECDSA host key.
+debug1: Found key in /home/joshpar/.ssh/known_hosts:2
+debug3: send packet: type 21
+debug2: set_newkeys: mode 1
+debug1: rekey after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug3: receive packet: type 21
+debug2: set_newkeys: mode 0
+debug1: rekey after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS received
+debug2: key: /home/joshpar/.ssh/id_rsa (0x7f51b44f13f0)
+debug2: key: /home/joshpar/.ssh/id_dsa ((nil))
+debug2: key: /home/joshpar/.ssh/id_ecdsa ((nil))
+debug2: key: /home/joshpar/.ssh/id_ed25519 ((nil))
+debug3: send packet: type 5
+debug3: receive packet: type 7
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<rsa-sha2-256,rsa-sha2-512>
+debug3: receive packet: type 6
+debug2: service_accept: ssh-userauth
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug3: send packet: type 50
+debug3: receive packet: type 53
+debug3: input_userauth_banner
+-------------------------------------------------------------------------------
+                            !!!  WARNING  !!!
+You are accessing a University of North Dakota Information System (IS) that is
+provided for authorized use only. By using this IS, which includes any device
+attached to this IS, you consent to the following conditions:
++ The University of North Dakota routinely intercepts and monitors
+  communications on this IS for purposes including, but not limited to,
+  penetration testing, COMSEC monitoring, network operations and defense,
+  personnel misconduct (PM), law enforcement (LE), and counterintelligence
+  (CI) investigations.
++ At any time, the University of North Dakota may inspect and seize data
+  stored on this IS.
++ Communications using, or data stored on, this IS are not private, are
+  subject to routine monitoring, interception, and search, and may be
+  disclosed or used for any University of North Dakota authorized purpose.
++ This IS includes security measures (e.g., authentication and access controls)
+  to protect University of North Dakota interests--not for your personal
+  benefit or privacy.
++ Notwithstanding the above, using this IS does not constitute consent to PM,
+  LE or CI investigative searching or monitoring of the content of privileged
+  communications, or work product, related to personal representation or
+  services by attorneys, psychotherapists, or clergy, and their assistants.
+  Such communications and work product are private and confidential. See User
+  Agreement for details.
+-------------------------------------------------------------------------------
+debug3: receive packet: type 51
+debug1: Authentications that can continue: publickey,password
+debug3: start over, passed a different list publickey,password
+debug3: preferred publickey,keyboard-interactive,password
+debug3: authmethod_lookup publickey
+debug3: remaining preferred: keyboard-interactive,password
+debug3: authmethod_is_enabled publickey
+debug1: Next authentication method: publickey
+debug1: Offering RSA public key: /home/joshpar/.ssh/id_rsa
+debug3: send_pubkey_test
+debug3: send packet: type 50
+debug2: we sent a publickey packet, wait for reply
+debug3: receive packet: type 51
+debug1: Authentications that can continue: publickey,password
+debug1: Trying private key: /home/joshpar/.ssh/id_dsa
+debug3: no such identity: /home/joshpar/.ssh/id_dsa: No such file or directory
+debug1: Trying private key: /home/joshpar/.ssh/id_ecdsa
+debug3: no such identity: /home/joshpar/.ssh/id_ecdsa: No such file or directory
+debug1: Trying private key: /home/joshpar/.ssh/id_ed25519
+debug3: no such identity: /home/joshpar/.ssh/id_ed25519: No such file or directory
+debug2: we did not send a packet, disable method
+debug3: authmethod_lookup password
+debug3: remaining preferred: ,password
+debug3: authmethod_is_enabled password
+debug1: Next authentication method: password
+guillermo@hurlab.med.und.edu's password:
+debug3: send packet: type 50
+debug2: we sent a password packet, wait for reply
+debug3: receive packet: type 51
+debug1: Authentications that can continue: publickey,password
+Permission denied, please try again.
+guillermo@hurlab.med.und.edu's password:

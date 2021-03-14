@@ -1,0 +1,63 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Generar un contenedor de OpenVAS</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Generar un contenedor de OpenVAS</h1><nav id=TableOfContents><ul><li><a href=#desde-kali-linux>Desde Kali Linux</a></li><li><a href=#desde-debian-10>Desde Debian 10</a></li><li><a href=#enlaces-prometedores>Enlaces prometedores</a></li></ul></nav><h2 id=desde-kali-linux><a href=#desde-kali-linux alt>Desde Kali Linux</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>El script de configuración de Kali Linux requiere
+que <a href=../c%c3%b3mo-usar-systemd-docker/>el contenedor ejecute systemd</a>.</p><pre tabindex=0><code># apt-get update &amp;&amp;
+apt-get install gvm openvas
+# gvm-setup
+</code></pre><h2 id=desde-debian-10><a href=#desde-debian-10 alt>Desde Debian 10</a> <a href=# alt="Regresar al inicio">↑</a></h2><pre tabindex=0><code># https://launchpad.net/~mrazavi/+archive/ubuntu/gvm
+$ sudo apt-get install postgresql
+$ sudo add-apt-repository ppa:mrazavi/gvm
+$ sudo apt install gvm
+
+| A note for GVM 10 users:
+|
+| GVM-10 supported both SQLite and PostgreSQL as database backend for gvmd. Unfortunately GVM-11 only supports PostgreSQL, so if you are using SQLite backend, you have to migrate to PostgreSQL. More info is available on https://github.com/greenbone/gvmd/blob/v9.0.0/INSTALL.md#migrating-from-sqlite-to-postgresql
+|
+| Another new change in GVM-11 is that openvas-scanner package is now renamed to openvas. The new openvas package doesn&#39;t provide a daemon. Instead there is a new ospd-openvas package/daemon which executes openvas binary and gvmd connects to ospd-openvas with OSP protocol to perform the vulnerability scans.
+|
+| Finally, if you were using PostgreSQL backend with GVM-10 it is worth noting that gvmd package will migrate the database automatically for you. But if you have problems with the database you can run the following commands to do it manually:
+|
+| . /etc/default/gvmd
+| gvmd --migrate
+|
+| And if gvmd is complaining it cannot connect to openvas it maybe because the scanner defined in the database is outdated. You can always recreate a new database with:
+|
+| # IMPORTANT NOTE: if you choose to reinstall the database the old database
+| #                 will be deleted and you will loose the associated data
+| #                 e.g. all the scans, reports, etc. WILL BE DELETED.
+| sudo dpkg-reconfigure gvmd-pg
+|
+| Also GVM 10 nvticache in the redis is not compatible with GVM 11 so you have to flush the cache in the redis after upgrading the GVM:
+|
+| sudo redis-cli -s /var/run/redis/redis.sock FLUSHALL
+|
+| A note for OpenVAS 9 users:
+|
+| The new gvm-10 packages of this PPA are not compatible with openvas-9 series. To upgrade from openvas-9 to gvm-10, you have to first backup your data, most importantly the &#34;mgr&#34; directory containing the tasks.db database located at /var/lib/openvas/mgr; then purge the old packages with the following commands:
+|
+| sudo systemctl stop openvas-manager
+| mkdir ~/openvas-backup
+| sudo cp -a /var/lib/openvas ~/openvas-backup/lib
+| sudo cp -a /etc/openvas ~/openvas-backup/etc
+|
+| sudo apt purge &#39;openvas9*&#39; &#39;libopenvas9*&#39;
+| sudo rm -rf /var/log/openvas /var/lib/openvas /var/cache/openvas/
+|
+| Then, you can install gvm-10 with the previous instructions of the PPA. Finally you can restore the tasks.db by the following commands:
+|
+| sudo systemctl stop gvmd
+| sudo rm -f /var/lib/gvm/gvmd/gvmd.db*
+| echo .dump | sudo sqlite3 ~/openvas-backup/lib/mgr/tasks.db | \
+|              sudo sqlite3 /var/lib/gvm/gvmd/gvmd.db
+| sudo gvmd --migrate
+| sudo systemctl start gvmd
+|
+| For more information read the gvmd manual at: https://github.com/greenbone/gvmd/blob/v8.0.0/INSTALL.md#migrating-to-version-80
+|  Más información: https://launchpad.net/~mrazavi/+archive/ubuntu/gvm
+|  Pulse [ENTRAR] para continuar o Ctrl+C para cancelar la adición.
+</code></pre><p>Guardé la contraseña como <code>gvm@ferrum</code>.</p><p>¿gvm-setup?</p><pre tabindex=0><code>sudo -u gvm -g gvm greenbone-nvt-sync
+sudo -u gvm -g gvm greenbone-feed-sync --type CERT
+sudo -u gvm -g gvm greenbone-feed-sync --type SCAP
+sudo -u gvm -g gvm greenbone-feed-sync --type GVMD_DATA
+</code></pre><p>Se puede reiniciar la contraseña de administrador con el comando:</p><pre tabindex=0><code>openvasmd --user=admin --new-password=new_password # openvas 9
+gvmd --user=admin --new-password=${PASSWORD} # openvas 21
+</code></pre><h2 id=enlaces-prometedores><a href=#enlaces-prometedores alt>Enlaces prometedores</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://cybersecurity.cs.wmich.edu/index.php/2020/05/07/installing-openvas-on-ubuntu-18-04-server/ target=_blank rel=noopener>Cómo instalar OpenVAS en Ubuntu 18.04</a></p><p><a href=https://blog.eldernode.com/install-and-configure-openvas-on-ubuntu/ target=_blank rel=noopener>Otro manual para instalar OpenVAS en Ubuntu</a></p><p><a href=https://launchpad.net/~mrazavi/+archive/ubuntu/gvm target=_blank rel=noopener>El Personal Package Archive de <code>gvm</code> para Ubuntu con instrucciones de instalación</a></p></article></main></body></html>

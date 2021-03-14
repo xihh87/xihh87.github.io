@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cómoes on Joshua Haase</title><link>https://joshua.haase.mx/c%C3%B3mo/</link><description>Recent content in Cómoes on Joshua Haase</description><generator>Hugo -- gohugo.io</generator><language>es-mx</language><lastBuildDate>Tue, 03 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/c%C3%B3mo/index.xml" rel="self" type="application/rss+xml"/><item><title>Organizar CSAW</title><link>https://joshua.haase.mx/c%C3%B3mo/organizar-csaw/</link><pubDate>Tue, 03 Jan 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/organizar-csaw/</guid><description>Objetivo ↑Para la Universidad Iberoamericana CDMX que quiere atraer estudiantes talentosos a las carreras de ingeniería el «Cyber Security Challenge for High School» es un concurso en el marco del CSAW que reúne estudiantes de preparatoria con talento en informática e interés por la seguridad informática y a diferencia de otros concursos en CTF Time nuestro proyecto se realiza en el marco de un evento de prestigio internacional.
+Proceso general ↑ Obtener permisos ↑Generar bases de concurso ↑Permiso NYU ↑ Permiso Segob ↑ Comprar premios ↑ Gestionar Infraestructura ↑Infraestructura Física ↑ Infraestructura Digital ↑ Diseñar retos ↑ Promover el evento ↑ Realizar el evento ↑Requisitos previos al evento ↑ Actualizar diagramas de proceso ↑La sintaxis está documentada en Diagramas a partir de texto.</description></item><item><title>Comprar infra para CTF</title><link>https://joshua.haase.mx/c%C3%B3mo/comprar-infra-cschs/</link><pubDate>Wed, 16 Nov 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/comprar-infra-cschs/</guid><description>Con el objetivo de agilizar la compra de la infraestructura del «Cyber Security Challenge for High School» (y dormir mejor), documento este proceso.
+Infraestructura ↑ctfd.io ofrece dos servicios en un único paquete:
+Proceso para desplegar la infraestructura ↑ Equivalente en AWS ↑Si quisiéramos replicar el servicio PLUS de CTFd en AWS, tendríamos algo similar a esto:
+Interacción de los usuarios con el servicio ↑ Proceso de compra ↑</description></item><item><title>Verificar la seguridad de un sitio web</title><link>https://joshua.haase.mx/c%C3%B3mo/verificar-seguridad-web/</link><pubDate>Wed, 12 Oct 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/verificar-seguridad-web/</guid><description>Verificar sospecha de malware ↑Estos son los servicios recomendados por Cisco Umbrella para verificar la seguridad:
+Google Safe Browsing.
+Virus Total.
+SURBL Reputation.
+Malware domain list no entrar a ningún dominio que se encuentre aquí.
+Para verificar clasificación diferente de malware:
+OpenDNS Tagging. Verificar URL sospechosas ↑ URL Scan. Verificar configuración de seguridad ↑ Seguridad de encabezados.
+Configuración de TLS.
+Política de pre-cargado de TLS
+Si utilizas wordpress ↑ Analizar con WPScan.</description></item><item><title>Agregar usuarios al proyecto de divulgación</title><link>https://joshua.haase.mx/c%C3%B3mo/divulgaci%C3%B3n-usuarios/</link><pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/divulgaci%C3%B3n-usuarios/</guid><description>Generar invitaciones en las herramientas que utilizamos:
+GitLab para gestionar el proyecto.
+Directorio compartido del proyecto
+Enviar este mensaje:
+NOMBRE, Este es el [directorio del proyecto][1] y [el gestor de proyecto][2]. Por favor guarda estos enlaces en tus favoritos para que tengas acceso al proyecto. El enlace del directorio de proyecto es exclusivo para ti, si tienes dudas para acceder, por favor revisa [este video][3]. Para acceder al gestor de proyecto debió haberte llegado una invitación de GitLab, que igualmente [tiene video de instrucciones][4].</description></item><item><title>Transcribir entrevistas</title><link>https://joshua.haase.mx/c%C3%B3mo/transcribir-entrevistas/</link><pubDate>Sat, 02 Apr 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/transcribir-entrevistas/</guid><description>Si se graba únicamente el audio de la entrevista ↑ Convertir el audio a video aceptado por YouTube:
+ffmpeg \ -r 1 \ -loop 1 \ -i ${IMAGE} \ -i ${AUDIO} \ -acodec copy \ -r 1 \ -shortest \ -vf scale=1280:720 \ ${NAME}.flv También se pueden seguir estas instrucciones
+Ahora sí se puede subir el video a YouTube para seguir el otro procedimiento.
+Procedimiento: ↑ Subir el video a YouTube con la cuenta seminariobibliotecaucd (gmail.</description></item><item><title>Administrar usuarios</title><link>https://joshua.haase.mx/c%C3%B3mo/configurar-usuarios-nuevos-en-servidor/</link><pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/configurar-usuarios-nuevos-en-servidor/</guid><description>Cambiar al directorio de infraestructura.
+cr o/g Agregar el usuario a la configuración, en la sección student_users.
+ansible-vault edit inventory.yml - user: &amp;#34;&amp;#34; name: &amp;#34;&amp;#34; group: &amp;#34;&amp;#34; groups: &amp;#34;&amp;#34; key: &amp;#34;&amp;#34; state: present force_password_change: false Agregar la clave pública si existe en ssh_keys.
+Generar el nuevo usuario en la configuración.
+. .venv/bin/activate ansible-playbook playbooks/sirio-users.yml Reestablecer la contraseña de los usuarios ↑ Activar el cambio de contraseña para el usuario:</description></item><item><title>Cómo programar</title><link>https://joshua.haase.mx/c%C3%B3mo/programar/</link><pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/programar/</guid><description>&amp;ldquo;El trabajo de un ingeniero de software no es escribir código, es resolver problemas.&amp;rdquo;
+Definir el problema.
+Buscar si alguien más ya resolvió el problema.
+Escribir en lenguaje humano cómo resolveríamos el problema. Esta es la forma más barata de diseño, no es tan pesado como la fase de diseño Waterfall, pero permite pensar cómo resolver el problema, diseñar interfaces, identificar incógnitas. Describir mejor hasta que se pueda traducir fácilmente a lenguaje de máquina.</description></item><item><title>Medir tiempo de trabajo en proyectos con `timew`</title><link>https://joshua.haase.mx/c%C3%B3mo/medir-trabajo/</link><pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/medir-trabajo/</guid><description>Yo uso timewarrior, paquete timew en Arch, BTW.
+Al empezar a trabajar en una tarea:
+timew track \ &amp;#34;Descripción de la actividad&amp;#34; \ +proyecto Al terminar la tarea o dejar de trabajar en ella.
+timew stop Si continúo sobre la última tarea que se detuvo.
+timew continue También puede continuarse una tarea anterior:
+timew summary \ from yesterday to now :ids timew continue @${TASK_ID} Al terminar el proyecto puedo reportar el tiempo copiando la salida de:</description></item><item><title>Optimizar página estática</title><link>https://joshua.haase.mx/c%C3%B3mo/optimizar-una-web-est%C3%A1tica-para-seo/</link><pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/optimizar-una-web-est%C3%A1tica-para-seo/</guid><description>Usar los elementos correctos mejora la accesibilidad y la calificación.
+Verificar el rendimiento en estas herramientas:
+Revisión de seguridad
+Accesibilidad (más opciones acá)
+Velocidad de carga y respuesta (existe una biblioteca para monitorear parámetros de carga y respuesta en cada navegador).
+Funcionamiento en móviles.
+Search Engine Optimization (SEO) ↑Google ofrece herramientas para mejorar tus resultados de búsqueda.
+Algunas de las cosas que puedes usar son:
+Usar títulos descriptivos, incluyendo la marca, usar la descripción para generar los snippets de google.</description></item><item><title>Usar tus credenciales en servidores que administro</title><link>https://joshua.haase.mx/c%C3%B3mo/usuarios-nuevos-en-servidor/</link><pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/usuarios-nuevos-en-servidor/</guid><description>Instrucciones en video ↑ Instrucciones en texto para quienes no quieren esperar ↑ Escribir el comando para entrar al servidor
+USUARIO=a2229727 SERVIDOR= # p.e. haase.mx, sirio.sis.uia.mx, 200.13.106.60 ssh ${USUARIO}@${SERVIDOR} Escribir tu contraseña para entrar al servidor.
+# tu contraseña es holausuario # con los datos del paso anterior: holaa2229727 hola${USUARIO} Escribir nuevamente tu contraseña para iniciar el cambio de contraseña.
+hola${USUARIO} Escribir dos veces tu nueva contraseña.
+La primera vez es para generar la contraseña.</description></item><item><title>Hacer retos para CTF</title><link>https://joshua.haase.mx/c%C3%B3mo/generar-retos-ctf/</link><pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/generar-retos-ctf/</guid><description>Requisitos previos ↑ Instalar ctfcli.
+Generar un token de administación (instrucciones).
+En este ejemplo nuestro token es: 000000000000000
+El tuyo sería diferente y mucho más largo.
+Configurar ctfcli:
+ctf init Y agregar los datos:
+Please enter CTFd instance URL: https://cschs.ctfd.io/ Please enter CTFd Admin Access Token: Please enter CTFd Admin Access Token: 000000000000000 Do you want to continue with https://cschs.ctfd.io/ and 000000000000000 [y/N]: y Reinicializado el repositorio Git existente en /ruta/a/juegos/ Generar retos ↑Generar un reto nuevo:</description></item><item><title>Gestionar proyectos con GitLab</title><link>https://joshua.haase.mx/c%C3%B3mo/usar-gitlab/</link><pubDate>Mon, 11 Oct 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/usar-gitlab/</guid><description>Los proyectos deben tener un objetivo claramente documentado a partir del cuál se pueden establecer tareas.
+Generar tareas ↑La lista de cosas que tienen que hacerse para lograr el objetivo se registra como tareas en el proyecto.
+Las tareas deben tener información suficiente para que cualquier persona capacitada las realice. Cuando agregamos una tarea hay que responder las siguientes preguntas:
+¿Qué se necesita hacer?
+¿Dónde se va a guardar el resultado?</description></item><item><title>Hacer hojas de trabajo</title><link>https://joshua.haase.mx/c%C3%B3mo/hacer-hojas-de-trabajo/</link><pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/hacer-hojas-de-trabajo/</guid><description>Hice una plantilla de documento que me permite hacer cuestionarios rellenables en PDF basada en eisvogel que usa hyperref para hacer formularios.
+Además hice una imagen de docker para construir mis sistemas.
+Por lo tanto, puedo usar algunos comandos para hacer varios formularios:
+% formulario en lo que queda del renglón \textline % formulario de varias líneas \textbox % formulario para pedacitos de tabla \textarea % para indicar sí / no \checkbox % agregar 5 checkboxes para calificaciones \fivestars Requisitos ↑Una cuenta en GitLab ó instalar los requisitos de la plantilla.</description></item><item><title>Grabar screencasts…</title><link>https://joshua.haase.mx/c%C3%B3mo/grabar-cursos/</link><pubDate>Thu, 26 Aug 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/grabar-cursos/</guid><description>…cuando se usan herramientas de terminal ↑ Grabar con asciinema rec.
+Hacer los pasos en la terminal.
+Terminar la grabación con exit o Ctrl-D
+Editar con asciinema-edit quantize
+…cuando se usan presentaciones y aplicaciones gráficas ↑ Abrir los programas que se usarán en la grabación y ponerlos en escritorios.
+Configurar la pantalla de video para ser pequeña.
+xrandr --output eDP1 --mode 1280x720 Usar OBS para grabar el video.
+Editar en video con Kdenlive.</description></item><item><title>Dar mantenimiento a sitios en WordPress</title><link>https://joshua.haase.mx/c%C3%B3mo/dar-mantenimiento-a-wordpress/</link><pubDate>Fri, 21 Aug 2020 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/dar-mantenimiento-a-wordpress/</guid><description>Como es malo hacer cambios en producción, es conveniente hacer un respaldo antes de cambiar el sitio.
+Configurar sistema para intercambiar archivos.
+Hacer un respaldo del sitio web:
+Descargar la base de datos.
+Descargar el sitio web.
+Copiar este archivo en el directorio de desarrollo.
+Configurar el certificado SSL en caso de ser necesario.
+openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 -subj \ &amp;#34;/C=../ST=...../L=..../O=..../CN=...&amp;#34; \ -keyout ./ssl.key -out .</description></item><item><title>Emitir Facturas</title><link>https://joshua.haase.mx/c%C3%B3mo/emitir-facturas/</link><pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/emitir-facturas/</guid><description>Si estás leyendo esto y no eres yo, considera que este es mi proceso personal y posiblemente tú tienes otras necesidades.
+En particular, muy probablemente cambie la configuración de servicios.
+Para efectos legales: esto no es asesoría contable.
+Generar constancia de situación fiscal ↑ Entrar al sitio web del SAT. Navegar el menú de esta forma: Otros Trámites y Servicios &amp;gt; Servicios básicos del Contribuyente &amp;gt; Genera tu constancia de Situación Fiscal &amp;gt; Ejecutar en línea RFC, Contraseña y Captcha | eFirma.</description></item><item><title>Hacer una página web</title><link>https://joshua.haase.mx/c%C3%B3mo/hacer-una-p%C3%A1gina-web/</link><pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/hacer-una-p%C3%A1gina-web/</guid><description>Desde una plantilla ↑ Generar un proyecto en el grupo de GitLab
+Documentar el objetivo de la página, las expectativas del cliente y el contexto necesario para tomar decisiones en el proyecto.
+Seleccionar el tema más adecuado para el proyecto.
+Generar el directorio del sitio: hugo new site [nombre]
+Clonar el código del tema en el directorio themes del sitio: git submodule add [tema]
+Copiar la configuración del tema sobre la configuración del sitio:</description></item><item><title>Registrar usuario en GitLab.com</title><link>https://joshua.haase.mx/c%C3%B3mo/registrarse-en-gitlab/</link><pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/c%C3%B3mo/registrarse-en-gitlab/</guid><description>Registrar tu cuenta en GitLab o usar una de las cuentas permitidas de otros servicios (abajo en la página).
+Enviar el nombre de usuario a mi correo para registrarte como parte del equipo.
+Agregar contraseña a GitLab.
+Cómo subir el código de forma segura sin usar tu contraseña ↑Si usas GitLab descargas tu código desde una plataforma web, cuando quieres subir código a tu proyecto te pide usuario y contraseña.</description></item></channel></rss>

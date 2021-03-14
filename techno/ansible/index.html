@@ -1,0 +1,45 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Anotaciones con respecto de ansible</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Anotaciones con respecto de <code>ansible</code></h1><nav id=TableOfContents><ul><li><a href=#ejecutar-un-rol-de-ansiblehttpsstackoverflowcomquestions38350674ansible-can-i-execute-role-from-command-line38384205><a href=https://stackoverflow.com/questions/38350674/ansible-can-i-execute-role-from-command-line#38384205>Ejecutar un rol de Ansible</a></a></li><li><a href=#roles-interesantes>Roles interesantes</a></li><li><a href=#registrar-variables-en-ansible>Registrar variables en ansible</a></li><li><a href=#pendientes>Pendientes</a></li><li><a href=#error-extraño-en-ansible>Error extraño en ansible</a></li><li><a href=#diferencia-entre-módulos-shell-y-command>Diferencia entre módulos <code>shell</code> y <code>command</code></a></li></ul></nav><p>La principal ventaja que tienen con respecto de los scripts,
+es que se puede declarar el objetivo final y no por instrucciones.
+No tienes que programar tu mismo las pruebas para verificar la configuración del sistema
+y no tienes que programar tu mismo las instrucciones para aplicarlo.</p><p>Como muchísimas personas usan el sistema,
+los módulos que verifican la configuración y la aplican
+tienen mucha más madurez que la primer cosa que se te ocurre.</p><p><code>Ansible</code> permite declarar el estado final de tu infraestructura.</p><p>Se puede utilizar <code>Molecule</code> para <a href=https://github.com/ansible/molecule target=_blank rel=noopener>probar los módulos de Ansible en diferentes escenarios</a>
+y <a href=https://dzone.com/articles/automating-the-test-of-your-infrastructure-code target=_blank rel=noopener>verificar la integridad de tus roles</a>.</p><h2 id=ejecutar-un-rol-de-ansiblehttpsstackoverflowcomquestions38350674ansible-can-i-execute-role-from-command-line38384205><a href=#ejecutar-un-rol-de-ansiblehttpsstackoverflowcomquestions38350674ansible-can-i-execute-role-from-command-line38384205 alt><a href=https://stackoverflow.com/questions/38350674/ansible-can-i-execute-role-from-command-line#38384205 target=_blank rel=noopener>Ejecutar un rol de Ansible</a></a> <a href=# alt="Regresar al inicio">↑</a></h2><pre tabindex=0><code>ROLE_NAME=
+ansible localhost -m include_role -a name=${ROLE_NAME} --become
+</code></pre><h2 id=roles-interesantes><a href=#roles-interesantes alt>Roles interesantes</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://github.com/phips/ansible-demos/blob/master/roles/sudo/tasks/main.yml target=_blank rel=noopener>Gestionar usuarios en sudo por tiempo limitado</a></p><p><a href=https://galaxy.ansible.com/singleplatform-eng/users target=_blank rel=noopener>Gestionar usuarios estáticos</a></p><h2 id=registrar-variables-en-ansible><a href=#registrar-variables-en-ansible alt>Registrar variables en ansible</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Pueden interactuarse con las variables cuando las tareas fallan
+agregando el parámetro <code>debug: on_failed</code> a las tareas.</p><p>Pueden mostrarse las variables registradas con el módulo <code>debug</code>:</p><pre tabindex=0><code>- name: tarea registrada
+  ansible.builtin.command: echo hola
+  register: registro
+
+- name: mostrar el registro
+  ansible.builtin.debug:
+    var: registro
+</code></pre><p>Las variables registradas pueden usarse en ciclos:</p><pre tabindex=0><code>- name: tarea registrada
+  ansible.builtin.command: echo hola
+  with_items:
+  - &#34;{{ lista_de_paràmetros }}&#34;
+  register: registro
+
+- name: mostrar el registro
+  ansible.builtin.debug:
+  with_items:
+  - &#34;{{ registro }}&#34;
+  when: item.changed
+</code></pre><p><a href=https://docs.ansible.com/ansible/latest/user_guide/playbooks_debugger.html#playbook-debugger target=_blank rel=noopener>La información para depurar puede mostrarse en diferentes niveles</a>:</p><ul><li>Línea de comandos</li><li>Configuración</li><li>En la tarea: agregar <code>debug: always</code> en la tarea</li></ul><h2 id=pendientes><a href=#pendientes alt>Pendientes</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://opensource.com/business/15/6/automate-time-consuming-tasks target=_blank rel=noopener>Cosas que ya hacía pero tal vez vienen herramientas que no vi</a></p><p><a href=https://opensource.com/article/19/8/ops-tasks-ansible target=_blank rel=noopener>Ejemplos de tareas Ops que se hacen con Ansible</a></p><h2 id=error-extraño-en-ansible><a href=#error-extra%c3%b1o-en-ansible alt>Error extraño en ansible</a> <a href=# alt="Regresar al inicio">↑</a></h2><pre tabindex=0><code>(.venv) x@ferrum:~/src/gitlab.com/xihh87/prometheus$ python -m pip install python-apt
+Collecting python-apt
+  Using cached python-apt-0.7.8.tar.bz2 (49 kB)
+    ERROR: Command errored out with exit status 1:
+     command: /home/x/src/gitlab.com/xihh87/prometheus/.venv/bin/python -c &#39;import sys, setuptools, tokenize; sys.argv[0] = &#39;&#34;&#39;&#34;&#39;/tmp/pip-install-xe1yx1bs/python-apt/setup.py&#39;&#34;&#39;&#34;&#39;; __file__=&#39;&#34;&#39;&#34;&#39;/tmp/pip-install-xe1yx1bs/python-apt/setup.py&#39;&#34;&#39;&#34;&#39;;f=getattr(tokenize, &#39;&#34;&#39;&#34;&#39;open&#39;&#34;&#39;&#34;&#39;, open)(__file__);code=f.read().replace(&#39;&#34;&#39;&#34;&#39;\r\n&#39;&#34;&#39;&#34;&#39;, &#39;&#34;&#39;&#34;&#39;\n&#39;&#34;&#39;&#34;&#39;);f.close();exec(compile(code, __file__, &#39;&#34;&#39;&#34;&#39;exec&#39;&#34;&#39;&#34;&#39;))&#39; egg_info --egg-base /tmp/pip-install-xe1yx1bs/python-apt/pip-egg-info
+         cwd: /tmp/pip-install-xe1yx1bs/python-apt/
+    Complete output (5 lines):
+    Traceback (most recent call last):
+      File &#34;&lt;string&gt;&#34;, line 1, in &lt;module&gt;
+      File &#34;/tmp/pip-install-xe1yx1bs/python-apt/setup.py&#34;, line 6, in &lt;module&gt;
+        from DistUtilsExtra.command import *
+    ModuleNotFoundError: No module named &#39;DistUtilsExtra&#39;
+    ----------------------------------------
+ERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+</code></pre><pre tabindex=0><code>python -m pip install git+https://salsa.debian.org/apt-team/python-apt.git@2.1.5
+</code></pre><h2 id=diferencia-entre-módulos-shell-y-command><a href=#diferencia-entre-m%c3%b3dulos-shell-y-command alt>Diferencia entre módulos <code>shell</code> y <code>command</code></a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://stackoverflow.com/questions/56663332/difference-between-shell-and-command-in-ansible#58455903 target=_blank rel=noopener><code>ansible.builtin.shell</code> procesa los comandos como una consola POSIX,
+<code>ansible.buildin.command</code> ejecuta el comando sin reprocesar.</a></p></article></main></body></html>

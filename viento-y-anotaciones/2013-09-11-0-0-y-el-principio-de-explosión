@@ -1,0 +1,21 @@
+---
+date: "2016-10-09T21:24:02-05:00"
+categories: []
+title: "$\frac{0}{0}$"
+author: "Joshua Haase"
+---
+
+Si $a / b = c$ entonces $c \times b = c$.
+La idea es simple, pero hay un caso que me llama mucho la atención:
+
+$a = 0$, $b = 0$.
+
+Para cualquier $c$, $c \times b = a$.
+Eso significa que cualquier opción *podría ser* correcta.
+
+Hay además otro problema: hay varias formas de hacer $a$ y $b$.
+Por ejemplo $(3 - 3)$, o $\sin(0)$.
+
+Lo curioso es que dependiendo de cómo se plantee la operación puede haber una solución específica.
+Por ejemplo, en el caso: $\frac{x^2}{x} | x=0$
+La solución es necesariamente $c = 0$.

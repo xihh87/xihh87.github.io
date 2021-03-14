@@ -1,0 +1,46 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Instalar Kali en WSL2</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Instalar Kali en WSL2</h1><nav id=TableOfContents><ul><li><a href=#exponer-ssh-en-red-local>Exponer ssh en red local</a></li><li><a href=#desactivar-la-campana-de-readlinehttpsquaynetblog201908disable-terminal-bell-in-wsl><a href=https://quay.net/blog/2019/08/disable-terminal-bell-in-wsl/>Desactivar la campana de <code>readline</code></a></a></li><li><a href=#permitir-usar-aplicaciones-remotashttpsstackoverflowcoma4410017110467443><a href=https://stackoverflow.com/a/44100171/10467443>Permitir usar aplicaciones remotas</a></a></li><li><a href=#reiniciar-wslhttpsstackoverflowcomquestions48407070wsl-ubuntu-hangs-how-to-restart-><a href=https://stackoverflow.com/questions/48407070/wsl-ubuntu-hangs-how-to-restart>Reiniciar WSL</a></a></li><li><a href=#instalar-herramientas-de-kali>Instalar herramientas de Kali</a></li><li><a href=#problemas-con-la-hibernación-de-windows>Problemas con la hibernación de windows</a></li><li><a href=#para-instalar-paquetes-kali-desde-docker>Para instalar paquetes Kali desde docker</a></li></ul></nav><p>Cada que se requiere que use windows,
+termino usando para la mayoría de mis actividades <a href=https://docs.microsoft.com/en-us/windows/wsl/install-win10 target=_blank rel=noopener>Linux por medio de WSL</a>.</p><p>Para poder instalar <a href=https://winaero.com/reset-unregister-wsl-linux-distro-windows-10/ target=_blank rel=noopener>intenté reiniciar la información</a>.</p><p>Como estoy en un puesto de Seguridad Informática,
+instalé Kali siguiendo <a href=https://www.kali.org/docs/wsl/win-kex/ target=_blank rel=noopener>la documentación oficial</a>
+pero parece que <a href=https://gitlab.com/kalilinux/packages/kali-win-kex/-/blob/kali/master/debian/kali-win-kex.preinst target=_blank rel=noopener>Kali usa la existencia del directorio <code>/mnt/wsl</code> para verificar si está en WSL2</a>.</p><p>El <a href=https://github.com/microsoft/WSL/issues/4555#issuecomment-711091232 target=_blank rel=noopener>script más adecuado que encontré</a>:
+entre varias <a href=https://github.com/microsoft/WSL/issues/4555 target=_blank rel=noopener>formas para detectar WSL</a>:</p><pre tabindex=0><code>export WSL=no WSLVER=&#34;&#34;
+if [[ &#34;$(&lt; /proc/version)&#34; = *[Mm]icrosoft* ]]; then
+  WSL=yes
+  if [[ -e &#34;/proc/config.gz&#34; ]]; then WSLVER+=&#34;2&#34;; else WSLVER+=&#34;1&#34;; fi
+  if [[ -e &#34;/dev/vsock&#34; ]];      then WSLVER+=&#34;2&#34;; else WSLVER+=&#34;1&#34;; fi
+  if [[ -n &#34;$WSL_INTEROP&#34; ]];    then WSLVER+=&#34;2&#34;; else WSLVER+=&#34;1&#34;; fi
+  if [[ -d &#34;/run/WSL&#34; ]];        then WSLVER+=&#34;2&#34;; else WSLVER+=&#34;1&#34;; fi
+  if [[ -n &#34;${WSLVER//1/}&#34; &amp;&amp; -n &#34;${WSLVER//2/}&#34; ]]; then
+    echo &#34;WSL version detection got multiple answers ($WSLVER), time to update this code!&#34;
+  fi
+  WSLVER=&#34;${WSLVER:0:1}&#34;
+fi
+</code></pre><p>Agregar a <code>.bashrc</code>:</p><pre tabindex=0><code>export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk &#39;{print $2; exit;}&#39;):0.0
+export LIBGL_ALWAYS_INDIRECT=1
+sudo /etc/init.d/dbus start &amp;&gt; /dev/null
+</code></pre><p>Eso permite poder ejecutar:</p><pre tabindex=0><code># El servidor X
+/usr/lib/win-kex/VcXsrv/vcxsrv.exe :0 -ac -terminate -logfile /tmp/win-kexsl_x.log -multiwindow -lesspointer -clipboard -wgl
+# La sesión de kali
+dbus-launch --exit-with-session xfce4-session
+</code></pre><p>Puedo abrir un servidor exclusivo para <code>dmenu</code>
+y usar el comando <code>Gather Windows</code> para utilizarlo sin interferencias.</p><pre tabindex=0><code>/usr/lib/win-kex/VcXsrv/vcxsrv.exe :1.0 -ac -terminate -logfile /tmp/win-kexsl_x_1.log -multiwindow -lesspointer -clipboard -wgl
+</code></pre><h2 id=exponer-ssh-en-red-local><a href=#exponer-ssh-en-red-local alt>Exponer ssh en red local</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Estas instrucciones [para configurar el cortafuegos] [configurar fw]
+están incompletas porque en mi red local,
+conectado por wifi,
+acceder a la IP del equipo no equivale a acceder a la IP del WSL.</p><p>Detalles de mis intentos en <code>tasknote 5f026655</code></p><h2 id=desactivar-la-campana-de-readlinehttpsquaynetblog201908disable-terminal-bell-in-wsl><a href=#desactivar-la-campana-de-readlinehttpsquaynetblog201908disable-terminal-bell-in-wsl alt><a href=https://quay.net/blog/2019/08/disable-terminal-bell-in-wsl/ target=_blank rel=noopener>Desactivar la campana de <code>readline</code></a></a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Es importante desactivar la campana para no matar mis orejas:</p><pre tabindex=0><code>echo &#39;set bell-style none&#39; &gt;&gt; ~/.inputrc
+</code></pre><h2 id=permitir-usar-aplicaciones-remotashttpsstackoverflowcoma4410017110467443><a href=#permitir-usar-aplicaciones-remotashttpsstackoverflowcoma4410017110467443 alt><a href=https://stackoverflow.com/a/44100171/10467443 target=_blank rel=noopener>Permitir usar aplicaciones remotas</a></a> <a href=# alt="Regresar al inicio">↑</a></h2><pre tabindex=0><code>touch ~/.Xauthority
+xauth add ${DISPLAY} . `mcookie`
+</code></pre><h2 id=reiniciar-wslhttpsstackoverflowcomquestions48407070wsl-ubuntu-hangs-how-to-restart-><a href=#reiniciar-wslhttpsstackoverflowcomquestions48407070wsl-ubuntu-hangs-how-to-restart- alt><a href=https://stackoverflow.com/questions/48407070/wsl-ubuntu-hangs-how-to-restart target=_blank rel=noopener>Reiniciar WSL</a></a> <a href=# alt="Regresar al inicio">↑</a></h2><pre tabindex=0><code>wsl --shutdown
+</code></pre><h2 id=instalar-herramientas-de-kali><a href=#instalar-herramientas-de-kali alt>Instalar herramientas de Kali</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>El antivirus no me permite instalar <code>kali-tools</code>
+porque identifica algunos archivos como «amenazas».
+Para saltarme esta protección, instalé <code>tasksel</code>
+y seleccioné las herramientas excepto por <code>Exploitation</code>.</p><h2 id=problemas-con-la-hibernación-de-windows><a href=#problemas-con-la-hibernaci%c3%b3n-de-windows alt>Problemas con la hibernación de windows</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Parece que a la fecha (2021-08-18),
+<a href=https://github.com/microsoft/WSL/issues/5552 target=_blank rel=noopener>hibernar windows puede ocasionar que WSL no pueda comunicarse con docker</a>
+porque la interconexión entre ambos sistemas de archivos se pierde.</p><p>Provisionalmente, <a href=https://github.com/docker/for-win/issues/7995#issuecomment-678464920 target=_blank rel=noopener>se puede reiniciar WSL y docker varias veces hasta que funcione</a>.
+De este mismo reporte se entiende que WSL1 podría tener menos problemas para la integración entre sistemas de archivos.</p><p>Se pueden comprobar los sistemas de archivos montados con:</p><pre tabindex=0><code>wsl -d docker-desktop cat /proc/self/mountinfo
+wsl.exe -u root dmesg
+</code></pre><p><a href=https://github.com/docker/for-win/issues/6822#issuecomment-643563276 target=_blank rel=noopener>Pasos para resolver problema con la integración entre WSL2 y docker</a></p><p><a href=https://github.com/docker/for-win/issues/6822#issuecomment-638093963 target=_blank rel=noopener>Otra alternativa es desactivar la integración de docker con Hyper-V</a></p><h2 id=para-instalar-paquetes-kali-desde-docker><a href=#para-instalar-paquetes-kali-desde-docker alt>Para instalar paquetes Kali desde docker</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Si quieres hacer un docker partiendo de
+<a href=https://askubuntu.com/questions/876240/how-to-automate-setting-up-of-keyboard-configuration-package target=_blank rel=noopener>puedes utilizar el modo no interactivo para la instalación</a>
+en <code>dockerfile</code>:</p><pre tabindex=0><code>...
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install ${PACKAGES}
+</code></pre></article></main></body></html>

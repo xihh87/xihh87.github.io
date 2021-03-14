@@ -1,0 +1,84 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Notas acerca de gpg</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Notas acerca de <code>gpg</code></h1><nav id=TableOfContents><ul><li><a href=#renovar-fecha-de-expiración-cuándo-caduca-tu-llave>Renovar fecha de expiración cuándo caduca tu llave</a></li><li><a href=#corregir-errores-comunes>Corregir errores comunes</a><ul><li><a href=#gpg-error-inapropriate-ioctl-device><code>gpg: Error: Inapropriate IOctl device</code></a></li><li><a href=#gpg-warning-using-insecure-memory><code>gpg</code>: Warning: using insecure memory!!</a></li><li><a href=#gpg-failed-to-sign-the-data><code>gpg</code>: failed to sign the data</a></li><li><a href=#gpg-decryption-failed-no-secret-key><code>gpg</code>: decryption failed: No secret key</a></li></ul></li></ul></nav><h2 id=renovar-fecha-de-expiración-cuándo-caduca-tu-llave><a href=#renovar-fecha-de-expiraci%c3%b3n-cu%c3%a1ndo-caduca-tu-llave alt>Renovar fecha de expiración cuándo caduca tu llave</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Para tener el ID de tus llaves,
+puedes hacer listado de las llaves privadas:</p><pre tabindex=0><code>$ gpg -K
+
+/home/x/.gnupg/pubring.gpg
+--------------------------
+sec   rsa4096 2013-11-29 [SC] [caduca: 2024-10-11]
+      0EF5D686FC13831A54874C275FC681B4822DABB0
+uid        [  absoluta ] Joshua I. Haase H. &lt;my@e-mail.com&gt;
+ssb   rsa4096 2013-11-29 [E] [caduca: 2024-10-12]
+</code></pre><p>Con el Identificador puedes</p><pre tabindex=0><code>ID= # en mi caso es 0EF5D686FC13831A54874C275FC681B4822DABB0
+gpg  --edit-key ${ID}
+Clave secreta disponible.
+
+sec  rsa4096/5FC681B4822DABB0
+     creado: 2013-11-29  caduca: 2024-10-11  uso: SC
+     confianza: absoluta      validez: absoluta
+ssb  rsa4096/C41DC4DB8F46E5B0
+     creado: 2013-11-29  caduca: 2024-10-12  uso: E
+[absoluta] (1). Joshua I. Haase H. &lt;my@e-mail.com&gt;
+
+gpg&gt; expire
+Cambiando caducidad de clave primaria.
+gpg: AVISO: ningún ID de usuario está marcado como principal. Esta orden puede
+       causar que se tome como principal por defecto otro ID de usuario.
+Por favor, especifique el período de validez de la clave.
+         0 = la clave nunca caduca
+      &lt;n&gt;  = la clave caduca en n días
+      &lt;n&gt;w = la clave caduca en n semanas
+      &lt;n&gt;m = la clave caduca en n meses
+      &lt;n&gt;y = la clave caduca en n años
+¿Validez de la clave (0)? 2y
+La clave caduca sáb 12 oct 2024 13:39:07 CDT
+¿Es correcto? (s/n) s
+
+sec  rsa4096/5FC681B4822DABB0
+     creado: 2013-11-29  caduca: 2024-10-12  uso: SC
+     confianza: absoluta      validez: abs
+[absoluta] (1). Joshua I. Haase H. &lt;my@e-mail.com&gt;
+
+
+
+gpg&gt; key 1
+
+sec  rsa4096/5FC681B4822DABB0
+     creado: 2013-11-29  caduca: 2024-10-12  uso: SC
+     confianza: absoluta      validez: abs
+[absoluta] (1). Joshua I. Haase H. &lt;my@e-mail.com&gt;
+
+gpg&gt; expire
+Cambiando fecha de caducidad de subclave.
+Por favor, especifique el período de validez de la clave.
+         0 = la clave nunca caduca
+      &lt;n&gt;  = la clave caduca en n días
+      &lt;n&gt;w = la clave caduca en n semanas
+      &lt;n&gt;m = la clave caduca en n meses
+      &lt;n&gt;y = la clave caduca en n años
+¿Validez de la clave (0)? 2y
+La clave caduca sáb 12 oct 2024 13:39:24 CDT
+¿Es correcto? (s/n) s
+
+sec  rsa4096/5FC681B4822DABB0
+     creado: 2013-11-29  caduca: 2024-10-12  uso: SC
+     confianza: absoluta      validez: abs
+[absoluta] (1). Joshua I. Haase H. &lt;my@e-mail.com&gt;
+
+gpg&gt; save
+</code></pre><h2 id=corregir-errores-comunes><a href=#corregir-errores-comunes alt>Corregir errores comunes</a> <a href=# alt="Regresar al inicio">↑</a></h2><h3 id=gpg-error-inapropriate-ioctl-device><a href=#gpg-error-inapropriate-ioctl-device alt><code>gpg: Error: Inapropriate IOctl device</code></a> <a href=# alt="Regresar al inicio">↑</a></h3><p>El problema es que GPG no sabe cómo comunicarse con la terminal,
+y se corrige con el comando:</p><pre tabindex=0><code>export GPG_TTY=$(tty)
+</code></pre><p>Puedes agregarlo a tu archivo de configuración de la consola:</p><pre tabindex=0><code>echo &#39;export GPG=$(tty)&#39; &gt;&gt; ~/.bashrc # si usas bash
+echo &#39;export GPG=$(tty)&#39; &gt;&gt; ~/.zshrc # si usas zsh (p.e. mac)
+</code></pre><h3 id=gpg-warning-using-insecure-memory><a href=#gpg-warning-using-insecure-memory alt><code>gpg</code>: Warning: using insecure memory!!</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>Parece que <a href=https://www.techrepublic.com/blog/it-security/the-insecure-memory-faq/ target=_blank rel=noopener><code>gpg2</code> bloquea la memoria para que no se escriba en disco si tiene activado el setuid como root</a></p><pre tabindex=0><code># chown root $(which gpg2)
+# chmod u+s $(which gpg2)
+</code></pre><p>En principio <a href=https://lists.gnupg.org/pipermail/gnupg-users/1999-August/004024.html target=_blank rel=noopener>esto no debería ser peligroso
+porque GPG renuncia a sus super-poderes
+después de proteger su memoria para únicamente el usuario correcto pueda leerla</a>.</p><p>No he auditado el código para verificar esto.</p><h3 id=gpg-failed-to-sign-the-data><a href=#gpg-failed-to-sign-the-data alt><code>gpg</code>: failed to sign the data</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>Esto puede ocurrir porque el agente de GPG no está activado
+o porque GPG no sabe por qué medio comunicarse con el agente.</p><p>Para decirle a GPG cómo comunicarse:</p><pre tabindex=0><code>export GPG_TTY=$(tty)
+</code></pre><p>Tu sistema operativo debería iniciar el agente
+cuando inicias sesión de usuario,
+pero en caso de que no esté configurado:</p><p>Para iniciar el agente de GPG:</p><pre tabindex=0><code>gpg-agent
+</code></pre><p>Más información acerca de cómo configurar el agente
+<a href=https://wiki.archlinux.org/title/GnuPG#gpg-agent target=_blank rel=noopener>en la wiki de Arch</a>
+y <a href=https://man.archlinux.org/man/gpg-agent.1 target=_blank rel=noopener><code>man gpg-agent</code></a>.</p><p>Para recargar la configuración si cambió:</p><pre tabindex=0><code>gpgconf --reload gpg-agent
+</code></pre><h3 id=gpg-decryption-failed-no-secret-key><a href=#gpg-decryption-failed-no-secret-key alt><code>gpg</code>: decryption failed: No secret key</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>Un <a href=https://techcolleague.com/gpg-decryption-failed-no-secret-key/ target=_blank rel=noopener>tutorial para corregir el error <code>gpg: decryption failed: No secret key</code></a>.</p></article></main></body></html>

@@ -1,0 +1,14 @@
+$ sudo traceroute -T -p 22 hurlab.med.und.edu
+traceroute to hurlab.med.und.edu (134.129.167.14), 30 hops max, 60 byte packets
+ 1  46.226.111.251 (46.226.111.251)  1.526 ms  1.533 ms  1.534 ms
+ 2  xe0-0-2-1.core1-lux.gandi.net (217.70.186.33)  1.015 ms  1.072 ms  1.142 ms
+ 3  10ge11-2.core1.lux1.he.net (216.66.89.193)  1.729 ms  1.780 ms  1.799 ms
+ 4  10ge11-2.core1.lux1.he.net (216.66.89.193)  1.961 ms  1.939 ms 10ge11-9.core1.bru1.he.net (184.105.64.9)  5.631 ms
+ 5  10ge11-9.core1.bru1.he.net (184.105.64.9)  5.639 ms  5.641 ms 10ge8-15.core1.par2.he.net (184.105.64.17)  21.787 ms
+ 6  10ge8-15.core1.par2.he.net (184.105.64.17)  21.818 ms  21.615 ms 100ge10-1.core1.nyc4.he.net (184.105.81.77)  81.782 ms
+ 7  100ge10-1.core1.nyc4.he.net (184.105.81.77)  81.788 ms 100ge5-1.core1.chi1.he.net (184.105.223.161)  102.906 ms  98.301 ms
+ 8  100ge5-1.core1.chi1.he.net (184.105.223.161)  98.281 ms  98.261 ms 100ge14-2.core1.msp1.he.net (184.105.223.178)  106.104 ms
+ 9  AS57-1.micemn.net (206.108.255.51)  106.848 ms 100ge14-2.core1.msp1.he.net (184.105.223.178)  106.072 ms  106.109 ms
+10  AS57-1.micemn.net (206.108.255.51)  106.789 ms i2-und-1.nodak.edu (165.234.20.1)  114.295 ms  114.313 ms
+11  134.129.205.10 (134.129.205.10)  114.354 ms i2-und-1.nodak.edu (165.234.20.1)  114.328 ms  114.390 ms
+12  hurlab.med.und.edu (134.129.167.14)  114.220 ms  114.227 ms  114.181 ms

@@ -1,0 +1,54 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>coreboot en mi librem</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>coreboot en mi librem</h1><nav id=TableOfContents><ul><li><a href=#enlaces-prometedores>Enlaces prometedores</a></li><li><a href=#2021-04-08>2021-04-08</a></li></ul></nav><p>Compré mi <a href=https://shop.puri.sm/shop/librem-14/ target=_blank rel=noopener>librem 15</a>
+y quiero instalar <a href=http://parabola.nu/ target=_blank rel=noopener>Parabola GNU/Linux</a>
+pero tengo miedo de dejarla inutilizable
+porque nunca he usado en <a href=https://doc.coreboot.org/getting_started/architecture.html target=_blank rel=noopener>Coreboot</a>.</p><p>Debería ser sencillo porque <a href='https://phoronix.com/scan.php?page=news_item&amp;px=Coreboot-FIT-Payloads' target=_blank rel=noopener>Coreboot puede iniciar linux directamente</a>
+aunque para gestionar la seguridad del inicio del sistema
+se usa <a href=https://review.coreboot.org/coreboot target=_blank rel=noopener>heads</a>.</p><h2 id=enlaces-prometedores><a href=#enlaces-prometedores alt>Enlaces prometedores</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://medium.com/swlh/getting-started-with-coreboot-7ade78327e75 target=_blank rel=noopener>Instrucciones para construir coreboot
+y probarlo en una máquina virtual usando qemu</a>.
+Además <a href=https://doc.coreboot.org/mainboard/emulation/qemu-i440fx.html target=_blank rel=noopener>las instrucciones oficiales para usar qemu</a>.</p><p><a href=https://doc.coreboot.org/getting_started/ target=_blank rel=noopener>Documentación de coreboot</a></p><p><a href=https://github.com/merge/skulls target=_blank rel=noopener>Un proyecto para hacer fácil de usar coreboot llamado skulls</a></p><h2 id=2021-04-08><a href=#2021-04-08 alt>2021-04-08</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Intentando construir coreboot de acuerdo a las instrucciones para probar
+encontré el siguiente error:</p><pre tabindex=0><code>x@ferrum:~/src/review.coreboot.org/coreboot$ make crossgcc-i386
+Welcome to the coreboot cross toolchain builder v2021-04-06_7014f8258e
+
+Building toolchain using 1 thread(s).
+
+Target architecture is i386-elf
+
+Found compatible Ada compiler, enabling Ada support by default.
+
+Downloading and verifying tarballs ...
+ * gmp-6.2.0.tar.xz (downloading from https://ftpmirror.gnu.org/gmp/gmp-6.2.0.tar.xz)... 100%... hash verified (052a5411dc74054240eec581
+ * mpfr-4.1.0.tar.xz (downloading from https://ftpmirror.gnu.org/mpfr/mpfr-4.1.0.tar.xz)... 100%... hash verified (159c3a58705662bfde4dc
+ * mpc-1.2.0.tar.gz (downloading from https://ftpmirror.gnu.org/mpc/mpc-1.2.0.tar.gz)... 100%... hash verified (0abdc94acab0c9bfdaa39134
+ * binutils-2.35.1.tar.xz (downloading from https://ftpmirror.gnu.org/binutils/binutils-2.35.1.tar.xz)... 100%... hash verified (45f7a96
+ * gcc-8.3.0.tar.xz (downloading from https://ftpmirror.gnu.org/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz)... 100%... hash verified (c27f4499dd263fe4fb01bcc5565917f3698583b2)
+Downloaded tarballs ... ok
+Unpacking and patching ...
+ * gmp-6.2.0.tar.xz
+   o gmp-6.2.0_generic-build.patch
+ * mpfr-4.1.0.tar.xz
+ * mpc-1.2.0.tar.gz
+ * binutils-2.35.1.tar.xz
+   o binutils-2.35.1_as-ipxe.patch
+   o binutils-2.35.1_mips-gold.patch
+   o binutils-2.35.1_no-bfd-doc.patch
+   o binutils-2.35.1_no-makeinfo.patch
+ * gcc-8.3.0.tar.xz
+   o gcc-8.3.0_ada-musl_workaround.patch
+   o gcc-8.3.0_asan_shadow_offset_callback.patch
+   o gcc-8.3.0_gnat-bad_constant.patch
+   o gcc-8.3.0_gnat.patch
+   o gcc-8.3.0_gnat_eh.patch
+   o gcc-8.3.0_libcpp.patch
+   o gcc-8.3.0_libgcc.patch
+   o gcc-8.3.0_nds32_ite.patch
+Unpacked and patched ... ok
+Building packages ...
+Building GMP v6.2.0 for host ... failed. Check &#39;build-GMP/build.log&#39;.
+make[2]: *** [Makefile:26: build_gcc] Error 1
+make[1]: *** [Makefile:51: build-i386] Error 2
+make: *** [util/crossgcc/Makefile.inc:34: crossgcc-i386] Error 2
+x@ferrum:~/src/review.coreboot.org/coreboot$ less build-GMP/build.log
+</code></pre><p>El problema que tengo un alias para ls.</p><pre tabindex=0><code>s6-envdir ~/xihh/cmd/build.env/ bash --norc
+make crossgcc-i386
+</code></pre></article></main></body></html>

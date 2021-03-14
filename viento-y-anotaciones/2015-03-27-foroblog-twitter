@@ -1,0 +1,31 @@
+% Herramienta de publicación colaborativa
+% Joshua Haase
+% 2015-03-27
+
+# Publicaciones con comentario sobre un punto
+
+Los comentarios aplican para el texto seleccionado y
+se posicionan a la derecha para pantallas grandes o
+justo abajo para pantallas pequeñas.
+
+Al mover el mouse sobre el comentario,
+se subraya la porción de texto que se comenta.
+
+Al actualizar el documento,
+los comentarios se mueven con el texto.
+
+Es decisión del dueño del sitio si mantenerlo o no.
+
+# Lectura en varios niveles
+
+Leer el resumen de lo que está enfatizado y
+permitir la expansión de todo el artículo o
+sólo de una frase.
+
+# historial de versiones
+
+No es necesario, pero si es fácil de implementar y
+parece tener algún valor,
+esta funcionalidad debería ser gratuita con git.
+
+# Login usando clave pública y privada (BrowserID)

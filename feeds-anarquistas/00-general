@@ -1,0 +1,165 @@
+---
+URL: http://htmldog.com/guides/css/beginner/borders/
+desc: Tutorial para modificar bordes en html usando CSS.
+tags: "webdev",
+---
+%%
+---
+URL: http://getbootstrap.com/getting-started/
+desc:
+tags:
+---
+%%
+---
+URL: http://www.w3schools.com/bootstrap/default.asp
+desc:
+tags:
+---
+%%
+---
+URL: http://www.csstutorial.net/
+desc:
+tags:
+---
+%%
+---
+URL: http://dalwiki.derechoaleer.org/PrivacidadyPersonalizacion/
+desc:
+tags:
+---
+%%
+---
+URL: https://plugins.jetbrains.com/plugin/7294
+desc:
+tags:
+---
+%%
+---
+URL: http://derechoaleer.org/blog/2013/06/ascenso-y-caida-de-la-ley-anti-grooming-y-anti-sentido-comun.html
+desc:
+tags:
+---
+%%
+---
+URL: http://themes.gohugo.io/agency/
+desc:
+tags:
+---
+%%
+---
+URL: http://mikegerwitz.com/papers/git-horror-story
+desc:
+tags:
+---
+%%
+---
+URL: https://about.gitlab.com/2015/05/20/gitlab-gitorious-free-software/
+desc:
+tags:
+---
+%%
+---
+URL: http://www.lifeguides.me/blog/view/one-skill-every-employer-wants.html
+desc:
+tags:
+---
+%%
+---
+URL: http://spf13.com/post/how-to-be-a-good-open-source-community-member/
+desc: Un ensayo acerca de cómo ser un buen miembro de la comunidad de código abierto.
+tags: "software libre", "COMO", "comunidad"
+---
+
+En resumen habla de 3 reglas:
+
+- Suponer buena voluntad.
+- Demostrar aprecio por la colaboración.
+- Lanzarse, preguntar, integrarse.
+%%
+---
+URL: http://www.hwaci.com/sw/lemon/ http://www.hwaci.com/sw/lemon/lemon.html
+desc: Un programa que transforma gramática libre de contexto a una subrutina que puede interpretarlo.
+tags: "software libre", "COMO", "generadores de código", "LARL"
+---
+
+Esta página contiene el tutorial para el software.
+%%
+---
+URL: https://github.com/stepcode/baffledCitrus
+desc: Un conjunto de programas para reemplazar flex y bison.
+tags: "software libre", "generadores de código", "LARL"
+---
+%%
+---
+URL: http://www.colm.net/open-source/ragel/
+desc: Una herramienta para generar interpretaciones de protocolos, formatos de información, análisis lexico, validación de datos...
+tags: "software libre", "generadores de código", "LARL"
+---
+%%
+---
+URL: https://wiki.debian.org/NetworkConfiguration
+desc: Guía de administradores de Debian: Configuración de red.
+tags: "software libre", "debian", "COMO", "red"
+---
+%%
+---
+URL: https://buildroot.org/
+desc: Software para construir distribuciones embebidas.
+tags: "software libre", "docker"
+---
+%%
+---
+URL: http://zedshaw.com/archive/why-i-algpl/
+desc: Un ensayo de Zed Shaw defiende la idea de que la GPL le permite monetarizar su software y al mismo tiempo entregarlo al procomún.
+tags: "software libre", "GPL", "licencias"
+---
+%%
+---
+URL: http://www.shlomifish.org/philosophy/computers/open-source/foss-licences-wars/
+desc: Una comparación de varias licencias de software libre.
+tags: "software libre", "licencias"
+---
+%%
+---
+URL: http://kamalmarhubi.com/blog/2015/11/27/squashing-docker-images-with-btrfs/
+desc: Un documento que explica cómo aplanar una imagen de docker con muchas capas.
+tags: "docker"
+---
+%%
+---
+URL: https://www.atlassian.com/software/sourcetree/overview
+desc: Una interfaz gráfica para git en windows y mac.
+tags: "software libre", "git", "gui"
+---
+%%
+---
+URL: https://gist.github.com/emanuelez/1758346
+desc: Exploración de los límites de git y su desempeño bajo condiciones de estrés.
+tags: "git", "benchmark"
+---
+%%
+---
+URL: https://blog.docker.com/2013/06/create-light-weight-docker-containers-buildroot/
+desc: Un documento con instrucciones para generar imágenes súper pequeñas con docker.
+tags: "docker", "COMO", "buildroot", "pglite"
+id: docker-lightweight
+---
+%%
+---
+URL: https://github.com/jpetazzo/dockerfiles
+desc: Varios dockerfiles del autor de <id:docker-lightweight>
+tags: "docker"
+---
+%%
+---
+URL: http://speedata.github.io/publisher/
+desc: Una plataforma para publicar información arbitraria en formatos complejos.
+tags: "latex", "editorial", "campechana"
+---
+%%
+---
+URL: https://gcc.gnu.org/onlinedocs/gcc/Inline.html#Inline
+desc: Cuando al referenciar una función inline en C da error, hay que insertar al inicio "static "
+tags: "C", "programación"
+---
+%%

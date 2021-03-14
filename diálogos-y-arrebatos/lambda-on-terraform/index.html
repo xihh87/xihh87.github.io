@@ -1,0 +1,205 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Hard Lessons From Deploying Lambda Functions With Terraform</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Hard Lessons From Deploying Lambda Functions With Terraform</h1><nav id=TableOfContents><ul><li><a href=#because-sometimes-simple-tasks-require-advanced-techniques>Because sometimes simple tasks require advanced techniques</a></li><li><a href=#automating-the-installation-of-dependencies>Automating the installation of dependencies</a></li><li><a href=#ensuring-all-required-files-are-packaged>Ensuring ALL required files are packaged&mldr;</a></li><li><a href=#and-filtering-out-the-redundant-stuff>&mldr;and filtering out the redundant stuff</a></li><li><a href=#watching-for-changes-to-keep-it-dry>Watching for changes to keep it DRY</a></li><li><a href=#a-role-for-all-regions>A Role for all&mldr; regions</a></li><li><a href=#taming-the-logs>Taming the logs</a></li><li><a href=#adding-some-flexibility-to-the-lambda-configuration>Adding some flexibility to the Lambda configuration</a></li></ul></nav><p><figure><img src=https://miro.medium.com/max/316/1*oJmhZp-9DLJf3f6ixhj8Ew.png><figcaption>RockedScience</figcaption></figure></p><ul><li><a href=https://medium.com/rockedscience/tagged/devops target=_blank rel=noopener>DevOps</a></li><li><a href=https://medium.com/rockedscience/tagged/cloud target=_blank rel=noopener>Cloud</a></li><li><a href=https://medium.com/rockedscience/tagged/programming target=_blank rel=noopener>Code</a></li><li><a href=https://medium.com/rockedscience/archive target=_blank rel=noopener>Archive</a></li><li><a href=https://www.rockedscience.net/ target=_blank rel=noopener>RockedScience.net</a></li></ul><h1 id=hard-lessons-from-deploying-lambda-functions-with-terraform><a href=#hard-lessons-from-deploying-lambda-functions-with-terraform alt>Hard Lessons From Deploying Lambda Functions With Terraform</a> <a href=# alt="Regresar al inicio">↑</a></h1><h2 id=because-sometimes-simple-tasks-require-advanced-techniques><a href=#because-sometimes-simple-tasks-require-advanced-techniques alt>Because sometimes simple tasks require advanced techniques</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=/rockedscience/hard-lessons-from-deploying-lambda-functions-with-terraform-4b4f98b8fc39>Nov 15, 2020</a> · 7 min read</p><p><figure><img src=https://miro.medium.com/max/10944/0*VZudff5CMEZZBzgc><figcaption>Photo by <a href='https://unsplash.com/@hermez777?utm_source=medium&amp;utm_medium=referral' target=_blank rel=noopener>Hermes Rivera</a>
+on <a href='https://unsplash.com?utm_source=medium&amp;utm_medium=referral' target=_blank rel=noopener>Unsplash</a></figcaption></figure></p><p>I love Terraform for many reasons.
+One of them is the documentation.
+Oftentimes I only need to copy & paste snippets from the docs
+and change a few settings to deploy a resource.</p><p>So deploying a Lambda function on AWS should be as easy
+as using this snippet from the <a href=https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function target=_blank rel=noopener>official documentation</a>:</p><pre tabindex=0><code class=language-hj data-lang=hj>resource &#34;aws_iam_role&#34; &#34;iam_for_lambda&#34; {
+  name = &#34;iam_for_lambda&#34;
+
+  assume_role_policy = &lt;&lt;EOF
+{
+  ...
+EOF
+}
+
+resource &#34;aws_lambda_function&#34; &#34;test_lambda&#34; {
+  filename      = &#34;lambda_function_payload.zip&#34;
+  function_name = &#34;lambda_function_name&#34;
+  role          = aws_iam_role.iam_for_lambda.arn
+  handler       = &#34;exports.test&#34;
+
+  source_code_hash = filebase64sha256(&#34;lambda_function_payload.zip&#34;)
+
+  runtime = &#34;nodejs12.x&#34;
+
+  environment {
+    variables = {
+      foo = &#34;bar&#34;
+    }
+  }
+}
+</code></pre><p>&mldr;not really. At least, not in the <em>real world</em>.
+The source code repository of the official AWS provider
+does offer <a href=https://github.com/hashicorp/terraform-provider-aws/blob/master/examples/lambda/main.tf target=_blank rel=noopener>a better snippet</a>,
+but still it does not cover some <strong>details that can save the day.</strong></p><p>Learning to build <em>effective</em> Terraform configurations to deploy Lambda functions
+<strong>took me significantly more time</strong> than other resources usually do.<br>So I am sharing a few tips and considerations to save you some headaches.</p><p>I have posted a <strong>complete, working version of a Terraform Lambda configuration</strong>
+<a href=https://github.com/edonosotti/terraform-terragrunt-aws-lambda-tutorial target=_blank rel=noopener>to this repository</a>.
+The code is also <strong>commented</strong>,
+but I will expand on those concepts in this article.</p><h2 id=automating-the-installation-of-dependencies><a href=#automating-the-installation-of-dependencies alt>Automating the installation of dependencies</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Most <a href=https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html target=_blank rel=noopener>AWS Lambda runtimes</a>
+<strong>ship with the &ldquo;standard libraries&rdquo;</strong> for their respective languages and the AWS SDK.
+This is enough if you use Lambda functions to automate the infrastructure
+or to control AWS managed services.<br>In many scenarios you will need to <strong>add other libraries</strong>, a.k.a. <em>dependencies</em>, to your functions.<br>At the time of writing,
+AWS Lambda <strong>does not support standard package managers</strong> such as <code>pip</code> or <code>npm.</code>
+This means you have to <strong>package the dependencies</strong> with your function code
+(check the docs for <a href=https://github.com/awsdocs/aws-lambda-developer-guide/blob/7c6025479fa9de337a2559c0ae0c04ce52716401/doc_source/python-package.md#updating-a-function-with-additional-dependencies target=_blank rel=noopener>Python</a>
+and <a href=https://github.com/awsdocs/aws-lambda-developer-guide/blob/613f6dc09e302fe5590a209e3bed7e9d9258e541/doc_source/nodejs-package.md#updating-a-function-with-additional-dependencies target=_blank rel=noopener>Node.JS</a>).</p><p>Since Terraform is meant to <em>automate</em> infrastructure,
+it makes sense to <strong>let Terraform package the dependencies</strong>
+with the function during the deployment all at once.
+An efficient Terraform configuration
+should also <strong>avoid re-packaging unchanged dependencies</strong> during updates.</p><p>The first requirement is met by the combination of the <code>null_resource</code> and the <code>local-exec</code> provisioner.
+<code>local-exec</code> can invoke external applications like <code>pip</code> or <code>npm</code> to install the required dependencies.
+Terraform though is <strong>not able to keep track of external resources</strong>,
+so we need another way to trigger the <code>local-exec</code> only when it is needed.
+I think the most elegant way to do it is to <strong>&ldquo;watch&rdquo; the source code files listing the dependencies</strong>,
+such as the <code>requirements.txt</code> file for Python and <code>package.json</code> for Node.JS.</p><p>Take a look at <a href=https://github.com/edonosotti/terraform-terragrunt-aws-lambda-tutorial/blob/ed5a238aad6f26915562a934efd83a2c618ec862/terraform/lambda.tf#L23-L37 target=_blank rel=noopener>lines 23&ndash;37
+in</a><code>lambda.tf</code>:</p><pre tabindex=0><code class=language-hj data-lang=hj>resource &#34;null_resource&#34; &#34;install_dependencies&#34; {
+  provisioner &#34;local-exec&#34; {
+    command = &#34;pip install -r
+     path-to-source-code/requirements.txt
+     -t path-to-source-code/ --upgrade&#34;
+  }
+
+  triggers = {
+    dependencies_versions =
+      filemd5(&#34;path-to-source-code/requirements.txt&#34;)
+  }
+}
+</code></pre><p>Any change to the <code>requirements.txt</code> file would change the <code>md5</code> hash of the file,
+forcing Terraform to reprocess the <code>null-resource</code>.</p><p><em>Note: if you are using Python,
+ensure that packages&rsquo; versions are also set in the</em> <code>requirements.txt</code> <em>file:</em></p><pre tabindex=0><code class=language-hj data-lang=hj>requests      # Wrong
+numpy==1.19.2 # Correct
+</code></pre><p><em>Pip will default to the latest stable version of a package if its version is not set,
+but this could break the application
+and prevent the correct detection of changes for Terraform.</em></p><h2 id=ensuring-all-required-files-are-packaged><a href=#ensuring-all-required-files-are-packaged alt>Ensuring ALL required files are packaged&mldr;</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Terraform offers a very convenient <code>archive_file</code> <code>data</code> source to create <code>ZIP</code> files.
+I can understand why they consider it a <code>data</code> source instead of a <code>resource</code>,
+but this has some implications that can break a deployment.</p><p>Because of the way <code>data</code> sources are handled by Terraform,
+<strong>the archive might be written before</strong> the <code>null_resource.install_dependencies</code> process is done.
+This means that the <code>ZIP</code> file will lack some (or all) of the dependencies files
+and its packaging might also fail:</p><p><figure><img src=https://miro.medium.com/max/2416/1*_KRnOsTcfeT7Zup9uIjx1g.png><figcaption>Without a `depends_on` clause
+`data.archive_file` will fail or output an incomplete package</figcaption></figure></p><p><a href=https://github.com/edonosotti/terraform-terragrunt-aws-lambda-tutorial/blob/ed5a238aad6f26915562a934efd83a2c618ec862/terraform/lambda.tf#L56 target=_blank rel=noopener>Add</a>
+a <code>depends_on</code> clause to <strong>ensure the correct execution order:</strong></p><pre tabindex=0><code class=language-hj data-lang=hj>data &#34;archive_file&#34; &#34;lambda_source_package&#34; {
+  ...
+  depends_on = [null_resource.install_dependencies]
+}
+</code></pre><p><figure><img src='https://miro.medium.com/max/60/1*99qiXTOJw9S2OnUAGgOyaQ.png?q=20'><figcaption>With `depends_on`,
+`data.archive_file` is deferred
+until `null_resource.install_dependencies` is done</figcaption></figure></p><p>Using <code>depends_on</code> in a <code>data</code> source feels a little awkward,
+also because <a href=https://www.terraform.io/docs/configuration/data-sources.html#data-resource-dependencies target=_blank rel=noopener>the Terraform documentation itself recommended <em>against</em> that</a>
+up to version 0.12.x:</p><p><figure><img src='https://miro.medium.com/max/60/1*aR0S2a_CFUDZIyI07Fx7xA.png?q=20'><figcaption>Screenshot from the Terraform documentation at the time of writing</figcaption></figure></p><p>but <strong>it gets the job done.</strong></p><p><em>Note: if you are using Terraform 0.13.x,
+ensure you have the latest patch version.
+Early releases of that branch
+seem to have a</em> <a href=https://github.com/hashicorp/terraform-provider-archive/issues/78 target=_blank rel=noopener><em>broken implementation</em></a> <em>of</em> <code>depends_on</code> <em>for the</em> <code>data</code> <em>source.
+I can confirm it</em> <em><strong>works with 0.13.5</strong></em>*.*</p><h2 id=and-filtering-out-the-redundant-stuff><a href=#and-filtering-out-the-redundant-stuff alt>&mldr;and filtering out the redundant stuff</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>If you feed entire directories and trees to the <code>data.archive_file</code> source,
+you can also <a href=https://github.com/edonosotti/terraform-terragrunt-aws-lambda-tutorial/blob/ed5a238aad6f26915562a934efd83a2c618ec862/terraform/lambda.tf#L46-L50 target=_blank rel=noopener>filter out</a> files and directories
+that <strong>don&rsquo;t belong there:</strong></p><pre tabindex=0><code class=language-hj data-lang=hj>data &#34;archive_file&#34; &#34;lambda_source_package&#34; {
+  ...
+  excludes = [
+    &#34;__pycache__&#34;,
+    &#34;core/__pycache__&#34;,
+    &#34;tests&#34;
+  ]
+}
+</code></pre><p>the <code>excludes</code> paths are relative to the archive source files&rsquo; base path.</p><h2 id=watching-for-changes-to-keep-it-dry><a href=#watching-for-changes-to-keep-it-dry alt>Watching for changes to keep it DRY</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>In order to deploy updated Lambda function code when it is available
+and preventing unnecessary uploads,
+we need to re-process the <code>data.archive_file</code> source
+only <strong>when the source files</strong> (and only the relevant ones) <strong>have been modified.</strong></p><p>A convenient way to do that is to set the <code>ZIP</code> file name to a &ldquo;random UUID&rdquo;
+and tie it to a <em>hash</em> of the actual source code files:</p><pre tabindex=0><code class=language-hj data-lang=hj>resource &#34;random_uuid&#34; &#34;lambda_src_hash&#34; {
+  keepers = {
+    for filename in setunion(
+      fileset(local.lambda_src_path, &#34;*.py&#34;),
+      fileset(local.lambda_src_path, &#34;requirements.txt&#34;),
+      fileset(local.lambda_src_path, &#34;core/**/*.py&#34;)
+    ):
+    filename =&gt; filemd5(&#34;${local.lambda_src_path}/${filename}&#34;)
+  }
+}data &#34;archive_file&#34; &#34;lambda_source_package&#34; {
+  type        = &#34;zip&#34;
+  source_dir  = local.lambda_src_path
+  output_path = &#34;${random_uuid.lambda_src_hash.result}.zip&#34;
+  ...
+  depends_on = [null_resource.install_dependencies]
+}
+</code></pre><p>Contrary to other resources,
+a <code>random_uuid</code> has a <code>keepers</code> clause instead of the <code>triggers</code>.
+In this case, the &ldquo;keeper&rdquo; a is a concatenated list of file hashes
+of the <strong>relevant source files</strong> and the list of dependencies.
+Any change to a file in the <code>fileset</code> would yield a different hash,
+thus invalidating the &ldquo;keeper&rdquo;.</p><p>Note that <code>fileset</code> does support some <em>globbing</em> patterns
+and <code>setunion</code> can be used to join multiple <code>filesets</code>.</p><p><em>Again, remember to always set the dependencies versions.</em></p><h2 id=a-role-for-all-regions><a href=#a-role-for-all-regions alt>A Role for all&mldr; regions</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>A Lambda function needs an <code>execution role</code> to run.
+Such role is created <a href=https://github.com/awsdocs/aws-lambda-developer-guide/blob/29323a369f7e6dcc85ca3e69ffa089e58c0050c6/doc_source/lambda-intro-execution-role.md#creating-an-execution-role-in-the-iam-console target=_blank rel=noopener>&ldquo;by default&rdquo;</a>
+when a Lambda is manually created in the AWS console.</p><p>With Terraform, you need to <strong>explicitly create</strong> an <code>execution role</code>
+and <strong>attach it</strong> to the Lambda function.
+Also remember that Lambda functions are <em>region-based</em> resources
+and IAM roles are <em>global</em> resources.
+If you need to deploy the same Lambda function to multiple regions,
+you need to either:</p><ol><li>Create a global <code>execution role</code> and attach it to all Lambda functions</li><li>Create a dedicated <code>execution role</code> for each deployed function</li></ol><p>Option #1 might not be convenient
+if you are not deploying all the instances of the Lambda function
+within the same <code>apply</code> of the Terraform configuration.
+Let&rsquo;s suppose that you have a configuration with the target <code>region</code> set with a <code>variable</code>
+and that you will <code>apply</code> the configuration multiple times,
+as needed,
+passing a different value every time.</p><p>In this case, it&rsquo;s much simpler to just
+name the <code>execution role</code> <a href=https://github.com/edonosotti/terraform-terragrunt-aws-lambda-tutorial/blob/ed5a238aad6f26915562a934efd83a2c618ec862/terraform/lambda.tf#L66 target=_blank rel=noopener>after the region</a> itself:</p><pre tabindex=0><code class=language-hj data-lang=hj>resource &#34;aws_iam_role&#34; &#34;execution_role&#34; {
+  name = &#34;lambda-execution-role-zero-provider-${var.aws_region}&#34;
+  ...
+}
+</code></pre><p>IAM Roles don&rsquo;t cost money,
+don&rsquo;t consume storage space and the extra &ldquo;moving part&rdquo; will be managed by Terraform,
+so no particular added effort will be required.</p><h2 id=taming-the-logs><a href=#taming-the-logs alt>Taming the logs</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>A Lambda function will automatically create a <code>Log Group</code> in <code>Cloudwatch</code>,
+provided that it has been given the <code>logs:CreateLogGroup</code> <strong>permission</strong> to do so.<br>By default, such logs <strong>never expire.</strong>
+There is no point in keeping the logs forever,
+unless you are required by the law to do so.
+Indeed,
+<strong>most laws nowadays demand the opposite</strong> <em>(GDPR anybody?)</em>.</p><p>It is possible to explicitly <a href=https://github.com/edonosotti/terraform-terragrunt-aws-lambda-tutorial/blob/ed5a238aad6f26915562a934efd83a2c618ec862/terraform/lambda.tf#L144 target=_blank rel=noopener>create</a> a <code>Log Group</code>
+for the Lambda functions in Terraform.
+Such <code>Log Groups</code> follow a strict naming convention:</p><pre tabindex=0><code class=language-hj data-lang=hj>/aws/lambda/your-function-name
+</code></pre><p>So this is the Terraform code to create the <code>Log Group</code> and limit the
+log retention period to 30 days:</p><pre tabindex=0><code class=language-hj data-lang=hj>resource &#34;aws_cloudwatch_log_group&#34; &#34;lambda_function&#34; {
+  name              = &#34;/aws/lambda/your-function-name&#34;
+  retention_in_days = 30
+}
+</code></pre><p>There is no need to explicitly attach the <code>Log Group</code> to the Lambda function,
+because of the naming convention.</p><p>If you create the <code>Log Group</code> in Terraform,
+the Lambda function does not need the <code>logs:CreateLogGroup</code> anymore.
+In the name of the principle of the least privilege,
+you can limit the <code>Role Policy</code> to:</p><pre tabindex=0><code class=language-hj data-lang=hj>resource &#34;aws_iam_role_policy&#34; &#34;log_writer&#34; {
+  name = &#34;lambda-log-writer&#34;
+  role = aws_iam_role.execution_role.id
+
+  policy = jsonencode({
+    &#34;Version&#34;: &#34;2012-10-17&#34;,
+    &#34;Statement&#34;: [
+      {
+        &#34;Effect&#34;: &#34;Allow&#34;,
+        &#34;Action&#34;: [
+          &#34;logs:CreateLogStream&#34;,
+          &#34;logs:PutLogEvents&#34;
+        ],
+        &#34;Resource&#34;: &#34;arn:aws:logs:*:*:*&#34;
+      }
+    ]
+  })
+}
+</code></pre><p>Still, you might want to keep the <code>logs:CreateLogGroup</code> permission
+so in case the <code>Log Group</code> was accidentally deleted,
+the Lambda function could recreate it
+and no logs would be lost.</p><h2 id=adding-some-flexibility-to-the-lambda-configuration><a href=#adding-some-flexibility-to-the-lambda-configuration alt>Adding some flexibility to the Lambda configuration</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Some resources&rsquo; configuration parameters are subject to change.
+Think of an Auto Scaling Group: it <em>is</em> meant to change over time.
+<em>Secret</em> values also <a href=/rockedscience/protecting-secrets-and-critical-resources-with-terraform-20826ef34a2e><strong>should not be put in Terraform scripts.</strong></a><br>So it&rsquo;s important to <strong>prevent Terraform to accidentally revert</strong> any <em>wanted</em> <strong>change</strong>
+and break a running application.
+While it makes sense to manage changes to <code>memory_size</code> or <code>timeout</code> via Terraform,
+some other configuration parameters such as the &ldquo;logging level&rdquo; in the environment variables
+might be temporarily and manually changed.</p><p>The <code>lifecycle + ignore_changes</code> <a href=https://github.com/edonosotti/terraform-terragrunt-aws-lambda-tutorial/blob/ed5a238aad6f26915562a934efd83a2c618ec862/terraform/lambda.tf#L134 target=_blank rel=noopener>directives</a>
+tell Terraform to <strong>ignore any change</strong> after the initial deployment:</p><pre tabindex=0><code class=language-hj data-lang=hj>resource &#34;aws_lambda_function&#34; &#34;lambda_function&#34; {
+ environment {
+    variables = {
+      LOG_LEVEL = var.lambda_log_level
+    }
+  }
+
+  lifecycle {
+    ignore_changes = [environment]
+  }
+}
+</code></pre><p><strong>Happy Terraforming!</strong></p></article></main></body></html>

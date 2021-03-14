@@ -1,0 +1,74 @@
+---
+title: Comentarios en docpad
+author: Joshua Haase
+date: 2015-04-06
+tags:
+- cms
+---
+
+Quiero que esta página permita conversar,
+así que estuve buscando cómo agregar comentarios.
+
+Aquí detallo el resultado de algunos experimentos.
+
+# docpad-plugin-nativecomments
+
+La [compañía que hace docpad](https://bevry.me/ ) desarrolló este complemento.
+Lo que hace es muy simple:
+
+- Agregar un formulario en las páginas que requieran comentarios,
+- El formulario envía una petición POST que se guarda en [la carpeta](./docpad#estructura-de-archivos)
+     `src/documents/comments/`,
+- Los comentarios se agregan a las páginas al momento de (re)generar la página web.
+
+## Instalar el complemento
+
+Desde la carpeta del proyecto ejecutamos:
+
+    docpad install nativecomments
+
+## Cambiar el bosquejo
+
+La [documentación del complemento](https://github.com/docpad/docpad-plugin-nativecomments )
+dice que hay que incluir en el bosquejo de la página que requiera comentarios:
+
+    <%- @getCommentsBlock() %>
+
+El nombre para los bosquejos que usen este plugin debe terminar con doble `.eco` porque
+la salida de `getCommentsBlock` debe procesarse otra vez por `eco`.
+
+Una alternativa que permite mayor control del diseño es agregar manualmente
+el formulario:
+
+    <form action="/comment" method="POST">
+    	<input type="hidden" name="for" value="<%= @document.relativeBase %>" />
+    	<label>Author: <input type="author" name="author" /></label>
+    	<label>Title: <input type="text" name="title" /></label>
+    	<label>Body: <textarea name="body"></textarea></label>
+    	<input type="submit" value="Post Comment" />
+    </form>
+
+Y la lista de comentarios:
+
+    <% if @getComments().length is 0: %><p>No comments yet</p><% else: %>
+    	<ul><% for comment in @getComments().toJSON(): %>
+    		<li><a href="<%=comment.url%>"><%=comment.title or comment.contentRenderedWithoutLayouts%></a></li>
+    	<% end %></ul>
+    <% end %>
+
+## Consideraciones de seguridad
+
+Permitir que se publique lo que envía alguien más es un posible vector de ataque.
+Antes de publicar comentarios se debe limpiar lo que pueda causar problemas.
+
+Este plugin de comentarios permite inyectar código a la página.
+Por ejemplo, el siguiente comentario arroja una alerta:
+
+    # Hola
+
+    Este parece un comentario legítimo
+    <script>alert("Pero tiene código malicioso")</script>
+
+Esto es debido a que markdown permite agregar HTML.
+
+**Pendiente**: cómo limpiar lo problemático en los comentarios.

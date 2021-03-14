@@ -1,0 +1,230 @@
+port 31046
+140358248001600:error:141A10F4:SSL routines:ossl_statem_client_read_transition:unexpected message:../ssl/statem/statem_clnt.c:284:
+CONNECTED(00000003)
+---
+no peer certificate available
+---
+No client certificate CA names sent
+---
+SSL handshake has read 176 bytes and written 183 bytes
+Verification: OK
+---
+New, (NONE), Cipher is (NONE)
+Secure Renegotiation IS NOT supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : 0000
+    Session-ID:
+    Session-ID-ctx:
+    Master-Key:
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    Start Time: 1599717838
+    Timeout   : 7200 (sec)
+    Verify return code: 0 (ok)
+    Extended master secret: no
+---
+port 31518
+depth=0 CN = localhost
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = localhost
+verify return:1
+CONNECTED(00000003)
+---
+Certificate chain
+ 0 s:/CN=localhost
+   i:/CN=localhost
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIICBjCCAW+gAwIBAgIEBB5jyzANBgkqhkiG9w0BAQUFADAUMRIwEAYDVQQDDAls
+b2NhbGhvc3QwHhcNMjAwNzExMTM1ODAyWhcNMjEwNzExMTM1ODAyWjAUMRIwEAYD
+VQQDDAlsb2NhbGhvc3QwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALqj7rpm
+4hQ+YV7uLiVBjFr3iAWLYLzpGcfM6srHe6nKAktaz9Vhlx+17ABuotTa+Vo90RSP
+fs48+HLBCW6RBOScMCiBhVpM91+ZHxmvBqxM6/yyJ7DXhhLCtF3Db0sm3l8bzNKm
+jPE75j/ZEQLGWdpx30w4VEsZ4JAinbflBeazAgMBAAGjZTBjMBQGA1UdEQQNMAuC
+CWxvY2FsaG9zdDBLBglghkgBhvhCAQ0EPhY8QXV0b21hdGljYWxseSBnZW5lcmF0
+ZWQgYnkgTmNhdC4gU2VlIGh0dHBzOi8vbm1hcC5vcmcvbmNhdC8uMA0GCSqGSIb3
+DQEBBQUAA4GBAC34BDE/l1uHETqrx9dHt3WQwF9L5DBFhCP4ha+5fECII2W7IUFa
++WhXZD0qItUHQ1d35WVAkTeOtWI5oRVqE60wBsc7vaFFBNKjq5P5q+V0QVIF+gs6
+xZbsRsRRTdWs0tQNDva0vIVLQwpckYI97VYiDONoCo6u2eBXMe2q8y1e
+-----END CERTIFICATE-----
+subject=/CN=localhost
+issuer=/CN=localhost
+---
+No client certificate CA names sent
+Peer signing digest: SHA512
+Server Temp Key: X25519, 253 bits
+---
+SSL handshake has read 1019 bytes and written 269 bytes
+Verification error: self signed certificate
+---
+New, TLSv1.2, Cipher is ECDHE-RSA-AES256-GCM-SHA384
+Server public key is 1024 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES256-GCM-SHA384
+    Session-ID: 1ACDB015F3E9972EC9E72F8DA052D68528F51569C2CEAB321AB9ADB940BD754A
+    Session-ID-ctx:
+    Master-Key: D61A413073322124BF7A3524E58EAE96F619865337CCB15270548A9E2308F3CA89031EC4D1200F94F5EAFD9FFDFB4125
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 7200 (seconds)
+    TLS session ticket:
+    0000 - 08 6d 98 02 8b 33 f3 13-9d cc 75 eb e0 d5 91 e3   .m...3....u.....
+    0010 - 38 12 a3 f4 20 ba 1c 48-f0 96 86 d1 b0 5a ad ae   8... ..H.....Z..
+    0020 - f3 d4 e2 19 6b 47 a7 8d-71 0d cc 31 8e a6 d8 da   ....kG..q..1....
+    0030 - 49 9a e3 ce 23 fd 2f fe-51 d9 5e 83 2f b2 c6 78   I...#./.Q.^./..x
+    0040 - c3 36 a1 ab ae e9 d1 14-09 f2 45 bd 9a d0 c9 82   .6........E.....
+    0050 - 99 60 0d a0 c6 c1 7c 31-b9 d2 fd 0d c9 39 7b b2   .`....|1.....9{.
+    0060 - 75 f6 3e ae 0d 86 37 7e-b7 03 a4 7f 45 9f 42 7e   u.>...7~....E.B~
+    0070 - 55 bb 17 20 a0 84 13 61-7a be 96 47 66 d6 7e 70   U.. ...az..Gf.~p
+    0080 - 3c af f8 03 05 ac c8 64-f6 87 af bd 0b f7 82 2f   <......d......./
+    0090 - 1d 35 b8 fd fd f0 0a 51-57 75 6e 50 67 21 34 87   .5.....QWunPg!4.
+
+    Start Time: 1599717838
+    Timeout   : 7200 (sec)
+    Verify return code: 18 (self signed certificate)
+    Extended master secret: yes
+---
+DONE
+port 31691
+140329157279808:error:141A10F4:SSL routines:ossl_statem_client_read_transition:unexpected message:../ssl/statem/statem_clnt.c:284:
+CONNECTED(00000003)
+---
+no peer certificate available
+---
+No client certificate CA names sent
+---
+SSL handshake has read 176 bytes and written 183 bytes
+Verification: OK
+---
+New, (NONE), Cipher is (NONE)
+Secure Renegotiation IS NOT supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : 0000
+    Session-ID:
+    Session-ID-ctx:
+    Master-Key:
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    Start Time: 1599717838
+    Timeout   : 7200 (sec)
+    Verify return code: 0 (ok)
+    Extended master secret: no
+---
+port 31790
+depth=0 CN = localhost
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = localhost
+verify return:1
+CONNECTED(00000003)
+---
+Certificate chain
+ 0 s:/CN=localhost
+   i:/CN=localhost
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIICBjCCAW+gAwIBAgIEYXGqnDANBgkqhkiG9w0BAQUFADAUMRIwEAYDVQQDDAls
+b2NhbGhvc3QwHhcNMjAwOTAzMjAxNzI2WhcNMjEwOTAzMjAxNzI2WjAUMRIwEAYD
+VQQDDAlsb2NhbGhvc3QwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBANVNNACn
+qTf4L4RLdjuJiNMJwI28fiHq0NvJF31V7K8cSjKnePgSlykp6tht9/8eNoOIQX/r
+Zx6r6sUBQpfvzBCWU3PkGVcVW5cC5Av6vmBGOvJGv030NwD22wF9BYpIDHaCQUPq
+3DULeAJxRHSUvHjE+/g4DneII9S3ouyh4XLlAgMBAAGjZTBjMBQGA1UdEQQNMAuC
+CWxvY2FsaG9zdDBLBglghkgBhvhCAQ0EPhY8QXV0b21hdGljYWxseSBnZW5lcmF0
+ZWQgYnkgTmNhdC4gU2VlIGh0dHBzOi8vbm1hcC5vcmcvbmNhdC8uMA0GCSqGSIb3
+DQEBBQUAA4GBAKbV691eONbzAVUORkbEqc974FMohpW41PLasyaxtcr2M9kR3GE9
+FLQmQ3DScKAR0RxJy3KyPcycneC3RMOCudgPZGK7XF3MJQKDNOdOu4Bckp96CQC5
+6nrC3qIegoiRUO0Uj9WUo83AjlWJ//Se7WW0R5SVwwG9ld490NeQFcgL
+-----END CERTIFICATE-----
+subject=/CN=localhost
+issuer=/CN=localhost
+---
+No client certificate CA names sent
+Peer signing digest: SHA512
+Server Temp Key: X25519, 253 bits
+---
+SSL handshake has read 1019 bytes and written 269 bytes
+Verification error: self signed certificate
+---
+New, TLSv1.2, Cipher is ECDHE-RSA-AES256-GCM-SHA384
+Server public key is 1024 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES256-GCM-SHA384
+    Session-ID: 87C8C65233513DFE227D817B72CD0D07AFDB03A82D5AA018C932C119A442BBA6
+    Session-ID-ctx:
+    Master-Key: 044B0AC2B717F0EC10369CC7A15B7A36A6474B513A38D1D2A27610DF0C633081730F34DF5D1AD6243799784D3645124D
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 7200 (seconds)
+    TLS session ticket:
+    0000 - a6 a6 3d 62 3a 43 47 bd-a0 d7 e4 c9 79 c6 f6 3b   ..=b:CG.....y..;
+    0010 - 81 98 1c d5 f7 a4 34 44-fc 7e 3c 38 b6 11 6a 86   ......4D.~<8..j.
+    0020 - fd 7f 6e a7 a1 35 49 33-c7 b9 7c ee 77 28 3c 32   ..n..5I3..|.w(<2
+    0030 - fc 61 65 54 bf 9d 97 fb-26 9f ea 68 b6 81 74 b2   .aeT....&..h..t.
+    0040 - 18 7f 02 8c a6 35 de 14-6f 7b e3 4c 66 9c 39 9f   .....5..o{.Lf.9.
+    0050 - 11 18 4a 36 cf 73 e0 10-a1 54 41 67 41 c2 56 71   ..J6.s...TAgA.Vq
+    0060 - f1 38 fd ee f2 ac 6b c0-fd e8 00 99 38 6a 2c 96   .8....k.....8j,.
+    0070 - 0f 33 64 5f e4 03 ad d5-0c 95 2b 77 aa d7 13 e9   .3d_......+w....
+    0080 - 73 3f 14 16 ce d4 06 d2-ea 76 61 7e 09 24 8f 59   s?.......va~.$.Y
+    0090 - 46 0b 53 fe 38 8e 73 fd-dd d2 43 30 3d ad 26 74   F.S.8.s...C0=.&t
+
+    Start Time: 1599717839
+    Timeout   : 7200 (sec)
+    Verify return code: 18 (self signed certificate)
+    Extended master secret: yes
+---
+DONE
+port 31960
+139964156817472:error:141A10F4:SSL routines:ossl_statem_client_read_transition:unexpected message:../ssl/statem/statem_clnt.c:284:
+CONNECTED(00000003)
+---
+no peer certificate available
+---
+No client certificate CA names sent
+---
+SSL handshake has read 176 bytes and written 183 bytes
+Verification: OK
+---
+New, (NONE), Cipher is (NONE)
+Secure Renegotiation IS NOT supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : 0000
+    Session-ID:
+    Session-ID-ctx:
+    Master-Key:
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    Start Time: 1599717839
+    Timeout   : 7200 (sec)
+    Verify return code: 0 (ok)
+    Extended master secret: no
+---

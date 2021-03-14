@@ -1,0 +1,55 @@
+# Instalar docpad
+
+    sudo pacman -S nodejs nodejs-less
+
+En [Parabola GNU/Linux](https://parabola.nu ) `python` es `python3`.
+Docpad necesita utilizar `python2`, así que ejecutamos:
+
+    sudo npm config set python `which python2`
+    sudo npm install -g docpad
+
+La instalación del paquete se realiza en `/usr/lib/node_modules/docpad/`.
+
+# Comenzar un proyecto
+
+Generar la carpeta del proyecto:
+
+    mkdir <project-dir>
+    cd <project-dir>
+    docpad run
+
+El instalador nos pedirá entonces:
+
+- Aceptar la licencia de uso,
+- Suscribirnos a la lista de correo (o no),
+- Elegir un esqueleto.
+
+# Esqueletos
+
+Los esqueletos son páginas ya hechas que podemos modificar para
+no empezar de cero.
+
+Yo elegí sin esqueleto porque
+
+> Nunca me gustó hacer algo de la manera sencilla
+> si podía hacerse bocarriba.
+>
+> Neuromante
+
+# Instalar plugins
+
+    docpad install eco less marked sass yamljs
+
+# Errores
+
+Para solucionar el error:
+
+    Python executable "python" is v3.4.3, which is not supported by gyp.
+
+Se ejecuta el comando:
+
+    sudo npm config set python `which python2`
+
+# Más información
+
+https://docpad.org/docs/begin

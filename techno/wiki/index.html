@@ -1,0 +1,53 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Wiki usando git y hugo</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Wiki usando git y hugo</h1><nav id=TableOfContents><ul><li><a href=#generar-el-sitio-web>Generar el sitio web</a></li><li><a href=#hacer-el-wiki-automático>Hacer el wiki automático</a></li></ul><ul><li><a href=#editar-el-wiki>Editar el wiki</a></li></ul></nav><p>Git es una gran herramienta para editar colaborativamente un documento
+y puede usarse para hacer algo estilo wiki/blog con un poco de ayuda.</p><h1 id=requisitos-en-el-servidor-web><a href=#requisitos-en-el-servidor-web alt>Requisitos en el servidor web</a> <a href=# alt="Regresar al inicio">↑</a></h1><p><a href=/techno/internet title="Una explicación de cómo funciona internet que escribí hace ya un rato.">Un servidor es una compu</a>
+que espera que le pidan información y la envía.</p><p>Se necesita que la compu tenga instalado:</p><ul><li><a href=http://git-scm.com/ title="Sistema de control de versiones." target=_blank rel=noopener>git</a> (o algún otro sistema de control de versiones).</li><li><a href=http://gohugo.io/ title="Hace páginas web a partir de plantillas y texto plano." target=_blank rel=noopener>hugo</a> (o algún otro gestor de contenido estático).</li><li><a href=https://www.nginx.com/ title="Responde al navegador con páginas web." target=_blank rel=noopener>nginx</a> (o algún otro servidor web).</li></ul><p>Para limitar el permiso de escritura, se puede usar:</p><ul><li><a href=http://gitolite.com/gitolite/index.html title="Revisa que quien se conecta tenga permisos para usar el repo." target=_blank rel=noopener>gitolite</a>.</li></ul><p>Además, se debe</p><h1 id=generar-el-wiki><a href=#generar-el-wiki alt>Generar el wiki</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Aquí hacemos una página web que se genera cada vez que enviamos nuestros cambios usando git.</p><p>La forma más sencilla de poner un repositorio de git es generar una carpeta
+y acceder a ella con un usuario por consola segura (SSH).</p><pre tabindex=0><code>sudo useradd git
+</code></pre><p>Acá se genera un repositorio &ldquo;desnudo&rdquo; (bare) para que sirva como repositorio central.</p><pre tabindex=0><code>sudo su - git
+mkdir wiki.git
+cd wiki.git
+git init --bare
+</code></pre><p>Para dar permisos, se puede agregar la
+<a href=/crypto/manual-de-criptografia title="Una explicación que espero sea suficientemente simple.">llave pública</a>
+de los editores a <code>~git/.ssh/authorized_keys</code>.</p><p>Si se quiere más control acerca de qué usuarios pueden editar qué repos,
+<a href=http://gitolite.com/gitolite/install.html title="Manual de instalación de gitolite." target=_blank rel=noopener>seguir este manual</a>.</p><h2 id=generar-el-sitio-web><a href=#generar-el-sitio-web alt>Generar el sitio web</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Para generar el sitio estáticamente, como el usuario git:</p><pre tabindex=0><code>hugo new site [nombre-del-sitio]
+</code></pre><p>Me gusta separar el contenido del resto del sitio
+y mantenerlo en repositorios distintos.</p><pre tabindex=0><code># Versionar el generador del sitio
+cd [nombre-del-sitio]
+git init
+echo content &gt; .gitignore
+# Versionar el contenido
+cd content
+git init
+git remote add ~git/wiki.git
+</code></pre><h2 id=hacer-el-wiki-automático><a href=#hacer-el-wiki-autom%c3%a1tico alt>Hacer el wiki automático</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Aprovechando que git puede hacer cosas en momentos específicos,
+configuramos que al actualizar el repo, se genere el sitio web.</p><p>Lo primero que tenemos que hacer es una carpeta donde HUGO pueda generar el contenido:</p><pre tabindex=0><code>sudo install -d -o www-data -g git -m 775 /srv/http/[nombre-del-sitio]
+</code></pre><p>Podemos vincular el generador de hugo para que genere el sitio allí:</p><pre tabindex=0><code>ln -s /srv/http/[nombre-del-sitio] ~git/[nombre-del-sitio]/public
+</code></pre><p>Generamos un llamado <code>~git/wiki.git/hooks/post-receive</code>,
+éste es el script que genera el sitio web cada que actualizamos:</p><pre tabindex=0><code>#!/bin/sh
+#
+#set -x #uncomment for debug
+
+# Change directory to ...
+cd ~git/[nombre-del-sitio]/content
+# pull changes from this repo
+env -i git pull origin master
+# run hugo
+cd ~git/[nombre-del-sitio]
+hugo
+</code></pre><h1 id=hacer-visible-el-wiki><a href=#hacer-visible-el-wiki alt>Hacer visible el wiki</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Aquí sólo hay que publicar el contenido de <code>/srv/http/[nombre-del-sitio]</code> usando nginx.
+En los debian, hay una carpeta para agregar sitios nuevos <code>/etc/nginx/sites-available</code>,
+allí hay que agregar un archivo nuevo:</p><pre tabindex=0><code>sudo $EDITOR /etc/nginx/sites-available/[nombre-del-sitio].conf
+</code></pre><p>En este archivo agregamos:</p><pre tabindex=0><code>server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+	root /srv/http/[nombre-del-sitio];
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+</code></pre><p>Y luego reiniciamos nginx para que sirva el sitio web:</p><pre tabindex=0><code>sudo systemctl restart nginx
+</code></pre><h2 id=editar-el-wiki><a href=#editar-el-wiki alt>Editar el wiki</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>En la <a href=https://campechana.nomia.mx title="La biblioteca digital del rancho electrónico." target=_blank rel=noopener>campechana mental</a> usamos este esquema.</p><p>Dejo aquí <a href=https://campechana.nomia.mx/edicion/Editar_la_campechana_como_un_hacker/ title="El instructivo de la campechana para usar git y editar un wiki de este tipo." target=_blank rel=noopener>las instrucciones que usamos</a>
+para que sea necesario pulirlas hasta que cualquiera pueda usarlas.</p></article></main></body></html>

@@ -1,0 +1,25 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Notas acerca de podman</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Notas acerca de <code>podman</code></h1><p>Estoy pensando migrar todo mi trabajo en <code>docker</code>
+a <a href=https://podman.io/ target=_blank rel=noopener><code>podman</code></a> porque:</p><ul><li>Está diseñado para ser compatible</li><li>No requiere permisos de superusuario</li><li>Presume ser más seguro</li><li><code>systemd</code> funciona con podman
+y aunque no me gusta
+eso muchas veces significa menos trabajo.</li></ul><p>Como siempre, anoto aquí
+los problemas que me encuentro en el camino,
+cómo los soluciono,
+y detalles que me parecen útiles al usarlo.</p><p>En Arch Wiki hay <a href=https://wiki.archlinux.org/title/Podman target=_blank rel=noopener>un instructivo acerca de cómo configurar <code>podman</code></a>,
+que incluye el modo sin <code>root</code>.</p><h2 id=el-modo-sin-root-tiene-problemas-de-rendimiento><a href=#el-modo-sin-root-tiene-problemas-de-rendimiento alt>El modo sin root tiene problemas de rendimiento</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Comencé a usar <a href=../systemd-docker/><code>podman</code> porque permite el uso de <code>systemd</code></a>
+y era <a href=https://gitlab.com/xihh87/openvas target=_blank rel=noopener>la forma más fácil de administrar un <code>openvas</code></a>.</p><p>Intenté usar el modo de usuario y aunque la aplicación ejecuta bien
+<a href=https://forums.oneplus.com/threads/taking-too-much-time-to-get-update.1047763/ target=_blank rel=noopener>``</a></p><p><a href=https://www.redhat.com/sysadmin/podman-rootless-overlay target=_blank rel=noopener>el modo sin <code>root</code> de <code>podman</code> usa <code>fuse-overlay</code> por defecto</a>.
+supuestamente <a href=https://stackoverflow.com/q/69441311 target=_blank rel=noopener>puede elegirse <code>overlayfs</code> directamente</a>
+pero no he encontrado cómo:</p><ul><li><a href=https://github.com/containers/podman/blob/main/rootless.md target=_blank rel=noopener>aquí dice que es posible usar overlay sin fuse-overlayfs</a>
+a partir de <code>linux >= 5.12</code> y <code>podman >= 3.1</code>.</li><li><a href=https://github.com/containers/podman/blob/main/troubleshooting.md#solution-5 target=_blank rel=noopener>Esta solución de troubleshooting menciona el driver overlay para usuario</a>.</li></ul><p>También <a href='https://bugzilla.redhat.com/show_bug.cgi?id=1849557' target=_blank rel=noopener>parece que no desocupa los archivos borrados</a>.</p><p><a href=https://github.com/containers/podman/blob/main/rootless.md target=_blank rel=noopener>Varios problemas de <code>podman</code> sin root están documentados en el sitio oficial</a>
+y <a href=https://github.com/containers/podman/blob/main/troubleshooting.md target=_blank rel=noopener>hay solución para algunos de ellos</a>.</p><p><a href=https://www.smarthomebeginner.com/podman-vs-docker/ target=_blank rel=noopener><code>podman</code> es mucho más seguro y no se pelea con el Firewall</a>,
+y <a href=https://www.redhat.com/sysadmin/apparmor-selinux-isolation target=_blank rel=noopener>es más compatible con AppArmor y SELinux</a>.</p><h2 id=podman-y-podman-compose-requieren-que-el-entrypoint-sea-una-lista><a href=#podman-y-podman-compose-requieren-que-el-entrypoint-sea-una-lista alt><code>podman</code> y <code>podman-compose</code> requieren que el entrypoint sea una lista</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Intentando configurar el <code>ENTRYPOINT</code> en un contenedor <code>podman</code> para molecule,
+encontré que no funcionaba usar en <code>molecule/default/molecule.yml</code>:</p><pre tabindex=0><code>---
+platforms:
+  - name: somename
+    image: someimage
+    entrypoint: &#34;&#34;    # this does not work!!
+    command: /some/command
+</code></pre><p>Encontré que <a href=https://github.com/containers/podman/issues/4595 target=_blank rel=noopener>en podman no funciona usar entrypoint como texto</a>
+y por lo tanto <a href=https://github.com/containers/podman-compose/issues/115 target=_blank rel=noopener><code>podman-compose</code> tiene el mismo problema</a>.</p><p>No he encontrado cómo <a href=https://stackoverflow.com/questions/71982641/how-to-override-entrypoint-for-moleculepodman-containers target=_blank rel=noopener>gestionar en entrypoint desde <code>molecule.yml</code></a>
+Es posible que no sea una opción en molecule.</p></article></main></body></html>

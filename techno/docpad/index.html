@@ -1,0 +1,34 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Instalar Docpad</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Instalar Docpad</h1><nav id=TableOfContents><ul><li><a href=#nombres-de-archivos>Nombres de archivos</a></li></ul></nav><p>Este blog estaba hecho con <a href=https://docpad.org/ target=_blank rel=noopener><code>Docpad</code></a>.</p><p>Me gustó mucho cuando comencé a usarlo,
+pero <a href=../hugo title="Este es el sistema que uso actualmente">me cambié a Hugo
+porque el ciclo de trabajo es mucho más rápido</a>
+así que dejo una guía rápida para comenzar a usarlo.</p><h1 id=instalar-docpad><a href=#instalar-docpad alt>Instalar docpad</a> <a href=# alt="Regresar al inicio">↑</a></h1><pre><code>sudo pacman -S nodejs nodejs-less
+</code></pre><p>En <a href=https://parabola.nu title="Distribución GNU/Linux como Arch pero libre" target=_blank rel=noopener>Parabola GNU/Linux</a> <code>python</code> es <code>python3</code>.
+Docpad necesita utilizar <code>python2</code>, así que ejecutamos:</p><pre><code>sudo npm config set python `which python2`
+</code></pre><p>Esto evitará que se muestre el error:</p><pre><code>Python executable &quot;python&quot; is v3.4.3, which is not supported by gyp.
+</code></pre><p>Ahora podemos instalar docpad usando el gestor de paquetes de <code>node.js</code>.</p><pre><code>sudo npm install -g docpad
+</code></pre><p>Se necesita <code>sudo</code> para hacer una instalación global (<code>-g</code>)
+en <code>/usr/lib/node_modules/docpad/</code>.</p><h1 id=comenzar-un-proyecto><a href=#comenzar-un-proyecto alt>Comenzar un proyecto</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Sólo se requiere generar una carpeta y correr docpad dentro de ella:</p><pre><code>mkdir &lt;project-dir&gt;
+cd &lt;project-dir&gt;
+docpad run
+</code></pre><p>El instalador nos pedirá entonces:</p><ul><li>Aceptar la licencia de uso,</li><li>Suscribirnos a la lista de correo (o no),</li><li>Elegir un esqueleto.</li></ul><h1 id=esqueletos><a href=#esqueletos alt>Esqueletos</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Los esqueletos son páginas ya hechas que podemos modificar para
+no empezar de cero.</p><p>Yo elegí sin esqueleto porque</p><blockquote><p>Nunca me gustó hacer algo de la manera sencilla
+si podía hacerse bocarriba.</p><p>parafraseando Neuromante &ndash; William Gibson</p></blockquote><p>(Además, no me gustaron los esqueletos que probé.)</p><h1 id=instalar-móduloshttpsdocpadorgdocsplugins-también-conocidos-como-plugins><a href=#instalar-m%c3%b3duloshttpsdocpadorgdocsplugins-tambi%c3%a9n-conocidos-como-plugins alt>Instalar <a href=https://docpad.org/docs/plugins title="También conocidos como plugins." target=_blank rel=noopener>módulos</a></a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Docpad hace todo por medio de programas pequeños y
+dedicados <a href=http://substack.net/many_things target=_blank rel=noopener>a una sola cosa</a>.</p><p>Lo que ya se puede hacer con docpad está en un módulo,
+y lo que todavía no se puede hacer con docpad estará en un módulo.</p><p>Para instalarlos se utiliza:</p><pre><code>docpad install &lt;módulo&gt;
+</code></pre><p>Este sitio utiliza <code>eco</code>, <code>marked</code> y <code>yamljs</code>.
+Hay una lista más completa <a href=https://docpad.org/docs/plugins target=_blank rel=noopener>aquí</a></p><h1 id=estructura-de-archivos><a href=#estructura-de-archivos alt>Estructura de archivos</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Lo que está dentro de la carpeta <code>src</code> (lo que editamos)
+formará el contenido de <code>out</code> (lo que publicamos).</p><p>Dentro de <code>src</code> hay otras 3 carpetas:</p><ul><li><code>files</code> (o <code>static</code>): donde va lo que no cambia,</li><li><code>layouts</code>: archivos que sirven de esqueleto y sobre los que se escriben los</li><li><code>documents</code> (o <code>render</code>): contenidos que se procesarán según los</li></ul><h2 id=nombres-de-archivos><a href=#nombres-de-archivos alt>Nombres de archivos</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>El final del nombre del archivo indica cómo se va a transformar y en qué orden.</p><p>Por ejemplo, el archivo <code>prueba.html.md.eco</code> se procesará
+primero por el plugin <code>eco</code>, luego por el plugin <code>marked</code> (<code>md</code>) y
+finalmente quedará como <code>html</code>.</p><p>Para cada paso es necesario tener un plugin y saber usarlo.</p><h1 id=para-publicar-archivos><a href=#para-publicar-archivos alt>Para publicar archivos</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Algunos plugins (por ejemplo <code>rss</code>) requieren la siguiente configuración:
+En <code>docpad.coffee</code>:</p><pre><code>templateData:  # Informacion del sitio web
+    site:
+        url: &quot;http://website.com&quot;
+        title: &quot;Título del sitio web.&quot;
+        description: &quot;&quot;&quot;
+            Esta descripción aparecerá en Google y otros buscadores.
+            &quot;&quot;&quot;
+        keywords: &quot;&quot;&quot;
+            aquí, van, palabras, clave, para, optimización, de, búsqueda
+            &quot;&quot;&quot;
+</code></pre><h1 id=más-información><a href=#m%c3%a1s-informaci%c3%b3n alt>Más información</a> <a href=# alt="Regresar al inicio">↑</a></h1><p><a href=https://docpad.org/docs/begin target=_blank rel=noopener>https://docpad.org/docs/begin</a></p></article></main></body></html>

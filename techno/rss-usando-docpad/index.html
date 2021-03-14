@@ -1,0 +1,13 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Cómo generar RSS usando docpad</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Cómo generar RSS usando docpad</h1><nav id=TableOfContents></nav><p>RSS es un estándar para anunciar los cambios de un sitio web.</p><p>Agregar un RSS a Docpad es muy simple:</p><ul><li><p>Instalar el complemento usando <code>docpad install rss</code></p></li><li><p>Generar una <a href=%22/posts/docpad-2%22>colección de documentos</a> en <code>docpad.coffee</code></p><p>collections:
+# Contiene los documentos en posts.
+posts: -> @getCollection(&lsquo;documents&rsquo;).findAllLive({relativeOutDirPath: &lsquo;posts&rsquo;},[{date:-1}])</p></li><li><p>Agregar a la configuración de docpad en la sección <code>plugins</code></p><p>plugins:
+rss:
+default:
+collection: &lsquo;posts&rsquo;
+url: &lsquo;/rss.xml&rsquo;</p></li></ul><p>Después esperamos a que docpad genere los archivos o los regeneramos usando:</p><pre><code>docpad generate
+</code></pre><p>Finalmente agregamos a nuestras <a href=/posts/docpad#estructura-de-archivos>plantillas</a>:</p><pre><code>&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;aquí va el título&quot; href=&quot;/rss.xml&quot; /&gt;
+</code></pre><p>Y para tener un botón de suscripción dentro de tu sitio web:</p><pre><code>&lt;a rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;aquí va el título&quot; href=&quot;/rss.xml&quot;&gt;
+  &lt;img src=&quot;ruta/a/la/imagen/rss.png&quot;/&gt;
+&lt;/a&gt;
+</code></pre></article></main><h2>Podría interesarte</h2><ul><li><a href=/viento-y-anotaciones/howto-usar-mezzanine-con-grappelli-y-filebrowser-vanilla/>HOWTO: usar mezzanine con grappelli y filebrowser vanilla</a></li></ul></body></html>

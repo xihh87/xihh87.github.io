@@ -1,0 +1,10 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Search Results</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><section class="resume-section p-3 p-lg-5 d-flex flex-column"><div class=my-auto><form action=https://joshua.haase.mx/search><label for=search-query>Search</label>
+<input id=search-query name=s></form><div id=search-results><h3>Resultados de la búsqueda</h3></div></div></section><script id=search-result-template type=text/x-js-template>
+    <div id="summary-${key}">
+        <h4><a href="${link}">${title}</a></h4>
+        <p>${snippet}</p>
+        ${ isset tags }<p>Tags: ${tags}</p>${ end }
+        ${ isset categories }<p>Categorías: ${categories}</p>${ end }
+    </div>
+</script><script src=https://code.jquery.com/jquery-3.3.1.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js></script><script src=https://joshua.haase.mx/js/search.js></script></body></html>

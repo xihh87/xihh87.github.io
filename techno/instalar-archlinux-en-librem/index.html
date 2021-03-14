@@ -1,0 +1,25 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Detalles instalando Arch en Librem</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Detalles instalando Arch en Librem</h1><nav id=TableOfContents><ul><li><a href=#bluetooth-no-funciona>Bluetooth no funciona</a></li><li><a href=#configurar-la-aceleración-gráfica>Configurar la aceleración gráfica</a></li></ul></nav><p>Instalé usando la imagen oficial en un chroot con btrfs en un sistema de archivos cifrado.</p><p>Instalé los paquetes principales que necesito:</p><pre tabindex=0><code>DATE=&#34;$(date -I | sed -e s/-/./)&#34;
+web &#34;https://mirrors.edge.kernel.org/archlinux/iso/${DATE}/archlinux-bootstrap-${DATE}-x86_64.tar.gz&#34;
+web &#34;https://mirrors.edge.kernel.org/archlinux/iso/${DATE}/archlinux-bootstrap-${DATE}-x86_64.tar.gz.sig&#34;
+curl &#39;https://keyserver.ubuntu.com/pks/lookup?op=get&amp;search=0x4aa4767bbc9c4b1d18ae28b77f2d434b9741e8ac&#39; \
+| gpg --import
+gpg --verify ~/web/mirrors.edge.kernel.org/archlinux/iso/${DATE}/archlinux-bootstrap-${DATE}-x86_64.tar.gz.sig
+
+sudo bsdtar -xf ~/web/mirrors.edge.kernel.org/archlinux/iso/2021-04-01/archlinux-bootstrap-2021-04-01-x86_64.tar.gz -C /mnt/arch root.x86_64
+
+cd /mnt/arch
+sudo mv
+sudo bin/arch-chroot /mnt/arch
+pacman -Syu
+pacman -S archlinux-keyring
+pacman-key --init
+pacman-key --populate archlinux
+</code></pre><p>Descomentar los mirrors de EUA, Mexico y Worldwide en <code>/mnt/arch/etc/pacman.d/mirrorlist</code></p><pre tabindex=0><code>pacman -Sy
+pacman -Su base base-devel
+</code></pre><p>Guardar el <a href=instalar-archlinux-en-librem.arch-history>historial</a>
+<a href=instalar-archlinux-en-librem.ubuntu-history>de</a>
+<a href=instalar-archlinux-en-librem.grub>comandos</a></p><h2 id=bluetooth-no-funciona><a href=#bluetooth-no-funciona alt>Bluetooth no funciona</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Parece que el controlador de Bluetooth <a href=https://www.forbes.com/sites/jasonevangelho/2019/03/25/first-24-hours-purism-librem-15-v4-laptop-pure-os/ target=_blank rel=noopener>no es libre y por lo tanto no funciona en Purism</a>
+a menos que se instale el firmware de Atheros.</p><p><a href=https://wiki.archlinux.org/title/Laptop/Other#Purism target=_blank rel=noopener>En la wiki de Arch reportan que bluetooth funciona sin problemas</a>
+y <a href=https://wiki.archlinux.org/title/bluetooth#Foxconn_/_Hon_Hai_/_Lite-On_Broadcom_device target=_blank rel=noopener>hay una sección dedicada a los dispositivos Foxconn</a>,
+y otra al <a href=https://wiki.archlinux.org/title/bluetooth#bluetoothctl:_No_default_controller_available target=_blank rel=noopener>problema donde no se reconoce el controlador de Bluetooth</a>.</p><h2 id=configurar-la-aceleración-gráfica><a href=#configurar-la-aceleraci%c3%b3n-gr%c3%a1fica alt>Configurar la aceleración gráfica</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>De acuerdo a <a href=https://wiki.archlinux.org/title/Hardware_video_acceleration title="Configurar aceleración de video" target=_blank rel=noopener>ArchWiki</a></p></article></main></body></html>

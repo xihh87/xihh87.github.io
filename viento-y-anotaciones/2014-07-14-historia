@@ -1,0 +1,38 @@
+> **Fitzpatrick**: Yeah, I worked at Tektronix for a while. Before I had any
+official job, I got some hosting account. I got kicked off of AOL for writing
+bots, flooding their chat rooms, and just being annoying. I was scripting the
+AOL client from another Windows program. I also wrote a bot to flood
+their online form to send you a CD. I used every variation of my name,
+because I didn’t want their duplicate suppression to only send me one CD,
+because they had those 100 free hours, or 5,000 free hours. I submitted this
+form a couple thousand times and for a week or so the postman would be
+coming with bundles of CDs wrapped up.
+>
+> My mom was like, “Damn it, Brad, you’re going to get in trouble.” I was like,
+“Eh—their fucking fault, right?” Then one day I get a phone call and I actually
+picked up the phone, which I normally didn’t, and it was someone from
+AOL. They were just screaming at me. “Stop sending us all these form
+submissions!” I’m not normally this quick and clever, but I just yelled back,
+“Why are you sending me all this crap? Every day the postman comes! He’s
+dropping off all these CDs!” They’re like, “We’re so sorry, sir. It won’t
+happen again.” Then I used all those and I decorated my dorm room in
+college with them. I actually still have them in a box in the garage. I can’t get
+rid of them because I just remember them being such a good decoration at
+one point.
+>
+> Coders at work -
+
+>Seibel: So programming is what you’d do for fun, even if you quit working?
+>
+>Fitzpatrick: Oh, yeah. I’d still do stupid shit. I have this silly board game on
+my phone. I was kind of tired—I couldn’t work on anything serious, so I
+wrote a solver for that game. Tried to do some dynamic programming and
+did different board sizes and did a bunch of random boards and made a
+histogram of how many moves it takes to solve the board for different
+board sizes. I sent it to the author because the game has a really bad
+estimate of par. Basically, to advance in the game you have to do better than
+par. And everyone on the mailing list was noticing that the game got easier
+as you went on because his estimate of par he kind of pulled out of
+nowhere. So I sent him the histograms at every board size. I think in the
+new version of the game he adjusted par. That was a fun hack, just on the
+shuttle home. I could retire and just do dumb shit like that all day.

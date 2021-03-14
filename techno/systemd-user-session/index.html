@@ -1,0 +1,36 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>systemd user session</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1><code>systemd</code> user session</h1><nav id=TableOfContents><ul><li><a href=#permisos>Permisos</a></li><li><a href=#administrar-los-servicios>Administrar los servicios</a></li><li><a href=#aplicaciones-gráficas>Aplicaciones gráficas</a></li></ul></nav><p>Uso <a href=https://wiki.parabolagnulinux.org/Main_Page target=_blank rel=noopener>Parabola GNU/Linux</a>
+porque es un sistema operativo totalmente libre que se puede hacer a la medida.
+Es como un bonsai: requiere esfuerzo, pero al final tienes algo tuyo y único.</p><p>Parabola GNU/Linux usa <a href=http://freedesktop.org/wiki/Software/systemd/ target=_blank rel=noopener>systemd</a>
+para administrar la inicialización de la computadora
+y los programas que corren en ella.</p><p>En la wiki de Archlinux se escribe acerca de
+la posibilidad de <a href=https://wiki.archlinux.org/index.php/Systemd/User target=_blank rel=noopener>manejar la sessión del usuario utilizando systemd</a>.
+La idea es interesante pero el documento es confuso.</p><h1 id=cómo-hacer-una-sesión-de-usuario><a href=#c%c3%b3mo-hacer-una-sesi%c3%b3n-de-usuario alt>¿Cómo hacer una sesión de usuario?</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Aún así, el sistema tiene <a href=http://pbrisbin.com/posts/systemd-user/ title="Aquí también dice cómo usarlo" target=_blank rel=noopener>varias ventajas</a>:</p><h2 id=permisos><a href=#permisos alt>Permisos</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Para controlar los servicios de usuario, necesitamos que el usuario que los usa tenga permiso de administrarlos.
+Por defecto sólo el administrador del sistema puede hacerlo.
+La forma más fácil de asignar los permisos es cambiar <code>systemd-auth</code> por <code>systemd-login</code> en el archivo <code>/etc/pam.d/systemd-user</code>.</p><pre tabindex=0><code># sed -i s/system-auth/system-login/g /etc/pam.d/systemd-user
+</code></pre><h2 id=administrar-los-servicios><a href=#administrar-los-servicios alt>Administrar los servicios</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><code>systemd 208</code> inicia automáticamente <code>systemd --user</code> en el primer inicio de sesión.
+El responsable de ello es <code>/usr/lib/systemd/system/user@.service</code></p><p>El proceso <code>systemd --user</code> inicia automáticamente las unidades que se encuentran en:</p><ul><li><code>/usr/lib/systemd/user/</code> donde los distribuidores del software ponen sus unidades.</li><li><code>/etc/systemd/user/</code> donde el administrador del sistema hace las modificaciones que considere necesarias.</li><li><code>~/.config/systemd/user/</code> donde el usuario puede modificar los servicios.</li></ul><p>La manera recomendada de administrar los servicios de usuario es en el último directorio.
+Si el usuario no quiere correr un servicio activado por defecto, puede desactivarlo poniendo un archivo vacío o un enlace a <code>/dev/null</code> que se llame como el servicio en este directorio.</p><h2 id=aplicaciones-gráficas><a href=#aplicaciones-gr%c3%a1ficas alt>Aplicaciones gráficas</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Generalmente las aplicaciones gráficas necesitan la variable <code>DISPLAY</code> para iniciar.
+Para arreglarlo, se puede agregar una plantilla que corra el servicio en cualquier <code>DISPLAY</code>:</p><p><code>file: ~/.config/systemd/user/servicio@.service</code></p><pre tabindex=0><code>[Unit]
+Description=Parcellite clipboard manager
+
+[Service]
+ExecStart=/usr/bin/parcellite
+Environment=DISPLAY=%i # &lt;= !
+
+[Install]
+WantedBy=mystuff.target
+</code></pre><p>El <code>%i</code> significa la instancia del servicio que se corre.
+Generalmente el display que se usa es <code>:0</code>.
+Luego, para activar una instancia se usa <code>systemctl --user enable servicio@:0</code>.
+(Se puede utilizar otro <code>DISPLAY</code> en caso de ser necesario.
+El <code>DISPLAY</code> debe existir para que esto funcione.)</p><hr><p>(<a href='https://bbs.archlinux.org/viewtopic.php?pid=1305383#p1305383' target=_blank rel=noopener>https://bbs.archlinux.org/viewtopic.php?pid=1305383#p1305383</a> &ldquo;Solución para correr una sesión de usuario&rdquo;)
+(<a href='https://bbs.archlinux.org/viewtopic.php?pid=1327116#p1327116' target=_blank rel=noopener>https://bbs.archlinux.org/viewtopic.php?pid=1327116#p1327116</a> &ldquo;Instrucciones para hacer funcionar sesiones de usuario con systemd 207. Varios problemas.&rdquo;)</p><p>(<a href='https://bbs.archlinux.org/viewtopic.php?pid=1327779#p1327779' target=_blank rel=noopener>https://bbs.archlinux.org/viewtopic.php?pid=1327779#p1327779</a> &ldquo;Post de FrozenCow para que funcionen aplicaciones gráficas lanzadas desde systemd &ndash;user&rdquo;)
+(<a href=https://gist.github.com/FrozenCow/6654245 target=_blank rel=noopener>https://gist.github.com/FrozenCow/6654245</a> &ldquo;script para averiguar qué variables debes establecer para que funcionen aplicaciones gráficas&rdquo;)</p><h1 id=problemas><a href=#problemas alt>Problemas</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>La opción <code>--user</code> <a href=http://lists.freedesktop.org/archives/systemd-devel/2013-July/012392.html target=_blank rel=noopener>está diseñada para corregir errores</a>,
+no para su uso normal.
+Por esa razón, se <a href='https://bugs.freedesktop.org/show_bug.cgi?id=67471' target=_blank rel=noopener>desactivó su uso</a> y
+se reemplazó por un <a href=http://www.freedesktop.org/software/systemd/man/systemd.service.html target=_blank rel=noopener>servicio</a>
+que <a href=http://lists.freedesktop.org/archives/systemd-devel/2013-August/012517.html target=_blank rel=noopener>hace lo mismo</a>.</p><p>Sin embargo ese servicio <a href='https://bbs.archlinux.org/viewtopic.php?pid=1303885#p1303885' target=_blank rel=noopener>todavía no está listo para su uso generalizado</a>.
+Y hay <a href='https://bugs.freedesktop.org/show_bug.cgi?id=67728' title="Aunque haya un solo usuario, no se puede apagar y etc, porque los programas que corre `systemd --user` no pertenecen a la sesión." target=_blank rel=noopener>problemas técnicos</a>
+<a href='https://bbs.archlinux.org/viewtopic.php?pid=1312781#p1312781' title="Xorg no admite sockets, ni dbus." target=_blank rel=noopener>que resolver</a>
+antes de que pueda manejarse la sesión completa usando systemd.</p></article></main></body></html>

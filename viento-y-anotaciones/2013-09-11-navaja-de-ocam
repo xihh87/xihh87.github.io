@@ -1,0 +1,45 @@
+% Navaja de Ocam
+% Joshua Haase
+% 2013-09-11
+
+Nuestra capacidad de comprender es limitada.
+Las cosas que entendemos son necesariamente simples.
+Y podemos tener en cuenta pocas cosas a la vez.
+
+> Hay dos formas de hacer ~~software~~:
+>
+> * tan simple que obviamente no haya errores, o
+> * tan complejo que no haya errores obvios.
+>
+> Modificación de la frase de [C.A.R. Hoare](http://harmful.cat-v.org/software/ )
+
+Lo que entendemos del mundo es una simplificación de la realidad.
+
+Los modelos simples tienen varias ventajas:
+
+* Dan menos lugar a errores.
+* Son más fáciles de transmitir.
+* Son más fáciles de entender.
+* Son más fáciles de validar.
+
+Durante la simplificación se elimina lo innecesario o superfluo.
+Eso no significa que todos los modelos simples sean adecuados,
+hay ocasiones en que no es posible simplificar sin mentir.
+En esos casos el modelo simple es dañino.
+Por eso es tan importante validarlos.
+
+Un marco conceptual simple puede tener consecuencias muy complejas.
+Como ejemplo está la teoría de la relatividad.
+Las premisas que llevaron a desarrollarla son:
+
+* Las leyes físicas son las mismas en todas las circunstancias.
+* La velocidad de la luz es constante.
+
+Su formulación matemática es poco más compleja y
+sus consecuencias incluyen que el tiempo es diferente en circunstancias diferentes.
+
+Las cosas ligeramente complejas deben abordarse por partes para ser [legibles](), y
+las que son muy complejas, se abordan mediante [prueba y error (evolución)]().
+
+Para efectos prácticos evolución es la mejor herramienta,
+para entender las cosas, es la simplicidad.

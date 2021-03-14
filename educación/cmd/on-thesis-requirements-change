@@ -1,0 +1,19 @@
+#!/bin/execlineb -S0
+loopwhilex
+	-x 256
+foreground { date }
+foreground {
+	pipeline {
+		cmd/thesis-requirements
+	}
+	withstdinas REQUIREMENTS
+	importas -s REQUIREMENTS REQUIREMENTS
+	debug
+	inotifywait
+		-e modify
+		-e close_write
+		${REQUIREMENTS}
+}
+debug
+time
+${@}

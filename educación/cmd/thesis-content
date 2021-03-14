@@ -1,0 +1,8 @@
+#!/usr/bin/execlineb -P
+foreground {
+pipeline {
+	find tesis -name *.md
+}
+	sort -V
+}
+echo tesis.yml

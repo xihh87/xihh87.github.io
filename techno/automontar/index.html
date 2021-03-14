@@ -1,0 +1,23 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Varios sistemas de auto-montaje</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Varios sistemas de auto-montaje</h1><nav id=TableOfContents><ul><li><a href=#auto-montar-discos>Auto montar discos</a></li><li><a href=#auto-montar-información-en-servidores>Auto montar información en servidores</a></li><li><a href=#auto-montar-información-en-la-nube-con-rclone>Auto montar información &ldquo;en la nube&rdquo; con rclone</a></li></ul></nav><h2 id=auto-montar-discos><a href=#auto-montar-discos alt>Auto montar discos</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Para montar como usuario un USB:</p><pre tabindex=0><code>gvfs-mount -d /dev/sdb[X]
+</code></pre><p>Para saber qué se está conectando:</p><pre tabindex=0><code>gvfs-mount --monitor
+</code></pre><p>El programa <code>/usr/lib/gvfs/gvfs-udisks2-volume-monitor</code>
+monitorea qué discos se conectan
+pero no auto monta por defecto^[].</p><p>Se puede usar <a href=https://github.com/coldfix/udiskie/wiki/Usage target=_blank rel=noopener>udiskie</a> para auto montar.</p><h2 id=auto-montar-información-en-servidores><a href=#auto-montar-informaci%c3%b3n-en-servidores alt>Auto montar información en servidores</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Generalmente usaría autofs,
+pero si tienes instalado systemd puede usarse directamente:</p><pre tabindex=0><code>user@server:/remote/path /local/path  fuse.sshfs noauto,x-systemd.automount,_netdev,users,idmap=user,IdentityFile=/path/to/ssh_key,allow_other,reconnect 0 0
+</code></pre><p>Yo desconfío del auto montaje de systemd porque
+en algún servidor que administré impidió el inicio del servidor,
+fue difícil diagnosticar la causa porque
+no muestra errores relacionados con el auto montaje.</p><p>Como había hecho el cambio de configuración en vivo,
+tampoco se podía relacionar inmediatamente.</p><p>Sospecho que la razón es que usé auto montado en <code>${HOME}</code> de los usuarios,
+pero no podría asegurar que esta es la causa.</p><p>Para probar que la configuración de auto montaje es correcta,
+se puede usar <a href='https://bbs.archlinux.org/viewtopic.php?id=192991' target=_blank rel=noopener>este comando</a>:</p><pre tabindex=0><code># systemctl daemon-reload
+# systemctl restart remote-fs.target
+# systemctl restart local-fs.target
+</code></pre><p>Y si no auto monta tu configuración,
+puedes diagnosticar errores con:</p><pre tabindex=0><code>systemctl --failed # para ver la unidad que falló
+journalctl -u tu-unidad-de-montaje.mount -f
+</code></pre><h2 id=auto-montar-información-en-la-nube-con-rclone><a href=#auto-montar-informaci%c3%b3n-en-la-nube-con-rclone alt>Auto montar información &ldquo;en la nube&rdquo; con rclone</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://rclone.org/commands/rclone_mount/ target=_blank rel=noopener><code>rclone</code> permite montar servicios remotos como archivos</a>
+y <a href=https://github.com/rclone/rclone/issues/727 target=_blank rel=noopener>parece que puede configurarse para automontarse</a>
+usando <a href=https://acd-cli.readthedocs.io/en/latest/FUSE.html#mount-options target=_blank rel=noopener>opciones de montado de FUSE</a>.</p><p>Informaré en cuánto lo intente
+(pero no aguanten la respiración).</p><p><a href=https://github.com/rclone/rclone/wiki/rclone-mount-helper-script target=_blank rel=noopener>La wiki de rclone contiene configuración para automontar usando <code>rclone >= 0.56</code> junto con <code>systemd</code></a>.</p></article></main></body></html>

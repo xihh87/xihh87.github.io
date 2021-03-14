@@ -1,0 +1,39 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Cuestionando mis herramientas</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Cuestionando mis herramientas</h1><nav id=TableOfContents><ul><li><a href=#agenda--gestión-de-proyectos>Agenda → Gestión de proyectos</a></li><li><a href=#ordenando-y-atendiendo-el-correo>Ordenando y atendiendo el correo</a></li><li><a href=#escribiendo-posts>Escribiendo posts</a></li><li><a href=#enlaces-y-fuentes-de-información>Enlaces y fuentes de información</a></li></ul></nav><h1 id=cuestionando-mis-herramientas><a href=#cuestionando-mis-herramientas alt>Cuestionando mis herramientas</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Las herramientas que usamos condicionan la manera en que pensamos.
+No importa si son <a href=http://bitacora.lasindias.com/resolviendo-babel-al-modo-p2p/ target=_blank rel=noopener>lenguajes</a>,
+<a href=http://www.cartograf.net/articulo/gestion-de-conocimiento-mainstream-control-de-versiones target=_blank rel=noopener>software</a>
+o martillos.</p><p>La cantidad de posts sin publicar y proyectos que no avanzan son indicadores de que estoy haciendo algo mal.
+Es una buena oportunidad para revisar las herramientas que utilizo
+y comenzar a <a href=http://www.joelonsoftware.com/articles/fog0000000339.html target=_blank rel=noopener>moverme y disparar</a>.</p><h2 id=agenda--gestión-de-proyectos><a href=#agenda--gesti%c3%b3n-de-proyectos alt>Agenda → Gestión de proyectos</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Leyendo a <a href=http://www.joelonsoftware.com/ target=_blank rel=noopener>Joel Spolsky</a> encontré
+<a href=http://www.fogcreek.com/fogbugz/ target=_blank rel=noopener>FogBugz</a> y
+<a href=https://trello.com/ target=_blank rel=noopener>Trello</a> para enamorarme.
+<em>Creo que la mejor agenda que podría tener es como ellos</em>:
+FogBugz es un gestor de proyectos que facilita la tarea de planear cada detalle,
+hacer predicciones de cuánto tardan a partir de evidencia,
+mantiene una lista de cosas a resolver,
+ordena el correo por temas y permite asignarlos a tareas.
+Trello es una herramienta para organizarse y mantener en mente qué hay que hacer.
+<strong>El problema es que <a href=~/xihh/auto/2019-01-24-software-libre-me-detiene.md>no son software libre</a></strong>.</p><p>Creo que <a href=http://www.cartograf.net/articulo/gestion-de-conocimiento-mainstream-control-de-versiones target=_blank rel=noopener>las herramientas para desarrollo de software pueden mejorar mi flujo de trabajo</a>.
+Evaluando posibilidades creo que la mejor alternativa es
+<a href=https://www.chiliproject.org/ target=_blank rel=noopener>ChilliProject</a> porque permite integrar
+<a href=http://www.cartograf.net/articulo/gestion-de-conocimiento-mainstream-control-de-versiones target=_blank rel=noopener>control de versiones</a>,
+gestionar proyecto y tiene funciones de correo (no las he revisado).
+La parte de Trello no la he pensado todavía.
+Estoy abierto a sugerencias.</p><p>2020-05-03: La gestión de proyectos la llevo con GitLab para coordinar y <code>taskwarrior</code> para enfocarme.</p><h2 id=ordenando-y-atendiendo-el-correo><a href=#ordenando-y-atendiendo-el-correo alt>Ordenando y atendiendo el correo</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Uso <a href=http://notmuchmail.org/ target=_blank rel=noopener>notmuch</a> y estoy muy satisfecho
+salvo porque necesito restablecer la configuración de gnus cada vez que abro emacs
+y no me he dedicado a arreglar el problema (agregar issue en ChilliProject :D).</p><p>Fui seducido por los <a href=http://www.paulgraham.com/spam.html target=_blank rel=noopener>filtros bayesianos</a>
+y los quiero en mi correo.
+No he estudiado las opciones pero algunos candidatos son:</p><ul><li><a href=https://github.com/teythoon/afew target=_blank rel=noopener>afew</a></li><li><a href=http://crm114.sourceforge.net/docs/CRM114_Mailfilter_HOWTO.txt target=_blank rel=noopener>CRM114</a></li></ul><p>Aún no he pensado cómo integrar el correo en el gestor de proyectos.</p><h2 id=escribiendo-posts><a href=#escribiendo-posts alt>Escribiendo posts</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Me parece incómoda la interfaz web para escribir en WordPress.
+Escribo mis posts desde emacs en <a href=http://daringfireball.net/projects/markdown/syntax target=_blank rel=noopener>markdown</a>
+para conservarlos, al terminar los convierto a HTML y lo envío por correo a WP.</p><p>El procedimiento claramente puede mejorar.
+Tal vez debería automatizar la conversión, envío y agregado de parámetros para etiquetar, etcétera.</p><p>Me gustaría contestar comentarios por correo pero el procedimiento me falla (otro issue en ChilliProject).</p><h2 id=enlaces-y-fuentes-de-información><a href=#enlaces-y-fuentes-de-informaci%c3%b3n alt>Enlaces y fuentes de información</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Quisiera algo como el
+<a href=http://wordpress.org/extend/plugins/rss-digest target=_blank rel=noopener>rss-digest</a> que <a href=http://www.biankahajdu.com/2012/08/12/enlaces-de-la-semana-3-2/ target=_blank rel=noopener>recomienda Bianka</a>
+para los feeds anarquistas.
+¿Convendría una instalación local de WordPress con tal de usar éste plugin?
+¿Convendría seguirlos trabajando en emacs?</p><p>Además me gustaría administrar mis enlaces con algo parecido a
+<a href=https://sourceforge.net/projects/semanticscuttle/ target=_blank rel=noopener>SemanticScuttle</a>
+(o ése mismo) pero poder acceder a ellos desde emacs.
+Sin embargo me gustaría poder además <a href=./como-readcube-pero-libre/>citar fácilmente los libros o artículos y comentarlos mientras los leo</a>.
+Tal vez convendría adaptar Zotero a éstas necesidades.</p><p>Pensando en estas cosas me parece subóptimo tener el lector de información separado del editor.
+Y sin embargo no me gusta tanto gnus y
+no sé cómo guardaría los bookmarks.</p><p>OT: ¿Qué pasó con <a href=http://bitacora.lasindias.com/prisma-adhesion-abocada-a-la-participacion-y-la-interaccion/ target=_blank rel=noopener>Prisma</a>?</p></article></main></body></html>

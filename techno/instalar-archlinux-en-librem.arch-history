@@ -1,0 +1,95 @@
+    1  pacman -Syu
+    2  ping 8.8.8.8
+    3  ip a
+    4  ls
+    5  ls bin
+    6  cat README
+    7  pacman-key --init
+    8  pacman-key --populate archlinux
+    9  sudo pacman -Sy
+   10  pacman -Sy
+   11  vi /etc/pacman.conf
+   12  sudo pacman -S base base-devel
+   13  pacman -S base base-devel
+   14  cat /etc/resolv.conf
+   15  ls l-a
+   16  ls -al
+   17  cat README
+   18  ping 8.8.8.8
+   19  pacman -Sy
+   20  rankmirrors
+   21  pacman -Sy
+   22  pacman -Sy ssh
+   23  pacman -Sy openssh-server
+   24  pacman -Ss openssh
+   25  sudo pacman -S openssh
+   26  pacman -S openssh
+   27  sshd
+   28  /usr/bin/sshd
+   29  ls -la
+   30  pacman -S base base-devel
+   31  pacman -Su base base-devel
+   32  df -h
+   33  ls /sys/firmware/efi/efivars
+   34  ls -la
+   35  mount /dev/sda1 /boot/
+   36  mkdir pureos
+   37  mount /dev/nvme0n1p2 pureos/
+   38  mount /dev/mapper/luks-87163dec-ba50-4385-b213-d65ce8745b8e /pureos/
+   39  ls -la
+   40  ls pureos/
+   41  ls pureos/home/
+   42  ls pureos/home/x/
+   43  ls -laf
+   44  ls -laf pureos/
+   45  ls -laf pureos/home/x/
+   46  ln -sf /usr/share/zoneinfo/America/Mexico_City /etc/localtime
+   47  genfstab -U /mnt/ >> /etc/fstab
+   48  genfstab -U / >> /etc/fstab
+   49  less /etc/fstab
+   50  vis /etc/crypttab
+   51  pacman -S vis
+   52  vis /etc/crypttab
+   53  vis /etc/cryptfs.key
+   54  chmod 0400 /etc/cryptfs.key
+   55  ls -la /etc/cryptfs.key
+   56  cat /etc/cryptfs.key
+   57  vis /etc/locale.gen
+   58  locale-gen
+   59  vis /etc/vconsole.conf
+   60  pacman -S fdfind
+   61  pacman -Ss fd
+   62  pacman -S fd ag
+   63  pacman -S fd
+   64  pacman -Ss ag
+   65  pacman -Ss ag | less
+   66  pacman -Ss riggrep
+   67  pacman -Ss ag | less
+   68  pacman -Ss ripgrep
+   69  pacman -S ripgrep
+   70  pacman -Ql ripgrep
+   71  rg
+   72  ls
+   73  vis /etc/vconsole.conf
+   74  timedatectl set-ntp true
+   75  pacman -S linux linux-firmware
+   76  ls /boot/
+   77  hostnamectl grafeno
+   78  hostnamectl set-hostname grafeno
+   79  passwd
+   80  df -h
+   81  ls -la /boot/
+   82  ls
+   83  cd /boot/
+   84  ls
+   85  rm vmlinuz-4.19.0-9-amd64
+   86  ls
+   87  pacman -S intel-ucode
+   88  vis /boot/grub/grub.cfg
+   89  pacman -S grub
+   90  grub-mkconfig -o /boot/grub/grub.cfg
+   91  ls -la /dev/sda1
+   92  ls -la /dev/sda
+   93  lsblk
+   94  history | less
+   95  history > /pureos/home/x/xihh/techno.nomia.mx/instalar-archlinux-en-librem.arch-history

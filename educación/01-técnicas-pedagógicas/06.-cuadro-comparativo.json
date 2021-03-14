@@ -1,0 +1,68 @@
+[
+  {
+    "id": "url:yt-ausubel",
+    "type": "motion_picture",
+    "title": "Teoría del Aprendizaje Significativo de David P. Ausubel",
+    "source": "www.youtube.com",
+    "abstract": "Buenas! En esta ocasión hablaremos sobre la teoría del Aprendizaje Significativo de David Paul Ausubel",
+    "URL": "https://www.youtube.com/watch?v=NJQpyLbVMkQ",
+    "language": "es",
+    "author": [
+      {
+        "family": "The Visual Brain",
+        "given": ""
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2020",
+          3,
+          23
+        ]
+      ]
+    },
+    "accessed": {
+      "date-parts": [
+        [
+          "2021",
+          2,
+          21
+        ]
+      ]
+    }
+  },
+  {
+    "id": "url:yt-bruner",
+    "type": "motion_picture",
+    "title": "Aprendizaje por descubrimiento",
+    "source": "www.youtube.com",
+    "abstract": "Maestros, subimos contenido pedagógico para tu examen docente, cada semana, por favor Regálame un Like, Suscríbete al canal y coméntanos que temas te gustaría que investiguemos y te lo presentemos en un resumen. Comparte para llegar a más docentes.",
+    "URL": "https://www.youtube.com/watch?v=IrQNxvkma00",
+    "language": "es",
+    "author": [
+      {
+        "family": "Examen Docente",
+        "given": ""
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2020",
+          8,
+          26
+        ]
+      ]
+    },
+    "accessed": {
+      "date-parts": [
+        [
+          "2021",
+          2,
+          21
+        ]
+      ]
+    }
+  }
+]

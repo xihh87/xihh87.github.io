@@ -1,0 +1,17 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Fully Automated Installation</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Fully Automated Installation</h1><nav id=TableOfContents><ul><li><a href=#posiblemente-útil>Posiblemente útil</a></li></ul></nav><p>Para usar FAI en máquinas virtuales se necesita que haya red por cable
+porque en general no funciona la red por puente en sistemas inalámbricos.</p><p>2020-01-13:</p><p>Intenté configurar FAI en ferrum usando virt-manager (que configura el NAT)
+y con la opción de DHCP externo.</p><p>Para asegurarme de que funcionaría intenté configurar la red desde <code>/etc/network/interfaces</code>
+pero al iniciar, hay un error:</p><pre tabindex=0><code>rc.local[589]: ifup: no interface(s) specified
+rc.local[589]: ifup: Use --help for help
+</code></pre><p><a href=https://dougsland.livejournal.com/123242.html target=_blank rel=noopener>Configuré la red virtual para usar PXE</a>:</p><pre tabindex=0><code>&lt;bootp file=&#34;pxelinux.0&#34; server=&#34;192.168.122.52&#34;/&gt;
+</code></pre><p>Como no funcionó y <code>/srv/tftp</code> contiene el directorio <code>fai</code>, probé también:</p><pre tabindex=0><code>&lt;bootp file=&#34;fai/pxelinux.0&#34; server=&#34;192.168.122.52&#34;/&gt;
+</code></pre><p>Sin embargo ninguno de los dos funciona.
+Probando TFTP desde el hipervisor indica timeout para ambas rutas.
+La conexión al tftp parece ser exitosa.</p><p>El servidor tftp funciona localmente, descartando problemas de permisos en para el servicio tftp.</p><p>Probando con la dirección externa 192.168.122.52 no funciona:</p><pre tabindex=0><code>Transfer timed out
+</code></pre><p>Parece que el problema son las reglas del firewall.
+El problema fue la IP que tenía el servidor FAI.</p><p>Se corrigió el problema con la IP correcta.</p><p>Descargó PXELINUX, pero luego no pudo iniciar.</p><p>Faltaba configurar el host usando el comando fai-chboot.</p><pre tabindex=0><code>echo &#34;192.168.122.49 demohost&#34; &gt;&gt; /etc/hosts
+fai-chboot -IFv -u nfs://192.168.122.53/srv/fai/config demohost
+</code></pre><p>Una vez haciendo esa configuración,
+<a href='https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=731244' target=_blank rel=noopener>editar el archivo generado</a>
+para incluir el parámetro <code>root=192.168.122.53:/srv/fai/config</code>.</p><h2 id=posiblemente-útil><a href=#posiblemente-%c3%batil alt>Posiblemente útil</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://github.com/faiproject/fai/ target=_blank rel=noopener>Repositorio de FAI</a></p><p><a href=https://fai-project.org/fai-guide/#otherdists target=_blank rel=noopener>Guía oficial de FAI</a></p><p><a href=http://www.mgoetze.net/tmp/fai-guide.html target=_blank rel=noopener>Otra guía no oficial de FAI</a></p><p><a href='https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=731244' target=_blank rel=noopener>Puedes cambiar el servidor FAI al que se conecta uando la variable <code>root</code> en la línea del bootloader</a></p></article></main></body></html>

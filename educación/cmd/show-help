@@ -1,0 +1,10 @@
+#!/usr/bin/awk -f
+BEGIN {
+	FS = "\t|:.*?## "
+	blue = "\033[36m"
+	normal = "\033[0m"
+}
+
+/[ \t]##[ \t]/ {
+	printf blue "%-20s" normal " %s\n", $1, $NF
+}

@@ -1,0 +1,10 @@
+#!/usr/bin/execlineb -S0
+backtick -n PWD { pwd }
+importas -i PWD PWD
+docker run -t
+	--rm --name natas11
+	-v "${PWD}:/usr/src/myapp"
+	-w /usr/src/myapp
+	php:7.4-cli
+	php
+	${@}

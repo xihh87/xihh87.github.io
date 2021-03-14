@@ -1,0 +1,94 @@
+---
+title: La Ciencia de Datos en nuestra vida cotidiana
+#subtitle: [asignatura]
+author: "Joshua Ismael Haase Hernández"
+biblio-style: apa
+biblio-title: Referencias
+theme: metropolis
+slide-level: 2
+---
+
+## En 1854 hubo una epidemia de cólera en Londres
+
+![](https://es.bcdn.biz/Images/2020/5/19/5f6364ac-f828-4c20-82ee-ac375efc0fb5.jpg ){width=10cm}
+
+:::notes
+
+Corría el año 1854, y Londres estaba siendo azotada por un terrible brote de cólera. Las calles estaban llenas de enfermos y moribundos, y la ciudad estaba en pánico. Snow, sin embargo, estaba decidido a desentrañar el misterio detrás de esta mortal epidemia.
+
+Armado con sus libros y un mapa de la ciudad, Snow comenzó a investigar. Visitó a las personas afectadas y tomó notas meticulosas sobre sus síntomas y ubicaciones. Pronto, notó un patrón extraño: la mayoría de los casos se concentraban en el vecindario de Soho, pero no parecía haber una conexión obvia.
+
+Convencido de que el agua era la clave, Snow se sumergió en su investigación. Entrevistó a residentes locales y descubrió que muchos de ellos obtenían agua de una fuente pública en Broad Street. Pero aún necesitaba pruebas concluyentes.
+
+Decidió trazar un mapa de los casos de cólera en Soho, marcando cada uno con un punto en el mapa. Para su sorpresa, una mancha oscura comenzó a emerger alrededor de la fuente de Broad Street. Snow se dio cuenta de que esta fuente estaba contaminada y era la fuente del brote de cólera.
+
+Con valentía, Snow convenció a las autoridades de que retiraran la manija de la fuente, lo que detuvo la propagación de la enfermedad. Fue un momento crucial en la historia de la epidemiología y la salud pública. John Snow había logrado demostrar que el cólera se transmitía a través del agua contaminada.
+
+La historia de John Snow nos recuerda la importancia de la investigación y la determinación en la lucha contra las enfermedades. Sus esfuerzos salvaron vidas y sentaron las bases para futuras investigaciones en epidemiología. La próxima vez que bebas agua limpia del grifo, recuerda a John Snow y su valiente búsqueda de la verdad en las calles de Londres.
+:::
+
+## Como el origen de la enfermedad era un misterio, John Snow investigó
+
+![](http://ksassets.timeincuk.net/wp/uploads/sites/46/2017/08/jon-snow-2.jpg )
+
+## …el John Snow de verdad hizo un mapa que
+
+::::: {.columns}
+:::: {.column width=50%}
+![John Snow, Wikimedia Commons](/home/x/web/upload.wikimedia.org/wikipedia/commons/c/cc/John_Snow.jpg )
+::::
+:::: {.column width=50%}
+![Mapa de Soho, Wikimedia Commons](/home/x/web/upload.wikimedia.org/wikipedia/commons/thumb/2/27/Snow-cholera-map-1.jpg/2183px-Snow-cholera-map-1.jpg )
+::::
+:::::
+
+## Este es el mapa de los casos afectado
+
+[Enlace al mapa interactivo](https://links.esri.com/learn-arcgis/result-cholera-outbreak )
+
+![](/home/x/xihh/ibero/2023-10-24-promoción-icd/mapa-qr.png )
+
+<iframe width="100%" height="520" frameborder="0" src="https://www.arcgis.com/apps/instant/sidebar/index.html?appid=18b0e940adde49b198f2a93454a15351" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+<!--
+<iframe width='100%' height='520' frameborder='0' src='https://simonrogers.carto.com/tables/john_snow/embed_map?title=false&description=false&search=true&shareable=true&cartodb_logo=true&sql=SELECT%20*%20FROM%20john_snow%20ORDER%20BY%20num_deaths%2C%20geom_type%20ASC&sw_lat=51.51177397755052&sw_lon=-0.1421356201171875&ne_lat=51.51477858782044&ne_lon=-0.1318359375' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+-->
+
+## Muchos de los problemas de la vida cotidiana sólo pueden resolverse a través de los datos, para varios aún no existen buenas soluciones
+
+![](/home/x/web/www.emergn.com/wp-content/uploads/2018/11/wicked-problems.jpg )
+
+:::notes
+Los "wicked problems" son problemas complejos y desafiantes que no tienen soluciones simples ni definitivas. El término "wicked problem" fue acuñado por los científicos sociales Horst Rittel y Melvin Webber en la década de 1970. Estos problemas se caracterizan por varias cualidades distintivas:
+
+-   **Complejidad**: Los wicked problems suelen estar compuestos por múltiples variables e interacciones que dificultan su comprensión y resolución. Estas variables pueden ser técnicas, sociales, económicas, políticas y culturales.
+
+-   **Falta de claridad**: No hay una definición clara del problema, y la forma en que se define influye en la solución. Además, diferentes partes interesadas pueden tener interpretaciones divergentes de lo que constituye el problema.
+
+-   **Cambios constantes**: Los wicked problems a menudo evolucionan con el tiempo y pueden presentar nuevos desafíos a medida que se intentan resolver. Las soluciones exitosas de hoy pueden volverse ineficaces en el futuro.
+
+-   **Dependencia del contexto**: Las soluciones a wicked problems no son transferibles de un contexto a otro. Lo que funcione en un lugar o momento determinado puede no ser aplicable en otro.
+
+-   **Conflictos de valores**: Los wicked problems a menudo involucran conflictos de valores y prioridades. Diferentes partes interesadas pueden tener objetivos y perspectivas opuestas, lo que complica la búsqueda de soluciones aceptables para todos.
+:::
+
+
+## Las personas que van a resolver estos problemas complejos van a ser Ingenieros en Ciencia de Datos
+
+![](/home/x/icd/JPG/1-LogoICD-color1.jpg )
+
+## Un ejercicio para conoce uno de los métodos usados en ciencia de datos
+
+[Playground Tensor Flow](https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=      reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.97983&showTestData=false&discretize=false&percTrainData=50&x=tru      e&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZ      ro=false&hideText=false )
+
+![](/home/x/xihh/ibero/2023-10-24-promoción-icd/demo-qr.png )
+
+<iframe width="100%" height="520" frameborder="0" src="https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.97983&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+## Esta es una de las carreras mejor complensadas…
+
+![](/home/x/web/blog.skillup.online/wp-content/uploads/2019/08/BodyImagejpg.jpg )
+
+## …y en general los salarios están creciendo
+
+![](/home/x/web/businessoverbroadway.com/wp-content/uploads/2018/04/kaggle_salary_changes_world.png )

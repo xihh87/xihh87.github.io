@@ -1,0 +1,20 @@
+---
+documentclass: scrartcl
+grupo: "Doctorado en Educación"
+title: "Marco Legal"
+author: "Joshua Ismael Haase Hernández"
+profesor: "Miriam Trinidad Espejel"
+asignatura: "Seminario de Tesis I"
+modulo: "Avanzado"
+mainfont: DejaVu Sans
+fontsize: 12
+links-as-notes: true
+biblio-style: "apa"
+biblio-title: Referencias
+date: 2021-08-08
+toc: true
+toc-title: Contenido
+logo: uco.png
+template: ucha
+lang: es-MX
+...

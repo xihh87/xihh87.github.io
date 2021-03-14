@@ -1,0 +1,141 @@
+---
+title: Ludificación (gamification)
+subtitle: Materia $\newline$—Profesor
+author:
+- Fernando Martínez
+- Joshua Haase
+biblio-style: apa
+biblio-title: Referencias
+date: 2021-08-08 $\newline$ $\newline$ ![](uco.png){width=3cm}
+theme: metropolis
+slide-level: 2
+enlaces:
+- "/home/x/web/cloudflare-ipfs.com/ipfs/bafykbzaceatpefjw75d5dbc2ds2ndyyg7qjxhp6htjn7nruiyzzh3vhznjodw?filename=Torsten Reiners, Lincoln C. Wood (eds.) - Gamification in Education and Business-Springer International Publishing (2015).pdf"
+- "/home/x/web/cloudflare-ipfs.com/ipfs/bafykbzaceb7dssfzkpvuc2zytkqgdx23qezedgvzn55jephu5vldjalt47inq?filename=Mathias Fuchs et al. (eds.) - Rethinking Gamification-Meson Press (2014).epub"
+- "/home/x/web/cloudflare-ipfs.com/ipfs/bafykbzacec5jm4txzuwjt6cjo7y6zhszpivc3mrtesuybgwen7lcwd6dm56fg?filename=Scot Harris, Kevin O’Gorman - Mastering Gamification_ Customer Engagement in 30 Days-Impackt Publishing (2014).pdf"
+- "/home/x/web/cloudflare-ipfs.com/ipfs/bafykbzacecbwipxe22rlq6mu7bsgujo7gyav4comvnyzccpmisntqvcjifaqy?filename=Brian Burke - Gamify_ How Gamification Motivates People to Do Extraordinary Things-Bibliomotion (2014).epub"
+- "/home/x/web/cloudflare-ipfs.com/ipfs/bafykbzacecmp35pu3ynqapqc5a6gojljyfmotzx5suf4irgr2x6u75oie5eta?filename=Gabe Zichermann, Joselin Linder - The Gamification Revolution_ How Leaders Leverage Game Mechanics to Crush the Competition-McGraw-Hill (20"
+- "/home/x/web/download.libgen.io/get/C1E96578F2790179E8E18487D1A8D36D/Todd Moore-Tap, Move, Shake_ Turning Your Game Ideas into iPhone & iPad Apps  -O'Reilly Media (2011).pdf"
+- "/home/x/web/cloudflare-ipfs.com/ipfs/bafykbzacedioa2apwaupu6sumoddrnwvaan4pfu652kwukfmjh3vhezrgcfgk?filename=Gabe Zichermann, Christopher Cunningham - Gamification by Design_ Implementing Game Mechanics in Web and Mobile Apps -O'Reilly Media (2011"
+- "/home/x/web/cloudflare-ipfs.com/ipfs/bafykbzacea4leepz7l73hattsupvzj656oie7a66gq2wfdxx3lglael2t22py?filename=Alfie Kohn - Punished by rewards_ the trouble with gold stars, incentive plans, A's, praise, and other bribes-Houghton Mifflin Co (2010).ep"
+...
+
+Ludificar consiste en agregar elementos divertidos a actividades cotidianas y puede usarse con objetivos de aprendizaje [@isbn:978-1449397678, p.5]
+----------------------------------------------------------------------------------------------
+
+![Ejemplo de un posible juego para realizar una tarea aburrida](https://imgs.xkcd.com/comics/board_game.png ){height=7cm}
+
+Si no se diseña el juego alrededor de la diversión, falla.
+--------------------------------------------------------------------------------------------
+
+![Así se sienten los juegos educativos cuando la diversión no se pone en primer plano [@url:https://blog.ncase.me/curse-of-the-chocolate-covered-broccoli-or-emotion-in-learning/]](https://blog.ncase.me/content/images/2019/12/broc.png ){height=7cm}
+
+<!--
+
+La dinámica del juego debe integrarse con la estética para entrenar el comportamiento deseado
+
+- - -
+
+No es posible forzar a alguien a aprender
+
+> Enseñar a alguien que no quiere aprender es desperdiciar palabras.
+> No enseñar a alguien que quiere aprender es desperdiciar una persona.
+
+> "La ludificación consiste en usar la forma de pensar y la mecánicas del juego para motivar a usuarios y resolver problemas" [@isbn:978-1449397678, p.5]
+
+> "Games are the future of work. Fun is the new “responsible.” And the movement that is leading the way is gamification." [@isbn:978-1449397678, p.5]
+
+- - -
+
+La ludificación permite agregar diversión, placer y goce a las actividades cotidianas
+
+Posiblemente la dicotomía del orden (gris, seguridad, aburrimiento)
+y el caos (de colores, asombro, terror)
+nos lleve a tomar ciertas decisiones.
+
+«El significado en medio del orden y el caos».
+
+Los estudiantes sólo aprenden si quieren aprender
+
+- - -
+
+La motivación se puede dividir en 5 métricas:
+-   frescura
+-   frecuencia
+-   duración
+-   viralidad
+-   calificación
+
+- - -
+
+Si el juego no es divertido no va a usarse [@isbn:978-1449397678, p. 15] pero
+se pueden encontrar enfoques divertidos para cualquier temática [@isbn:978-1449397678, p. 15]
+
+Se pueden usar elementos no económicos para impulsar la fidelidad de los clientes,
+como menos tiempo en las filas, servicio, mejores asientos
+[@isbn:978-1449397678, p. 18].
+
+La recompensa también puede ser estatus [@isbn:978-1449397678, p. 20]
+
+> "It’s always the depth of meaning of the game that matters, not the monetary value of the prize" [@isbn:978-1449397678, p. 22]
+
+> "En un juego bien diseñado, la casa siempre gana." [@isbn:978-1449397678, p. 23]
+
+Se busca que los jugadores entren en «la zona» [@isbn:978-1449397678, p. 26]
+y se utiliza condicionamiento operante para volverlos adictos [@isbn:978-1449397678, p. 26]
+
+> Ludificar no consiste en agregar chocolate al brócoli [@url:https://blog.ncase.me/curse-of-the-chocolate-covered-broccoli-or-emotion-in-learning/]
+
+La gente juega por 4 motivos [@isbn:978-1449397678, p. 28]\:
+-   maestría
+-   des-estresarse
+-   divertirse
+-   hacer amigos
+
+> "Cuando un juego está bien diseñado, se siente intrínseco para los jugadores" [@isbn:978-1449397678, p. 37]
+
+
+Si se quiere usar un juego para cambiar objetivos a largo plazo,
+las medallas podrían no ser una buena idea.
+
+Se puede usar la personalización para captar compromiso de los clientes [@isbn:978-1449397678, p. 26]
+
+- - -
+
+Funciona mejor si se alternan fases de aprendizaje con fases de práctica
+
+-->
+
+Un buen juego, aumenta lentamente la carga cognitiva del jugador,$\newline$introduciendo un concepto a la vez
+----------------------------------------------------------------------------------------------------
+
+
+Un camino propuesto es enseñar una relación a la vez los conceptos $\newline$ importantes
+------------------------------------------------------------------------------
+
+[Ejemplo cómo organizar un juego para enseñar algo](https://ncase.me/trust/ )
+
+Hay que tener cuidado en el diseño de las recompensas, porque "una vez que empiezas a dar recompensas, tienes que mantener [a la persona] en el ciclo de recompensas por siempre" [@isbn:978-0-618-00181-1, p. 27]
+-------------------------------------------------------------------------------------------------------------------
+
+Si se espera cambiar el comportamiento a largo plazo, se busca usar los elementos del juego para generar motivación intrínseca [@isbn:978-3-319-10207-8, p. 4]
+---------------------------------------------------------------------------------
+
+-   Competencia
+-   Autonomía
+-   Interrelaciones
+
+<!--
+
+Diseñar correctamente los objetivos.
+
+-   Suponer desde el principio que el juego va a ser explotado.
+
+-   La ludificación puede servir para resolver el problema de que no tienes suficiente gente.
+
+Los incentivos y la economía se deben planear para buscar el resultado esperado.
+
+-->
+
+Referencias {.allowframebreaks}
+----------

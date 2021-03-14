@@ -1,0 +1,9 @@
+#!/usr/bin/execlineb -P
+pipeline {
+	find
+		-name "0[0-9].*.md"
+		-o -name "0[0-9].*.pmd"
+}
+	grep
+		-vE
+		"^./tesis/"

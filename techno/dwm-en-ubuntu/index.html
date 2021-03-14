@@ -1,0 +1,21 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>dwm en Ubuntu</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1><code>dwm</code> en Ubuntu</h1><nav id=TableOfContents><ul><li><a href=#pendientes>Pendientes</a></li></ul></nav><p>Ubuntu usa lightdm y las sesiones están en <code>/usr/share/xsessions</code>
+allí se puede guardar una sesión que haga lo que quieras.</p><p>Yo allí configuré una sesión con la siguiente información:</p><pre tabindex=0><code>[Desktop Entry]
+Encoding=UTF-8
+Name=Dwm
+Comment=Dynamic window manager
+Exec=/home/xihh/cmd/dwm
+Icon=dwm
+Type=XSession
+</code></pre><ul><li><p>[✓] Quiero que junto con el inicio de sesión abra dwmstatus.</p><p>No se puede usar s6-svscan con dwm porque por alguna razón no inicia la sesión.
+Posiblemente es porque no generé el entorno para usar el DISPLAY y otras variables de entorno necesarias.</p><p>Otra posible fuente de error es que la primera línea no contiene shebang <code>#!</code></p><p>Agregando shebang y variables de entorno el sistema funciona correctamente.
+Como ventaja adicional, si se muere el gestor de ventanas,
+mis programas siguen funcionando correctamente. \o/</p></li><li><p>[✓] Instalar s6 y compañía desde el código fuente.</p><pre tabindex=0><code>gcl git@gitlab.com:xihh87/qmail-config
+cd ~/src/gitlab.com/xihh87/qmail-config
+mk start
+. .venv/bin/activate
+ansible-playbook skarnet-tools.yml
+ansible-playbook s6-on-systemd.yml
+</code></pre></li><li><p>[✓] Compilar la base de datos en ~/xihh/cmd/login</p><pre tabindex=0><code>cd $(repo s6-login)
+mk s6
+</code></pre></li></ul><h2 id=pendientes><a href=#pendientes alt>Pendientes</a> <a href=# alt="Regresar al inicio">↑</a></h2><ul><li><p><input disabled type=checkbox> Usar s6 para gestionar el escritorio.</p><p><a href=https://dset0x.github.io/s6-desktop.html target=_blank rel=noopener>A alguien se le ocurrió una idea similar</a>.</p></li></ul></article></main></body></html>

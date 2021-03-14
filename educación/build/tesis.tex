@@ -1,0 +1,4198 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  12,
+]{scrartcl}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[]{DejaVu Sans}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Aplicación del paradigma constructivista a la enseñanza de la ciberseguridad en México usando actividades dirigidas e integración continua---Primer borrador},
+  pdfauthor={Joshua Ismael Haase Hernández},
+  pdflang={es-MX},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+% Use graphics on front page
+\usepackage{graphicx}
+% Make links footnotes instead of hotlinks:
+\DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
+\usepackage[normalem]{ulem}
+% Avoid problems with \sout in headers with hyperref
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{spanish}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Aplicación del paradigma constructivista a la enseñanza de la
+ciberseguridad en México usando actividades dirigidas e integración
+continua---Primer borrador}
+\author{Joshua Ismael Haase Hernández}
+\date{2021-10-19}
+
+\begin{document}
+\begin{titlepage}
+ \begin{addmargin}[-1.5cm]{-1cm}
+	\centering
+        \includegraphics[width=13cm]{uco.png}\par
+        \vspace{2\baselineskip}
+        {\LARGE \textsc{Doctorado en Educación}\par}
+        \vspace{2\baselineskip}
+        {\Huge \textsc{Aplicación del paradigma constructivista a la
+enseñanza de la ciberseguridad en México usando actividades dirigidas e
+integración continua---Primer borrador}\par}
+        por\par
+                {\Large\textsc{Joshua Ismael Haase Hernández}\par}
+                \vspace{2\baselineskip}
+        \vfill
+        {\Large Ciudad de México, 2021-10-19\par}
+ \end{addmargin}
+\end{titlepage}
+
+\renewcommand*\contentsname{Contenido}
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\newpage
+
+\hypertarget{descripciuxf3n-del-proyecto}{%
+\section{Descripción del proyecto}\label{descripciuxf3n-del-proyecto}}
+
+\begin{quote}
+``Me lo contaron y lo olvidé, lo vi y lo entendí, lo hice y lo
+aprendí.''
+
+Confucio (jeronicalafell, 2017)
+\end{quote}
+
+Desarrollar un conjunto de juegos para guiar a los estudiantes a
+entender y aplicar los conceptos de ciberseguridad, desarrollar
+pensamiento sistémico y sistemático, y reconocer áreas de oportunidad en
+términos de la seguridad informática.
+
+A diferencia de utilizar una aproximación meramente teórica este
+proyecto ofrecería una ruta optimizada para el aprendizaje de una
+asignatura técnicamente retadora y generar experiencia práctica en el
+área.
+
+\hypertarget{planteamiento-del-problema}{%
+\section{Planteamiento del problema}\label{planteamiento-del-problema}}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Reunir los hechos en relación con el problema ¿Qué está pasando?
+
+  En el contexto local:
+\end{enumerate}
+\end{quote}
+
+Los proyectos informáticos comienzan con el objetivo de resolver un
+problema y los programadores que no han adquirido la disciplina de
+proteger cada entrada de información en los programas, introducen
+vulnerabilidades buscando la forma más simple de resolver el problema.
+
+Dado que la mayoría de los programadores no reciben instrucción formal
+(\textbf{bob\_c\_martin\_youtube?}) la mayoría de los programadores no
+desarrollan esa disciplina y muchos de los materiales en internet
+incluso recomiendan agregar vulnerabilidades en el desarrollo para
+simplificar, sin indicar los problemas que ocasionan.
+
+En la Universidad Iberoamericana se busca enseñar esta disciplina a los
+estudiantes como una de las ventajas competitivas del programa ITCT.
+
+\begin{quote}
+En el contexto global:
+\end{quote}
+
+\begin{itemize}
+\item
+  El número de computadoras y su influencia en nuestra vida está en
+  constante creciendo.
+\item
+  Hay más demanda que oferta en el mercado laboral para personas
+  capacitadas en programación, seguridad informática, inteligencia
+  artificial.
+\item
+  El uso de inteligencia artificial para automatizar tareas puede
+  destruir empleos mucho más rápido de lo que generamos empleos nuevos y
+  se espera que los empleos nuevos que se generen requieran un alto
+  nivel técnico para desarrollarse.
+
+  Esto pasará principalmente en los mandos medios porque es dónde tendrá
+  más valor en cuanto al balance costo/beneficio para las empresas.
+\item
+  Muchas habilidades creativas mantendrán su valor si no pueden
+  automatizarse, aunque la parte técnica de esas carreras será apoyada
+  por sistemas automatizados.
+\item
+  Se espera que los sistemas automatizados se vuelvan ubicuos y que la
+  atención personalizada se vuelva producto de lujo. Por esta razón, la
+  adquisición de habilidades blandas (comunicación, empatía, etcétera)
+  tendrá alto valor en el mercado laboral.
+\end{itemize}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Determinar la importancia de los hechos.
+\end{enumerate}
+\end{quote}
+
+El uso de las nuevas tecnologías tiene importancia en el ámbito
+económico y social de nuestras vidas por su impacto en los mercados
+laborales.
+
+El uso de las nuevas tecnologías tiene impacto en muchas industrias
+porque cambia el tamaño de la escala óptima para desarrollar varias
+actividades. Por ejemplo, actualmente una persona puede tener impacto
+mediático a nivel nacional o global, sin todo el aparato de una
+institución.
+
+Para las escuelas, el uso de tecnologías de la información para difundir
+el conocimiento y la disponibilidad de la información en línea implica
+un cambio de su estatus como el lugar dónde se difunde el conocimiento.
+
+-\textgreater{} Esto probablemente se mitiga por el hecho de que muchas
+personas no son autodidactas.
+
+-\textgreater{} También puede ser que la necesidad de evaluación mitigue
+este problema.
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Identificar las posibles relaciones entre los hechos que puedan
+  indicar la causa de la dificultad.
+\end{enumerate}
+\end{quote}
+
+La ubicuidad de las computadoras y el desarrollo de las tecnologías
+(p.e. paralelización, GPU) permite que sea posible automatizar tareas
+que se supone requieren criterio o inteligencia.
+
+Esto está provocando:
+
+\begin{itemize}
+\tightlist
+\item
+  Automatización de tareas de alto valor agregado
+\item
+  Demanda de personal capacitado en habilidades técnicas
+\item
+  Destrucción o transformación de los empleos que se automatizan
+\end{itemize}
+
+Esas situaciones implican un cambio en el mercado laboral, en la
+cantidad y calidad de trabajo que pueden entregar las personas que sepan
+usar o tengan acceso a estas tecnologías, en la capacidad técnica que
+van a requerir los empleos para hacer funcionar la tecnología y en la
+demanda de personal especializado para implementar sistemas de
+aprendizaje de máquina.
+
+Todas estas tendencias están creando demanda de personal que pueda
+utilizar estas nuevas tecnologías y se necesita un medio efectivo para
+ayudar a las personas que podrían cubrir estas demandas a capacitarse.
+
+Recuerdo haber leído en un informe o una referencia a un informe de
+Gartner que la demanda de personal especializado está creciendo más
+rápido de lo que las escuelas están formando al personal que podría
+atenderla.
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Proponer explicaciones para conocer la causa de la dificultad y
+  determinar su importancia en el problema.
+\end{enumerate}
+\end{quote}
+
+Parece que nunca antes en la historia de la humanidad ha habido una
+demanda tan grande de las habilidades de abstracción y pensamiento
+lógico-matemático. Los métodos que se han desarrollado para ayudar a las
+personas a desarrollar estas habilidades están basados en el diseño de
+las fábricas, impulsados por el Taylorismo, la necesidad de entrenar
+personal para la producción industrial y la producción en serie.
+
+Entre las teorías educativas, las que parecen atender el problema de
+cómo se generan las abstracciones son el cognoscitivismo y el
+constructivismo.
+
+Ambos tienen una aproximación práctica para acelerar el proceso:
+
+\begin{itemize}
+\tightlist
+\item
+  Organizando el conocimiento en función de los conceptos que deben
+  desarrollarse.
+\item
+  Generando retos en el horizonte proximal de conocimiento sin mostrar
+  todo el resultado, sino dejando espacio para el descubrimiento.
+\item
+  Usando actividades que den la oportunidad a los estudiantes para
+  desarrollar la abstracción.
+\end{itemize}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Encontrar entre las explicaciones aquellas que permitan adquirir una
+  visión amplia en la solución del problema.
+\end{enumerate}
+\end{quote}
+
+La teoría constructivista da pistas acerca de cómo se desarrollan las
+abstracciones necesarias para aprender el uso de las nuevas tecnologías.
+
+El poder de las tecnologías de información como un medio para la
+transmisión de conocimiento, con posibilidades de ejecutar acciones o
+interactuar con las personas de acuerdo a patrones definidos, las
+vuelven una herramienta idónea para abordar el problema.
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Hallar relaciones entre los hechos y las explicaciones.
+\end{enumerate}
+\end{quote}
+
+El problema está causado por el desarrollo tecnológico y se están
+explorando varios modelos para atacar el problema.
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Analizar los supuestos en los que se apoyan los elementos
+  identificados.
+\end{enumerate}
+\end{quote}
+
+Las tecnologías de la información están permitiendo a muchas personas
+ser autodidactas y montar su propio negocio.
+
+En algunas regiones del mundo, los costos de las universidades privadas
+están teniendo un retorno de inversión negativo para muchas personas y
+se está proponiendo que no son necesarias porque las tecnologías de la
+información permiten formarse de manera autodidacta con una barrera de
+entrada menor a la que antes existía.
+
+Aún si las tecnologías de la información no reemplazan el rol de las
+universidades, las estamos desaprovechando si no potenciamos la labor
+docente al hacer uso de ellas.
+
+Las tecnologías de la información pueden ser mejores que los libros,
+porque tienen un alcance mayor, mayor potencial y su mayor ventaja es
+que pueden diseñarse sistemas que ofrezcan retroalimentación en tiempo
+real a los estudiantes.
+
+Además de ser el medio por el cuál se desarrollan las mismas técnicas de
+aprendizaje de máquina en las que queremos entrenar a las personas.
+Estas herramientas pueden ser tanto el medio de exposición y enseñanza
+para estas nuevas tecnologías.
+
+\hypertarget{justificaciuxf3n}{%
+\section{Justificación}\label{justificaciuxf3n}}
+
+Acerca de la importancia de mejorar el proceso educativo integrando las
+tecnologías de la información tomaré prestadas las palabras de Eben
+Moglen en su conferencia «Antes y Después de la Propiedad Intelectual»:
+
+\begin{quote}
+"¿Cuántos Shakespeares pudo haber que no aprendieron a leer? ¿Cuantos
+Einstein no aprendieron física? Es obvio que la mayoría, presumiblemente
+bastantes.
+
+\emph{Hay más humanos en el planeta que nunca antes, así que no importa
+cuantos Shakespeares o Einsteins se hayan perdido antes, vamos a
+desperdiciarlos otra vez.} Pero no tenemos que hacerlo.
+
+A diferencia de todas las sociedades anteriores que estaban casi
+obligadas por circunstancias materiales a desperdiciarlos {[}\ldots{]}
+Ahora el único impedimento son las leyes que prohíben compartir, y sin
+ellas la ignorancia sería prevenible."
+
+(s.~f.), resaltado añadido.
+\end{quote}
+
+Las tecnologías de la información nos permiten alcanzar más personas y
+hacer las cosas a gran escala por su capacidad de ejecutar procesos de
+manera reproducible, automática, constante.
+
+Las nuevas herramientas permiten además:
+
+\begin{itemize}
+\tightlist
+\item
+  Realizar actividades sin conocer cómo se hace,
+\item
+  Hacer trabajo de calidad con muchos menos recursos (tiempo, esfuerzo),
+\item
+  Multiplicar la capacidad personal.
+\end{itemize}
+
+El costo que pagamos por ello, es la necesidad de mayor capacitación y
+entrenamiento para desarrollar capacidades de abstracción avanzadas, que
+los modelos tradicionales de enseñanza basados en el conductismo no
+están preparados para entrenar.
+
+La habilidad de trabajar con las computadoras se puede entender como una
+nueva etapa de alfabetización que divide a las personas más exitosas en
+nuestra sociedad (\emph{dbp.io :: Programming as Literature}, s.~f.).
+
+No es la única habilidad ni necesariamente la más importante, pero sí
+representa una diferencia cualitativa en la calidad de vida que pueden
+tener las personas.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  ¿Cuáles son los beneficios que este trabajo proporcionará?
+\end{enumerate}
+
+Para atender la creciente necesidad de profesionistas en el mercado, y
+mejorar la eficacia del entrenamiento en las materias de programación,
+este trabajo propone el uso de un sistema automático de enseñanza y
+evaluación para las materias de programación que utiliza las mejores
+prácticas de la industria para guiar a los estudiantes a través de su
+aprendizaje.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  ¿Quiénes serán los beneficiarios y de qué modo?
+\end{enumerate}
+
+El sistema propuesto presenta los siguientes beneficios sobre los
+métodos tradicionales de enseñanza:
+
+\begin{itemize}
+\item
+  Ofrece retroalimentación inmediata, continua y consistente \emph{a los
+  estudiantes} durante su proceso de aprendizaje.
+
+  Esto podría ayudar a desarrollar buenos hábitos, que se han
+  identificado como el principal factor que afecta el desempeño de los
+  programadores (McConnell, 2004).
+
+  Verificar esta hipótesis está contemplado dentro del alcance de este
+  trabajo.
+\item
+  Introduce \emph{a los estudiantes} en la dinámica de desarrollo
+  profesional de software desde su formación. Esto podría representar
+  una ventaja competitiva para los estudiantes que al momento de buscar
+  trabajo pueden presentar su experiencia utilizando sistemas de
+  integración continua.
+
+  Este rubro beneficia también \emph{a las empresas} porque reduce el
+  tiempo de adaptación a las buenas prácticas en la industria.
+\item
+  Simplifica la labor \emph{docente} al descargar la responsabilidad de
+  las actividades de evaluación que pueden evaluarse de manera
+  automática.
+
+  No es evidente que todos los atributos deseables en un buen código
+  pueden evaluarse de manera automática. Muchos de los criterios
+  requieren habilidades de comprensión de contexto que no tienen las
+  computadoras; salvo que se puedan implementar como algoritmos de
+  aprendizaje de máquina. Esta posibilidad está fuera del alcance de
+  este trabajo, pero podría incluirse en trabajos posteriores.
+\item
+  Funciona como un estándar externo para \emph{la universidad} en la
+  medición de la calidad del trabajo docente.
+
+  Este sistema podría ofrecer parámetros objetivos para evaluar si los
+  estudiantes desarrollan buenos hábitos en programación.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  ¿Qué aporta de nuevo esta investigación?
+\end{enumerate}
+
+Un sistema de integración continua es un conjunto de herramientas y
+prácticas que se utiliza en la industria de desarrollo de software para:
+
+\begin{itemize}
+\tightlist
+\item
+  mantener la calidad del código,
+\item
+  agilizar el tiempo para entregar valor en forma de productos,
+\item
+  reducir el tiempo que toma detectar problemas y corregirlos.
+\end{itemize}
+
+Estos sistemas tienen beneficios bien probados en los ámbitos de la
+industria (McConnell, 2004) e investigación científica (Krafczyk et~al.,
+2019). Sin embargo, no suele incluirse en los currículos universitarios
+(Bowyer \& Hughes, 2006).
+
+Este trabajo se apropia de ese sistema utilizado en las empresas más
+ágiles de la industria de desarrollo de software y lo enfoca para
+evaluar:
+
+\begin{itemize}
+\tightlist
+\item
+  el estilo de código
+\item
+  buenas prácticas en desarrollo
+\end{itemize}
+
+Además sienta las bases para utilizar este sistema de integración
+continua como instrumento pedagógico mediante el paradigma
+constructivista.
+
+Ha habido intentos de integrar los sistemas de integración continua como
+temática en el currículo educativo (Eddy et~al., 2017), o como
+herramienta para mejorar la calidad del código en cursos universitarios
+(Embury \& Page, 2019; Zvacek et~al., 2014). Sin embargo, no plantean el
+uso de estas herramientas dentro de un marco pedagógico que apoye el
+aprendizaje de los fundamentos de programación y verifique buenas
+prácticas en el estilo de código.
+
+Existen otras aproximaciones para intentar calificar de manera
+automática y motivar a los estudiantes por medio de competencia (s.~f.).
+Parece que la competencia también puede tener un efecto negativo en el
+aprendizaje, porque divide la auto-percepción de la capacidad de los
+estudiantes en buena y mala y en algunos casos disminuye la motivación
+de los estudiantes por lo que debe implementarse con cuidado (Fischer
+et~al., 2021).
+
+Debido a limitaciones de tiempo, en este trabajo sólo se evaluará el
+efecto de la retroalimentación continua con respecto de los criterios de
+evaluación, pero se pretende extender este trabajo hasta implementar
+ejercicios consistentes con el paradigma constructivista y el
+aprendizaje por descubrimiento, en una secuencia que apoye el desarrollo
+de los conceptos abstractos necesarios para programar y el desarrollo de
+hábitos efectivos.
+
+Cuando esa etapa llegue, se hará uso de plataformas ya existentes cuya
+licencia permita el uso para fines educativos (Zinovieva et~al., 2021).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  ¿Qué es lo que se prevé cambiar con la investigación?
+\end{enumerate}
+
+Las universidades no han cambiado mucho desde el diseño de las
+industrias con base a la administración científica (Taylor et~al., 2003)
+y la producción en serie (González Martínez, 2003).
+
+Las tecnologías de la información están cambiando las reglas del juego
+(Levy \& Murnane, 2005) de tal forma que las universidades necesitarán
+transformarse para cubrir la demanda de personal técnico especializado o
+perderán su lugar en el mercado (s.~f.).
+
+Es importante valernos de las tecnologías para resolver estos problemas
+porque por un lado hay una creciente demanda de habilidades cognitivas
+complejas (s.~f.) y por otro tenemos posibilidades tecnológicas que no
+hubo nunca antes.
+
+Este trabajo pretende cambiar la forma en que se enseña programación, y
+en particular:
+
+\begin{itemize}
+\item
+  Mejorar en la Universidad que trabajo la calidad e inmediatez de la
+  retroalimentación que reciben los estudiantes.
+\item
+  Generar un sistema estandarizado y automático para la evaluación.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  ¿Cuál es su utilidad?
+\end{enumerate}
+
+Si el método es efectivo, mejorará la efectividad del aprendizaje en
+estas materias que por su complejidad tienen un alto índice de
+deserción.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  ¿Ayudará a resolver algún problema o gama de problemas prácticos?
+\end{enumerate}
+
+Se espera que reduzca el tiempo que los docentes dedican a la evaluación
+al tiempo que mejor la cantidad, calidad y consistencia de la
+retroalimentación que reciben los estudiantes.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  ¿Por qué es significativo este problema de investigación?
+\end{enumerate}
+
+Encontrar maneras efectivas para enseñar las disciplinas complejas y
+abstractas que requiere una sociedad que cada vez depende más de las
+computadoras puede tener impacto en beneficio de la sociedad:
+
+\begin{itemize}
+\item
+  Entrenando a la población en un ámbito que tiene gran potencial para
+  fortalecer el crecimiento económico y apoyar en la resolución de
+  problemas relevantes para la sociedad que requieran automatización o
+  complejidad de cómputo.
+\item
+  Preparando a la población que tiene las herramientas para resolver los
+  problemas complejos del futuro.
+
+  Los problemas científicos actuales ya son tan complejos que requieren
+  el uso de computadoras para avanzar el conocimiento. Lo mismo para los
+  problemas sociales con causas complejas como el calentamiento global.
+\item
+  Ofreciendo oportunidades para mejorar la calidad de vida de los
+  estudiantes.
+
+  La entrada en el mercado de las tecnologías de aprendizaje de máquina
+  ya están cambiando el mercado, destruyendo ciertas profesiones y
+  generando otras. Se espera que esta tendencia se acelere.
+\item
+  Formar estudiantes preparados para este futuro va a tener incidencia
+  en la calidad de vida de los estudiantes que se están formando ahora.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  ¿Permitirá llenar algún hueco de conocimiento?
+\end{enumerate}
+
+Hernández (2012) argumenta que la evaluación continua sólo mejora el
+desempeño estudiantil si se diseña la retroalimentación hacia el
+aprendizaje y se deja claro qué tienen que hacer los estudiantes con la
+retroalimentación recibida.
+
+Hay varios ejemplos que muestran que la evaluación continua puede
+mejorar el desempeño estudiantil en campos como ingeniería mecánica,
+ingeniería química y medicina (Aftab \& Tariq, 2018; Christoforou \&
+Yigit, 2008; Sanz-Pérez, 2019)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\tightlist
+\item
+  ¿Se podrán generalizar los resultados a principios más amplios?
+\end{enumerate}
+
+Estos resultados podrían ser generalizables a situaciones educativas
+dónde:
+
+\begin{itemize}
+\tightlist
+\item
+  Existan problemas bien definidos, susceptibles de calificarse
+  automáticamente.
+\item
+  Requieran desarrollar habilidades de abstracción para resolverse.
+\item
+  Se pueda aprovechar un sistema de retroalimentación.
+\item
+  Los modos de fallo sean conocidos y enumerables.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{9}
+\tightlist
+\item
+  ¿Puede servir para comentar, desarrollar o apoyar una teoría?
+\end{enumerate}
+
+En esta etapa de evaluación, no se desarrolla una teoría nueva, pero se
+sientan las bases para en el futuro evaluar una secuencia didáctica
+basada en el constructivismo que permita construir las abstracciones y
+conceptos necesarios para programar efectivamente.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{10}
+\tightlist
+\item
+  ¿Sugiere como estudiar más adecuadamente una población o fenómeno?
+\end{enumerate}
+
+La población de estudio serían estudiantes de telecomunicaciones en
+México.
+
+\hypertarget{quuxe9-se-puede-mejorar-en-la-educaciuxf3n}{%
+\subsection{Qué se puede mejorar en la
+educación}\label{quuxe9-se-puede-mejorar-en-la-educaciuxf3n}}
+
+El sistema de enseñanza no ha cambiado mucho desde la era industrial:
+hay un profesor que les enseña la misma clase a todos y se usa un examen
+para verificar que memorizaron los conceptos.
+
+En ese entonces no teníamos acceso a la tecnología para verificar hechos
+tanto como ahora ni la capacidad de compartir los procesos que usamos
+para lograr una tarea determinada. Hoy tenemos la ventaja de que podemos
+buscar hechos y procedimientos en internet instantáneamente y seguir la
+receta.\footnote{La memorización sigue siendo importante porque para
+  generar algo nuevo y no meramente seguir instrucciones es necesario
+  entender cómo funcionan las cosas. Los hábitos son aún más importante
+  porque nos permiten hacer las cosas en tiempo y forma.
+
+  Parece que la diferencia de productividad entre los mejores
+  programadores y los peores es de un orden de magnitud y se debe
+  principalmente a los hábitos (McConnell, 2004)}
+
+Las cosas que desde mi perspectiva podrían mejorar en la educación y que
+están en nuestras posibilidades tecnológicas:
+
+\begin{itemize}
+\item
+  Permitir el avance individual de las personas en función de su
+  habilidad.
+\item
+  Un curso práctico con exámenes prácticos, personalizados, generados
+  automáticamente y que tienen un semestre para completar.
+\item
+  Verificar automáticamente la resolución de los problemas.
+\item
+  Realizar proyectos de aplicación real y no únicamente proyectos
+  escolares.
+\end{itemize}
+
+\hypertarget{marco-teuxf3rico}{%
+\section{Marco teórico}\label{marco-teuxf3rico}}
+
+\hypertarget{desarrollo-del-pensamiento-abstracto-de-acuerdo-al-constructivismo-de-piaget}{%
+\subsection{Desarrollo del pensamiento abstracto de acuerdo al
+constructivismo de
+Piaget}\label{desarrollo-del-pensamiento-abstracto-de-acuerdo-al-constructivismo-de-piaget}}
+
+Piaget et~al. (2016) describe varias etapas en que los niños desarrollan
+sus estructuras cognitivas. A lo largo del libro se presenta evidencia
+obtenida a partir de experimentos para apoyar sus conclusiones.
+
+Se describe con todo detalle la construcción del conocimiento en niños
+de diferentes edades explicando su progresión general y el nivel de
+maestría con que lo dominan.
+
+Esa construcción corresponde a la formación de la memoria mediante la
+organización de experiencias senso-motores, aplicando la noción de
+permanencia, primero de los objetos y luego de sus propiedades
+(sustancia, peso, volumen, longitud\ldots), para construir
+representaciones mentales cada vez más elaboradas de la realidad
+(lugares, episodios, acontecimientos, historias).
+
+Esas representaciones mentales, a su vez, hacen posible la
+representación de operaciones con elementos del mundo y permiten
+abstraer las propiedades ya no de los objetos, sino de las operaciones
+mismas.
+
+En estos procesos, el juego cumple un papel fundamental al poner en
+acción:
+
+\begin{itemize}
+\tightlist
+\item
+  conceptos
+\item
+  conocimientos
+\item
+  percepciones
+\end{itemize}
+
+y contrastar el resultado de las expectativas con la experiencia.
+
+Las etapas de desarrollo que se describen son:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Etapa senso-motriz:
+
+  Donde se construyen hábitos a partir de reflejos, se asocian los
+  hábitos adquiridos como medios para lograr objetivos y finalmente se
+  adquiere la capacidad para generar y refinar esos medios.
+\item
+  Construcción de lo real:
+
+  Sobre las estructuras desarrolladas en la etapa senso-motriz se
+  desarrollan percepciones y nociones que permiten representar
+  internamente el mundo que nos rodea e interactuar con él.
+\item
+  Diferenciación del sujeto:
+
+  En la interacción con el mundo se van diferenciando la percepción de
+  la realidad respecto de la percepción de nosotros mismos.
+
+  La percepción propia nos permite también generar la percepción de los
+  otros.
+\item
+  Semiótica:
+
+  A partir de interactuar con el mundo desarrollamos varios lenguajes
+  simbólicos (p.e. imagen mental, representación actuada, palabras,
+  dibujos) para representar el mundo y nuestra interacción con él.
+
+  Esas representaciones simbólicas nos permiten comunicar a otras
+  personas nuestra representación del mundo, y nuestras reacciones
+  afectivas. (Piaget elabora acerca del desarrollo de la moral y las
+  interacciones sociales pero no elabora acerca de la construcción del
+  conocimiento acerca de las propias emociones).
+\item
+  Desarrollo operatorio:
+
+  Las múltiples representaciones que se desarrollan en las etapas
+  anteriores (sensomotoras, propioceptivas, verbales, simbólicas),
+  permiten representar nuestra interacción con el mundo y permite
+  abstraer las propiedades de las operaciones.
+
+  El proceso ocurre primero en operaciones concretas (sumas, restas,
+  traslaciones), pero luego se generaliza a operaciones proposicionales
+  donde se separa la forma de las operaciones de su contenido, y eso
+  permite razonar acerca de proposiciones ``en las que aún no se cree''
+  o en situaciones donde la información es incompleta.
+\end{enumerate}
+
+\hypertarget{teoruxeda-de-la-instrucciuxf3n-de-bruner}{%
+\subsection{Teoría de la instrucción de
+Bruner}\label{teoruxeda-de-la-instrucciuxf3n-de-bruner}}
+
+La instrucción debe fomentar el interés del estudiante, presentar los
+conocimientos en un orden adecuado para el aprendizaje, ofrecer
+múltiples caminos para alcanzar un objetivo, generar un ambiente seguro
+y evaluar en función de los objetivos (Bruner, 1978).
+
+\hypertarget{notas-y-citas}{%
+\subsection{Notas y citas}\label{notas-y-citas}}
+
+Las personas aprenden a partir de lo que se conoce en su entorno.
+(Bruner, 1978, p. 1)
+
+La percepción se desarrolla generando un modelo del mundo que permite
+tomar decisiones acertadas con muy poca información. (Bruner, 1978, p.
+2)
+
+\begin{quote}
+Teaching is vastly facilitated by the medium of language, which ends by
+being not only a medium for exchange but the instrument that the learner
+can then use himself in bringing order to the environment. (Bruner,
+1978, p. 5)
+\end{quote}
+
+Ejemplo acerca de que ``el vaso más lleno'' también puede ser ``el vaso
+más vacío'' si tiene más volumen de agua y más volumen sin agua que otro
+independientemente de la proporción de agua, que es el centro de
+decisión en los adultos.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+La descripción acerca de la anécdota de ``«getting the luff out of the
+main» not making contact with the muscles'' me hizo pensar en que los
+centros del lenguaje están relacionados con toda la experiencia sensible
+de las personas.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{quote}
+The nature of intellectual development is that it seems to run the
+course of these three systems of representation until the human being is
+able to command all three. (Bruner, 1978, p. 12)
+\end{quote}
+
+Para explicar la incapacidad de una persona para entender la invariante
+de una transformación con respecto de la apariencia, Brunner sugiere que
+es el uso del lenguaje lo que permite internalizarlo (Bruner, 1978, pp.
+13-14)
+
+Los niños usan el lenguaje para indicar las cosas que están en su
+entorno primero y después desarrollan la capacidad de usarlas para
+describir lo que no está allí (Bruner, 1978, p. 14)
+
+Si no se dominan habilidades básicas, las habilidades complejas quedan
+fuera del alcance. (p.~e. blancos educados vs.~negros salvajes) (Bruner,
+1978, p. 29)
+
+Sistemas simbólicos para procesar información (Bruner, 1978, p. 28): -
+manipulación y acción - organización perceptual e imágenes - simbólica
+
+\begin{quote}
+``John Kemeny, did a survey of high-school mathematics teaching a decade
+ago and found no mathematics newer than a hundred years old being
+taught!'' (Bruner, 1978, p. 37)
+\end{quote}
+
+\begin{quote}
+``A theory of instruction is prescriptive in the sense that it sets
+forth rules concerning the most effective way of archieving knowledge or
+skill.'' (Bruner, 1978, p. 40)
+\end{quote}
+
+4 partes de una teoría de instrucción (Bruner, 1978, pp. 40-42): -
+experiencias para implantar predisposición a aprender, - estructura
+óptima para el aprendizaje, - secuencias efectivas para presentar el
+material, - ritmo, premiso y castigos para el proceso.
+
+Es conveniente buscar la forma de convertir las recompensas externas por
+recompensas internas pero aún no se entiende cómo (Bruner, 1978, pp.
+41-42).
+
+El aprendizaje es un proceso social y el estudiante necesita habilidades
+sociales para involucrarse en el proceso (Bruner, 1978, pp. 42-43).
+
+El instructor reduce el peligro de la exploración y aumenta la
+posibilidad de explorar alternativas correctas (Bruner, 1978, p. 44).
+
+El problema se puede representar en forma simple y la representación se
+puede describir por: modo (acciones, imágenes, símbolos), economía,
+poder (Bruner, 1978, pp. 44-45).
+
+La economía puede afectarse por el modo o por la secuencia del material
+(Bruner, 1978, p. 46).
+
+Si el intelecto se desarrolló en el este orden: acción → imagen →
+símbolo, es posible que la secuencia óptima de aprendizaje sea esa
+(Bruner, 1978, p. 49).
+
+Los criterios de la evaluación afectan el orden de la secuencia óptima
+de aprendizaje (Bruner, 1978, p. 50).
+
+Para aprender se pueden realizar hipótesis y pruebas, de ese proceso se
+pueden desarrollar heurísticas (Bruner, 1978, pp. 51-52). La habilidad
+del solucionador depende de su estado interno (Bruner, 1978, p. 52). En
+ocasiones, la información negativa puede ayudar a quien aprende (Bruner,
+1978, p. 53).
+
+Posiblemente convenga validar experimentalmente el curriculum mientras
+se desarrolla (Bruner, 1978, p. 54).
+
+Experimento para enseñar matemáticas con cubos de madera, luego
+representaciones gráficas y finalmente representación simbólica (Bruner,
+1978, pp. 57-64).
+
+\begin{quote}
+``We reached the tentative conclusion that it was probably necessary for
+a child, learning math, to have not only a firm sense of the abstraction
+underlying what he was working on, but also a good stock of visual
+images for embodying them. For without the latter it is difficult to
+track correspondences an check what one is doing symbolically.''
+(Bruner, 1978, p. 66)
+\end{quote}
+
+A pesar de desarrollar la capacidad de abstracción, los alumnos no dejan
+ir sus imágenes, que les permiten explorar los problemas que dominan
+(Bruner, 1978, p. 68).
+
+Dada la variabilidad individual, no existe una secuencia ideal para
+cualquier grupo de estudiantes (Bruner, 1978, p. 71). Un curriculum debe
+tener:
+
+\begin{itemize}
+\tightlist
+\item
+  formas diferentes de activar estudiantes,
+\item
+  varias secuencias,
+\item
+  oportunidades para saltarse partes.
+\end{itemize}
+
+\begin{quote}
+``Un curriculum debe tener muchas vías para llegar al mismo resultado
+general'' (Bruner, 1978, p. 71)
+\end{quote}
+
+\begin{quote}
+``Saber es un proceso, no un producto.'' (Bruner, 1978, p. 72)
+\end{quote}
+
+Un buen curso contiene su disciplina en formas convenientes para su
+aprendizaje (Bruner, 1978, p. 73).
+
+\begin{quote}
+``Las cinco grands fuerzas humanizantes son generación de herramientas,
+lenguaje, organización social, gestión de la infancia prolongada y la
+necesidad de explicar el mundo.'' (Bruner, 1978, p. 75)
+\end{quote}
+
+Presentar la lingüística como normativa mata el interés de los niños
+(Bruner, 1978, p. 76).
+
+Es más fácil preguntar si ofreces un punto de comparación. (Bruner,
+1978, p. 77).
+
+4 técnicas (Bruner, 1978, p. 92):
+
+\begin{itemize}
+\tightlist
+\item
+  Contrastar con algo conocido
+\item
+  Estimular hipótesis
+\item
+  Participación: diseñar un juego con las propiedades buscadas.
+\item
+  Estimular la auto-consciencia.
+\end{itemize}
+
+\begin{quote}
+``We plan to design materials in which children have an opportunity to
+do this sort of thinking with questions related to the course ---
+possibly in connection with {[}relevant materials{]}.'' (Bruner, 1978,
+p. 95)
+\end{quote}
+
+\begin{quote}
+``Games go a long way toward getting children involved in understanding
+{[}\ldots{]}'' (Bruner, 1978, p. 95)
+\end{quote}
+
+\begin{quote}
+``Richard Crutchfield has produced results in this sphere {[}stimulating
+self-consciousness about thinking{]} using nothing more complicated than
+a series of comic books in which the adventures of a detective, aided by
+his nephew and niece, are recounted.'' (Bruner, 1978, p. 95)
+\end{quote}
+
+La carga de trabajo de los profesores les impide hacer un curso en sus
+términos. (Bruner, 1978, p. 97)
+
+Una unidad contiene (Bruner, 1978, p. 98): - charlas con el profesor -
+consultas y contrasetes - dispositivos (materiales) - ejercicios modelo
+- documentales - material suplementario
+
+\begin{quote}
+Las películas producen pasividad (Bruner, 1978, p. 99)
+\end{quote}
+
+\begin{quote}
+"I have often tought that I would do more for my students by teaching
+them to write and think in English than by teaching them my own subject.
+(Bruner, 1978, p. 102)
+\end{quote}
+
+\begin{quote}
+``{[}\ldots{]} words are invitations to form concepts.'' (Bruner, 1978,
+p. 105)
+\end{quote}
+
+Hay \sout{6} 7 funciones del lenguaje (Bruner, 1978, p. 106;
+\textbf{sebeok-1960?}):
+
+\begin{itemize}
+\tightlist
+\item
+  discursiva
+\item
+  emotiva
+\item
+  conativa (imperativa)
+\item
+  referencial
+\item
+  metalingual
+\item
+  poética
+\item
+  fática (ajá, aliento mínimo, mantener contacto)
+\end{itemize}
+
+Los niños mayores pueden inhibir funciones entrenadas con mayor
+facilidad que los menores, pero cuándo les contaron una historia con
+motivos y razones, los niños pequeños pudieron hacer la tarea de la
+misma forma. (Bruner, 1978, p. 108).
+
+\begin{quote}
+The diagnosis of gushiness carries no remeedial prescription with it. I
+stumbled on the happy formula. Could she rewrite the piece without a
+single adjective, not a one? (Bruner, 1978, p. 110).
+\end{quote}
+
+Es posible que escribir sea una generalización de segundo orden, como el
+álgebra a la aritmética. (Bruner, 1978, p. 111).
+
+\begin{quote}
+``It was Dante, I believe, who commented thata the poor workman hated
+his tools. It is more than a little troubling to me that so many of our
+students dislike two of the major tools of thought ---mathematics and
+the conscious deployment of their native language in written form, both
+devices for ordering thoughts about things and thoughts about thoughts.
+I should hope that in the new era that lies ahead we will give a proper
+consideration to making these tools more lovable. Perhaps the best way
+to make them so is to make them more powerful in the hands of their
+users.'' (Bruner, 1978, p. 112)
+\end{quote}
+
+Las limitaciones de los humanos les ponen en peligro mortal si
+necesitaran reinventar su cultura. (Bruner, 1978, pp. 113-114)
+
+\begin{quote}
+``Donald Hebb, has suggested that the child is drinking in the world,
+better to construct his neural''models" of the environment." (Bruner,
+1978, p. 115)
+\end{quote}
+
+\begin{quote}
+"Little enough is known about how to help a child become master of his
+own attention, \textless{} to sustain it over a long, connected
+sequence. (Bruner, 1978, p. 116)
+\end{quote}
+
+Aunque no se sabe mucho acerca de cómo instruir a los estudiantes a
+dirigir la atención, se pueden hacer actividades interesantes para
+mantenerla. (Bruner, 1978, pp. 115-116)
+
+El interés está ligado a la competencia. {[}Bruner (1978) 118--119; {]}
+
+Puede estimularse el término de ciertas tareas complejas (y
+planificadas) con interrupciones. Las tareas simples se benefician de
+las interrupciones. (Bruner, 1978, p. 120)
+
+Los valores que promueve la sociedad, forman incentivos de
+comportamiento que las personas pueden aprender. (Bruner, 1978, p. 124)
+
+El comportamiento de las personas es más variable con respecto de la
+situación que con respecto de la persona. (Bruner, 1978, p. 125;
+\textbf{barker-1963?})
+
+Las personas tienen la motivación inherente de aprender pero en las
+escuelas se convierte en un problema más específico cuando el currículum
+está definido. (Bruner, 1978, p. 127)
+
+Comparando niños con problemas de aprendizaje pero sin disfunción
+aparente, encontraron que los niños aprendían constantemente, pero de
+una forma en que el conocimiento no se transfería a otras actividades.
+(Bruner, 1978, p. 131) Otro problema de ellos es que buscaban defenderse
+de su entorno, como lidiar con un profesor hostil. (Bruner, 1978, p.
+132)
+
+Las personas desarrollan su pensamiento por medio de la acción. (Bruner,
+1978, pp. 133-134)
+
+\begin{quote}
+``Pero hay cosas que son tan importantes que uno sólo puede bromear al
+respecto'' ---Niels Bohr, citado en (Bruner, 1978, p. 135).
+\end{quote}
+
+Un ambiente psicológico seguro es importante para el aprendizaje
+(Bruner, 1978, pp. 129-148).
+
+La evaluación es efectiva si (Bruner, 1978, pp. 163-168): - Se usa para
+guiar la construcción del curriculum y su pedagogía. - Combina el
+esfuerzo del estudiante y el evaluador. - Es un esfuerzo conjunto con
+todos a-bordo. - Se usa para mejorar el proceso en su conjunto. - Se usa
+para desarrollar habilidades intelectuales. - Considera al profesor y el
+estudiante. - Contribuye a la teoría de la instrucción.
+
+Para transmitir un curso es necesario que el estudiante tenga capacidad
+de lectura crítica: razonar los argumentos de los textos. (Bruner, 1978,
+pp. 168-171)
+
+\hypertarget{suxedntesis}{%
+\subsection{Síntesis}\label{suxedntesis}}
+
+Se puede enseñar cualquier cosa a casi cualquier niño en cualquier etapa
+de desarrollo si se estructuran los conceptos en los términos que maneja
+el estudiante, y de forma que promuevan el descubrimiento y
+generalización de la estructura subyacente de la realidad (Bruner,
+1977).
+
+Si eso se hace bien, los estudiantes desarrollan la seguridad para
+desarrollar intuiciones que son más rápidas que los procesos formales,
+pero deben validarse (Bruner, 1977, ch.~4).
+
+Para transmitir la estructura subyacente de la realidad pueden usarse
+materiales de apoyo (Bruner, 1977, ch.~1,6).
+
+\hypertarget{citas}{%
+\subsection{Citas}\label{citas}}
+
+Visión estructuralista e intuicionista.
+
+Referentes: Piaget, Chomsky, Lévi-Strauss.
+
+Siempre se puede partir del conocimiento del estudiante para llevarlo un
+paso más cerca de un concepto (Bruner, 1977, pp. ix-x).
+
+\begin{quote}
+El curriculum es más para los profesores que para los estudiantes. Si no
+puede cambiar, mover, perturbar, informar a los profesores, no tendrá
+efecto en quienes ellos enseñan. (Bruner, 1977, p. xv).
+\end{quote}
+
+El curriculum no tiene forma de evitar la influencia del profesor.
+(Bruner, 1977, p. xv)
+
+\begin{quote}
+``Cada generación le da una nueva forma a las aspiraciones que dan forma
+a la educación de su tiempo.'' (Bruner, 1977, p. 1)
+\end{quote}
+
+\begin{quote}
+``¿Qué deberíamos estudiar y para qué fin?'' (Bruner, 1977, p. 1)
+\end{quote}
+
+No enseñar las cosas de la forma correcta y cambiar la currícula sin
+sentido nos ha privado de los conocimientos de frontera (Bruner, 1977,
+pp. 3-4).
+
+El problema de la transferencia es interesante y su estudio revela que
+las prácticas de enseñanza no son tan efectivas (Bruner, 1977, pp. 5-6).
+Para la transferencia es más importante si sabe usar las habilidades que
+si conoces el nombre de las habilidades (Bruner, 1977, p. 8).
+
+Los requerimientos de productividad (tantos profesionistas de cada tipo)
+impulsan a la diversidad y los costos impulsan a la uniformidad.
+(Bruner, 1977, p. 9)
+
+\begin{quote}
+"It is plain that, in general, scientific and mathematical aptitudes can
+be discovered earlier than other intellectual talents. Ideally, schools
+should allow students to go ahead in different subjects as rapidly as
+they can. But the administrative problems that are raised when one makes
+such an arrangement possible are almost inevitably beyond the resources
+that schools have available for dealing with them. The answer will
+probably lie in some modification or abolition of the system of grade
+levels in some subjects, notably mathematics, along with a program of
+course enrichment in other subjects. ---(Bruner, 1977, pp. 10-11)
+\end{quote}
+
+``Aprender la estructura en vez de hechos y técnicas está en el centro
+del problema de la transferencia.'' (Bruner, 1977, p. 12)
+
+Si el primer aprendizaje debe hacer más sencillo el aprendizaje
+posterior, debe hacerlo proveyendo una imagen general de las cosas en
+términos tales que la relación entre las cosas que se encuentran antes y
+después sea tan clara como sea posible. (Bruner, 1977, p. 12)
+
+\begin{quote}
+Los fundamentos de cualquier asignatura se pueden enseñar a cualquier
+edad en alguna forma. (Bruner, 1977, p. 12)
+\end{quote}
+
+4 temas (Bruner, 1977, pp. 10-16):
+
+\begin{itemize}
+\tightlist
+\item
+  El rol de la estructura en el aprendizaje.
+\item
+  La preparación para aprender.
+\item
+  La naturaleza de la intuición intelectual.
+\item
+  El deseo de aprender y cómo estimularlo.
+\end{itemize}
+
+La premisa: la actividad intelectual siempre es la misma, y la
+diferencia entre las actividades del niño aprendiendo y el científico en
+el laboratorio son de grado y no de especie (Bruner, 1977, p. 14).
+
+Además de ordenar los temas, los profesores guían a los estudiantes por
+caminos que fomentan el descubrimiento (Bruner, 1977, p. 20−24).
+
+Las cosas que no se ordenan en una estructura se olvidan fácilmente
+(Bruner, 1977, p. 24)
+
+\begin{quote}
+A good theory is the vehicle not only for understanding a phenomenon now
+but also for remembering tomorrow. (Bruner, 1977, p. 25)
+\end{quote}
+
+La evaluación puede diseñarse para fomentar el aprendizaje (Bruner,
+1977, p. 30)
+
+La ruta de estudio debe determinarse por el entendimiento más
+fundamental de la asignatura y los principios básicos le deben dar
+estructura. (Bruner, 1977, p. 31)
+
+\begin{quote}
+«Any subject can be taught effectively in some intellectually honest
+form to any child at any stage of development. It is a bold hypothesis
+{[}\ldots{]}. No evidence exist to contradict it; considerable evidence
+is being amassed that supports it. (Bruner, 1977, p. 33)
+\end{quote}
+
+\begin{quote}
+A cualquier etapa del desarrollo el niño tiene una forma particular de
+ver el mundo y explicárselo a sí mismo. (Bruner, 1977, p. 33)
+\end{quote}
+
+\begin{quote}
+Cualquier idea puede representarse honestamente y der forma útil en las
+formas de pensamiento de los niños de edad escolar, y esas primeras
+representaciones pueden hacerse más poderosas y precisas más fácilmente
+por ese primer aprendizaje. (Bruner, 1977, p. 33)
+\end{quote}
+
+3 etapas Piaget: - Etapa pre-operativa: establecer relaciones enter
+experiencia y acción → manipular el mundo a través de la acción desde e
+desarrollo de lenguaje hasta la manipulación simbólica. - Etapa de
+operaciones concretas: - Etapa de operaciones simbólicas.
+
+\begin{quote}
+It is easy to ask trivial questions or to lead the child to ask trivial
+questions. It is also easy to ask impossibly difficult questions. The
+trick is to find the medium questions that can be answered and that take
+you somewhere. This is the big job of teachers and textbooks (Bruner,
+1977, p. 40).
+\end{quote}
+
+\begin{quote}
+The most elemental forms of reasoning {[}\ldots{]} rest on the principle
+of the invariance of quantities. Grasping the idea of invariance is
+beset with difficulties for the child, often unsuspected by teachers
+(Bruner, 1977, p. 42).
+\end{quote}
+
+El orden óptimo para enseñar la materia no es necesariamente el orden
+histórico de descubrimiento. Puede que las ideas necesarias para
+entender algo se hayan formalizado recientemente (Bruner, 1977, p.
+42---46).
+
+Las herramientas formales deben introducirse después del entendimiento
+intuitivo (Bruner, 1977, p. 46).
+
+Si se enseña con una estructura apropiada, se puede enseñar a niños
+menores de lo que la instrucción normalmente permite (Bruner, 1977, p.
+44).
+
+Enseñar a aprender se ha mostrado efectivo para facilitar la
+recuperación de monos después de daño cerebral inducido. (Bruner, 1977,
+p. 47)
+
+El aprendizaje se divide en 3 etapas: - adquisición - transformación -
+evaluación (Bruner, 1977, p. 48)
+
+Un buen episodio de aprendizaje reflexiona en el conocimiento previo y
+permite generalizar más allá del episodio. (Bruner, 1977, p. 49)
+
+Para ajustar el aprendizaje al estudiante, - disminuir o aumentar la
+longitud del episodio - agregar recompensas extrínsecas - dramatizar el
+reconocimiento (Bruner, 1977, p. 49)
+
+¿Cómo se balancean las recompensas extrínsecas e intrínsecas? (Bruner,
+1977, p. 50)
+
+Una propuesta para la enseñanza por descubrimiento es dar un conjunto
+mínimo de hechos y un ejercicio que enfatice cómo ir más allá. (Bruner,
+1977, pp. 50-51)
+
+Se propone un curriculum en espiral: Transformar el material a formas
+lógicas que tienten a los estudiantes a avanzar. Eliminar el material
+que no los hace mejores adultos. Desarrollar y volver a desarrollar los
+temas, cada vez de forma más elaborada. (Bruner, 1977, p. 52)
+
+→ En el libro «Dive into python» recuerdo que algún capítulo decía «de
+hecho mentí» y reintroducía el concepto nuevamente con matices y
+complejidad añadida.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Aunque las escuelas se enfocan en las habilidades formales, esas
+dependen del desarrollo de la intuición. (Bruner, 1977, ch.~4, p.~57)
+
+El pensamiento formal es secuencial, y con reglas específicas. El
+pensamiento intuitivo llega a una respuesta (correcta o incorrecta) sin
+consciencia acerca de cómo se llegó a esa conclusión. (Bruner, 1977,
+ch.~4, p.~57--58)
+
+Debe respetarse el pensamiento intuitivo como una fuente de hipótesis.
+Cuando sea posible las respuestas deben verificarse por métodos
+analíticos (o mediciones). (Bruner, 1977, ch.~4, p.~58--62)
+
+Para desarollar la intuición, se propone el método de intentar adivinar
+la respuesta y luego analizarla. (Bruner, 1977, pp. ch.4, p.62)
+
+La intuición da lugar a métodos heurísticos. Estos métodos pueden dar
+respuestas cuando no hay algoritmos disponibles y suelen ser más rápidos
+que los métodos analíticos. (Bruner, 1977, ch.~4, p.64--65)
+
+La intuición se favorece desarrollando la auto-confianza del estudiante.
+(Bruner, 1977, ch.~4, p.65)
+
+Los estudiantes intentan usar métodos procedimentales cuando hay más
+incertidumbre aunque no sean apropiados (Bruner, 1977, ch.~4, p.64--65).
+
+Para diseñar el \emph{curriculum} pueden usarse los motivos para el
+aprendizaje y los objetivos que es estudiante espera lograr,
+distinguiendo entre los objetivos de largo plazo y los pasos para llegar
+allí (Bruner, 1977, ch.~5, p.~69).
+
+La motivación es esencial para la excelencia (Bruner, 1977, ch.~5,
+p.~69).
+
+Se debe impedir que los motivos para aprender se vuelvan pasivos, deben
+basarse tanto como sea posible en expandir el interés (Bruner, 1977,
+ch.~5, p.~80).
+
+Las ayudas para el aprendizaje, pueden ser dispositivo para la
+experiencia indirecta (Bruner, 1977, ch.~6, p.~81).
+
+También pueden ayudar al estudiante a interiorizar la estructura del
+fenómeno (Bruner, 1977, ch.~6, p.~81).
+
+Enseñar es análogo a programar y varios programadores buenos son
+profesores (Bruner, 1977, ch.~6, p.~83--84).
+
+Las computadoras no deshumanizarán más el aprendizaje de lo que los
+libros lo hicieron antes (Bruner, 1977, ch.~6, p.~84).
+
+Se ha intentado automatizar el aprendizaje con videos en vez de
+profesores (Bruner, 1977, ch.~6, p.~85).
+
+Comunicar el conocimiento depende de la maestría en ese conocimiento
+(Bruner, 1977, ch.~6, p.~88).
+
+La enseñanza básica tiene requisitos más amplios que otros niveles que
+no están bien enetendidos (Bruner, 1977, ch.~6, p.~90).
+
+\hypertarget{teoruxeda-del-horizonte-proximal-del-conocimiento-vigotsky}{%
+\subsection{Teoría del horizonte proximal del conocimiento
+Vigotsky}\label{teoruxeda-del-horizonte-proximal-del-conocimiento-vigotsky}}
+
+La teoría de Vigotsky surge cuando el empiricismo y el racionalismo se
+disputaban como teoría epistemológica dominante en Europa (Vygotski
+et~al., 2009, p. 18).
+
+En contraposición a Piaget, que establece que hay etapas bien definidas
+para la construcción del conocimiento, Vigotsky establece que el orden
+en que se construye el conocimiento, depende de la interacción social y
+la necesidad.
+
+\sout{Establece que los conocimientos se adquieren en función de las
+necesidades que tenemos y por medio de la interacción social.}
+
+Se puede interpretar como que tenemos elementos para ir construyendo el
+conocimiento, y que vamos generando puentes para alcanzar los nuevos
+conocimientos partiendo de nuestros conocimientos actuales.
+
+Sin embargo, existen conocimientos que están más allá de lo que podemos
+entender ahora, porque no se han desarrollado los conocimientos que
+necesitan conectarse para adquirir esos nuevos conocimientos.
+
+\hypertarget{aprendizaje-por-descubrimiento}{%
+\subsection{Aprendizaje por
+descubrimiento}\label{aprendizaje-por-descubrimiento}}
+
+\hypertarget{conceptos-aplicables-en-ciberseguridad}{%
+\subsection{Conceptos aplicables en
+ciberseguridad}\label{conceptos-aplicables-en-ciberseguridad}}
+
+\hypertarget{buenas-pruxe1cticas-de-ciberseguridad}{%
+\subsubsection{Buenas prácticas de
+ciberseguridad}\label{buenas-pruxe1cticas-de-ciberseguridad}}
+
+Lehman (1980) explora cómo se desarrollan los programas desde su
+planeación hasta su construcción. Establece que es necesaria una
+disciplina para llevar a cabo los proyectos.
+
+Existen un par de prácticas sencillas que pueden mejorar la seguridad de
+los programas:
+
+\begin{itemize}
+\tightlist
+\item
+  Validar las entradas de información
+\item
+  Verificar las condiciones de ejecución
+\end{itemize}
+
+\hypertarget{estilo-de-cuxf3digo}{%
+\subsubsection{Estilo de código}\label{estilo-de-cuxf3digo}}
+
+El estilo de código es independiente de la capacidad del código para
+resolver el problema esperado, y no suele hacer diferencia en cuanto al
+código de máquina que se genera a partir de él o la eficiencia con que
+se ejecuta el programa.
+
+El estilo de código es una serie de convenciones acerca de:
+
+\begin{itemize}
+\tightlist
+\item
+  Cómo se nombran los elementos del código.
+\item
+  Cómo se usa la indentación para aumentar la legibilidad.
+\end{itemize}
+
+Estas prácticas mejoran la mantenibilidad del código; que puede ayudar a
+mantener los programas libres de errores lógicos y de seguridad.
+
+\hypertarget{diferencia-entre-buenos-programadores}{%
+\subsubsection{Diferencia entre buenos
+programadores}\label{diferencia-entre-buenos-programadores}}
+
+La principal diferencia entre los buenos programadores y los malos
+programadores, es el desarrollo de buenos hábitos al momento de generar
+código. (McConnell, 2004, p. 833)
+
+Es muy difícil introducir hábitos como la preocupación acerca de
+(McConnell, 2004, p. 833):
+
+\begin{itemize}
+\tightlist
+\item
+  Legibilidad del código
+\item
+  Programación defensiva
+\item
+  Equilibrio entre rendimiento y legibilidad
+\end{itemize}
+
+\hypertarget{integraciuxf3n-continua}{%
+\subsubsection{Integración continua}\label{integraciuxf3n-continua}}
+
+Es una serie de metodologías en desarrollo de software que consisten en
+automatizar las tareas necesarias para distribuir el software, de manera
+que no se requiera invertir trabajo en el despliegue de software.
+
+Bien aplicada, permite a los programadores concentrarse en generar valor
+para el negocio, dado que las tareas rutinarias quedan automatizadas.
+
+También se puede implementar de forma que permita detectar problemas en
+el código desde que se introducen, reduciendo los tiempos de desarrollo
+y los costos por depuración.
+
+Para obtener estos beneficios, debe acoplarse con el Desarrollo basado e
+pruebas.
+
+\hypertarget{desarrollo-basado-en-pruebas}{%
+\subsubsection{Desarrollo Basado en
+Pruebas}\label{desarrollo-basado-en-pruebas}}
+
+Esta metodología podría «prevenir la mayoría de las fallas críticas»
+(s.~f., p. 1) pero es una metodología difícil de aprender porque
+involucra diseñar simultáneamente dos sistemas divergentes:
+
+\begin{itemize}
+\tightlist
+\item
+  pruebas específicas, y
+\item
+  código abstracto.
+\end{itemize}
+
+La mayoría de los errores de software podría encontrarse en condiciones
+de error que no se verifican (s.~f.).
+
+\hypertarget{mantenibilidad-del-cuxf3digo}{%
+\subsubsection{Mantenibilidad del
+código}\label{mantenibilidad-del-cuxf3digo}}
+
+El software se escribe una vez y luego está en mantenimiento durante un
+largo tiempo.
+
+Dado que el mantenimiento es la mayor parte del ciclo de vida del
+software, mientras más fácil de mantener sea el código, mejores son las
+probabilidades del software para triunfar en el mercado.
+
+\hypertarget{enseuxf1anza-de-ciberseguridad}{%
+\subsection{Enseñanza de
+ciberseguridad}\label{enseuxf1anza-de-ciberseguridad}}
+
+\hypertarget{pruxe1cticas-comunes-en-la-enseuxf1anza-de-ciberseguridad}{%
+\subsubsection{Prácticas comunes en la enseñanza de
+ciberseguridad}\label{pruxe1cticas-comunes-en-la-enseuxf1anza-de-ciberseguridad}}
+
+Zinovieva et~al. (2021) recomienda el uso de «Simuladores de
+Programación en Línea».
+
+\hypertarget{pruxe1cticas-efectivas-en-la-enseuxf1anza-de-educaciuxf3n}{%
+\subsubsection{Prácticas efectivas en la enseñanza de
+educación}\label{pruxe1cticas-efectivas-en-la-enseuxf1anza-de-educaciuxf3n}}
+
+\newpage
+
+\hypertarget{marco-regulatorio}{%
+\section{Marco regulatorio}\label{marco-regulatorio}}
+
+De acuerdo a (s.~f.), \emph{Marco legal educativo de los Estados Unidos
+Mexicanos} (s.~f.)/, \emph{UAJyT} (s.~f.), (s.~f.) el marco legislativo
+de la educación está conformado por:
+
+\begin{itemize}
+\item
+  Art. 2 Constitucional: debido a la composición pluricultural del país,
+  la educación también debe ser multicultural
+\item
+  Art. 3 Constitucional: Derecho a la educación
+
+  De acuerdo al artículo 3o Constitucional, el Estado (Federación,
+  Estados, Ciudad de México y Municipios) impartirá y garantizará la
+  educación inicial, preescolar, primaria, secundaria, media superior y
+  superior, que son los niveles que comprendidos dentro del Sistema
+  Educativo Nacional.
+\item
+  Art. 4: Derecho de los niños
+\item
+  Art. 5: Derecho a dedicarse a una profesion o trabajo.
+\item
+  Art. 31 Constitucional: Obligación de los padres para llevar a los
+  niños a la escuela
+\item
+  Art. 73. Constitucional
+\item
+  Art. 123 Constitucional: describe los derechos de los profesores.
+\end{itemize}
+
+Además, las siguientes leyes regulan la educación:
+
+\begin{itemize}
+\item
+  Art. 9. bis de la Ley de Ciencia y Tecnología
+\item
+  Ley General de Educación de los Estados Unidos Mexicanos
+\item
+  Ley Reglamentaria del Artículo 3o. de la Constitución Política de los
+  Estados Unidos Mexicanos, en materia de Mejora Continua de la
+  Educación
+\item
+  Ley para la Coordinación de la Educación Superior
+\item
+  Ley General del Sistema para la Carrera de las Maestras y los Maestros
+\item
+  Reglamento Interior de la Secretaría de Educación Pública
+\item
+  Ley General de Educación: reglamentaria del artículo 3º constitucional
+  (D.O.F. 30 de octubre de 2019).
+\item
+  Ley General de Educación Superior (D.O.F. 20 de abril de 2021).
+\item
+  Ley Reglamentaria del Artículo 3o. de la Constitución Política de los
+  Estados Unidos Mexicanos, en materia de Mejora Continua de la
+  Educación (D.O.F. 30 de octubre de 2019).
+\item
+  Ley de Planeación (D.O.F. 5 de enero de 1983).
+\item
+  Ley de profesiones. Hoy titulada ``Ley Reglamentaria del Artículo 5o.
+  Constitucional, relativo al ejercicio de las profesiones en la Ciudad
+  de México'' (D.O.F. 26 de mayo de 1945).
+\item
+  Ley General de los Derechos de Niñas, Niños y Adolescentes (D.O.F. 4
+  de diciembre de 2014).
+\item
+  Ley Federal del Trabajo (D.O.F. 1 de abril de 1970).
+\item
+  Ley Federal de los Trabajadores al Servicio del Estado, Reglamentaria
+  del Apartado B) del Artículo 123 Constitucional (D.O.F. 28 de
+  diciembre de 1963).
+\item
+  Ley General de Responsabilidades Administrativas (D.O.F. 18 de julio
+  de 2016)
+\end{itemize}
+
+Reglamentos públicos:
+
+Reglamento interior de la Secretaría de Educación Pública (D.O.F. 15 de
+septiembre de 2020).
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  Normas constitucionales:
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii})}
+  \item
+    directamente relacionadas con la función educativa. Tal es el caso
+    de los siguientes artículos constitucionales: 3o.; 31; 73, fracción
+    XXV; 123, fracción XII, y 130.
+  \item
+    indirectamente relacionadas con la función educativa, pero cuya
+    aplicación reglamentaria tiene una intervención importante en la
+    planificación y administración del sector educativo público. Tal es
+    el caso de los artículos constitucionales siguientes: 25, 26, 89, 90
+    y 123, apartados A y B.
+  \end{enumerate}
+\item
+  Normas sustantivas de la educación. Incluimos en este grupo aquellos
+  ordenamientos que regulan directamente la función educativa pública,
+  como es el caso de:
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Ley General de Educación, reglamentaria del artículo 3º
+    constitucional (D.O.F. 30 de octubre de 2019).
+
+    De conformidad al artículo 4 de la Ley General de Educación son
+    autoridades:
+
+    \begin{enumerate}
+    \def\labelenumiii{\arabic{enumiii})}
+    \tightlist
+    \item
+      Autoridad educativa federal o Secretaría, a la Secretaría de
+      Educación Pública de la Administración Pública Federal;
+    \item
+      Autoridad educativa de los Estados y de la Ciudad de México, al
+      ejecutivo de cada una de estas entidades federativas, así como a
+      las instancias que, en su caso, establezcan para el ejercicio de
+      la función social educativa;
+    \item
+      Autoridad educativa municipal, al Ayuntamiento de cada Municipio;
+    \item
+      Autoridades escolares, al personal que lleva a cabo funciones de
+      dirección o supervisión en los sectores, zonas o centros
+      escolares, y
+    \item
+      Estado, a la Federación, los Estados, la Ciudad de México y los
+      municipios.
+    \end{enumerate}
+
+    El artículo 7 de la Ley General de Educación reconoce a la educación
+    privada, ya que señala que la educación impartida por los
+    particulares con autorización o con reconocimiento de validez
+    oficial de estudios, se sujetará a lo previsto en la fracción VI del
+    artículo 3o. de la Constitución Política de los Estados Unidos
+    Mexicanos y al Título Décimo Primero de esta Ley.
+
+    El capítulo III del título segundo habla acerca de los criterios de
+    la educación.
+
+    El título III y capítulo IV habla acerca de la educación superior.
+
+    El artículo 22 de la LGE establece la necesidad de evaluación del
+    aprendizaje y acreditación; que de acuerdo al Artículo 29, seción IV
+    deben estar en acuerdo con los planes de estudios.
+
+    De acuerdo al artículo 37 de la Ley General de Educación, la
+    educación básica está compuesta por el nivel inicial, preescolar,
+    primaria y secundaria. Los servicios que comprende este tipo de
+    educación, entre otros:
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Inicial escolarizada y no escolarizada;
+    \item
+      Preescolar general, indígena y comunitario;
+    \item
+      Primaria general, indígena y comunitaria;
+    \item
+      Secundaria, entre las que se encuentran la general, técnica,
+      comunitaria o las modalidades regionales autorizadas por la
+      Secretaría;
+    \item
+      Secundaria para trabajadores, y
+    \item
+      Telesecundaria.
+    \end{itemize}
+
+    De acuerdo a los artículos 44 y 45, a educación media superior
+    comprende los niveles de bachillerato, de profesional técnico
+    bachiller y los equivalentes a éste, así como la educación
+    profesional que no requiere bachillerato o sus equivalentes. Se
+    organizará a través de un sistema que establezca un marco curricular
+    común a nivel nacional y garantice el reconocimiento de estudios
+    entre las opciones que ofrece este tipo educativo. Los servicios que
+    comprende este tipo de educación son:
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Bachillerato General;
+    \item
+      Bachillerato Tecnológico;
+    \item
+      Bachillerato Intercultural;
+    \item
+      Bachillerato Artístico;
+    \item
+      Profesional técnico bachiller;
+    \item
+      Telebachillerato comunitario;
+    \item
+      Educación media superior a distancia, y
+    \item
+      Tecnólogo.
+    \end{itemize}
+
+    La evaluación también debe tener como objetivo el diagnóstico para
+    idenificar estudiantes sobresalientes y dar atención a quiénes la
+    necesitan, de acuerdo al Artículo 67.
+  \item
+    Ley para la Coordinación de la Educación Superior, D.O. 29-XII-1978;
+  \item
+    Ley Nacional de Educación para Adultos, D.O. 31-XII-1975;
+  \item
+    Ley del Ahorro Escolar, D.O. 7-IX-1945;
+  \item
+    Reglamento de la Ley del Ahorro Escolar, D.O. 8-VI-1946;
+  \item
+    Ley Federal de Reforma Agraria (capítulo cuarto, artículos 101 y
+    102);
+  \item
+    Reglamento de la Parcela Escolar, D.O. 10-XI-1944;
+  \item
+    Ley General de Sociedades Cooperativas (artículo 13), D.O.;
+  \item
+    Reglamento de Cooperativas Escolares, D.O. 16- III-1962;
+  \item
+    Ley que establece la Educación Normal para los profesores de centros
+    de capacitación para el trabajo, D.O. 20-XII-1963;
+  \item
+    Reglamento para la constitución y funcionamiento de las asociaciones
+    de padres de familia en las escuelas dependientes de la Secretaría
+    de Educación Pública, D.O. 22-I-1949.
+  \item
+    Ley General de Planeación
+
+    \begin{quote}
+    De acuerdo a la Ley de Planeación y a la Ley General de Educación,
+    que señala en el artículo 123 cómo serán los planes, lineamientos,
+    evaluación y retroalimentación:
+
+    En las escuelas de educación básica y media superior, la Secretaría
+    emitirá los lineamientos que deberán seguir las autoridades
+    educativas locales y municipales para formular los programas de
+    fortalecimiento de las capacidades de administración escolar, mismos
+    que tendrán como objetivos: I. Usar los resultados de la evaluación
+    como retroalimentación para la mejora continua en cada ciclo
+    escolar;
+
+    \begin{enumerate}
+    \def\labelenumiii{\Roman{enumiii}.}
+    \setcounter{enumiii}{1}
+    \tightlist
+    \item
+      Desarrollar una planeación anual de actividades, con metas
+      verificables y puestas en conocimiento de la autoridad y la
+      comunidad escolar, y
+    \item
+      Administrar en forma transparente y eficiente los recursos que
+      reciba para mejorar su infraestructura, comprar materiales
+      educativos, resolver problemas de operación básicos y propiciar
+      condiciones de participación para que alumnos, maestras, maestros,
+      madres y padres de familia o tutores, bajo el liderazgo del
+      director, se involucren en la resolución de los retos que cada
+      escuela enfrenta.
+    \end{enumerate}
+    \end{quote}
+  \end{enumerate}
+\item
+  Leyes orgánicas y decretos que crean instituciones educativas.
+
+  Dado que la institución en la que se realiza el proyecto es la
+  Universidad Iberoamericana, se usará el
+  \href{https://ibero.mx/sites/all/themes/ibero/descargables/corpus/reglamento_de_estudios_de_licenciatura.pdf}{Reglamento
+  de Estudios de Licenciatura de la Universidad Iberoamericana}, que
+  dedica el «Título tercero Evaluaciones» a este tema, estableciendo
+  que:
+
+  \begin{quote}
+  Las prácticas evaluatorias son parte del proceso universitario y
+  tienen por objeto comparar los logros del aprendizaje del alumno con
+  los objetivos del programa, de sus áreas y de una parte o de la
+  totalidad de los cursos que lo conforman.
+
+  Las evaluaciones pueden realizarse antes, durante o después de un
+  proceso de aprendizaje.
+
+  Los sistemas de evaluación deben ser diseñados de manera que:
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii})}
+  \tightlist
+  \item
+    La Universidad pueda comprobar el logro de los objetivos de
+    aprendizaje y dar testimonio de la preparación humana y académica de
+    sus egresados.
+  \item
+    El alumno tenga la oportunidad de conocer sus logros.
+  \item
+    El alumno se sienta motivado hacia el estudio e incremente su
+    interés al tener la certeza de los avances que realiza.
+  \item
+    Los profesores y los alumnos puedan comprobar la eficiencia de los
+    métodos pedagógicos para alcanzar las metas universitarias y los
+    objetivos específicos de los programas en cada una de las etapas.
+  \end{enumerate}
+
+  CAPÍTULO III Evaluación ordinaria para acreditar una materia
+
+  Artículo 36 La evaluación ordinaria para acreditar una materia tiene
+  lugar en el curso lectivo, preferentemente a todo lo largo del mismo,
+  y consiste en una comparación entre el aprendizaje obtenido por el
+  alumno y los objetivos de la materia. La evaluación ordinaria puede
+  llevarse a cabo mediante exámenes parciales, la presentación de
+  proyectos o trabajos, realización de prácticas de campo, reportes de
+  laboratorios o talles, seminarios, examen global, evaluaciones
+  departamentales u otras formas aprobadas por el Consejo Técnico del
+  programa respectivo.
+
+  Deben realizarse al menos tres evaluaciones durante el curso
+  utilizando la técnica y los instrumentos que se consideren más
+  apropiados para verificar el aprendizaje. En las materias del Área de
+  Síntesis y Evaluación se deberá dar especial atención a este proceso.
+
+  Los resultados de la primera evaluación deberán ser entregados antes
+  del periodo de bajas académicas establecido por la Dirección de
+  Servicios Escolares.
+
+  Para acreditar una materia por medio de una evaluación ordinaria es
+  necesario estar inscrito en ella o en el periodo correspondiente y no
+  haber faltado injustificadamente a más del 20 por ciento de las
+  sesiones programadas de acuerdo al calendario escolar.
+  \end{quote}
+\end{enumerate}
+
+El acuerdo 648 establece las normas generales para la evaluación,
+acreditación, promoción y certificación en la educación básica.
+
+Entre las Normas Oficiales Mexicanas sólo encontré regulación acerca de
+la educación en materia de salud. Pero no parece haber alguna norma que
+hable acerca de la Educación.
+
+\href{http://www.scielo.org.mx/scielo.php?script=sci_arttext\&pid=S0185-26982013000500002}{Legislación
+en educación superior}
+
+\href{http://dof.gob.mx/nota_detalle.php?codigo=5618145\&fecha=12/05/2021}{SERVICIOS
+EDUCATIVOS- DISPOSICIONES A LAS QUE SE SUJETARÁN AQUELLOS PARTICULARES
+QUE PRESTEN SERVICIOS EN LA MATERIA}
+
+\href{http://www.scielo.org.mx/scielo.php?script=sci_arttext\&pid=S0185-26982000000100004}{Acerca
+de la normatividad internacional en materia de educación}
+
+https://www.scjn.gob.mx/normativa-nacional-internacional
+
+Además existen acuerdos internacionales
+
+\hypertarget{acerca-de-los-fines-de-la-educaciuxf3n}{%
+\subsection{Acerca de los fines de la
+educación}\label{acerca-de-los-fines-de-la-educaciuxf3n}}
+
+\begin{quote}
+El artículo 15 de la Ley General de Educación establece que la educación
+que imparta el Estado, sus organismos descentralizados y los
+particulares con autorización o con reconocimiento de validez oficial de
+estudios, persigue los siguientes fines: I. Contribuir al desarrollo
+integral y permanente de los educandos, para que ejerzan de manera plena
+sus capacidades, a través de la mejora continua del Sistema Educativo
+Nacional; II. Promover el respeto irrestricto de la dignidad humana,
+como valor fundamental e inalterable de la persona y de la sociedad, a
+partir de una formación humanista que contribuya a la mejor convivencia
+social en un marco de respeto por los derechos de todas las personas y
+la integridad de las familias, el aprecio por la diversidad y la
+corresponsabilidad con el interés general; III. Inculcar el enfoque de
+derechos humanos y de igualdad sustantiva, y promover el conocimiento,
+respeto, disfrute y ejercicio de todos los derechos, con el mismo trato
+y oportunidades para las personas; IV. Fomentar el amor a la Patria, el
+aprecio por sus culturas, el conocimiento de su historia y el compromiso
+con los valores, símbolos patrios y las instituciones nacionales; V.
+Formar a los educandos en la cultura de la paz, el respeto, la
+tolerancia, los valores democráticos que favorezcan el diálogo
+constructivo, la solidaridad y la búsqueda de acuerdos que permitan la
+solución no violenta de conflictos y la convivencia en un marco de
+respeto a las diferencias; VI. Propiciar actitudes solidarias en el
+ámbito internacional, en la independencia y en la justicia para
+fortalecer el ejercicio de los derechos de todas las personas, el
+cumplimiento de sus obligaciones y el respeto entre las naciones; VII.
+Promover la comprensión, el aprecio, el conocimiento y enseñanza de la
+pluralidad étnica, cultural y lingüística de la nación, el diálogo e
+intercambio intercultural sobre la base de equidad y respeto mutuo; así
+como la valoración de las tradiciones y particularidades culturales de
+las diversas regiones del país; VIII. Inculcar el respeto por la
+naturaleza, a través de la generación de capacidades y habilidades que
+aseguren el manejo integral, la conservación y el aprovechamiento de los
+recursos naturales, el desarrollo sostenible y la resiliencia frente al
+cambio climático; IX. Fomentar la honestidad, el civismo y los valores
+necesarios para transformar la vida pública del país, y X. Todos
+aquellos que contribuyan al bienestar y desarrollo del país.
+\end{quote}
+
+\hypertarget{acerca-de-la-calidad-de-la-educaciuxf3n}{%
+\subsection{Acerca de la calidad de la
+educación}\label{acerca-de-la-calidad-de-la-educaciuxf3n}}
+
+En el \href{https://www.oecd.org/education/school/46216786.pdf}{Acuerdo
+de cooperación México-OCDE para mejorar la calidad de la educación de
+las escuelas mexicanas} se establece la evaluación como medio para
+mejorar la calidad educativa.
+
+\begin{quote}
+De acuerdo a los artículos 107 y 108 de la Ley General de Educación, las
+autoridades educativas, en el ámbito de sus respectivas competencias,
+emitirán una Guía Operativa para la Organización y Funcionamiento de los
+Servicios de Educación Básica y Media Superior, el cual será un
+documento de carácter operativo y normativo que tendrá la finalidad de
+apoyar la planeación, organización y ejecución de las actividades
+docentes, pedagógicas, directivas, administrativas y de supervisión de
+cada plantel educativo enfocadas a la mejora escolar, atendiendo al
+contexto regional de la prestación de los servicios educativos. Para el
+proceso de mejora escolar, se constituirán Consejos Técnicos Escolares
+en los tipos de educación básica y media superior, como órganos
+colegiados de decisión técnico pedagógica de cada plantel educativo, los
+cuales tendrán a su cargo adoptar e implementar las decisiones para
+contribuir al máximo logro de aprendizaje de los educandos, el
+desarrollo de su pensamiento crítico y el fortalecimiento de los lazos
+entre escuela y comunidad
+
+Por su parte, el artículo 110 señala que la educación tendrá un proceso
+de mejora continua, el cual implica el desarrollo permanente del Sistema
+Educativo Nacional para el incremento del logro académico de los
+educandos. Tendrá como eje central el aprendizaje de niñas, niños,
+adolescentes y jóvenes de todos los tipos, niveles y modalidades
+educativos.
+
+En concordancia con la Ley General, la Ley Reglamentaria del Artículo
+3o. de la Constitución Política de los Estados Unidos Mexicanos, en
+materia de Mejora Continua de la Educación (D.O.F. 30 de octubre de
+2019) tiene como objeto regular el Sistema Nacional de Mejora Continua
+de la Educación, así como el organismo que lo coordina, al que se
+denominará Comisión Nacional para la Mejora Continua de la Educación y
+el Sistema Integral de Formación, Actualización y Capacitación que será
+retroalimentado por evaluaciones diagnósticas.
+
+El Sistema Nacional de Mejora Continua de la Educación es un conjunto de
+actores, instituciones y procesos estructurados y coordinados, que
+contribuyen a la mejora continua de la educación, para dar cumplimiento
+a los principios, fines y criterios establecidos en la Constitución
+Política de los Estados Unidos Mexicanos, en la Ley General de Educación
+y en la presente Ley (art. 4).
+
+De acuerdo al artículo 6, los principios del Sistema son: I. El
+aprendizaje de las niñas, niños, adolescentes y jóvenes, como centro de
+la acción del Estado para lograr el desarrollo armónico de todas sus
+capacidades orientadas a fortalecer su identidad como mexicanas y
+mexicanos, responsables con sus semejantes y comprometidos con la
+transformación de la sociedad de que forman parte; II. La mejora
+continua de la educación que implica el desarrollo y fortalecimiento
+permanente del Sistema Educativo Nacional para el incremento del logro
+académico de los educandos; III. El reconocimiento de las maestras y los
+maestros como agentes fundamentales del proceso educativo y de la
+transformación social; IV. La búsqueda de la excelencia en la educación,
+entendida como el mejoramiento integral constante que promueve el máximo
+logro de aprendizaje de los educandos, para el desarrollo de su
+pensamiento crítico y el fortalecimiento de los lazos entre escuela y
+comunidad, considerando las capacidades, circunstancias, necesidades,
+estilos y ritmos de aprendizaje de los educandos; V. La integralidad del
+Sistema Educativo Nacional, procurando la continuidad, complementariedad
+y articulación de la educación, desde el nivel inicial hasta el tipo
+superior; VI. La contribución para garantizar una cobertura universal en
+todos los tipos y niveles educativos, y VII. La participación social y
+comunitaria. Todo lo anterior en concordancia con el enfoque de derechos
+humanos, de igualdad sustantiva y de respeto irrestricto a la dignidad
+de las personas, así como del carácter obligatorio, universal,
+inclusivo, intercultural, integral, público, gratuito, de excelencia y
+laico de la educación que imparte el Estado y la rectoría que éste
+ejerce, de conformidad con los fines establecidos en el artículo 3o. de
+la Constitución Política de los Estados Unidos Mexicanos, para lograr la
+mejora continua de la educación.
+\end{quote}
+
+\hypertarget{acerca-de-la-nueva-escuela}{%
+\subsection{Acerca de la nueva
+escuela}\label{acerca-de-la-nueva-escuela}}
+
+\begin{quote}
+De acuerdo al artículo 11 de la Ley General de Educación, el Estado, a
+través de la nueva escuela mexicana, buscará la equidad, la excelencia y
+la mejora continua en la educación, para lo cual colocará al centro de
+la acción pública el máximo logro de aprendizaje de las niñas, niños,
+adolescentes y jóvenes. Tendrá como objetivos el desarrollo humano
+integral del educando, reorientar el Sistema Educativo Nacional, incidir
+en la cultura educativa mediante la corresponsabilidad e impulsar
+transformaciones sociales dentro de la escuela y en la comunidad.
+
+El artículo 12 señala que la prestación de los servicios educativos se
+impulsará el desarrollo humano integral para: I. Contribuir a la
+formación del pensamiento crítico, a la transformación y al crecimiento
+solidario de la sociedad, enfatizando el trabajo en equipo y el
+aprendizaje colaborativo; II. Propiciar un diálogo continuo entre las
+humanidades, las artes, la ciencia, la tecnología y la innovación como
+factores del bienestar y la transformación social; III. Fortalecer el
+tejido social para evitar la corrupción, a través del fomento de la
+honestidad y la integridad, además de proteger la naturaleza, impulsar
+el desarrollo en lo social, ambiental, económico, así como favorecer la
+generación de capacidades productivas y fomentar una justa distribución
+del ingreso; IV. Combatir las causas de discriminación y violencia en
+las diferentes regiones del país, especialmente la que se ejerce contra
+la niñez y las mujeres, y V. Alentar la construcción de relaciones
+sociales, económicas y culturales con base en el respeto de los derechos
+humanos.
+\end{quote}
+
+\hypertarget{acerca-de-los-planes-de-estudio}{%
+\subsection{Acerca de los planes de
+estudio}\label{acerca-de-los-planes-de-estudio}}
+
+\begin{quote}
+Los planes de estudio deben favorecer el desarrollo integral y gradual
+de los educandos en los niveles preescolar, primaria, secundaria, el
+tipo media superior y la normal, considerando la diversidad de saberes,
+con un carácter didáctico y curricular diferenciado, que responda a las
+condiciones personales, sociales, culturales, económicas de los
+estudiantes, docentes, planteles, comunidades y regiones del país. La
+Secretaría de Educación Pública, de acuerdo al artículo 23 de la Ley
+General de Educación, determinará los planes y programas de estudio,
+aplicables y obligatorios en toda la República Mexicana, de la educación
+preescolar, la primaria, la secundaria, la educación normal y demás
+aplicables para la formación de maestras y maestros de educación básica,
+de conformidad a los fines y criterios establecidos en los artículos 15
+y 16 de esta Ley.
+
+El proceso educativo que se genere a partir de la aplicación de los
+planes y programas de estudio se basará en la libertad, creatividad y
+responsabilidad que aseguren una armonía entre las relaciones de
+educandos y docentes; a su vez, promoverá el trabajo colaborativo para
+asegurar la comunicación y el diálogo entre los diversos actores de la
+comunidad educativa. Los libros de texto que se utilicen para cumplir
+con los planes y programas de estudio para impartir educación por el
+Estado y que se derive de la aplicación del presente Capítulo, serán los
+autorizados por la Secretaría en los términos de esta Ley, por lo que
+queda prohibida cualquier distribución, promoción, difusión o
+utilización de los que no cumplan con este requisito. Las autoridades
+escolares, madres y padres de familia o tutores harán del conocimiento
+de las autoridades educativas correspondientes cualquier situación
+contraria a este precepto.
+
+De acuerdo al artículo 29, en los planes de estudio se establecerán: I.
+Los propósitos de formación general y, en su caso, la adquisición de
+conocimientos, habilidades, capacidades y destrezas que correspondan a
+cada nivel educativo; II. Los contenidos fundamentales de estudio,
+organizados en asignaturas u otras unidades de aprendizaje que, como
+mínimo, el educando deba acreditar para cumplir los propósitos de cada
+nivel educativo y que atiendan a los fines y criterios referidos en los
+artículos 15 y 16 de esta Ley; III. Las secuencias indispensables que
+deben respetarse entre las asignaturas o unidades de aprendizaje que
+constituyen un nivel educativo; IV. Los criterios y procedimientos de
+evaluación y acreditación para verificar que el educando cumple los
+propósitos de cada nivel educativo; V. Los contenidos a los que se
+refiere el artículo 30 de esta Ley, de acuerdo con el tipo y nivel
+educativo, y VI. Los elementos que permitan la orientación integral del
+educando establecidos en el artículo 18 de este ordenamiento.
+\end{quote}
+
+\hypertarget{legislaciuxf3n-aplicable-a-ciberseguridad}{%
+\subsection{Legislación aplicable a
+ciberseguridad}\label{legislaciuxf3n-aplicable-a-ciberseguridad}}
+
+El marco legal aplicable a la ciberseguridad ({``México''}, s.~f./):
+
+\begin{itemize}
+\tightlist
+\item
+  Constitución Política de los Estados Unidos Mexicanos;
+\item
+  Ley de Telecomunicaciones y Radiodifusión (FTBL);
+\item
+  Ley Federal de Protección de Datos Personales en poder de Particulares
+  (Ley de Protección de Datos), sus reglamentos, recomendaciones,
+  directrices y reglamentos similares sobre protección de datos;
+\item
+  Norma Federal de Transparencia y Acceso a la Información Pública;
+\item
+  Normas Generales como la Norma Oficial Mexicana con respecto a los
+  requisitos que deben observarse al guardar mensajes de datos;
+\item
+  Ley de instrumentos negociables y operaciones de crédito;
+\item
+  Código Tributario Federal mexicano;
+\item
+  Ley de Instituciones de Crédito;
+\item
+  Circular Única para Bancos;
+\item
+  Ley de Propiedad Industrial;
+\item
+  Ley mexicana de derechos de autor;
+\item
+  Código Penal Federal;
+\item
+  Norma de seguridad nacional;
+\item
+  Ley del Trabajo;
+\item
+  Ley de la Policía Federal;
+\item
+  Plan Nacional de Desarrollo 2013-2018;
+\item
+  Estrategia Nacional de Ciberseguridad 2017;
+\item
+  Programa Nacional de Seguridad Pública 2014-2018; y
+\item
+  Programa Nacional de Seguridad 2014-2018.
+\end{itemize}
+
+Existen dos estándares mexicanos para la ciberseguridad, que son
+obligatorias en México y están basados en los estándares ISO/IEC:
+
+\begin{itemize}
+\tightlist
+\item
+  NMX-I-27001-NYCE-2015 (ISO/IEC 270001:2013)
+\item
+  NMX-I-27002-NYCE-2015 (ISO/IEC 270002:2013)
+\end{itemize}
+
+El Código Penal establece varios delitos en materia de ciberseguridad:
+
+\begin{itemize}
+\tightlist
+\item
+  Piratería
+\item
+  Phishing
+\item
+  Infección con malware
+\item
+  Posesión o uso de herramientas para cometer delitos informáticos
+\item
+  Robo de identidad (Art. 211 bis)
+\end{itemize}
+
+\hypertarget{legislaciuxf3n-aplicable-al-desarrollo-de-software}{%
+\subsection{Legislación aplicable al desarrollo de
+software}\label{legislaciuxf3n-aplicable-al-desarrollo-de-software}}
+
+Las principales consideraciones legales que aplican de manera general al
+desarrollo de software (\emph{ASPECTOS LEGALES RELACIONADOS CON EL
+DESARROLLO Y USO DEL SOFTWARE}, s.~f.):
+
+\begin{itemize}
+\item
+  Constitución Política de los Estados Unidos Mexicanos
+
+  \begin{itemize}
+  \tightlist
+  \item
+    El derecho de acceso a las tecnologías de la información se
+    establece en el Art. 6.
+  \end{itemize}
+\item
+  Ley de Propiedad Industrial;
+\item
+  Ley Federal del Derecho de Autor;
+\item
+  Código Federal de Procedimientos Civiles;
+\item
+  Ley Federal de Procedimiento Administrativo;
+\item
+  Código Penal Federal;
+\end{itemize}
+
+Dependiendo de la industria para la cual se esté desarrollando aplicará
+la normatividad de esa industria.
+
+\hypertarget{estado-del-arte}{%
+\section{Estado del arte}\label{estado-del-arte}}
+
+\hypertarget{paradigma-pedaguxf3gico-para-la-actividad}{%
+\subsection{Paradigma pedagógico para la
+actividad}\label{paradigma-pedaguxf3gico-para-la-actividad}}
+
+Desde la perspectiva del constructivismo la programación es una
+actividad compleja basada en operaciones proposicionales (Piaget et~al.,
+2016).
+
+El desarrollo de las operaciones proposicionales comparte
+características con el desarrollo del lenguaje y se puede utilizar
+tecnología para facilitar ese desarrollo por medio de actividades que
+desarrollan progresivamente el conocimiento (s.~f.).
+
+Como la programación comparte muchos atributos con la adquisición del
+lenguaje, revisaremos el trabajo de Bruner (Snow, 1979).
+
+El aprendizaje se puede estimular usando elementos emocionales (s.~f.).
+
+Las actividades que se desarrollen para este sistema deben proveer
+pistas a los estudiantes para generar las habilidades que están dentro
+de su zona de conocimiento proximal (s.~f.).
+
+\hypertarget{tecnologuxeda-para-implementar-la-evaluaciuxf3n-automuxe1ticamente}{%
+\subsection{Tecnología para implementar la evaluación
+automáticamente}\label{tecnologuxeda-para-implementar-la-evaluaciuxf3n-automuxe1ticamente}}
+
+\href{https://people.eecs.berkeley.edu/~necula/cil/}{CIL -
+Infrastructure for C Program Analysis and Transformation (v. 1.3.7)}.
+
+\href{https://www.researchgate.net/post/Is_there_any_tool_parser_to_extract_information_from_C_code}{Las
+recomendaciones de Research Gate}.
+
+\href{https://bytes.com/topic/c/answers/219149-extract-function-c-code}{Podrìa
+usarse \texttt{cscope}}.
+
+\href{https://cboard.cprogramming.com/c-programming/97667-how-extract-defined-function-names-c-file.html}{Un
+formo mostrando cómo extraer funciones de programas en C}.
+
+\href{https://www.codingalpha.com/lexical-analyzer-in-c-programming/}{Analizador
+Léxico de C}.
+
+\href{https://github.com/lotabout/write-a-C-interpreter/blob/master/tutorial/en/3-Lexer.md}{Una
+introducción tomada de un libro donde se construye un intérprete de C}.
+
+\href{https://medium.com/young-coder/how-i-wrote-a-lexer-39f4f79d2980}{Un
+artículo acerca de cómo alguien construyó un analizador léxico}.
+
+\href{https://www.programmingassignmenthelper.com/lexer-and-parser-in-c/}{Construir
+un analizador léxico y un intérprete en C}.
+
+\href{https://www.thecrazyprogrammer.com/2017/02/lexical-analyzer-in-c.html}{Cómo
+construir un analizador léxico en C y C++}.
+
+\href{https://www.lysator.liu.se/c/ANSI-C-grammar-l.html}{Especificación
+del Analizador léxico usando yacc para el estándar de ANSI C}.
+
+\href{https://codemirror.net/6/}{Un editor de código escrito en JS que
+usa un Árbol de Interpretación Completo}.
+
+\href{https://github.com/google/sanitizers/wiki/AddressSanitizer}{\texttt{AddressSanitizer}
+permite probar errores en memoria y es parte de LLVM y GCC} y
+probablemente es la opción usada en el \texttt{makefile} de Exercism.
+\href{https://doc.coreboot.org/technotes/asan.html}{El manual de
+\texttt{coreboot} tiene un pequeño tutorial para usarlo}.
+
+\hypertarget{hipuxf3tesis}{%
+\section{Hipótesis}\label{hipuxf3tesis}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Para desarrollar habilidades de seguridad es mejor la
+  retroalimentación inmediata y continua es mejor que la
+  retroalimentación únicamente al tiempo de evaluación.
+
+  \textbf{Hipótesis Nula}: No hay diferencia en el desarrollo de
+  habilidades de ciberseguridad entre usar retroalimentación inmediata
+  automatizada y la retroalimentación usada por el profesor.
+\item
+  Los estudiantes que usan la revisión automatizada preferirían seguir
+  utilizando revisión automatizada de su código.
+
+  \textbf{Hipótesis Nula}: Los estudiantes serían indiferentes o
+  rechazarían el uso de la revisión automatizada.
+\end{enumerate}
+
+\hypertarget{delimitaciuxf3n-del-tema}{%
+\section{Delimitación del tema}\label{delimitaciuxf3n-del-tema}}
+
+El alcance de esta investigación corresponde al espacio temporal de un
+año, comenzando en enero de 2021 y terminando en diciembre de 2021.
+
+Está acotado a los resultados que pueden obtenerse en la evaluación de
+los estudiantes de la Universidad Iberoamericana en las asignaturas de
+\emph{Seguridad e Integridad de la Información y Laboratorio}, y
+acotadas por el acceso a los resultados de las evaluaciones.
+
+Por la limitante del tiempo y a pesar de que está entre mis objetivos de
+vida desarrollar una buena secuencia didáctica para guiar el desarrollo
+de conceptos y abstracciones necesarias para programar efectivamente,
+este trabajo se limitará a evaluar el efecto de usar un régimen de
+retroalimentación continua usando sistema automático de evaluación de
+estilo de código en el rendimiento de los estudiantes.
+
+De esta manera los objetivos son específicos, conmensurables,
+alcanzables, dependen únicamente de mi responsabilidad, y están acotados
+temporalmente.
+
+De esta manera, este trabajo plantea las bases para medir el desempeño
+de la secuencia didáctica que se desarrollará en etapas posteriores.
+
+\hypertarget{preguntas-de-investigaciuxf3n}{%
+\section{Preguntas de
+investigación}\label{preguntas-de-investigaciuxf3n}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  ¿Cuáles son los mecanismos más usados actualmente para enseñar la
+  programación?
+\item
+  ¿Qué tan efectivas son esas metodologías en la enseñanza de
+  programación?
+\item
+  ¿Qué elementos contienen estas metodologías?
+\item
+  ¿Cómo pueden aprovecharse efectivamente estos elementos?
+\item
+  ¿Qué conceptos deben aprender los alumnos para programar
+  efectivamente?
+\item
+  ¿Cómo deben organizarse esos conceptos para que el proceso educativo
+  sea eficiente?
+\item
+  ¿Cómo puede evaluarse la adquisición de esos conceptos?
+\item
+  ¿Qué mecanismos de evaluación se usan actualmente?
+\item
+  ¿Qué tan efectivos son esos mecanismos para evaluar la adquisición de
+  habilidad de los estudiantes?
+\item
+  ¿Cuáles son los hábitos de los mejores programadores?
+\item
+  ¿Cómo se pueden fomentar esos hábitos en el salón de clase?
+\item
+  ¿Cómo la evaluación puede ayudar a fomentar esos hábitos?
+\item
+  ¿Qué tanto es el efecto de la evaluación en la formación de esos
+  hábitos?
+\item
+  ¿Cuál es el efecto de conocer el detalle de la evaluación en la
+  habilidad de los estudiantes?
+\item
+  ¿Cuál es el efecto de recordar el detalle de la evaluación en la
+  habilidad de los estudiantes?
+\item
+  Si se recordó constantemente los objetivos de evaluación y eso mostró
+  mejora en los resultados de la evaluación, ¿Qué tanto es efecto de los
+  hábitos y qué tanto es el efecto de «entrenar para el examen»?
+\end{enumerate}
+
+\newpage
+
+\hypertarget{objetivo-general}{%
+\section{Objetivo General}\label{objetivo-general}}
+
+Proponer un sistema automatizado para la enseñanza de ciberseguridad
+fundamentado en el paradigma constructivista.
+
+\hypertarget{objetivos-especuxedficos}{%
+\section{Objetivos específicos}\label{objetivos-especuxedficos}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Definir criterios para evaluar un trabajo de ciberseguridad.
+\item
+  Diseñar evaluación de acuerdo a los criterios definidos.
+\item
+  Implementar sistema automatizado de evaluación.
+\end{enumerate}
+
+\hypertarget{esquema}{%
+\section{Esquema}\label{esquema}}
+
+Como fundamento del desarrollo del sistema completo:
+
+\begin{itemize}
+\tightlist
+\item
+  Desarrollo del pensamiento abstracto de acuerdo al constructivismo de
+  Piaget.
+\item
+  Adquisición del lenguaje de Brunner.
+\item
+  Teoría del horizonte proximal del conocimiento Vigotsky.
+\item
+  Aprendizaje por descubrimiento.
+\end{itemize}
+
+En términos de la disciplina de programación:
+
+\begin{itemize}
+\tightlist
+\item
+  Buenas prácticas de programación.
+\item
+  Diferencia entre buenos programadores.
+\item
+  Integración continua.
+\item
+  Desarrollo Basado en Pruebas.
+\item
+  Mantenibilidad del código.
+\end{itemize}
+
+En términos de la enseñanza de ciberseguridad:
+
+\begin{itemize}
+\tightlist
+\item
+  Prácticas comunes en la enseñanza de programación.
+\item
+  Prácticas efectivas en la enseñanza de educación.
+\end{itemize}
+
+Para poder diseñar y procesar los datos del experimento:
+
+\begin{itemize}
+\tightlist
+\item
+  Diseño experimental.
+\item
+  Poder estadístico.
+\item
+  Tamaño de efecto.
+\end{itemize}
+
+\hypertarget{diseuxf1ando-los-juegos-para-el-aprendizaje}{%
+\subsection{Diseñando los juegos para el
+aprendizaje}\label{diseuxf1ando-los-juegos-para-el-aprendizaje}}
+
+Existen plataformas de juegos como \href{https://overthewire.org/}{Over
+The Wire} (p.e. \href{https://overthewire.org/wargames/bandit/}{bandit})
+que plantean retos para que aprendas haciendo y ofrecen pistas para usar
+la computadora más allá del \emph{point and click}.
+
+Derivado de la expleriencia al usar los CTF disponibles en el
+\href{/csaw/}{taller de ciberseguridad} mis alumnos han tenido problemas
+porque:
+
+\begin{itemize}
+\item
+  En algunos casos la dificultad salta de un problema súper sencillo a
+  el nivel más alto de exploración del problema.
+
+  Para los estudiantes es frustrante pasar varias sesiones explorando
+  sin avance aparente.
+\item
+  Los juegos están completamente disociados de los conocimiento teóricos
+  que se requieren.
+
+  Esto puede ser una ventaja, porque dependiendo de su uso podemos
+  entrenar a los estudiantes en el uso de habilidades metacognitivas,
+  como la resolución de problema, la identificación de incógnitas y la
+  investigación autodidacta.
+\end{itemize}
+
+En el presente trabajo se plantea
+\href{/techno/aplicaciones-vulnerables-para-poc/}{generar un camino de
+victorias intermedias} para aprender los conceptos desde una perspectiva
+práctica, con ayudas en el camino.
+
+De igual manera, se trabaja una metodología para enseñar habilidades
+metacognitivas.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Para el diseño de las actividades de aprendizaje en ciberseguridad 2022,
+se utilizó una estrategia múltiple:
+
+\begin{itemize}
+\item
+  Diseñar actividades dirigidas
+
+  \begin{itemize}
+  \item
+    Injección de código.
+  \item
+    Desbordamiento de memoria.
+  \item
+    Formato de cadenas.
+  \end{itemize}
+\item
+  Proyecto de generación de aplicaciones y remediación de seguridad
+
+  Este proyecto puede tomarse como base para actividades futuras.
+\end{itemize}
+
+\hypertarget{desarrollo-de-habilidades-meta-cognitivas}{%
+\subsection{Desarrollo de habilidades
+meta-cognitivas}\label{desarrollo-de-habilidades-meta-cognitivas}}
+
+Una característica de la ciberseguridad es que el área de trabajo está
+enfocada en lo que no se conoce, porque en cuanto los problemas de
+seguridad se vuelven conocidos, existe un esfuerzo de la industria por
+mitigarlos y corregirlos.
+
+En una aproximación a la aplicación de los juegos para aprendizaje con
+estudiantes se detectó que si se exponía la solución a los estudiantes,
+los estudiantes intentan aprenderla como procedimiento, pero no aprenden
+una metodología para buscar vulnerabilidades en general.
+
+\hypertarget{selecciuxf3n-de-criterios-candidatos-a-evaluaciuxf3n-automuxe1tica}{%
+\section{Selección de criterios candidatos a evaluación
+automática}\label{selecciuxf3n-de-criterios-candidatos-a-evaluaciuxf3n-automuxe1tica}}
+
+Esta lista de errores comunes puede revisarse a partir de una respuesta
+correcta con una prueba unitaria.
+
+Estos errores no están relacionados con el estilo de código, pero por su
+frecuencia y simplicidad de implementación de la automatización,
+permiten implementarse de manera sencilla.
+
+\begin{itemize}
+\tightlist
+\item
+  Tipo de variable incorrecto
+\item
+  Falta de la sentencia para devolver la variable.
+\item
+  Error de desbordamiento de buffer
+\item
+  Error por uno
+\item
+  La variable está llamada por valor y no por referencia
+\end{itemize}
+
+Categorización de criterios criterios:
+
+1). Se puede revisar automáticamente.
+
+2). No se puede revisar automáticamente.
+
+3). Debería ser posible, pero se necesita más investigación.
+
+\hypertarget{proyecto-a-futuro}{%
+\subsection{Proyecto a futuro}\label{proyecto-a-futuro}}
+
+El alumno presenta en su proyecto los siguientes elementos:\footnote{No
+  se puede revisar automáticamente.}
+
+\begin{itemize}
+\item
+  Levantamiento de requerimiento (8 pasos)
+\item
+  Diagrama de entradas, procesos y salidas
+\item
+  Diagrama de flujo (opcional)
+\item
+  Pseudocódigo (repositorio de git)
+\item
+  Pruebas de escritorio
+\end{itemize}
+
+El programa usa el estilo K\&R.\footnote{Se puede revisar
+  automáticamente.}
+
+\begin{itemize}
+\tightlist
+\item
+  El programa indent puede corregir el estilo pero se puede un script
+  que únicamente revise.
+\end{itemize}
+
+El alumno puede identificar y corregir código donde las únicas fallas
+sean:\footnote{Se puede revisar automáticamente.}
+
+\begin{itemize}
+\tightlist
+\item
+  Tipo de variable incorrecto.
+\item
+  Falta de la sentencia para devolver la variable.
+\item
+  Error de desbordamiento de buffer.
+\item
+  Error por uno.
+\item
+  La variable está llamada por valor y no por referencia.
+\end{itemize}
+
+Identificación de variables (sustantivos).\footnote{No se puede revisar
+  automáticamente.}
+
+\begin{itemize}
+\tightlist
+\item
+  Las variables usadas en el programa utilizan el lenguaje de la
+  declaración del problema. (Un diccionario del dominio del problema)
+\item
+  Los nombres de las variables no dan información acerca de la
+  implementación. (Un diccionario de palabras del lenguaje)
+\end{itemize}
+
+Identificación de funciones (verbos).\footnote{No se puede revisar
+  automáticamente.}
+
+\begin{itemize}
+\item
+  Las funciones usadas en el programa utilizan el lenguaje de la
+  declaración del problema. (Un diccionario del dominio del problema)
+\item
+  Los nombres de las funciones no dan información acerca de la
+  implementación. (Un diccionario de palabras del lenguaje)
+\item
+  Declaración de constantes (mayúsculas).
+\item
+  Todos los DEFINE y const van en mayúsculas.\footnote{Debería ser
+    posible, pero se necesita más investigación.}
+\item
+  Identificar el estilo de declaración de variables, constantes y
+  funciones.
+\end{itemize}
+
+\hypertarget{estuxe1ndar-para-la-organizaciuxf3n-del-proyecto}{%
+\subsection{Estándar para la organización del
+proyecto}\label{estuxe1ndar-para-la-organizaciuxf3n-del-proyecto}}
+
+La estructura de los proyectos sigue el siguiente estándar:\footnote{Debería
+  ser posible, pero se necesita más investigación.}
+
+\begin{itemize}
+\tightlist
+\item
+  Cada función se declara en un archivo diferente ``.c''. Existe al
+  menos un directorio para alojar las funciones del programa. Se genera
+  un archivo ``.h'' para declarar las funciones de cada directorio. El
+  makefile declara el directorio para vincular la biblioteca generada.
+  El makefile compila el proyecto correctamente con gcc.
+\end{itemize}
+
+Ventajas
+
+\begin{itemize}
+\item
+  Se genera de manera orgánica bibliotecas reusable.
+\item
+  Esta organización permite incluir objetos individualmente según se
+  usen. (p.e. cargar la biblioteca para usar una única función no
+  implica vincular los diez objetos que conforman la biblioteca).
+\end{itemize}
+
+Desventajas
+
+\begin{itemize}
+\item
+  Hay muchos archivos por cada programa.
+\item
+  Pueden estar desorganizados.
+\item
+  La categorización de las bibliotecas es arbitraria y no puede
+  evaluarse automáticamente
+\item
+  Puede generar frustración y recelo por C o programar por el sobre
+  trabajo que estos requisitos solicitan.
+\item
+  No deben existir definiciones de variables globales.
+\item
+  Se genera a partir del código la documentación del código al pasar por
+  doxygen. La documentación describe adecuadamente el código (no se
+  puede evaluar automáticamente). Podrían usarse test cases en doxygen
+  para evaluar esto, si doxygen lo admite.
+\end{itemize}
+
+\hypertarget{registros-en-git}{%
+\subsection{Registros en Git}\label{registros-en-git}}
+
+Esta es un área muy importante para garantizar que el código es
+mantenible y para permitir una adecuada revisión de los cambios.
+
+Desafortunadamente, es un área que muy posiblemente sería imposible de
+evaluar de manera automática, salvo tal vez con la aplicación de
+algoritmos de aprendizaje de máquina, y aún así las conclusiones
+deberían ser supervisadas por una persona para asegurarse de la calidad
+de la revisión.
+
+Un buen historial de git:\footnote{Se puede revisar automáticamente.}
+
+\begin{itemize}
+\tightlist
+\item
+  Tiene un commit por cada avance. (Un proxy para esto sería un número
+  aproximado de commits dependiendo de la magnitud del proyecto).
+\item
+  Describe lo que se hizo en el commit.
+\item
+  Explica por qué se hacen los cambios si es necesario.
+\item
+  Tiene pocas líneas para revisar (se puede usar un número arbitrario de
+  líneas agregadas, sin límite para eliminadas).
+\end{itemize}
+
+La metodología para el diseño de los retos se utilizó para el
+\href{https://preuniversitarios.ibero.mx/CSAW/}{Cyber Security Challenge
+for High School}.
+
+Se encontró que implementación técnica de los juegos puede afectar el
+objetivo de aprendizaje:
+
+\begin{itemize}
+\tightlist
+\item
+  Pueden existir atajos para resolver los juegos.
+\end{itemize}
+
+\hypertarget{lecciones-aprendidas-del-primer-capture-the-flag-que-hice}{%
+\subsection{\texorpdfstring{Lecciones aprendidas del primer
+\emph{Capture the Flag} que
+hice}{Lecciones aprendidas del primer Capture the Flag que hice}}\label{lecciones-aprendidas-del-primer-capture-the-flag-que-hice}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Si se va a publicar el binario para permitir pruebas locales, es muy
+  \textbf{importante separar las banderas del binario}, o cambiarlas en
+  el binario publicado.
+
+  No hacer esto puede eliminar el aprendizaje en el juego, porque
+  cualquiera abre un block de notas o usa \texttt{strings}.
+
+  De igual manera, leí que se recomienda no usar un indicativo que haga
+  evidente las banderas como \texttt{\textbackslash{}flag\{\}} porque la
+  gente podría usar \texttt{grep}.
+\item
+  Para simplificar los retos conviene
+  \href{./aplicaciones-vulnerables-para-poc/}{desactivar las opciones de
+  seguridad del compilador} y eliminar las optimizaciones del código.
+
+\begin{verbatim}
+CFLAGS=-fno-stack-protector -no-pie -ggdb3 -O0
+\end{verbatim}
+\item
+  Al intentar explotar \href{}{un binario con protecciones
+  desactivadas}, se puede quedar el programa colgado y utilizando el
+  máximo de los recursos. Por lo tanto conviene limitar la ejecución del
+  código.
+
+\begin{verbatim}
+prlimit -t=${TIEMPO_RAZONABLE_PARA_EJECUTAR} aplicación
+\end{verbatim}
+
+  (Tengo entendido que este es tiempo efectivo de ejecución y no hay
+  problema si el programa está esperando input; no he puesto a prueba
+  esta hipótesis.)
+\item
+  Las aplicaciones usan un buffer para imprimir en \texttt{stdout}. Si
+  la aplicación no limpia el buffer al enviar la bandera, puede que el
+  jugador resuelva correctamente pero no obtenga la bandera.
+\end{enumerate}
+
+\hypertarget{diseuxf1ando-los-juegos-para-el-aprendizaje-1}{%
+\subsection{Diseñando los juegos para el
+aprendizaje}\label{diseuxf1ando-los-juegos-para-el-aprendizaje-1}}
+
+Algo que me encanta de plataformas de juegos como {[}Over The
+Wire{]}(https://overthewire.org/ ``The wargames OverTheWire can help you
+to learn and practice security concepts in the form of fun-filled
+games.'' (puedes empezar por
+\href{https://overthewire.org/wargames/bandit/}{bandit}) es que plantea
+retos para que aprendas haciendo y te ofrece las pistas suficientes para
+que vayas aprendiendo a usar tu computadora más allá del \emph{point and
+click}.
+
+En el caso del segundo juego «natas», cuando lo intenté con el
+\href{/csaw/}{taller de ciberseguridad} mis alumnos han tenido problemas
+porque en algunos casos la dificultad salta de un problema súper
+sencillo a el nivel más alto de exploración del problema.
+
+Y aunque es divertido para un hacker que ya tiene algo de experiencia y
+al menos tiene una noción de qué hay que hacer, es frustrante pasar
+sesione explorando sin avance aparente.
+
+Entonces he querido
+\href{/techno/aplicaciones-vulnerables-para-poc/}{hacer un camino de
+victorias intermedias} para aprender los conceptos desde una perspectiva
+práctica, \href{/techno/aplicacines-vulnerables-para-poc/}{con ayudas en
+el camino}.
+
+\hypertarget{desactivar-medidas-de-seguridad}{%
+\subsection{Desactivar medidas de
+seguridad}\label{desactivar-medidas-de-seguridad}}
+
+La mayoría de las vulnerabilidades en los programas son errores de
+gestión de memoria.
+
+Para enseñar cómo funcionan los ataques de desbordamiento de la pila, es
+importante entender
+\href{https://www.geeksforgeeks.org/memory-layout-of-c-program/}{cómo
+guardan información los programas}.
+
+\href{https://www.eecs.umich.edu/courses/eecs588/static/stack_smashing.pdf}{«Smashing
+the stack for fun and profit»} explica relativamente bien cómo funciona
+todo.
+
+\href{https://web.archive.org/web/20060919233718/https://inst.eecs.berkeley.edu/~cs164/sp05/ia32-refs/ia32-chapter-three.pdf}{Cómo
+funciona la pila en ia32}..
+
+\href{https://eli.thegreenplace.net/2011/09/06/stack-frame-layout-on-x86-64}{Cómo
+funciona la pila en x86\_64}.
+
+\href{https://courses.cs.washington.edu/courses/cse351/18wi/lectures/10/CSE351-L10-x86-III_18wi.pdf}{Más
+acerca de como funciona el stack en x86-64}.
+
+\hypertarget{cuxf3mo-se-protegen-los-programas}{%
+\subsection{Cómo se protegen los
+programas}\label{cuxf3mo-se-protegen-los-programas}}
+
+Al compilar los programas se pueden activar varias opciones de
+protección.
+
+\href{https://mcuoneclipse.com/2019/09/28/stack-canaries-with-gcc-checking-for-stack-overflow-at-runtime/}{\texttt{-stack-protection}}:
+verifica que las variables se escriban en su lugar.
+
+\texttt{-pie}: genera código que puede moverse en la memoria.
+
+\texttt{-s}: elimina (strips) los símbolos de depuración.
+
+\texttt{-\/-\/-noexecstack}: marca la memoria escribible como no
+ejecutable (DEP)
+
+Se pueden revisar opciones de seguridad de los binarios usando:
+
+\begin{verbatim}
+checksec --file=${EJECUTABLE}
+checksec --directory=${EJECUTABLE}
+\end{verbatim}
+
+\href{https://wiki.debian.org/Hardening}{Guía de Debian para proteger
+los programas}.
+
+\hypertarget{cuxf3mo-demostrar-programas-vulnerables}{%
+\subsection{Cómo demostrar programas
+vulnerables}\label{cuxf3mo-demostrar-programas-vulnerables}}
+
+Para aprender los básicos acerca de cómo atacar programas, conviene
+\href{https://stackoverflow.com/questions/2340259/how-to-turn-off-gcc-compiler-optimization-to-enable-buffer-overflow}{deshabilitar
+las funciones de seguridad en la compilación de los programas},
+\href{https://reverseengineering.stackexchange.com/a/27682}{incluyendo
+RELRO}.
+
+\begin{verbatim}
+gcc \
+    -fno-stack-protector \
+    -no-pie \
+    -Wl,-z,norelro,execstack \
+    -o ${PROGRAM} \
+    ${SOURCE}
+\end{verbatim}
+
+En varios sitios recomiendan además
+\href{https://0x10f8.wordpress.com/2019/05/21/subverting-nx-bit-with-return-to-libc/}{desactivar
+ASLR en la configuración del kernel}:
+
+\begin{verbatim}
+# echo 0 > /proc/sys/kernel/randomize_va_space
+\end{verbatim}
+
+Sobrescribir la pila, permite controlar el flujo de ejecución del
+programa porque \href{http://theamazingking.com/tut2.php}{en la pila se
+guardan los punteros para continuar la ejecución del programa}.
+
+\hypertarget{ejecutar-programas-desde-la-pila}{%
+\subsection{Ejecutar programas desde la
+pila}\label{ejecutar-programas-desde-la-pila}}
+
+En la mayoría de los casos los sistemas operativos actualizados impiden
+la ejecución de código en la pila aunque
+\href{https://stackoverflow.com/a/3756315/10467443}{es posible que
+algunos dispositivos embebidos aún contengan esta vulnerabilidad}
+
+\href{https://stackoverflow.com/a/3755573/10467443}{Esta respuesta de
+Stack Overflow} lista algunos punteros para desactivar las protecciones:
+
+\begin{quote}
+``- Disable stack protection at the OS level. - Allow execution from the
+stack on a particular executable file. - mprotect() the stack. - Maybe
+some other things\ldots{}''
+\end{quote}
+
+Esta medida de seguridad es difícil de desactivar porque
+\href{https://security.stackexchange.com/a/230816/274242}{se tiene que
+desactivar en todo el sistema operativo y no puede desactivarse
+únicamente para un programa o dentro de un contenedor}.
+
+Por lo tanto, para montar estos juegos, estoy considerando usar alguna
+máquina virtual ultra ligera:
+
+\begin{itemize}
+\item
+  Alpine sobre \texttt{QEMU}:
+
+  Sospecho que esta va a ser la forma más sencilla de levantar un
+  servicio que tenga desactivado ASLR.
+\item
+  \href{https://github.com/miklevin/Levinux}{Levinux}:
+
+  Me llamó la atención porque funciona en los 3 sistemas operativos
+  mayoritarios tiene un perspectiva educativa y al parecer algunos
+  tutoriales.
+  \href{https://mikelev.in/2011/08/virtual-machine-runs-anywhere/}{Aquí
+  está un post acerca de cómo se hizo Levinux}. Al final es un
+  \texttt{QEMU}.
+\end{itemize}
+
+\hypertarget{cuxf3mo-aprovechar-la-vulnerabilidad-de-los-programas-para-ejecutar-cuxf3digo-arbitrario}{%
+\subsection{Cómo aprovechar la vulnerabilidad de los programas para
+ejecutar código
+arbitrario}\label{cuxf3mo-aprovechar-la-vulnerabilidad-de-los-programas-para-ejecutar-cuxf3digo-arbitrario}}
+
+Si tienes suficiente espacio en un programa vulnerable, puedes escribir
+una función arbitraria en la memoria del programa.
+
+Hay \href{http://shell-storm.org/shellcode/}{inventarios de funciones en
+ensamblador para ataques de overflow}
+
+En caso contrario,
+\href{https://insecure.org/stf/smashstack.html}{puedes escribir el
+código en el entorno y apuntar el puntero de retorno a tu código}.
+
+\hypertarget{cuxf3mo-atacar-la-memoria-cuuxe1ndo-estuxe1-protegida}{%
+\subsection{Cómo atacar la memoria cuándo está
+protegida}\label{cuxf3mo-atacar-la-memoria-cuuxe1ndo-estuxe1-protegida}}
+
+Se puede utilizar el código que ya está en memoria para construir
+programas arbitrarios, eso se conoce como
+\href{https://en.wikipedia.org/wiki/Return-oriented_programming}{return-oriented
+programming (ROP)} y
+\href{https://seclists.org/bugtraq/1997/Aug/63}{este es uno de los
+primeros ejemplos}.
+
+\href{http://shell-storm.org/talks/ROP_course_lecture_jonathan_salwan_2014.pdf}{Se
+pueden generar ataques elaborados con las instrucciones en memoria}.
+
+\href{https://github.com/JonathanSalwan/ROPgadget/tree/master}{Esta
+herramienta busca código disponible para construir tus programas}.
+
+\hypertarget{cuxf3mo-evitar-que-se-diagnostiquen-los-programas}{%
+\subsection{Cómo evitar que se diagnostiquen los
+programas}\label{cuxf3mo-evitar-que-se-diagnostiquen-los-programas}}
+
+\href{http://shell-storm.org/blog/Linux-process-execution-and-the-useless-ELF-header-fields/}{Eliminar
+los campos de ELF que no se usan para ejecutar impide su depuración} y
+\href{http://shell-storm.org/blog/Linux-process-execution-and-the-useless-ELF-header-fields/anti-debug.c}{aquí
+hay código para hacerlo}.
+
+También
+\href{http://shell-storm.org/blog/Polymorphism-and-Return-Oriented-Programming/}{se
+puede alterar un programa por otro funcionalmente equivalente que no
+contenga la parte común de los exploits}.
+
+\href{https://stackoverflow.com/questions/5752605/tool-to-clearly-visualize-memory-layout-of-a-c-program}{Herramientas
+para visualizar la memoria}:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.cs.kent.ac.uk/projects/gc/gcspy/}{GCspy}
+\item
+  \href{http://www.cs.kent.edu/~jmaletic/cs69995-PC/papers/Moreta07.pdf}{Paper
+  de visualización donde no se muestra ni se hace referencia al código}
+\end{itemize}
+
+\hypertarget{herramientas-para-programar-con-cuxf3digo-existente}{%
+\subsection{Herramientas para programar con código
+existente}\label{herramientas-para-programar-con-cuxf3digo-existente}}
+
+\href{https://triton.quarkslab.com/}{Análisis dinámico de binarios}
+
+http://shell-storm.org/project/ROPgadget/
+
+La idea es usar código que contiene funciones que retornan, porque se
+pueden encadenar para alcanzar cualquier objetivo.
+
+Esto se conoce como \textbf{Return Oriented Programming}. Tiene las
+ventajas de que se salta todas las protecciones conocidas de la pila y
+puede mitigarse \href{https://lwn.net/Articles/870045/}{borrando los
+registros antes de retornar},
+\href{https://www.jerkeby.se/newsletter/posts/rop-reduction-zero-call-user-regs/}{introduciendo
+13\% JOP gadgets y reduciendo 36\% ROP gadgets para Linux}.
+
+Sin embargo,
+\href{https://dustri.org/b/paper-notes-clean-the-scratch-registers-a-way-to-mitigate-return-oriented-programming-attacks.html}{borrar
+los registros podría deteriorar el rendimiento} presumiblemente sin
+agregar a la seguridad.
+
+https://www.jerkeby.se/newsletter/posts/history-of-rop/
+
+\href{https://stackoverflow.com/questions/1345670/stack-smashing-detected\#comment37057047_1347464}{Un
+consejo terrible: desactivar la protección anti pila en producción}.
+
+\hypertarget{minimizar-el-tamauxf1o-de-los-ctf}{%
+\subsection{Minimizar el tamaño de los
+CTF}\label{minimizar-el-tamauxf1o-de-los-ctf}}
+
+Las imágenes que \texttt{ctfcli} genera por defecto son del orden de
+cientos de megabytes.
+
+Aunque el espacio en disco es actualmente lo más barato en cómputo y en
+varios lugares es gratuito tener varios GB de datos.
+
+Sin embargo, para probar pequeños cambios en los juegos en un servidor,
+tener que enviar cientos de MB por una pequeña diferencia no hace
+sentido y toma mucho más tiempo hacer la retroalimentación y el
+diagnóstico.
+
+Así que pensé en hacer imágenes mínimas que contengan únicamente lo
+necesario para ejecutar el reto. En algunos casos, sólo se necesita en
+el contenedor los programas vulnerables compilados estáticamente y
+\href{https://skarnet.org/software/s6}{la suite de supervisión}.
+
+Una manera sencilla de hacer esto es compilar los programas y luego
+generar un contenedor vacío que incluye:
+
+\begin{itemize}
+\tightlist
+\item
+  los programa necesarios
+\item
+  las bibliotecas que utilizan
+\end{itemize}
+
+El \texttt{Dockerfile} quedaría parecido a:
+
+\begin{verbatim}
+FROM debian:stretch-20211011-slim as builder
+
+WORKDIR /root
+
+RUN apt-get update \
+  && apt-get -y install \
+    build-essential \
+  && apt clean
+
+COPY src/makefile src/game.c /root/
+RUN make game
+
+FROM alpine:3.14.2 as system
+
+RUN apk add \
+        s6-networking \
+        util-linux
+
+WORKDIR /opt
+
+COPY --from=builder /root/game /opt/app
+
+FROM scratch
+
+COPY --from=system \
+  /lib/ld-musl-x86_64.so.1 \
+  /lib/libskarnet.so.2.10 \
+  /lib/libsmartcols.so.1 \
+/lib/
+
+COPY --from=system \
+  /bin/s6-applyuidgid \
+  /opt/app \
+  /usr/bin/s6-tcpserver \
+  /usr/bin/s6-tcpserver4d \
+  /usr/bin/s6-tcpserver4-socketbinder \
+  /usr/bin/prlimit \
+/bin/
+
+COPY --from=builder src/game /bin/app
+
+EXPOSE 1337
+
+CMD ["/bin/s6-tcpserver", "-u", "1001", "-g", "1001", "0.0.0.0", "1337", "/bin/prlimit", "-t=3", "/bin/app"]
+\end{verbatim}
+
+En algunas ocasiones, el ejercicio requiere que sea posible ejecutar una
+consola, por lo que podría convenir incluir en el contenedor
+\href{https://github.com/robxu9/bash-static/}{una versión estática de
+bash} como \texttt{/bin/sh}.
+
+Se está trabajando además en una máquina virtual mínima, y un sistema
+para reproducirlo.
+
+\hypertarget{implementaciuxf3n-de-infraestructura-para-proyecto}{%
+\section{Implementación de infraestructura para
+proyecto}\label{implementaciuxf3n-de-infraestructura-para-proyecto}}
+
+\hypertarget{restringir-permisos-de-usuario-compartido-en-servidor}{%
+\subsection{Restringir permisos de usuario compartido en
+servidor}\label{restringir-permisos-de-usuario-compartido-en-servidor}}
+
+Esta configuración se está llevando a cabo en el directorio
+\$\{HOME\}/src/gitlab.com/gcd-ibero/gestion-de-infraestructura y se
+puede acceder a él con el comando \texttt{cd\ \$(repo\ -inf)}.
+
+\begin{itemize}
+\item
+  {[}✓{]} Utilizar un usuario compartido en un servidor para que los
+  estudiantes usen su propia compu para ejecutar los comandos.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {[}✓{]} Generar el usuario.
+  \item
+    {[}✓{]} Instalar \texttt{byobu}.
+  \item
+    {[}✓{]} Generar una contraseña para el usuario
+  \end{itemize}
+\item
+  {[}✓{]} Restringir los comandos que puede utilizar el usuario
+  compartido:
+
+  \href{https://www.ibm.com/support/pages/how-use-restricted-shell}{Cómo
+  usar} una
+  \href{https://www.gnu.org/software/bash/manual/html_node/The-Restricted-Shell.html}{consola
+  restringida}
+
+  \begin{itemize}
+  \item
+    {[}✓{]} Asignar \texttt{rbash} como consola.
+  \item
+    {[}✓{]} Generar un perfil que no puede modificarse y contiene las
+    variables:
+
+    \begin{itemize}
+    \tightlist
+    \item
+      {[}✓{]} \texttt{PATH}
+    \end{itemize}
+  \item
+    {[}✓{]} Agregar al directorio configurado en el \texttt{PATH} los
+    comandos:
+
+    \begin{itemize}
+    \tightlist
+    \item
+      {[}✓{]} \texttt{ssh} para entrar al servidor de juegos
+    \item
+      {[}✓{]} \texttt{man} para consultar documentación
+    \item
+      {[}✓{]} \texttt{apropos} para consultar documentación
+    \item
+      {[}✓{]} \texttt{info} para consultar documentación
+    \item
+      {[}✓{]} \texttt{byobu} para compartir la pantalla
+    \item
+      {[}✓{]} \texttt{less}
+    \item
+      {[}✓{]} \texttt{nano}
+    \item
+      {[}✓{]} \texttt{clear}
+    \item
+      {[}✓{]} \texttt{tput}
+    \end{itemize}
+  \item
+    {[}✓{]}
+    \href{https://bryan-murdock.blogspot.com/2010/10/how-to-disable-ubuntu-command-not-found.html}{Desactivar
+    el aviso de commando no encontrado}
+
+\begin{verbatim}
+unset command_not_found_handle
+\end{verbatim}
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{generar-sitio-privado-para-documentaciuxf3n-de-estudiantes}{%
+\subsection{Generar sitio privado para documentación de
+estudiantes}\label{generar-sitio-privado-para-documentaciuxf3n-de-estudiantes}}
+
+\texttt{cd\ \$(repo\ -inf)/colaborative-writing}
+
+HedgeDoc les gustó mucho a los estudiantes del taller.
+
+\begin{itemize}
+\item
+  {[}✓{]} Generar un \texttt{docker-compose.yml} con la configuración de
+  \href{https://unix.stackexchange.com/questions/518849/how-does-one-set-up-codimd-as-a-personal-wiki}{CodiMD}
+  o \href{https://docs.hedgedoc.org/setup/docker/}{HedgeDoc}
+\item
+  {[}✓{]} Configurar la instancia de \texttt{HedgeDoc} para ser privada.
+
+  ¿Se puede autenticar?
+  \href{https://docs.hedgedoc.org/guides/reverse-proxy/}{usando un proxy
+  inverso}
+
+  Se utilizó \href{https://docs.hedgedoc.org/configuration/}{la
+  documentación} para
+  \href{/home/x/src/gitlab.com/gcd-ibero/gestion-de-infraestructura/colaborative-writing}{configurar
+  la aplicación para ser privada}.
+
+  Se puede agregar la opción de autorizar con:
+  \href{https://docs.hedgedoc.org/guides/auth/oauth/}{OAuth}
+  \href{https://docs.hedgedoc.org/guides/auth/ldap-ad/}{LDAP}
+
+  \href{https://github.com/geerlingguy/ansible-role-certbot}{Se puede
+  configurar la auto-generación de certificados con Ansible}
+\item
+  {[}✓{]} Configurar un proxy para que la instancia de \texttt{HedgeDoc}
+  funcione desde un servidor remoto.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Se modificaron las variables \texttt{CMD\_DOMAIN} y
+    \texttt{CMD\_URL\_ADDPORT}.
+  \end{itemize}
+\item
+  {[}✓{]} Agregar un proxy \texttt{nginx} (/ge c74c771)
+\item
+  {[}✗{]} Configurar \texttt{certbot} para adquirir un certificado SSL
+  para \texttt{pad.haase.mx}. Usando \texttt{pad.lbustio.com} el sistema
+  funcionó correctamente.
+
+  \begin{itemize}
+  \item
+    {[}✓{]} El proxy de \texttt{nginx} debe
+    \href{https://docs.hedgedoc.org/guides/reverse-proxy/}{generar
+    ciertos encabezados para funcionar apropiadamente} (/ge 100c31a)
+  \item
+    {[}✗{]} Generar un contenedor \texttt{certbot} y compartir la
+    configuración de certificados para que \texttt{nginx} use los
+    certificados.
+  \end{itemize}
+\item
+  {[}✓{]} Configurar nuestro proxy de nginx para redirigir el tráfico de
+  \texttt{pad.lbustio.com} desde \texttt{traefik} hacia nuestro proxy.
+
+  https://doc.traefik.io/traefik/getting-started/configuration-overview/
+  https://www.digitalocean.com/community/tutorials/how-to-use-traefik-as-a-reverse-proxy-for-docker-containers-on-ubuntu-18-04
+
+  https://www.digitalocean.com/community/tutorials/how-to-use-traefik-v2-as-a-reverse-proxy-for-docker-containers-on-ubuntu-20-04
+
+\begin{verbatim}
+$ cr /ge
+$ cd escritura-colaborativa
+$ docker-compose --context=lbustio up -d
+\end{verbatim}
+
+\begin{verbatim}
+$ cr /ge
+$ mk pad
+\end{verbatim}
+
+\begin{verbatim}
+$ docker-compose --context=lbustio logs proxy
+Attaching to escritura-colaborativa_proxy_1
+proxy_1  | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+proxy_1  | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+proxy_1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+proxy_1  | 10-listen-on-ipv6-by-default.sh: info: can not modify /etc/nginx/conf.d/default.conf (read-only file system?)
+proxy_1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+proxy_1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+proxy_1  | /docker-entrypoint.sh: Configuration complete; ready for start up
+proxy_1  | 2021/08/13 22:26:17 [emerg] 1#1: unknown "connection_upgrade" variable
+proxy_1  | nginx: [emerg] unknown "connection_upgrade" variable
+\end{verbatim}
+
+  -\textgreater{} Desafortunadamente, el proxy no está dirigiendo las
+  aplicaciones como debe.
+
+  \begin{itemize}
+  \item
+    🗵 Configurar \texttt{traefik} localmente.
+
+    No será necesario jugar por el momento, porque el sistema reconoció
+    \texttt{pad.lbustio.com}
+  \end{itemize}
+\item
+  ☑ Agregar \texttt{pad.lbustio.com} al DNS.
+
+  Se le comunicó a Lázaro que hay que actualizar el DNS.
+
+  En \texttt{name.com} con el usuario lbustio.
+\item[$\square$]
+  (Opcional) Automatizar que al final de la sesión de \texttt{HedgeDoc}
+  se agreguen a una página.
+
+  Podría usarse \href{https://github.com/hedgedoc/cli}{hedgedoc/cli}
+\item
+  {[}?{]} Configurar el aviso para que cambien de teclado y dirección.
+
+  \begin{itemize}
+  \item
+    \href{https://www.systutorials.com/docs/linux/man/1-byobu/}{Se
+    pueden agregar scripts en
+    \texttt{\$BYOBU\_CONFIG\_DIR/bin/\$\{WAIT\_TIME\_IN\_SECONDS\}\_\$\{SCRIPT\_NAME\}}}
+    para que actualice el usuario al teclado y el usuario dirigiendo
+    cada 3 minutos, con un aviso visual o auditivo muy evidente.
+  \item
+    {[}?{]} Hacer que inicien sesión con su nombre. Asociar su clave
+    pública con el nombre en byobu.
+  \item
+    {[}✗{]} Entrar a la sesión restringida de \texttt{byobu}.
+
+    La sesión no restringida de byobu nos está funcionando relativamente
+    bien.
+  \end{itemize}
+\item
+  {[}✓{]} Levantar aplicación \texttt{HedgeDoc} en
+  \textless pad.lbustio.com\textgreater{}
+\item
+  ☑ Agregar usuarios en HedgeDoc.
+
+  Podrían agregarse localmente los usuarios en HedgeDoc, pero también
+  podría intentarse generar un SingleSignOn con el siguiente rubro,
+  usando \texttt{authelia}.
+
+  \begin{itemize}
+  \item
+    Podría hacerse desde la interfaz de HedgeDoc.
+
+\begin{verbatim}
+ssh lb
+USER=
+docker exec -ti escritura-colaborativa-app-1 bash
+/hedgedoc/bin/manage_users --add ${USER}
+\end{verbatim}
+  \item
+    Podría agregarse un proxy de identidad como
+    \href{https://github.com/authelia/authelia/}{authelia}.
+  \item
+    Podría solicitar que usen una cuenta de GitLab y utilizar el
+    servidor de autenticación de GitLab.
+  \end{itemize}
+\item
+  ☑ Agregar autenticación para acceder a la página de datos de servidor.
+
+  \href{https://mindup.medium.com/add-basic-authentication-in-docker-compose-files-with-traefik-34c781234970}{Una
+  posible opción para resolver este problema es usar \texttt{traefik}}
+
+  Parece que Renier intentó instalar authelia, pero no levanta.
+
+  \$\{HOME\}/xihh/proyectos/autenticación-de-lbustio.com
+\item
+  ☑ Configurar \texttt{traefik} para reenviar los encabezados de la
+  petición completos a hedgedoc.
+\item
+  ☑ Grabar la sesión del taller para que la vean si faltan.
+\item
+  {[}?{]}
+  \href{https://docs.hedgedoc.org/guides/providing-terms/}{Podría haber
+  términos de uso en el pad}.
+\end{itemize}
+
+\hypertarget{compartir-un-navegador-para-hacer-los-retos}{%
+\section{Compartir un navegador para hacer los
+retos}\label{compartir-un-navegador-para-hacer-los-retos}}
+
+Se generó un contendor con un sistema operativo especializado en
+ciberseguridad, que contiene las aplicacione necesarias para explorar
+los juegos que se proponen y que permite compartir el control de la
+máquina para trabajar en equipo.
+
+\hypertarget{usar-servidor-para-pruxe1cticas-de-seguridad-informuxe1tica}{%
+\section{Usar servidor para prácticas de seguridad
+informática}\label{usar-servidor-para-pruxe1cticas-de-seguridad-informuxe1tica}}
+
+Se generó un servidor que permite entregar la solución de los retos en
+un medio competitivo.
+
+Este servidor también permite mostrar los retos en el orden apropiado y
+vincular los conocimientos con los retos.
+
+\hypertarget{generar-sitio-de-documentaciuxf3n-para-taller-de-ciberseguridad}{%
+\subsection{Generar sitio de documentación para taller de
+ciberseguridad}\label{generar-sitio-de-documentaciuxf3n-para-taller-de-ciberseguridad}}
+
+Una de las técnicas de metacognición que trabajamos durante el taller
+consiste en generar un plan de trabajo para solucionar cada uno de los
+juegos, donde se identifican:
+
+\begin{itemize}
+\tightlist
+\item
+  Objetivo
+\item
+  Pasos a seguir
+\item
+  Incógnitas
+\end{itemize}
+
+Esa herramienta se utiliza además para:
+
+\begin{itemize}
+\item
+  Describir lo que se aprende en el camino, haciendo explícito el
+  conocimiento y ayudando a consolidarlo.
+\item
+  Retomar la actividad pasado un tiempo.
+\item
+  Introduciendo a los integrantes nuevos del equipo.
+\end{itemize}
+
+\hypertarget{cuxf3mo-compartir-control-en-aplicaciones-gruxe1ficas}{%
+\subsection{☑ Cómo compartir control en aplicaciones
+gráficas}\label{cuxf3mo-compartir-control-en-aplicaciones-gruxe1ficas}}
+
+Compartir la pantalla puede hacerse con:
+
+\begin{itemize}
+\item
+  VNC server/viewer
+
+  \begin{itemize}
+  \item
+    \href{https://www.realvnc.com/en/connect/download/vnc/}{Real VNC}
+    (propietario)
+  \item
+    vinagre/vino
+  \item
+    tigervnc
+  \item
+    wayvnc
+  \item
+    x11vnc
+  \end{itemize}
+\item
+  \href{http://xpra.org/}{Xpra}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    se puede consultar directamente desde el navegador
+    \href{https://github.com/Xpra-org/xpra-html5}{tiene un cliente
+    HTML5}
+  \item
+    \href{https://github.com/Xpra-org/xpra/blob/master/README.md}{funciona
+    en cualquier plataforma}.
+  \end{itemize}
+
+  Se puede iniciar desde el servidor:
+
+\begin{verbatim}
+MMAP=/run/user/1000/xpra/desktop.mmap
+mkdir -p ${MMAP}
+PROGRAM=dwm
+xpra start-desktop --max-size=1024x768 --min-size=1024x768 --desktop-scaling=off --clipboard=yes --clipboard-direction=both --mmap=${MMAP} --start ${PROGRAM}
+\end{verbatim}
+
+  También se puede iniciar de manera remota
+
+\begin{verbatim}
+USER=cybersecurity
+SERVER=192.168.90.11
+PROGRAM=dwm
+xpra start-desktop --max-size=1024x768 --min-size=1024x768 --desktop-scaling=off --clipboard=yes --clipboard-direction=both ssh://${USER}@${SERVER}/ --start ${PROGRAM}
+\end{verbatim}
+
+  Para usar la gui compartida:
+
+\begin{verbatim}
+MMAP=/run/user/1000/xpra/desktop.mmap
+USER=
+SERVER=192.168.122.120
+REMOTE_DISPLAY=
+xpra attach ssh://${SERVER}/${REMOTE_DISPLAY} --sharing=yes --start=firefox --clipboard=yes --clipboard-direction=both --max-size=1024x768 --min-size=1024x768 --mmap=${MMAP} # no funciona
+\end{verbatim}
+
+  Para iniciar aplicaciones:
+
+\begin{verbatim}
+APP=
+USER=
+SERVER=192.168.122.120
+REMOTE_DISPLAY=
+xpra attach --desktop-scaling=off --sharing=yes --max-size=1024x768 --min-size=1024x768 --clipboard=yes --clipboard-direction=both --start-child ${APP} ssh://${USER}@${SERVER}/${REMOTE_DISPLAY}
+\end{verbatim}
+
+  \hypertarget{problemas-con-xpra}{%
+  \subsection{Problemas con xpra}\label{problemas-con-xpra}}
+
+  Si se usan las configuraciones de ssh, la conexión falla con el error:
+
+\begin{verbatim}
+Warning: failed to connect:
+ connection failed: 'canonicaldomains'
+\end{verbatim}
+
+  Los menúes de las GUIs no permanecen abiertos como en las aplicaciones
+  locales
+\end{itemize}
+
+\begin{itemize}
+\item[$\square$]
+  Configurar un servicio en el servidor que pueda compartirse.
+
+  \texttt{cr\ lb} (commit 4a717c)
+\item
+  ☑ Configurar un servicio en el servidor que pueda usar ssh desde red
+  inalámbrica en ibero.
+
+  Configurando un proxy TCP para el servidor SSH.
+\item
+  {[}?{]} Configurar monitoreo para redes:
+\end{itemize}
+
+\hypertarget{herramientas-para-visualizar-la-memoria-urlhttpsstackoverflow.comquestions5752605tool-to-clearly-visualize-memory-layout-of-a-c-program}{%
+\subsection{\texorpdfstring{Herramientas para visualizar la memoria
+(\emph{Tool to Clearly Visualize Memory Layout of a C Program},
+s.~f.)}{Herramientas para visualizar la memoria (Tool to Clearly Visualize Memory Layout of a C Program, s.~f.)}}\label{herramientas-para-visualizar-la-memoria-urlhttpsstackoverflow.comquestions5752605tool-to-clearly-visualize-memory-layout-of-a-c-program}}
+
+Dado que una de las regiones más desarrollada de nuestro cerebro es el
+córtex visual, los mecanismos de visualización nos permiten comunicarnos
+efectivamente y transmitir ideas complejas muy rápidamente cuando se
+utilizan representaciones visuales efectivas.
+
+Muchos de los programas que se usan en el área de ciberseguridad
+muestran una representación textual de la memoria y de las instrucciones
+de los programas ejecutables.
+
+Una de las limitantes para entender qué estamos haciendo al desarrollar
+estas habilidades, es que la abstracción necesaria para explorar las
+aplicaciones usando herramientas con representación textual no facilita
+la introducción a estas actividades.
+
+\begin{itemize}
+\item
+  \href{https://www.cs.kent.ac.uk/projects/gc/gcspy/}{GCspy}
+\item
+  \href{http://www.cs.kent.edu/~jmaletic/cs69995-PC/papers/Moreta07.pdf}{Paper
+  de visualización donde no se muestra ni se hace referencia al código}
+\item
+  \href{https://qira.me/}{QIRA}
+\item
+  \href{https://github.com/longld/peda}{PEDA}
+\item
+  \href{https://cutter.re/}{Cutter}
+
+  \begin{itemize}
+  \item
+    \href{https://github.com/radareorg/iaito}{iaito}
+  \item
+    \href{https://github.com/radareorg/radare2}{radare2}
+  \item
+    \href{https://rizin.re/}{rizin}
+  \end{itemize}
+\item
+  \href{https://github.com/joyent/statemap}{statemap} y
+  \href{https://www.youtube.com/watch?v=x3rmg33j7RA}{el video con el que
+  lo encontré}
+
+  (parece que statemap requiere input de «instrumentation»)
+\end{itemize}
+
+\href{https://www.ubuntupit.com/best-linux-debuggers-for-modern-software-engineers/}{Varios
+debuggers permiten visualizar la memoria}:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{ddd}
+\item
+  \texttt{kgdb}
+\item
+  \texttt{ghidra}
+\item
+  \texttt{affinic-debugger}
+\end{itemize}
+
+https://stackoverflow.com/questions/5344764/gui-debugger-for-c-on-linux:
+
+\begin{itemize}
+\item
+  \texttt{nemiver}
+\item
+  https://github.com/DataChi/memdb
+\item
+  https://www.xmodulo.com/visualize-memory-usage-linux.html
+\end{itemize}
+
+\href{https://github.com/eteran/edb-debugger}{\texttt{edg} está
+inspirado en Ollydbg} y tiene
+\href{https://github.com/eteran/edb-debugger/wiki/Stack-View}{un widget
+para visualizar el stack \texttt{Stack\ View}}.
+
+\hypertarget{dirigir-el-entrenamiento-hacia-binarios-y-cuxf3mo-funcionan-las-computadoras}{%
+\subsection{Dirigir el entrenamiento hacia binarios y cómo funcionan las
+computadoras}\label{dirigir-el-entrenamiento-hacia-binarios-y-cuxf3mo-funcionan-las-computadoras}}
+
+\begin{itemize}
+\item
+  Ética
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Legislación
+  \item
+    Responsible Disclosure
+  \item
+    Bug Bounties
+  \end{itemize}
+\item
+  Ejercicios de ASM
+\item
+  Errores comunes en programas de C sin mitigaciones
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Stack Overflow
+  \item
+    Heap Overflow
+  \item
+    Use after free
+  \item
+    Format String Vulnerability
+  \end{itemize}
+\item
+  Ejecución con bibliotecas dinámicas
+
+  \href{https://blog.gibson.sh/2017/11/26/creating-portable-linux-binaries/}{Un
+  artículo que explica cómo usar versiones portables de las bibliotecas}
+
+  \href{https://github.com/georgy7/build-with-musl}{Un tutorial para
+  construir programas vinculados estáticamente}
+
+  \href{https://github.com/robxu9/bash-static/blob/master/build.sh}{Un
+  script para construir bash estáticamente}
+\item
+  Derrotar mitigaciones:
+
+  \begin{itemize}
+  \item
+    ALSR
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Hacer que el programa te diga el lugar de la memoria donde se
+      cargan las funciones de la tabla global de ajustes (GOT).
+    \end{itemize}
+  \item
+    NX
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Escribir en la pila únicamente las direccioens del código que
+      quieres ejecutar.
+    \end{itemize}
+  \item
+    Stack Canary
+
+    \begin{itemize}
+    \item
+      Hacer que el programa te diga el código secreto.
+
+      ¿Sobreescribir cuidando mantener este código secreto?
+    \end{itemize}
+  \item
+    \href{https://googleprojectzero.blogspot.com/2019/02/examining-pointer-authentication-on.html}{Pointer
+    Autentication}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      ¿Fuerza bruta?
+    \end{itemize}
+  \end{itemize}
+\item
+  Encontrar problemas en software
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Fuzzers
+  \end{itemize}
+\item
+  Return Oriented Programming
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Escribir en la pila los lugares donde está el código que quieres
+    ejecutar.
+  \end{itemize}
+\item
+  Otros lenguajes de programación
+
+  \begin{itemize}
+  \tightlist
+  \item
+    eval
+  \end{itemize}
+\item
+  HTTP session hijacking
+\item
+  \href{https://www.redeszone.net/tutoriales/seguridad/que-son-ataques-inyeccion-comandos/}{Inyección
+  de comandos}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    SQL injection
+  \end{itemize}
+\item
+  Cross Site Scripting (XSS)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    sandbox iframes
+  \end{itemize}
+\item
+  Server Side Request Forgery
+\item
+  WEP/WPA cracking
+\item
+  \textbf{Explorar bug bounties}
+\end{itemize}
+
+\hypertarget{ejemplos-de-actividades}{%
+\section{Ejemplos de actividades}\label{ejemplos-de-actividades}}
+
+\hypertarget{desbordamiento-de-memoria-en-la-pila}{%
+\subsubsection{Desbordamiento de memoria en la
+pila}\label{desbordamiento-de-memoria-en-la-pila}}
+
+Esta actividad consiste en llevar paso a paso por un ataque de
+desbordamiento de memoria.
+
+\begin{itemize}
+\item
+  Desarrollar un programa que por errores de programación permite
+  escribir en una variable que no debería.
+\item
+  Desarrollar un programa permite escribir en una variable que debería
+  estar inaccesible, pero que únicamente con un valor específico muestra
+  la respuesta.
+\item
+  En el tercer programa, el valor específico es una dirección de
+  memoria, que permite ejecutar una función inaccesible.
+\item
+  En el cuarto programa, el valor específico es una dirección de
+  memoria, que se usa para el funcionamiento normal del programa.
+\item
+  El quinto programa, permite escribir un espacio de memoria grande,
+  donde el objetivo es escribir directamente código de máquina y luego
+  debe usarse la pila para dirigir la ejecución del programa a esa
+  dirección de memoria.
+\end{itemize}
+
+\hypertarget{buenas-pruxe1cticas-para-contraseuxf1as}{%
+\subsubsection{Buenas prácticas para
+contraseñas}\label{buenas-pruxe1cticas-para-contraseuxf1as}}
+
+Seleccionar contraseñas desde la lista de contraseñas comunes.
+
+\begin{itemize}
+\item
+  Generar 3 grupos 10 contraseñas a partir de rockyou.txt:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    4 contraseñas comunes
+  \item
+    2 contraseñas repetidas
+  \item
+    2 contraseñas con patrones
+
+    \begin{itemize}
+    \tightlist
+    \item
+      palabra con reemplazo
+    \item
+      palabra con números
+    \end{itemize}
+  \item
+    2 contraseñas seguras
+
+    \begin{itemize}
+    \tightlist
+    \item
+      5 palabras aleatorias
+    \item
+      una cadena larga aleatoria
+    \end{itemize}
+  \end{itemize}
+\item
+  Configurar las contraseñas para usar las medidas de seguridad de cada
+  uno de los niveles esperados:
+
+  \begin{itemize}
+  \item
+    Cifrar (con contraseña en texto plano)
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Generar una contraseña segura y publicarla en un archivo oculto,
+    \end{itemize}
+  \item
+    Resumir criptográficamente (sin sal)
+  \item
+    Resumir criptográficamente (con sal)
+  \item
+    Utilizar un algoritmo difícil en memoria
+  \end{itemize}
+\item
+  Cifrar la lista de contraseñas para el primer nivel
+
+  \begin{itemize}
+  \item
+    Dejar instrucciones para descifrarlas con la contraseña oculta.
+
+    Podrían cifrarse y descifrarse con:
+
+    \begin{itemize}
+    \item
+      \href{https://askubuntu.com/questions/60712/how-do-i-quickly-encrypt-a-file-with-aes\#60713}{aescrypt}
+      que \href{https://www.aescrypt.com/download/}{puede descargarse
+      para cualquier SO}
+    \item
+      \href{https://askubuntu.com/a/60713}{openssl} que podría estar
+      instalado directamente en el equipo.
+    \end{itemize}
+  \end{itemize}
+\item
+  Generar usuarios pwd1, pwd2, pwd3,
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Configurar contraseñas para cada usuario. Este servicio permite a
+    los usuarios validar su configuración de SSH y GPG.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{uso-de-claves-puxfablicas}{%
+\subsubsection{Uso de claves públicas}\label{uso-de-claves-puxfablicas}}
+
+El servicio consiste en:
+
+\begin{itemize}
+\tightlist
+\item
+  servidor SSH con un único usuario configurado para
+
+  \begin{itemize}
+  \tightlist
+  \item
+    saludar
+  \item
+    ofrecer un mensaje cifrado con una clave pública
+  \end{itemize}
+\end{itemize}
+
+La parte práctica del examen consiste en:
+
+\begin{itemize}
+\item
+  Entrar al servidor con su clave de SSH.
+\item
+  Su mensaje está en un archivo con el hash indicado en la lista.
+
+\begin{verbatim}
+$nombre <tab> $hash
+\end{verbatim}
+\item
+  Pueden descargar un archivo comprimido con toda la info si quieren
+  trabajar localmente.
+\item
+  Tienen que entrar al servidor, encontrar el archivo y escribir su
+  mensaje en la respuesta del examen.
+\item
+  Yo debo comparar el estudante con el mensaje secreto.
+
+\begin{verbatim}
+$nombre <tab> mensaje
+\end{verbatim}
+\end{itemize}
+
+\hypertarget{luxednea-de-investigaciuxf3n}{%
+\section{Línea de investigación}\label{luxednea-de-investigaciuxf3n}}
+
+\hypertarget{cronograma-de-actividades}{%
+\section{Cronograma de actividades}\label{cronograma-de-actividades}}
+
+El cronograma de actividades
+\href{https://docs.google.com/spreadsheets/d/1nsChpTgQXJl4jjDb0Vimj4viFeqX_fG5-iLF55dvnx0/edit?usp=sharing}{es
+público en internet}.
+
+\newpage
+
+\hypertarget{semblanza}{%
+\section{Semblanza}\label{semblanza}}
+
+Ingeniero Biotecnólogo, especializado en bioinformática, con experiencia
+gestionando infraestructura de cómputo científico y para empresas
+tecnológicas.
+
+En 2015 se encargó de la Seguridad Informática del servicio de IPTV de
+Totalplay, dejando 0 vulnerabilidades conocidas e implementando un
+proceso automatizado para verificar conformidad.
+
+Fue Subdirector de Bioinformática en el Instituto Nacional de Medicina
+Genómica, donde optimizó procesos de análisis para genomas completos
+para aprovechar la arquitectura de cómputo científico, desarrolló una
+metodología de análisis para garantizar la reproducibilidad de los
+análisis; e impartió varios talleres para el uso de cómputo científico y
+desarrollo de análisis bioinformáticos usando buenas prácticas de
+desarrollo.
+
+Ha desarrollado proyectos de análisis de datos en proyectos comerciales
+y desarrollado análisis de redes usado algoritmos de información mutua.
+
+Actualmente es Académico del Grupo de Ciencia de Datos de la Universidad
+Iberoamericana, interesado en cómo sistematizar, automatizar y optimizar
+sistemas de análisis para ayudar a resolver problemas sociales,
+educativos y de salud.
+
+\newpage
+
+\hypertarget{referencias}{%
+\section*{Referencias}\label{referencias}}
+\addcontentsline{toc}{section}{Referencias}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\hypertarget{ref-937ioE1w}{}%
+(s.~f.).
+\url{http://moglen.law.columbia.edu/audio/DSG-CUNY-BeforeAndAfterIP.mp3}
+
+\leavevmode\hypertarget{ref-Z30bKsm}{}%
+(s.~f.).
+\url{http://publicaciones.anuies.mx/pdfs/revista/Revista62_S1A3ES.pdf}
+
+\leavevmode\hypertarget{ref-AZg3pHkj}{}%
+(s.~f.). \url{http://www.planeducativonacional.unam.mx/PDF/CAP_16.pdf}
+
+\leavevmode\hypertarget{ref-k6AZlArO}{}%
+(s.~f.). \url{https://core.ac.uk/download/pdf/33680124.pdf}
+
+\leavevmode\hypertarget{ref-r40cJomQ}{}%
+(s.~f.).
+\url{https://emtemp.gcom.cloud/ngw/globalassets/en/publications/documents/top-priorities-for-it-leadership-vision-for-2021-ebook.pdf}
+
+\leavevmode\hypertarget{ref-EObdM9yf}{}%
+(s.~f.). \url{https://files.eric.ed.gov/fulltext/EJ1081990.pdf}
+
+\leavevmode\hypertarget{ref-Rb0wL9fD}{}%
+(s.~f.).
+\url{https://repositorium.sdum.uminho.pt/bitstream/1822/23813/1/iceis2012_quimera_vf.pdf}
+
+\leavevmode\hypertarget{ref-l4GIpJvw}{}%
+(s.~f.).
+\url{https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-yuan.pdf}
+
+\leavevmode\hypertarget{ref-w3tk3cB5}{}%
+(s.~f.). \href{https://nc-broccoli}{nc-broccoli}
+
+\leavevmode\hypertarget{ref-9rraBh7C}{}%
+(s.~f.). \href{https://u-gone}{u-gone}
+
+\leavevmode\hypertarget{ref-EYgw7dv0}{}%
+Aftab, M. T., \& Tariq, M. H. (2018). Continuous Assessment as a Good
+Motivational Tool in Medical Education. \emph{Acta Medica Academica},
+\emph{47}(1), 76. \url{https://doi.org/10.5644/ama2006-124.216}
+
+\leavevmode\hypertarget{ref-w5Mseb7f}{}%
+\emph{ASPECTOS LEGALES RELACIONADOS CON EL DESARROLLO Y USO DEL
+SOFTWARE}. (s.~f.). Recuperado 15 de agosto de 2021, de
+\url{http://itcelenes.mx.tripod.com/AFIUnidad8.html}
+
+\leavevmode\hypertarget{ref-E4qTsP6j}{}%
+Bowyer, J., \& Hughes, J. (2006). Assessing undergraduate experience of
+continuous integration and test-driven development. \emph{Association
+for Computing Machinery (ACM)}.
+\url{https://doi.org/10.1145/1134285.1134393}
+
+\leavevmode\hypertarget{ref-isyry8r9}{}%
+Bruner, J. S. (1977). \emph{The process of education}. Harvard
+University Press.
+
+\leavevmode\hypertarget{ref-mzz5Yp9s}{}%
+Bruner, J. S. (1978). \emph{Toward a theory of instruction} (8. pr).
+Harvard Univ. Press.
+
+\leavevmode\hypertarget{ref-GaqreT3v}{}%
+Christoforou, A. P., \& Yigit, A. S. (2008). Improving teaching and
+learning in engineering education through a continuous assessment
+process. \emph{European Journal of Engineering Education}, \emph{33}(1),
+105-116. \url{https://doi.org/10.1080/03043790701746405}
+
+\leavevmode\hypertarget{ref-duUamzUT}{}%
+\emph{dbp.io :: Programming as Literature}. (s.~f.). Recuperado 8 de
+agosto de 2021, de
+\url{https://dbp.io/essays/2012-10-24-programming-literature.html}
+
+\leavevmode\hypertarget{ref-an6jVpNC}{}%
+Eddy, B. P., Wilde, N., Cooper, N. A., Mishra, B., Gamboa, V. S., Shah,
+K. M., Deleon, A. M., \& Shields, N. A. (2017). A Pilot Study on
+Introducing Continuous Integration and Delivery into Undergraduate
+Software Engineering Courses. \emph{Institute of Electrical and
+Electronics Engineers (IEEE)}.
+\url{https://doi.org/10.1109/cseet.2017.18}
+
+\leavevmode\hypertarget{ref-15VxjIHpR}{}%
+Embury, S. M., \& Page, C. (2019). Effect of Continuous Integration on
+Build Health in Undergraduate Team Projects. En \emph{Lecture Notes in
+Computer Science}. Springer Science and Business Media LLC.
+\url{https://doi.org/10.1007/978-3-030-06019-0_13}
+
+\leavevmode\hypertarget{ref-jC7uBQxN}{}%
+Fischer, K., Vaupel, S., Heller, N., Mader, S., \& Bry, F. (2021).
+Effects of Competitive Coding Games on Novice Programmers. En
+\emph{Advances in Intelligent Systems and Computing}. Springer Science
+and Business Media LLC.
+\url{https://doi.org/10.1007/978-3-030-68198-2_43}
+
+\leavevmode\hypertarget{ref-L7gjhE6x}{}%
+González Martínez, J. (2003). \emph{La producción en serie y la
+producción flexible: principios, técnicas organizacionales y fundamentos
+del cambio} (1. ed). Universidad Autónoma Metropolitana Azcapotzalco.
+
+\leavevmode\hypertarget{ref-10CD5GUrI}{}%
+Hernández, R. (2012). Does continuous assessment in higher education
+support student learning? \emph{Higher Education}, \emph{64}(4),
+489-502. \url{https://doi.org/10.1007/s10734-012-9506-7}
+
+\leavevmode\hypertarget{ref-6qRfarph}{}%
+jeronicalafell. (2017, enero 10). Frase célebre Confucio - Aprender /
+Jeroni Calafell. \emph{Jeroni Calafell}.
+\url{https://jeronicalafell.com/frase-celebre-confucio-aprender/}
+
+\leavevmode\hypertarget{ref-zaYZE70v}{}%
+Krafczyk, M., Shi, A., Bhaskar, A., Marinov, D., \& Stodden, V. (2019).
+Scientific Tests and Continuous Integration Strategies to Enhance
+Reproducibility in the Scientific Software Context. \emph{Association
+for Computing Machinery (ACM)}.
+\url{https://doi.org/10.1145/3322790.3330595}
+
+\leavevmode\hypertarget{ref-61Mhr63C}{}%
+Lehman, M. M. (1980). Programs, life cycles, and laws of software
+evolution. \emph{Proceedings of the IEEE}, \emph{68}(9), 1060-1076.
+\url{https://doi.org/10.1109/proc.1980.11805}
+
+\leavevmode\hypertarget{ref-UmmD4xUI}{}%
+Levy, F., \& Murnane, R. J. (2005). \emph{The new division of labor: how
+computers are creating the next job market} (2. print. and 1. paperback
+print). Russell Sage Foundation {[}u.a.{]}.
+
+\leavevmode\hypertarget{ref-JJPwy3DY}{}%
+\emph{Marco legal educativo de los Estados Unidos Mexicanos}. (s.~f.).
+La concepción de la Evaluación. Recuperado 8 de agosto de 2021, de
+\url{https://deliarodriguezinvestigacion.wordpress.com/category/marco-legal-educativo-de-los-estados-unidos-mexicanos/}
+
+\leavevmode\hypertarget{ref-HDmPArpB}{}%
+McConnell, S. (2004). \emph{Code complete} (2nd ed). Microsoft Press.
+
+\leavevmode\hypertarget{ref-LX5rGLI1}{}%
+México. (s.~f.). \emph{Ciberseguridad}. Recuperado 15 de agosto de 2021,
+de \url{https://ciberseguridad.com/normativa/latinoamerica/mexico/}
+
+\leavevmode\hypertarget{ref-tZcz0BiL}{}%
+Piaget, J., Inhelder, B., Delval, J., \& Lomelí, P. (2016).
+\emph{Psicología del niäno}.
+\url{https://elibro.net/ereader/elibrodemo/116205}
+
+\leavevmode\hypertarget{ref-BplcWPD4}{}%
+Sanz-Pérez, E. S. (2019). Students' performance and perceptions on
+continuous assessment. Redefining a chemical engineering subject in the
+European higher education area. \emph{Education for Chemical Engineers},
+\emph{28}, 13-24. \url{https://doi.org/10.1016/j.ece.2019.01.004}
+
+\leavevmode\hypertarget{ref-9cCPbJWa}{}%
+Snow, C. E. (Ed.). (1979). \emph{Talking to children: language input and
+acquisition ; papers from a conference ... {[}held 6-8 September 1974
+... in Boston, Massachusetts{]}} (Repr). Cambridge Univ. Press.
+
+\leavevmode\hypertarget{ref-L4JMQzSC}{}%
+Taylor, F. W., Thompson, K., \& Taylor, F. W. (2003). \emph{Scientific
+management} (Repr. Taylor, New York and London: Harper Publ). Routledge.
+
+\leavevmode\hypertarget{ref-oYJa6rHx}{}%
+\emph{Tool to clearly visualize Memory Layout of a C Program}. (s.~f.).
+Stack Overflow. Recuperado 30 de agosto de 2022, de
+\url{https://stackoverflow.com/questions/5752605/tool-to-clearly-visualize-memory-layout-of-a-c-program}
+
+\leavevmode\hypertarget{ref-10ZfexQUS}{}%
+\emph{UAJyT}. (s.~f.). Recuperado 8 de agosto de 2021, de
+\url{https://www.sep.gob.mx/es/sep1/sep1_La_Educacion_y_sus_Normas_Juridicas}
+
+\leavevmode\hypertarget{ref-vy7gNH8L}{}%
+Vygotski, L. S., Cole, M., Furio, S., John-Steiner, V., Scribner, S., \&
+Souberman, E. (2009). \emph{El desarrollo de los procesos psicológicos
+superiores}. Crítica.
+
+\leavevmode\hypertarget{ref-hzq61Gnz}{}%
+Zinovieva, I. S., Artemchuk, V. O., Iatsyshyn, A. V., Popov, O. O.,
+Kovach, V. O., Iatsyshyn, A. V., Romanenko, Y. O., \& Radchenko, O. V.
+(2021). The use of online coding platforms as additional distance tools
+in programming education. \emph{Journal of Physics: Conference Series},
+\emph{1840}(1), 012029.
+\url{https://doi.org/10.1088/1742-6596/1840/1/012029}
+
+\leavevmode\hypertarget{ref-11mdjMtw7}{}%
+Zvacek, S., Institute for Systems and Technologies of Information,
+Control and Communication, \& IEEE Education Society (Eds.). (2014).
+\emph{Proceedings of the 6th International Conference on Computer
+Supported Education, Barcelona, Spain, 1 - 3 April, 2014. Vol. 3: ...}
+SCITEPRESS.
+
+\end{CSLReferences}
+
+\end{document}

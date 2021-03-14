@@ -1,0 +1,95 @@
+---
+title: Proyecto de innovación educativa
+subtitle: Seminario de Innovación Educativa Internacional
+author: "Joshua Ismael Haase Hernández"
+date: 2022-02-27
+biblio-style: apa
+biblio-title: Referencias
+theme: metropolis
+slide-level: 2
+---
+
+
+Planteamiento del problema
+==========================
+
+Hay más trabajos de desarrollo y ciberseguridad que personal capacitado
+-----------------------------------------------------------------------
+
+::: incremental
+::::: {.columns}
+:::: {.column width=50%}
+![Estimación del crecimiento de la oferta y demanda en ciberseguridad (Frost, 2017)](/home/x/web/blog.isc2.org/.a/6a00e54f109b67883401b8d2991216970c-600wi.jpg){width=1.2\paperwidth height=1.2\paperheight}
+::::
+:::: {.column width=50%}
+![Demanda de personal de ciberseguridad no cubierta por país países (Cibersecurity Workforce Study, 2020)](/home/x/shots/2021-08-15-09-37-08.png)
+::::
+:::::
+:::
+
+<!--
+La demanda de posiciones de ciberseguridad crece cada año
+-------------------------------------------------------
+
+![](/home/x/web/www.austcyber.com/sites/default/files/inline-images/fig11.png )
+-->
+
+Los nuevos trabajos requieren mucha capacidad de abstracción que suele aterrorizar a los estudiantes
+------------------------------------------------------------
+
+::: incremental
+::::: {.columns}
+:::: {.column width=50%}
+-   Memorizar conceptos abstractos. $\newline$ $\newline$
+
+    [![](01-técnicas-pedagógicas/07.-examen-final/conceptos-abstractos.png)](){height=7cm}
+
+
+<!--
+Se les enseña un método y se les hace repetirlo muchas veces (p.e. Baldor)
+
+-   Muchas veces ni el profesor entiende:
+    -  por qué los métodos funcionan
+    -  cómo y cuándo aplicarlos
+-->
+::::
+:::: {.column width=50%}
+
+-   Repetir métodos que no entienden. $\newline$
+
+    [![](01-técnicas-pedagógicas/07.-examen-final/math-is-math.jpg)](https://www.youtube.com/watch?v=3M3UotI2Dpg "¿Por qué cambiaron las matemáticas?"){height=7cm}
+::::
+:::::
+:::
+
+
+Los estudiantes no aplican el proceso de diagnóstico \newline y resolución de problemas
+------------------------------------------------------------------------------
+
+![Prefieren imitar el proceso que observan.](12-seminario-internacional/proyecto-innovador/imitación.jpg ""){width=7cm}
+
+Propuesta: Usar técnica de programación en manada para enseñar ciberseguridad
+=============================================================================
+
+Por turnos, los estudiantes dirigen o siguen instrucciones
+----------------------------------------------------------
+
+::: incremental
+1.  Hacer un rol para organizar la participación:
+
+    -   Un estudiante dirige la acción
+        (Puede pedir ayuda o hacer preguntas).
+
+    -   Otro estudiante ejecuta la acción
+
+2.  Los observadores pueden opinar, hacer preguntas o señalar cosas.
+:::
+
+Al final de la sesión se hace una sesión de reflexión
+----------------------------------------------------------
+
+::: incremental
+3.  Permite identificar problemas.
+
+4.  Permite un proceso de mejora continua.
+:::

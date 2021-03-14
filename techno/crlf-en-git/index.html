@@ -1,0 +1,15 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>CRLF en git</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>CRLF en git</h1><nav id=TableOfContents></nav><p>En archivos de texto es buena idea utilizar el separador de líneas
+que usa sistema operativo
+(en realidad, sería mejor idea homologar el uso del separador de líneas)
+para que los archivos de texto puedan usarse en todas las aplicaciones.</p><p><a href=http://www.git-scm.com/ title="Un sistema de control de versiones distribuido y eficiente." target=_blank rel=noopener><code>git</code></a>
+tiene una función para convertir los archivos automáticamente entre sistemas:</p><pre tabindex=0><code>core.autocrlf
+</code></pre><p>En <a href=../texto-plano/>archivos que sólo son texto</a> es una gran idea
+pero en otros archivos podría ocasionar corrupción de datos.
+Por eso git verifica que este proceso automático
+no vaya a cambiar los datos en el directorio de trabajo.</p><p>Si al recuperar los datos desde el repositorio
+cambiaría lo que hay en el directorio de trabajo,
+git se pone triste:</p><pre tabindex=0><code>fatal: CRLF would be replaced by LF in archivo-problemático
+</code></pre><p>Hay varias posibles soluciones al problema:</p><ul><li><p>Desactivar la transformación automática: <code>git config core.autocrlf false</code>.</p></li><li><p>Transformar los datos en el directorio de trabajo: <code>dos2unix archivo-problemático</code>.</p></li><li><p>Ignorar que se podrían romper los datos,
+pero pedirle a git que nos avise:
+<code>git config core.safecrlf warn</code></p></li><li><p>Ignorar que se podrían romper los datos: <code>git config core.safecrlf false</code></p></li></ul><h1 id=referencias><a href=#referencias alt>Referencias</a> <a href=# alt="Regresar al inicio">↑</a></h1><p><a href=https://stackoverflow.com/questions/20168639/git-commit-get-fatal-error-fatal-crlf-would-be-replaced-by-lf-in title="Nadie le ha respondido por qué pasa esto." target=_blank rel=noopener>Soluciones al problema de autocrlf en git</a>.</p><p><a href=https://git-scm.com/docs/gitattributes title="Explica que convierte el texto automáticamente." target=_blank rel=noopener>Manual del uso de atributos en git</a>.</p><p><a href=https://git-scm.com/docs/git-config title="Explica cómo cambiar la configuración." target=_blank rel=noopener>Manual de configuración de git</a>.</p></article></main></body></html>

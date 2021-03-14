@@ -1,0 +1,35 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Mi entorno de trabajo</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Mi entorno de trabajo</h1><nav id=TableOfContents><ul><li><a href=#simple-terminal>Simple Terminal</a></li><li><a href=#imágenes-en-el-fondo-de-dwm>Imágenes en el fondo de dwm</a></li></ul><ul><li><a href=#tipografía-para-trabajos>Tipografía para trabajos</a></li></ul></nav><p>Sucedió una tragedia: murió mi compu.</p><p>Como me gusta hacer trabajo duradero
+(trabajar más para trabajar menos)
+y tengo expectativas muy altas de mi trabajo
+no había configurado mi computadora anterior a mi gusto.</p><p>Pero ahora no tengo más remedio para trabajar que configurar una computadora nueva.
+Así que voy a automatizar la construcción de mi ambiente de trabajo.</p><h1 id=sistema-operativo><a href=#sistema-operativo alt>Sistema operativo</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>La verdad es que no me gusta nada tal cual está.</p><h1 id=execline><a href=#execline alt>execline</a> <a href=# alt="Regresar al inicio">↑</a></h1><pre tabindex=0><code>$ sudo apt-get install -y s6
+$ sudo ln -s /usr/lib/execline/bin/execlineb /usr/bin
+</code></pre><h1 id=dwm><a href=#dwm alt>DWM</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Uso una <a href=https://github.com/xihh87/dwm-xihh/ target=_blank rel=noopener>versión personalizada de dwm</a>.
+La versión que está en GitHub difiere muchísimo de la versión que tenía instalada.</p><p>La versión por defecto en debian inicia con <code>/usr/share/xsessions/dwm.desktop</code>.</p><pre tabindex=0><code>~/src/github.com/xihh87/dwm-xihh$ git remote add sl git://git.suckless.org/dwm
+~/src/github.com/xihh87/dwm-xihh$ git pull sl master
+</code></pre><pre tabindex=0><code>sudo apt-get install -y libxft-dev libxinerama-dev libx11-xcb-dev libxcb-res0-dev
+gcl https://github.com/xihh87/dwm-xihh/
+cd $(repo dwm-xihh)
+</code></pre><h2 id=simple-terminal><a href=#simple-terminal alt>Simple Terminal</a> <a href=# alt="Regresar al inicio">↑</a></h2><pre tabindex=0><code>gcl https://github.com/xihh87/st
+cd $(repo )
+</code></pre><ul><li>[✓] <a href=https://github.com/LukeSmithxyz/voidrice/issues/284 target=_blank rel=noopener>Fix crashing <code>st</code> by using installing fonts</a></li><li>[✓] <a href=../techno.nomia.mx/respaldos.md>Install <code>libxft-bgra</code> to allow using emojis</a></li></ul><h2 id=imágenes-en-el-fondo-de-dwm><a href=#im%c3%a1genes-en-el-fondo-de-dwm alt>Imágenes en el fondo de dwm</a> <a href=# alt="Regresar al inicio">↑</a></h2><pre tabindex=0><code>gcl https://github.com/ttzhou/setroot
+sudo apt-get install -y libx11-dev libimlib2-dev
+cd $(repo setroot)
+make
+sudo make PREFIX=/usr install
+</code></pre><ul><li>[✓] Esto se agregó a <code>~/src/gitlab.com/xihh87/my-workstation</code> en <code>setroot.yml</code></li></ul><h1 id=tipografía-para-código><a href=#tipograf%c3%ada-para-c%c3%b3digo alt>Tipografía para código</a> <a href=# alt="Regresar al inicio">↑</a></h1><ul><li>[✓] Agregado a ~/src/gitlab.com/xihh87/my-workstation</li></ul><pre tabindex=0><code>gcl &#39;github.com:adobe-fonts/source-code-pro&#39;
+sudo ln -s $(realpath ~/src/github.com/adobe-fonts/source-code-pro) /usr/share/fonts/adobe
+</code></pre><h2 id=tipografía-para-trabajos><a href=#tipograf%c3%ada-para-trabajos alt>Tipografía para trabajos</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://itsfoss.com/install-microsoft-fonts-ubuntu/ target=_blank rel=noopener>Procedimiento para instalar tipografías de Microsoft</a></p><h1 id=repositorios><a href=#repositorios alt>Repositorios</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Me gusta tener los repositorios asociados a su lugar de origen como hace Go</p><h1 id=contraseñas><a href=#contrase%c3%b1as alt>Contraseñas</a> <a href=# alt="Regresar al inicio">↑</a></h1><pre tabindex=0><code>$ sudo apt-get install pass dmenu
+$ sudo ln -s /usr/share/doc/pass/examples/dmenu/passmenu /usr/bin
+</code></pre><h1 id=taskwarrior><a href=#taskwarrior alt>Taskwarrior</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Para coordinar mi propio trabajo me ha funcionado bien
+<a href=https://taskwarrior.org/docs/workflow.html#joshua target=_blank rel=noopener>usar Taskwarrior con la metodología GTD</a>.</p><p>Me ha sido difícil coordinar el trabajo con más personas con este software,
+pero cuando dejé de usarlo, dejó de funcionar mi flujo de trabajo.</p><ul><li>[✓] tasknote</li></ul><h1 id=desarrollo-web><a href=#desarrollo-web alt>Desarrollo web</a> <a href=# alt="Regresar al inicio">↑</a></h1><pre tabindex=0><code>$ sudo apt-get install hugo
+</code></pre><h1 id=documentos-automáticos><a href=#documentos-autom%c3%a1ticos alt>Documentos automáticos</a> <a href=# alt="Regresar al inicio">↑</a></h1><pre tabindex=0><code>$ sudo apt-get install pandoc
+Sugested packages:
+  texlive-latex-recommended texlive-xetex texlive-luatex pandoc-citeproc texlive-latex-extra context wkhtmltopdf librsvg2-bin groff ghc nodejs
+  php r-base-core libjs-mathjax node-katex
+$ sudo apt-get install pandoc texlive-latex-recommended texlive-xetex texlive-luatex pandoc-citeproc texlive-latex-extra context wkhtmltopdf librsvg2-bin groff nodejs r-base-core libjs-mathjax
+</code></pre><h1 id=escribir-a-la-mano><a href=#escribir-a-la-mano alt>Escribir a la mano</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>[✓] snotes
+[✓] vise
+[✓] revisión ortográfica y gramatical: <code>spellcheck</code> que usa <code>hunspell</code></p></article></main></body></html>

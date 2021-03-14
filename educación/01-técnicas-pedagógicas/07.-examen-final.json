@@ -1,0 +1,32 @@
+[
+  {
+    "URL": "http://www.atuservicio.net/wp-content/uploads/beneficios-integracion-continua-768x768.png",
+    "type": "webpage",
+    "id": "url:http://www.atuservicio.net/wp-content/uploads/beneficios-integracion-continua-768x768.png",
+    "title": "Integración continua (CI). DevOps",
+    "accessed": {
+      "date-parts": [
+        [
+          "2021",
+          2,
+          27
+        ]
+      ]
+    },
+    "issued": {
+      "date-parts": [
+        [
+          "2019",
+          7,
+          29
+        ]
+      ]
+    },
+    "author": [
+      {
+        "family": "Porter",
+        "given": "Sonia"
+      }
+    ]
+  }
+]

@@ -1,0 +1,24 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Miedo infundado infundido en el navegador</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Miedo infundado infundido en el navegador</h1><nav id=TableOfContents></nav><p>Aunque es fantástico que los programas que usamos ofrezcan
+<a href=http://www.catb.org/~esr/writings/cups-horror.html title="Comentario de Eric S. Raymond acerca de la usabilidad en el software libre." target=_blank rel=noopener>el don de la ignorancia</a>,
+deberíamos cuidar lo que enseñan.</p><p>La mayoría de los navegadores dicen que es peligroso entrar a sitios con certificados autofirmados
+pero no explican por qué es peligroso
+ni dicen nada cuando entramos a sitios sin cifrado&mldr;</p><p><figure><img src=http://www.ochobitshacenunbyte.com/wp-content/uploads/2015/10/https-ssl-gnu-linux-003.jpg></figure></p><h1 id=más-peligroso-aún><a href=#m%c3%a1s-peligroso-a%c3%ban alt>Más peligroso aún</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>La mayoría de las páginas de internet no ofrecen ningún tipo de seguridad.
+A lo largo del camino cualquiera podría ver la información que se envía y se recibe.
+Además en la mayor parte del camino alguien podría modificarla.</p><p>Por todo esto no está garantizado que:</p><ul><li>Se sabe quién envía la información (irrefutabilidad).</li><li>Sólo la recibe el destinatario (confidencialidad),</li><li>Llega tal cual se envía (integridad),</li><li>Llega a su destino (disponibilidad).</li></ul><p>La información no tiene ninguna de las características para considerarla segura y
+no hay ninguna advertencia que nos muestre el peligro.</p><p>Yo propondría la siguiente advertencia para casi todo internet:</p><blockquote><p>Cuidado, la información que envías o recibes puede ser vista o cambiada por cualquiera.
+No sabemos quién envía esta información.</p><ul><li>No envíes información privada o contraseñas.</li><li>No hagas pagos.</li></ul></blockquote><h1 id=el-peligro-anunciado><a href=#el-peligro-anunciado alt>El peligro anunciado</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Cuando alguien genera un certificado autofirmado garantiza que:</p><ul><li>Se puede verificar quién la envía revisando la huella de la firma y
+preguntando al administrador si es correcta.</li><li>La información llega desde un servidor que tiene la llave privada,
+casi seguro del administrador.</li><li>La información llega tal cual se envía.</li></ul><p>Aún no se garantiza la disponibilidad, pero es un gran avance.</p><p>La advertencia debería decir:</p><blockquote><p>Por favor contacta al administrador para asegurarte de que este sitio es el correcto,
+tu administrador debe mostrarte el siguiente número:</p><pre><code> **HUELLA DE LA FIRMA PRIVADA**
+</code></pre><ul><li>No hagas pagos en este sitio si no confías plenamente en el administrador.</li></ul></blockquote><h1 id=certificado-pagado><a href=#certificado-pagado alt>Certificado pagado</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>La diferencia entre un certificado autofirmado y un certificado pagado,
+es que una institución firmó digitalmente hizo la firma y no la misma persona.</p><p>La firma electrónica no agrega mucha seguridad,
+porque aunque el navegador sólo confía en ciertas instituciones,
+éstas no verifican nada.</p><p>Por lo tanto la advertencia debería decir:</p><blockquote><p>Alguien pagó al menos $4 USD este año por este certificado para el sitio <strong>SITIO</strong>.
+Probablemente el sitio es suyo.</p><p>Por favor contacta al administrador para asegurarte de que este sitio es el correcto,
+tu administrador debe mostrarte el siguiente número:</p><pre><code>**HUELLA DE LA FIRMA PRIVADA**
+</code></pre><ul><li>No hagas pagos en este sitio si no confías plenamente en el administrador.</li></ul></blockquote><h1 id=validación-extendida><a href=#validaci%c3%b3n-extendida alt>Validación extendida</a> <a href=# alt="Regresar al inicio">↑</a></h1><p>Cuando se contrata un certificado con validación,
+una institución se encarga de verificar que el sitio pertenece a quien dice,
+que es la institución que se muestra en el sitio web y
+que la institución está formada legalmente.</p><p>Esta validación sí agrega seguridad al proceso,
+porque hay responsabilidad legal por el dinero que se maneja.</p><blockquote><p>La institución <strong>ENTIDAD CERTIFICADORA</strong> acredita que esta página pertenece a la institución <strong>INSTITUCIÓN</strong> constituída legalmente.</p></blockquote></article></main></body></html>

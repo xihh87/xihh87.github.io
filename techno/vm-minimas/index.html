@@ -1,0 +1,51 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Máquinas virtuales mínimas</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Máquinas virtuales mínimas</h1><nav id=TableOfContents><ul><li><a href=#máquinas-virtuales-mínimas-y-reproducibles>Máquinas virtuales mínimas y reproducibles</a><ul><li><a href=#espacio-de-disco>Espacio de disco</a></li><li><a href=#ram>RAM</a></li><li><a href=#cpu-asignado>CPU asignado</a></li></ul></li><li><a href=#convertir-imágenes-de-virtualbox-a-qemukvm>Convertir imágenes de Virtualbox a QEMU/KVM</a></li><li><a href=#usar-contenedores-para-la-mayoría-de-los-retos>Usar contenedores para la mayoría de los retos</a></li><li><a href=#usar-máquinas-virtuales-para-retos-potencialmente-problemáticos>Usar máquinas virtuales para retos potencialmente problemáticos</a></li><li><a href=#user-mode-linux-uml>User Mode Linux (UML)</a></li></ul></nav><p>Haciendo <a href=../aplicaciones-vulnerables-para-poc/>retos para enseñar conceptos de ciberseguridad</a>
+me encontré que no es suficiente generar contenedores con los servicios.</p><p>Varias de <a href=../aplicaciones-vulnerables-para-poc/#c%c3%b3mo-demostrar-programas-vulnerables>las protecciones anti-ataque se establecen a nivel de sistema operativo</a>
+y no pienso desactivar las protecciones de seguridad en mi infraestructura.</p><p>Por lo tanto, la única vía de acción que queda es generar para los retos…</p><h2 id=máquinas-virtuales-mínimas-y-reproducibles><a href=#m%c3%a1quinas-virtuales-m%c3%adnimas-y-reproducibles alt>Máquinas virtuales mínimas y reproducibles</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Hay herramientas bien probadas para generar y gestionar máquinas virtuales:</p><ul><li><p><a href=https://www.vagrantup.com/ target=_blank rel=noopener><code>vagrant</code></a>
+puede usarse para configurar máquinas con vagrant.</p><p>Para gestionar las máquinas con vagrant,
+necesitan un usuario <code>vagrant</code>
+<a href=https://github.com/hashicorp/vagrant/tree/main/keys target=_blank rel=noopener>con estas llaves públicas</a> en <code>~/.ssh/authorized_keys</code>.</p></li><li><p><a href=https://www.packer.io/ target=_blank rel=noopener><code>packer</code></a>
+<a href=https://www.packer.io/docs/templates/hcl_templates target=_blank rel=noopener>usa el mismo lenguaje de terraform</a>
+para generar imágenes
+<a href=https://www.packer.io/plugins/builders/qemu target=_blank rel=noopener>en muchos sistemas</a>.</p></li></ul><p>Para el caso de las máquinas para pruebas de concepto,
+quisiera que las VM usen el mínimo posible de recursos,
+dado que se utilizarán para concursos sencillos para CTF.</p><p><a href=http://oirase.annexia.org/tmp/paper.pdf target=_blank rel=noopener>Optimizando QEMU se podría iniciar en 600ms</a>,
+<a href=http://oirase.annexia.org/tmp/paper.pdf target=_blank rel=noopener>el artículo</a> menciona que «Clear Containers demo»
+es capaz de iniciar en 150ms y usa 20MB de RAM.
+Y refiere a esta <a href=https://lwn.net/Articles/644675/ target=_blank rel=noopener>optimización de VM para iniciar linux</a>:
+Usar <code>kvmtool</code> para iniciar directamente linux.</p><p><a href=https://thenewstack.io/securing-containers-intels-clear-containers/ target=_blank rel=noopener>Los «Contenedores Limpios de Intel» nacieron para mejorar la seguridad</a>,
+durante el proyecto se desarrolló <a href=https://github.com/rkt/rkt target=_blank rel=noopener><code>rkt</code></a>
+pero el desarrollo se canceló.
+<a href='https://github.com/clearcontainers?q=clearconta&amp;type=all&amp;language=&amp;sort=' target=_blank rel=noopener>La página oficial de Clear Containers</a>
+recomienda usar <a href=https://katacontainers.io/ target=_blank rel=noopener>Kata Containers</a>.</p><p>Los Contenedores Kata,
+<a href=https://github.com/kata-containers/kata-containers/tree/main/docs/design/architecture target=_blank rel=noopener>son máquinas virtuales pequeñas que se comportan como contenedores</a>
+y <a href=https://github.com/kata-containers/kata-containers/blob/main/docs/hypervisors.md target=_blank rel=noopener>pueden utilizar varios hipervisores</a> como motor.
+(De entre los hipervisores soportados,
+me pareció especialmente interesante <a href=https://projectacrn.org/ target=_blank rel=noopener>ACRN</a>
+que sirve para dispositivos embebidos.)</p><p>Al parecer <a href=https://cloudnativetech.wordpress.com/2018/01/31/kata-containers-dev-environment-setup-with-vagrant/ target=_blank rel=noopener>se pueden generar <code>Contenedores Kata</code> con vagrant (virtualbox)</a>
+usando el plugin <a href=https://github.com/coolsvap/vagrant-kata-dev target=_blank rel=noopener><code>vagrant-kata-dev</code></a>.</p><p>Para el caso de la máquina virtual del taller de ciberseguridad,
+quisiera tener un <a href=https://app.vagrantup.com/kalilinux/boxes/rolling target=_blank rel=noopener>kalilinux</a> reproducible,
+pero ejecutándose sobre QEMU/KVM.
+A la fecha (2022-03-29), no he encontrado esta imagen.</p><h3 id=espacio-de-disco><a href=#espacio-de-disco alt>Espacio de disco</a> <a href=# alt="Regresar al inicio">↑</a></h3><p><del>Se puede compilar un núcleo en menos de 70MB,</del></p><p>La <a href=https://dl-cdn.alpinelinux.org/alpine/v3.16/releases/x86_64/alpine-virt-3.16.0-x86_64.iso target=_blank rel=noopener>imagen de alpine para virtualización</a> pesa ~70 MB
+e incluye herramientas de espacio de usuario (busybox, tal vez algo más),
+el <code>initrd</code>,
+el gestor de paquetes
+y configuraciones adicionales.</p><p>Así que 70MB de disco puede ser bastante razonable.</p><h3 id=ram><a href=#ram alt>RAM</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>Si sólo vamos a cargar una aplicación que esperamos ocupe muy poca memoria,
+podemos asignar 512K y tal vez debería funcionar razonablemente bien.</p><h3 id=cpu-asignado><a href=#cpu-asignado alt>CPU asignado</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>QEMU tengo entendido sólo puede asignar 1 core mínimo,
+pero tal vez podríamos allí correr todas las VM con esa necesidad.</p><p>Las desventajas podrían ser:</p><ul><li>que se rompieran al mismo tiempo todos los juegos.</li><li>que se peleen por los recursos.</li></ul><p>QEMU es un proceso y podría ser asignado como de baja prioridad.
+Eso tal vez haría los juegos lentos (o no).</p><h2 id=convertir-imágenes-de-virtualbox-a-qemukvm><a href=#convertir-im%c3%a1genes-de-virtualbox-a-qemukvm alt>Convertir imágenes de Virtualbox a QEMU/KVM</a> <a href=# alt="Regresar al inicio">↑</a></h2><pre tabindex=0><code>qemu-img convert \
+    -f vmdk \
+    -O qcow2 \
+    ${INPUT} \
+    ${OUTPUT}
+</code></pre><h2 id=usar-contenedores-para-la-mayoría-de-los-retos><a href=#usar-contenedores-para-la-mayor%c3%ada-de-los-retos alt>Usar contenedores para la mayoría de los retos</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Los juegos que se pueden ejecutar sin desactivar opciones de sistema operativo
+pueden ejecutarse en un contenedor.</p><h2 id=usar-máquinas-virtuales-para-retos-potencialmente-problemáticos><a href=#usar-m%c3%a1quinas-virtuales-para-retos-potencialmente-problem%c3%a1ticos alt>Usar máquinas virtuales para retos potencialmente problemáticos</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Para los <a href=../retos-ctf/>juegos que deben desactivar las opciones de seguridad del sistema operativos</a>.</p><h2 id=user-mode-linux-uml><a href=#user-mode-linux-uml alt>User Mode Linux (UML)</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Se puede <a href=http://user-mode-linux.sourceforge.net/ target=_blank rel=noopener>utilizar un linux como un proceso</a>
+y en principio estaría aislado del servidor
+casi como una máquina virtual.</p><pre tabindex=0><code>paru -S linux-usermode uml_utilities
+</code></pre><p><a href=https://www.landley.net/code/UML.html target=_blank rel=noopener>Rob Landley dice que es como tener un emulador</a>.
+que <a href=http://user-mode-linux.sourceforge.net/old/UserModeLinux-HOWTO-1.html#ss1.4 target=_blank rel=noopener>tiene estas ventajas</a>.</p><p>Al parecer,
+<a href=http://user-mode-linux.sourceforge.net/old/UserModeLinux-HOWTO-1.html#ss1.4 target=_blank rel=noopener>UML habla con el sistema operativo
+en vez de hablar con el software</a>.</p><p>Se puede <a href=https://wiki.archlinux.org/title/User-mode_Linux target=_blank rel=noopener>instalar desde AUR</a>
+y <a href=https://wiki.archlinux.org/title/User-mode_Linux#Setup_by_rootfs_+_tap target=_blank rel=noopener>configurar una red virtual exclusiva para los juegos</a>.</p><p>Para intercambiar archivos se recomienda usar `humfs,
+que es un sistema de archivos que utiliza un directorio para los archivos
+y otro para los meta-datos [@isbn:978-0-13-186505-1, ch. 6].</p></article></main></body></html>

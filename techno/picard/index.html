@@ -1,0 +1,4 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Mi estilo de nombre para música en picard</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Mi estilo de nombre para música en <code>picard</code></h1><nav id=TableOfContents></nav><p>Los nombres por default son:</p><pre tabindex=0><code>$if2(%albumartist%,%artist%)/$if($ne(%albumartist%,),%album%/)$if($gt(%totaldiscs%,1),%discnumber%-,)$if($ne(%albumartist%,),$num(%tracknumber%,2) ,)$if(%_multiartist%,%artist% - ,)%title%
+</code></pre><p>A mí me gusta usar:</p><pre tabindex=0><code>%artist% - %title% - $if($ne(%albumartist%,%album%),%album%) ($num(%tracknumber%,2))
+</code></pre></article></main></body></html>

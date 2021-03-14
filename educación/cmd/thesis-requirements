@@ -1,0 +1,8 @@
+#!/usr/bin/execlineb -P
+foreground {
+	cmd/thesis-content
+}
+#foreground {
+#	cmd/thesis-bibliography-files
+#}
+	cat thesis.deps

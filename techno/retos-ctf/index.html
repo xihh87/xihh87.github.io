@@ -1,0 +1,71 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Usando retos CTF para enseñar ciberseguridad</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Usando retos CTF para enseñar ciberseguridad</h1><nav id=TableOfContents><ul><li><a href=#pequeño-inconveniente-con-la-plantilla>Pequeño inconveniente con la plantilla</a></li><li><a href=#lecciones-aprendidas-del-primer-ctf-que-hice>Lecciones aprendidas del primer CTF que hice</a></li><li><a href=#diseñando-los-juegos-para-el-aprendizaje>Diseñando los juegos para el aprendizaje</a></li><li><a href=#desactivar-medidas-de-seguridad>Desactivar medidas de seguridad</a></li><li><a href=#minimizar-el-tamaño-de-los-ctf>Minimizar el tamaño de los CTF</a></li></ul></nav><p>Resulta que diseñé los retos para el
+<a href=https://preuniversitarios.ibero.mx/CSAW/ target=_blank rel=noopener>Cyber Security Challenge for High School</a>
+y usé <a href=https://github.com/CTFd/ctfcli/ target=_blank rel=noopener>ctfcli</a>
+para generarlos.</p><h2 id=pequeño-inconveniente-con-la-plantilla><a href=#peque%c3%b1o-inconveniente-con-la-plantilla alt>Pequeño inconveniente con la plantilla</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Parece que la plantilla por defecto no funciona fuera de Debian,
+porque el equipo de Debian corrige errores en sus versiones,
+pero el mundo tiene las versiones de vainilla.</p><p><figure><img src=https://www.cyberciti.biz/files/Linux-Unix-Wallpaper/Debian-Stable-Wallpaper%20%28dinosaur%20theme%29.png alt="Imagen de Debian prehistórico"></figure></p><p>Para <a href=https://stackoverflow.com/questions/66647787/attributeerror-cant-set-attribute-when-connecting-to-sqlite-database-with-flas target=_blank rel=noopener>corregir este problema</a>,
+cambiar en <code>requirements.txt</code>:</p><pre tabindex=0><code>-Flask-SQLAlchemy==2.4.4
++Flask-SQLAlchemy==2.5
+</code></pre><h2 id=lecciones-aprendidas-del-primer-ctf-que-hice><a href=#lecciones-aprendidas-del-primer-ctf-que-hice alt>Lecciones aprendidas del primer CTF que hice</a> <a href=# alt="Regresar al inicio">↑</a></h2><ol><li><p>Si se va a publicar el binario para permitir pruebas locales,
+es muy <strong>importante separar las banderas del binario</strong>,
+o cambiarlas en el binario publicado.</p><p>No hacer esto puede eliminar el aprendizaje en el juego,
+porque cualquiera abre un block de notas o usa <code>strings</code>.</p><p>De igual manera,
+leí que se recomienda no usar un indicativo
+que haga evidente las banderas como <code>\flag{}</code>
+porque la gente podría usar <code>grep</code>.</p></li><li><p>Para simplificar los retos
+conviene <a href=./aplicaciones-vulnerables-para-poc/>desactivar las opciones de seguridad del compilador</a>
+y eliminar las optimizaciones del código.</p><pre tabindex=0><code>CFLAGS=-fno-stack-protector -no-pie -ggdb3 -O0
+</code></pre></li><li><p>Al intentar explotar <a href>un binario con protecciones desactivadas</a>,
+se puede quedar el programa colgado y utilizando el máximo de los recursos.
+Por lo tanto conviene limitar la ejecución del código.</p><pre tabindex=0><code>prlimit -t=${TIEMPO_RAZONABLE_PARA_EJECUTAR} aplicación
+</code></pre><p>(Tengo entendido que este es tiempo efectivo de ejecución
+y no hay problema si el programa está esperando input;
+no he puesto a prueba esta hipótesis.)</p></li><li><p>Las aplicaciones usan un buffer para imprimir en <code>stdout</code>.
+Si la aplicación no limpia el buffer al enviar la bandera,
+puede que el jugador resuelva correctamente pero no obtenga la bandera.</p></li></ol><h2 id=diseñando-los-juegos-para-el-aprendizaje><a href=#dise%c3%b1ando-los-juegos-para-el-aprendizaje alt>Diseñando los juegos para el aprendizaje</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Algo que me encanta de plataformas de juegos como <a href=https://overthewire.org/ title="The wargames OverTheWire can help you to learn and practice security concepts in the form of fun-filled games." target=_blank rel=noopener>Over The Wire</a>
+(puedes empezar por <a href=https://overthewire.org/wargames/bandit/ title="War Games over the Wire" target=_blank rel=noopener>bandit</a>)
+es que plantea retos para que aprendas haciendo
+y te ofrece las pistas suficientes para que vayas aprendiendo
+a usar tu computadora más allá del <em>point and click</em>.</p><p>En el caso del segundo juego «natas»,
+cuando lo intenté con el <a href=/csaw/ title="Yo quería llamarlo Taller del Hacker Ético.">taller de ciberseguridad</a>
+mis alumnos han tenido problemas porque en algunos casos la dificultad
+salta de un problema súper sencillo a el nivel más alto de exploración del problema.</p><p>Y aunque es divertido para un hacker que ya tiene algo de experiencia
+y al menos tiene una noción de qué hay que hacer,
+es frustrante pasar sesione explorando sin avance aparente.</p><p>Entonces he querido <a href=/techno/aplicaciones-vulnerables-para-poc/ title="Mis notas para hacer aplicaciones vulnerables">hacer un camino de victorias intermedias</a>
+para aprender los conceptos desde una perspectiva práctica,
+<a href=/techno/aplicaciones-vulnerables-para-poc/ title="Mis notas acerca de qué tomar en cuenta cuándo haces retos de CTF.">con ayudas en el camino</a>.</p><h2 id=desactivar-medidas-de-seguridad><a href=#desactivar-medidas-de-seguridad alt>Desactivar medidas de seguridad</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=../aplicaciones-vulnerables-para-poc/>Las técnicas para desactivar las medidas de seguridad en binarios las describo en otro artículo</a>.</p><h2 id=minimizar-el-tamaño-de-los-ctf><a href=#minimizar-el-tama%c3%b1o-de-los-ctf alt>Minimizar el tamaño de los CTF</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Las imágenes que <code>ctfcli</code> genera por defecto
+son del orden de cientos de megabytes.</p><p>Aunque el espacio en disco es actualmente lo más barato en cómputo
+y en varios lugares es gratuito tener varios GB de datos.</p><p>Sin embargo, para probar pequeños cambios en los juegos en un servidor,
+tener que enviar cientos de MB por una pequeña diferencia no hace sentido
+y toma mucho más tiempo hacer la retroalimentación y el diagnóstico.</p><p>Así que pensé en hacer imágenes mínimas
+que contengan únicamente lo necesario para ejecutar el reto.
+En algunos casos, sólo se necesita en el contenedor
+los programas vulnerables compilados estáticamente
+y <a href=https://skarnet.org/software/s6 target=_blank rel=noopener>la suite de supervisión</a>.</p><p>Una manera sencilla de hacer esto es compilar los programas
+y luego generar un contenedor vacío que incluye:</p><ul><li>los programa necesarios</li><li>las bibliotecas que utilizan</li></ul><p>Si tienes permiso para usar mi repositorio,
+puedes clonar la imagen:</p><pre tabindex=0><code>docker login registry.gitlab.com
+docker pull registry.gitlab.com/xihh87/red-2022/binary-minimal:main
+</code></pre><p>Y agregar allí la aplicación compilada estáticamente.</p><p>El <code>Dockerfile</code> quedaría parecido a:</p><pre tabindex=0><code>FROM debian:stretch-20211011-slim as builder
+
+WORKDIR /data
+
+# install dependencies
+RUN apt-get update \
+&amp;&amp; apt-get -y install \
+  build-essential \
+&amp;&amp; apt clean
+
+# compilar aplicación
+COPY src/makefile src/app.c /data
+RUN make app
+
+COPY --from=builder /data/game /opt/app
+
+FROM registry.gitlab.com/xihh87/red-2022/binary-minimal:main
+COPY --from=builder src/game /bin/app
+</code></pre><p>En algunas ocasiones,
+el ejercicio requiere que sea posible ejecutar una consola,
+por lo que podría convenir incluir en el contenedor
+<a href=https://github.com/robxu9/bash-static/ target=_blank rel=noopener>una versión estática de bash</a>
+como <code>/bin/sh</code>.</p></article></main></body></html>

@@ -1,0 +1,25 @@
+Quiero un gestor de enlaces, cuyo contenido pueda publicarse como página web.
+
+Indexado, etiquetable, distribuído.
+Con soporte para comentarios (planos, con gravatar y BrowserID).
+
+Sincronizable con firefox.
+Que pueda reemplazar la función de marcadores de firefox.
+Que genere RSS.
+Capaz de respaldar su contenido.
+
+# Especificación funcional
+
+La página principal es un cuadro de búsqueda con autocompletado.
+
+Tiene un botón grande para agregar nuevas "fuentes de información".
+
+Logo, acerca de (favoritos, nuevos, más usados, lista de lectura).
+
+API REST para interactuar con otros programas.
+
+Usa el plugin "It's all text para elegir editor, opcionalmente editor in situ"
+
+Permite usar la función "favoritos" del navegador.
+Pued extraer datos de la web.
+Funciones sociales pendientes.

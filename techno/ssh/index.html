@@ -1,0 +1,316 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Notas acerca de SSH</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Notas acerca de SSH</h1><nav id=TableOfContents><ul><li><a href=#cómo-diagnosticar-problemas-de-conexión>Cómo diagnosticar problemas de conexión</a></li><li><a href=#resolver-problemas-comunes-en-ssh>Resolver problemas comunes en <code>ssh</code></a><ul><li><a href=#warning-unprotected-private-key-file>Warning: Unprotected private key file!</a></li></ul></li></ul></nav><p><code>ssh</code> significa &ldquo;consola segura&rdquo; (Secure SHell).</p><h2 id=cómo-diagnosticar-problemas-de-conexión><a href=#c%c3%b3mo-diagnosticar-problemas-de-conexi%c3%b3n alt>Cómo diagnosticar problemas de conexión</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Cuando no te puedes conectar a algún sitio,
+hay que hacer experimentos en cada etapa de la conexión
+para identificar el problema.</p><ol><li><p><strong>¿Tienes conexión a internet?</strong></p><details><summary><pre tabindex=0><code>ping -c3 8.8.8.8
+</code></pre></summary><p>Conectado:</p><pre tabindex=0><code>PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=119 time=7.24 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=119 time=4.53 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=119 time=6.83 ms
+
+--- 8.8.8.8 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 4.533/6.202/7.243/1.192 ms
+</code></pre><p>Desconectado:</p><pre tabindex=0><code>PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+
+--- 8.8.8.8 ping statistics ---
+3 packets transmitted, 0 received, 100% packet loss, time 2013ms
+</code></pre></details></li><li><p><strong>¿Tu computadora ubica la dirección del servicio?</strong></p><details><summary><pre tabindex=0><code>$ dig fqdn.servidor
+</code></pre></summary><p>Encuentra el servicio:</p><pre tabindex=0><code>;; ANSWER SECTION:
+servidor.     227     IN      A       172.217.15.14
+</code></pre><pre tabindex=0><code>;; ANSWER SECTION:
+servidor.               10800   IN      CNAME   alias.nuevo.fqdn.
+alias.nuevo.fqdn.       3600    IN      A       185.199.109.153
+alias.nuevo.fqdn.       3600    IN      A       185.199.110.153
+</code></pre><p>No lo encuentra:</p><pre tabindex=0><code>;; ANSWER SECTION:
+
+;; AUTHORITY SECTION:
+servidor.      300     IN      SOA     ns1.fqdn-dns.org.  1 7200 900 1209600 300
+</code></pre></details></li><li><p><strong>¿Puedes establecer conexión con el sitio?</strong></p><details><summary><pre tabindex=0><code>nc -vzw1 fqdn.servidor puerto
+</code></pre></summary><p>Servicio <em>accesible</em>:</p><pre tabindex=0><code>Connection to servidor (0.0.0.0) 22 port [tcp/ssh] succeeded!
+</code></pre><p>Servicio <em>bloqueado</em> (p.e. firewall):</p><pre tabindex=0><code>nc: connect to servidor (0.0.0.0) port 22 (tcp) timed out: Operation now in progress
+</code></pre><p>Servicio <em>inexistente o inactivo</em>:</p><pre tabindex=0><code>nc: connect to servidor (0.0.0.0) port 22 (tcp) failed: Connection refused
+</code></pre></details></li><li><p><strong>Verifica el problema en el registro de ssh</strong></p><details><summary><pre tabindex=0><code>ssh -vvv servidor
+</code></pre></summary><ul><li>¿Usa la configuración que esperas?</li></ul><pre tabindex=0><code>OpenSSH_9.1p1, OpenSSL 3.0.7 1 Nov 2022
+debug1: Reading configuration data /home/x/.ssh/config
+debug1: /home/x/.ssh/config line 20: Applying options for *
+debug1: /home/x/.ssh/config line 108: Applying options for ejemplo.servidor.com
+debug1: /home/x/.ssh/config line 111: Applying options for ejemplo.servidor.com
+debug1: /home/x/.ssh/config line 284: Applying options for *
+debug1: Reading configuration data /etc/ssh/ssh_config
+</code></pre><ul><li>¿Se conecta al lugar correcto?</li></ul><pre tabindex=0><code>debug2: resolve_addr: could not resolve name ejemplo.servidor.com. as address: Name or service not known
+debug3: resolve_canonicalize: name is fully qualified
+debug3: resolve_host: lookup ejemplo.servidor.com.:9378
+debug1: Canonicalized hostname &#34;ejemplo.servidor.com.&#34; =&gt; &#34;ejemplo.servidor.com&#34;
+</code></pre><ul><li>¿Cambió la configuración ahora que seleccionó el servidor?</li></ul><pre tabindex=0><code>debug1: hostname canonicalisation enabled, will re-parse configuration
+debug1: re-parsing configuration
+debug1: Reading configuration data /home/x/.ssh/config
+debug1: /home/x/.ssh/config line 20: Applying options for *
+debug1: /home/x/.ssh/config line 108: Applying options for ejemplo.servidor.com
+debug1: /home/x/.ssh/config line 111: Applying options for ejemplo.servidor.com
+debug2: add_identity_file: ignoring duplicate key ~/.ssh/haase-mx
+debug1: /home/x/.ssh/config line 284: Applying options for *
+debug1: Reading configuration data /etc/ssh/ssh_config
+</code></pre><ul><li>¿Usa el archivo correcto? ¿Conoce el servidor?</li></ul><pre tabindex=0><code>Pseudo-terminal will not be allocated because stdin is not a terminal.
+debug3: expanded UserKnownHostsFile &#39;~/.ssh/known_hosts&#39; -&gt; &#39;/home/x/.ssh/known_hosts&#39;
+debug3: expanded UserKnownHostsFile &#39;~/.ssh/known_hosts2&#39; -&gt; &#39;/home/x/.ssh/known_hosts2&#39;
+</code></pre><ul><li>¿El proceso que generó la conexión se comporta correctamente?</li></ul><pre tabindex=0><code>debug1: auto-mux: Trying existing master
+debug1: Control socket &#34;/home/x/.ssh/cm_socket/x@ejemplo.servidor.com:9378&#34; does not exist
+</code></pre><ul><li>¿Se conecta?</li></ul><pre tabindex=0><code>debug3: ssh_connect_direct: entering
+debug1: Connecting to ejemplo.servidor.com [149.102.157.30] port 9378.
+debug3: set_sock_tos: set socket 3 IP_TOS 0x48
+debug1: Connection established.
+</code></pre><ul><li>¿Usa la clave privada correcta?</li></ul><pre tabindex=0><code>debug1: identity file /home/x/.ssh/haase-mx type 3
+debug1: identity file /home/x/.ssh/haase-mx-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_9.1
+debug1: Remote protocol version 2.0, remote software version OpenSSH_9.0
+debug1: compat_banner: match: OpenSSH_9.0 pat OpenSSH* compat 0x04000000
+debug2: fd 3 setting O_NONBLOCK
+</code></pre><ul><li>¿Se le permite el acceso?</li></ul><pre tabindex=0><code>debug1: Authenticating to ejemplo.servidor.com:9378 as &#39;x&#39;
+debug3: put_host_port: [ejemplo.servidor.com]:9378
+debug3: record_hostkey: found key type ED25519 in file /home/x/.ssh/known_hosts:79
+debug3: record_hostkey: found key type RSA in file /home/x/.ssh/known_hosts:80
+debug3: record_hostkey: found key type ECDSA in file /home/x/.ssh/known_hosts:81
+debug3: load_hostkeys_file: loaded 3 keys from [ejemplo.servidor.com]:9378
+debug1: load_hostkeys: fopen /home/x/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug3: order_hostkeyalgs: have matching best-preference key type ssh-ed25519-cert-v01@openssh.com, using HostkeyAlgorithms verbatim
+debug3: send packet: type 20
+debug1: SSH2_MSG_KEXINIT sent
+debug3: receive packet: type 20
+debug1: SSH2_MSG_KEXINIT received
+</code></pre><ul><li>¿Usa el algoritmo correcto?</li></ul><pre tabindex=0><code>debug2: local client KEXINIT proposal
+debug2: KEX algorithms: sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,ext-info-c
+debug2: host key algorithms: ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com,zlib
+debug2: compression stoc: none,zlib@openssh.com,zlib
+debug2: languages ctos:
+debug2: languages stoc:
+</code></pre><ul><li>¿El servidor permite ese algoritmo?</li></ul><pre tabindex=0><code>debug2: first_kex_follows 0
+debug2: reserved 0
+debug2: peer server KEXINIT proposal
+debug2: KEX algorithms: sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256
+debug2: host key algorithms: rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com
+debug2: compression stoc: none,zlib@openssh.com
+debug2: languages ctos:
+debug2: languages stoc:
+debug2: first_kex_follows 0
+debug2: reserved 0
+debug1: kex: algorithm: sntrup761x25519-sha512@openssh.com
+debug1: kex: host key algorithm: ssh-ed25519
+debug1: kex: server-&gt;client cipher: chacha20-poly1305@openssh.com MAC: &lt;implicit&gt; compression: none
+debug1: kex: client-&gt;server cipher: chacha20-poly1305@openssh.com MAC: &lt;implicit&gt; compression: none
+</code></pre><ul><li>¿Usa la clave privada correcta?</li></ul><pre tabindex=0><code>debug3: send packet: type 30
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug3: receive packet: type 31
+debug1: SSH2_MSG_KEX_ECDH_REPLY received
+debug1: Server host key: ssh-ed25519 SHA256:VM2wCn4eGUZYh1PQR1T8hz3sV7jvWmIZZn3BsXPnDVQ
+debug3: put_host_port: [149.102.157.30]:9378
+debug3: put_host_port: [ejemplo.servidor.com]:9378
+debug3: record_hostkey: found key type ED25519 in file /home/x/.ssh/known_hosts:79
+debug3: record_hostkey: found key type RSA in file /home/x/.ssh/known_hosts:80
+debug3: record_hostkey: found key type ECDSA in file /home/x/.ssh/known_hosts:81
+debug3: load_hostkeys_file: loaded 3 keys from [ejemplo.servidor.com]:9378
+debug1: load_hostkeys: fopen /home/x/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: Host &#39;[ejemplo.servidor.com]:9378&#39; is known and matches the ED25519 host key.
+debug1: Found key in /home/x/.ssh/known_hosts:79
+</code></pre><ul><li>¿Estás conectándote al servidor correcto?</li></ul><pre tabindex=0><code>Host key fingerprint is SHA256:VM2wCn4eGUZYh1PQR1T8hz3sV7jvWmIZZn3BsXPnDVQ
++--[ED25519 256]--+
+|       o+==*ooooE|
+|      ..oo..+.o o|
+|      . +...  oXo|
+|     . + +    o*@|
+|      . S     =.O|
+|       o .   o.+o|
+|        .     +.o|
+|             . o.|
+|              .o.|
++----[SHA256]-----+
+</code></pre><ul><li>¿El servidor acepta nuestra clave?</li></ul><pre tabindex=0><code>debug3: send packet: type 21
+debug2: ssh_set_newkeys: mode 1
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug3: receive packet: type 21
+debug1: SSH2_MSG_NEWKEYS received
+debug2: ssh_set_newkeys: mode 0
+debug1: rekey in after 134217728 blocks
+debug1: Will attempt key: /home/x/.ssh/haase-mx ED25519 SHA256:0UpVL3ETQvIVzwdUIrCjKmvDDmwQ78CIzgrplIC2hNI explicit
+debug2: pubkey_prepare: done
+debug3: send packet: type 5
+debug3: receive packet: type 7
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=&lt;ssh-ed25519,sk-ssh-ed25519@openssh.com,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ecdsa-sha2-nistp256@openssh.com,webauthn-sk-ecdsa-sha2-nistp256@openssh.com&gt;
+debug1: kex_input_ext_info: publickey-hostbound@openssh.com=&lt;0&gt;
+debug3: receive packet: type 6
+debug2: service_accept: ssh-userauth
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug3: send packet: type 50
+debug3: receive packet: type 51
+debug1: Authentications that can continue: publickey
+debug3: start over, passed a different list publickey
+debug3: preferred publickey,keyboard-interactive,password
+debug3: authmethod_lookup publickey
+debug3: remaining preferred: keyboard-interactive,password
+debug3: authmethod_is_enabled publickey
+debug1: Next authentication method: publickey
+debug1: Offering public key: /home/x/.ssh/haase-mx ED25519 SHA256:0UpVL3ETQvIVzwdUIrCjKmvDDmwQ78CIzgrplIC2hNI explicit
+debug3: send packet: type 50
+debug2: we sent a publickey packet, wait for reply
+debug3: receive packet: type 60
+debug1: Server accepts key: /home/x/.ssh/haase-mx ED25519 SHA256:0UpVL3ETQvIVzwdUIrCjKmvDDmwQ78CIzgrplIC2hNI explicit
+debug3: sign_and_send_pubkey: using publickey-hostbound-v00@openssh.com with ED25519 SHA256:0UpVL3ETQvIVzwdUIrCjKmvDDmwQ78CIzgrplIC2hNI
+debug3: sign_and_send_pubkey: signing using ssh-ed25519 SHA256:0UpVL3ETQvIVzwdUIrCjKmvDDmwQ78CIzgrplIC2hNI
+debug3: send packet: type 50
+debug3: receive packet: type 52
+Authenticated to ejemplo.servidor.com ([149.102.157.30]:9378) using &#34;publickey&#34;.
+</code></pre><ul><li>¿La conexión maestra funciona correctamente?</li></ul><pre tabindex=0><code>debug1: setting up multiplex master socket
+debug3: muxserver_listen: temporary control path /home/x/.ssh/cm_socket/x@ejemplo.servidor.com:9378.FbtZT9XkMU4ABm5y
+debug2: fd 4 setting O_NONBLOCK
+debug3: fd 4 is O_NONBLOCK
+debug3: fd 4 is O_NONBLOCK
+debug1: channel 0: new [/home/x/.ssh/cm_socket/x@ejemplo.servidor.com:9378]
+debug3: muxserver_listen: mux listener channel 0 fd 4
+debug2: fd 3 setting TCP_NODELAY
+debug3: set_sock_tos: set socket 3 IP_TOS 0x20
+debug1: control_persist_detach: backgrounding master process
+debug2: control_persist_detach: background process is 1684210
+debug2: fd 4 setting O_NONBLOCK
+debug1: forking to background
+debug1: Entering interactive session.
+debug1: pledge: id
+debug1: multiplexing control connection
+debug2: fd 5 setting O_NONBLOCK
+debug3: fd 5 is O_NONBLOCK
+debug1: channel 1: new [mux-control]
+debug3: channel_post_mux_listener: new mux channel 1 fd 5
+debug3: mux_master_read_cb: channel 1: hello sent
+debug3: mux_master_read_cb: channel 1 packet type 0x00000001 len 4
+debug2: mux_master_process_hello: channel 1 client version 4
+debug2: mux_client_hello_exchange: master version 4
+debug3: mux_client_forwards: request forwardings: 0 local, 0 remote
+debug3: mux_client_request_session: entering
+debug3: mux_client_request_alive: entering
+debug3: mux_master_read_cb: channel 1 packet type 0x10000004 len 4
+debug2: mux_master_process_alive_check: channel 1: alive check
+debug3: mux_client_request_alive: done pid = 1684212
+debug3: mux_client_request_session: session request sent
+debug3: mux_master_read_cb: channel 1 packet type 0x10000002 len 51
+debug2: mux_master_process_new_session: channel 1: request tty 0, X 0, agent 0, subsys 0, term &#34;screen-256color&#34;, cmd &#34;&#34;, env 0
+debug3: mux_master_process_new_session: got fds stdin 6, stdout 7, stderr 8
+debug2: fd 6 setting O_NONBLOCK
+debug2: fd 7 setting O_NONBLOCK
+debug1: channel 2: new [client-session]
+debug2: mux_master_process_new_session: channel_new: 2 linked to control channel 1
+debug2: channel 2: send open
+debug3: send packet: type 90
+debug3: receive packet: type 80
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug3: client_input_hostkeys: received RSA key SHA256:chkleON2gOsuIxIhSLFGbzrJV9ATiOzKDrVRUISkSO8
+debug3: client_input_hostkeys: received ECDSA key SHA256:ZDx54pcyk+w2/FX5ydvHm+QCh+vrMdXLpRFNmj2SKjY
+debug3: client_input_hostkeys: received ED25519 key SHA256:VM2wCn4eGUZYh1PQR1T8hz3sV7jvWmIZZn3BsXPnDVQ
+debug3: put_host_port: [ejemplo.servidor.com]:9378
+debug1: client_input_hostkeys: searching /home/x/.ssh/known_hosts for [ejemplo.servidor.com]:9378 / (none)
+debug3: hostkeys_foreach: reading file &#34;/home/x/.ssh/known_hosts&#34;
+debug3: hostkeys_find: found ssh-ed25519 key at /home/x/.ssh/known_hosts:79
+debug3: hostkeys_find: found ssh-rsa key at /home/x/.ssh/known_hosts:80
+debug3: hostkeys_find: found ecdsa-sha2-nistp256 key at /home/x/.ssh/known_hosts:81
+debug3: hostkeys_find: found ssh-ed25519 key under different name/addr at /home/x/.ssh/known_hosts:83
+debug3: hostkeys_find: found ssh-ed25519 key under different name/addr at /home/x/.ssh/known_hosts:110
+debug1: client_input_hostkeys: searching /home/x/.ssh/known_hosts2 for [ejemplo.servidor.com]:9378 / (none)
+debug1: client_input_hostkeys: hostkeys file /home/x/.ssh/known_hosts2 does not exist
+debug3: client_input_hostkeys: 3 server keys: 0 new, 3 retained, 0 incomplete match. 0 to remove
+debug1: client_input_hostkeys: no new or deprecated keys from server
+</code></pre><ul><li>¿Las opciones permiten lo que quiero hacer?</li></ul><pre tabindex=0><code>debug3: receive packet: type 4
+debug1: Remote: /home/x/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+debug3: receive packet: type 4
+debug1: Remote: /home/x/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+</code></pre><ul><li>¿La conexión funciona correctamente?</li></ul><pre tabindex=0><code>debug3: receive packet: type 91
+debug2: channel_input_open_confirmation: channel 2: callback start
+debug2: client_session2_setup: id 2
+debug2: channel 2: request shell confirm 1
+debug3: send packet: type 98
+debug3: mux_session_confirm: sending success reply
+debug2: channel_input_open_confirmation: channel 2: callback done
+debug2: channel 2: open confirm rwindow 0 rmax 32768
+debug1: mux_client_request_session: master session id: 2
+debug2: channel 2: rcvd adjust 2097152
+debug3: receive packet: type 99
+debug2: channel_input_status_confirm: type 99 id 2
+debug2: shell request accepted on channel 2
+debug2: channel 2: read failed rfd 6 maxlen 32768: Broken pipe
+debug2: channel 2: read failed
+debug2: chan_shutdown_read: channel 2: (i0 o0 sock -1 wfd 6 efd 8 [write])
+debug2: channel 2: input open -&gt; drain
+debug2: channel 2: ibuf empty
+debug2: channel 2: send eof
+debug3: send packet: type 96
+debug2: channel 2: input drain -&gt; closed
+debug3: receive packet: type 96
+debug2: channel 2: rcvd eof
+debug2: channel 2: output open -&gt; drain
+debug2: channel 2: obuf empty
+debug2: chan_shutdown_write: channel 2: (i3 o1 sock -1 wfd 7 efd 8 [write])
+debug2: channel 2: output drain -&gt; closed
+debug3: receive packet: type 98
+debug1: client_input_channel_req: channel 2 rtype exit-status reply 0
+debug3: mux_exit_message: channel 2: exit message, exitval 0
+debug3: receive packet: type 97
+debug2: channel 2: rcvd close
+debug3: channel 2: will not send data after close
+debug2: channel 2: send close
+debug3: send packet: type 97
+debug2: channel 2: is dead
+debug2: channel 2: gc: notify user
+debug3: mux_master_session_cleanup_cb: entering for channel 2
+debug2: channel 1: rcvd close
+debug2: channel 1: output open -&gt; drain
+debug2: chan_shutdown_read: channel 1: (i0 o1 sock 5 wfd 5 efd -1 [closed])
+debug2: channel 1: input open -&gt; closed
+debug2: channel 2: gc: user detached
+debug2: channel 2: is dead
+debug2: channel 2: garbage collecting
+debug1: channel 2: free: client-session, nchannels 3
+debug3: channel 2: status: The following connections are open:
+  #1 mux-control (t16 nr0 i3/0 o1/16 e[closed]/0 fd 5/5/-1 sock 5 cc -1 io 0x03/0x00)
+  #2 client-session (t4 r0 i3/0 o3/0 e[write]/0 fd -1/-1/8 sock -1 cc -1 io 0x00/0x00)
+
+debug2: channel 1: obuf empty
+debug2: chan_shutdown_write: channel 1: (i3 o1 sock 5 wfd 5 efd -1 [closed])
+debug2: channel 1: output drain -&gt; closed
+debug2: channel 1: is dead (local)
+debug2: channel 1: gc: notify user
+debug3: mux_master_control_cleanup_cb: entering for channel 1
+debug2: channel 1: gc: user detached
+debug2: channel 1: is dead (local)
+debug3: mux_client_read_packet: read header failed: Broken pipe
+debug2: channel 1: garbage collecting
+debug1: channel 1: free: mux-control, nchannels 2
+debug2: Received exit status from master 0
+debug3: channel 1: status: The following connections are open:
+  #1 mux-control (t16 nr0 i3/0 o3/0 e[closed]/0 fd 5/5/-1 sock 5 cc -1 io 0x00/0x00)
+</code></pre></details></li></ol><h2 id=resolver-problemas-comunes-en-ssh><a href=#resolver-problemas-comunes-en-ssh alt>Resolver problemas comunes en <code>ssh</code></a> <a href=# alt="Regresar al inicio">↑</a></h2><h3 id=warning-unprotected-private-key-file><a href=#warning-unprotected-private-key-file alt>Warning: Unprotected private key file!</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>El problema se ve así:</p><pre tabindex=0><code>$ ssh servidor
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0644 for &#39;/home/user/.ssh/key&#39; are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+</code></pre><p>Lo que esto significa es que cualquier
+usuario que esté usando la misma computadora
+puede leer tu <em>clave privada</em>
+y por lo tanto hacerse pasar por ti.
+La consola segura no te permite esta situación de inseguridad.</p><p>La solución es cambiar los permisos de tu archivo:</p><pre tabindex=0><code>chmod 0600 ~/.ssh/key
+</code></pre><p>De esta forma permitimos únicamente
+que nuestro usuario pueda leer la clave.</p></article></main></body></html>

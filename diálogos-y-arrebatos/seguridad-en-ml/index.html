@@ -1,0 +1,76 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Expert Insights: Training the Data Elephant in the AI Room</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Expert Insights: Training the Data Elephant in the AI Room</h1><nav id=TableOfContents></nav><p>One of the trickiest aspects of actually using machine learning (ML) in
+practice is relegating the right amount of attention to the data
+problem. This is something I discussed in two previous Dark Reading
+columns about machine learning security, <a href=https://www.darkreading.com/application-security/building-security-into-software target=_blank rel=noopener>Building Security into
+Software</a>
+and <a href=https://www.darkreading.com/application-security/how-to-secure-machine-learning target=_blank rel=noopener>How to Secure Machine
+Learning</a>. </p><p>You see, the &ldquo;machine&rdquo; in ML is really constructed directly from a bunch
+of data.</p><p>My early estimations of security risk involved in machine learning make
+the strong claim that data-related risks are responsible for 60% of the
+overall risk with the rest of the risks (say, algorithm or online
+operations risks) accounting for the remaining 40%. I found that both
+surprising and concerning when I started working on ML security in 2019,
+mostly because not enough attention is being placed on data-related
+risks. But you know what? Even that estimation got things wrong.</p><p>When you consider the full ML lifecyle, data-related risks gain even
+more prominence. That&rsquo;s because in terms of sheer data exposure it may
+often be the case that putting ML into practice exposes even more data
+than training or fielding the ML model in the first place. Way more.
+Here&rsquo;s why.</p><p><strong>Data Involved in Training</strong></p><p>Recall that when you &ldquo;train up&rdquo; an ML algorithm - say using supervised
+learning for a simple categorization or prediction task - you must think
+carefully about the datasets you&rsquo;re using. In many cases, the data used
+to build the ML in the first place come from a data warehouse storing
+data that are both business confidential and carry a strong privacy
+burden.</p><p>An example may help. Consider a banking application of ML that helps a
+loan officer decide whether or not to proceed with a loan. The ML
+problem at hand is predicting whether the applicant will pay the loan
+back. Using data scraped from past loans made by the institution, an ML
+system can be trained up to make this prediction.</p><p>Obviously in this example, the data from the data warehouse used to
+train the algorithm include both strictly private information, some of
+which may be protected (like, say, salary and employment information,
+race, and gender), as well as business confidential information (like,
+say, whether a loan was offered and at what rate of return).</p><p>The tricky data security aspect of ML involves using these data in a
+safe, secure, and legal manner. Gathering and building the training,
+testing, and evaluation sets is non-trivial and bears some risk.
+Fielding the trained ML model itself also bears some risk as the data
+are in some sense &ldquo;built right in&rdquo; to the ML model (and thus subject to
+leaking back out, sometimes unintentionally).</p><p>For the sake of filling in our example, let's say that the ML system
+we&rsquo;re postulating is trained up inside the data warehouse, but that it
+is operated in the cloud and can be used by hundreds of regional and
+local branches of the institution.</p><p>Clearly data exposure is a thing to think carefully about when it comes
+to ML.</p><p><strong>Data Involved in Operations</strong></p><p>But wait, there&rsquo;s more. When an ML system like the one we&rsquo;re discussing
+is fielded, it works as follows. New situations are gathered and built
+into &ldquo;queries&rdquo; using the same kind of representation used to build the
+ML model in the first place. Those queries are then presented to the
+model which uses them as inputs to return a prediction or categorization
+relevant to the task at hand. (This is what ML people mean when they say
+auto-associative prediction.)</p><p>Back to our loan example, when a loan application comes in through a
+loan officer in a branch office, some of that information will be used
+to build and run a query through the ML model as part of the loan
+decision-making process. In our example, this query is likely to include
+both business confidential and protected private information subject to
+regulatory control.</p><p>The institution will very likely put the ML system to good use over
+hundreds of thousands (or maybe even millions) of customers seeking
+loans. Now think about the data exposure risk brought to bear by the
+compounded queries themselves. That is a very large pile of data. Some
+analysts estimate that 95% of ML data exposure comes through operational
+exposure of this sort. Regardless of the actual breakdown, it is very
+clear that operational data exposure is something to think carefully
+about.</p><p><strong>Limiting Data Exposure</strong></p><p>How can this operational data exposure risk built into the use of ML
+be properly mitigated?</p><p>There are a number of ways to do this. One might be encrypting the
+queries on their way to the ML system, then decrypting them only when
+they are run through the ML. Depending on where the ML system is being
+run and who is running it, that may work. As one example, Google&rsquo;s
+BigQuery system supports customer-managed keys to do this kind of thing.</p><p>Another, more clever solution may be to stochastically transform the
+representation of the query fields, thereby minimizing the exposure of
+the original information to the ML's decision process without affecting
+its accuracy. This involves some insight into how the ML makes its
+decisions, but in many cases can be used to shrink-wrap queries down
+significantly (blinding fields that are not relevant). Protopia AI is
+pursuing this technical approach together with other solutions that
+address ML data risk during training. (Full disclosure, I am a Technical
+Advisor for Protopia AI.)</p><p>Regardless of the particular solution, and much to my surprise,
+operational data exposure risk in ML goes far beyond the risk of
+fielding a model with the training data &ldquo;built in.&rdquo; Operational data
+exposure risk is a thing - and something to watch closely - as ML
+security matures.</p></article></main></body></html>

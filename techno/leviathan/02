@@ -1,0 +1,20 @@
+No funcionó usar un enlace simbólico con otro nombre.
+
+```
+leviathan2@leviathan:/tmp$ delete_me=$(mktemp -d /tmp/XXX)
+leviathan2@leviathan:/tmp$ cd $delete_me
+leviathan2@leviathan:/tmp/0ZJ$ ln -s /etc/leviathan_pass/leviathan3 prueba
+leviathan2@leviathan:/tmp/0ZJ$ ls -la
+total 228
+drwx--S---   2 leviathan2 root   4096 Jan 26 03:22 .
+drwxrws-wt 270 root       root 225280 Jan 26 03:22 ..
+lrwxrwxrwx   1 leviathan2 root     30 Jan 26 03:22 prueba -> /etc/leviathan_pass/leviathan3
+leviathan2@leviathan:/tmp/0ZJ$ ~/printfile prueba
+You cant have that file...
+```
+
+No se puede hacer un enlace duro porque `/tmp` no está en el mismo disco que `/`
+
+```
+ln /etc/leviathan_pass/leviathan3
+```

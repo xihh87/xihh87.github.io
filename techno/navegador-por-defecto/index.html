@@ -1,0 +1,19 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Cambiar el navegador por defecto</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="></head><body><main><article><h1>Cambiar el navegador por defecto</h1><nav id=TableOfContents><ul><li><a href=#más-info>Más info:</a></li></ul></nav><p>Programas distintos utilizan métodos distintos para saber con qué abrir páginas web.</p><p>El programa necesita tener un archivo desktop, que dice lo que se puede abrir con él.
+El archivo del fabricante generalmente está en ´/usr/share/applications/´ y
+puede modificarse para cada usuario en <code>$HOME/.local/share/applications/</code>.</p><p>Hay un archivo que dice qué aplicaciones deben abrir cada cosa para cada usuario:
+<code>$HOME/.local/share/applications/mimeapps.list</code></p><p>Para editarlo, se puede usar el programa <code>xdg-mime</code></p><p>´´´
+$ xdg-mime default browser.desktop x-scheme-handler/http
+$ xdg-mime default browser.desktop x-scheme-handler/https
+´´´</p><p>Para usar ese programa en ´emacs´ hay que agregar a la sección ´custom-set-variables´:</p><pre><code>´´´
+ '(browse-url-browser-function (quote browse-url-xdg-open))
+´´´
+</code></pre><p>En ocasiones estas dos cosas no son suficientes,
+porque al parecer, algunos archivos <code>.desktop</code>
+agregan una <code>InitialPreference=</code> que mientras mayor sea,
+se selecciona por encima de lo que uno configura.</p><p>En ese caso, hay que crear un archivo <code>.desktop</code> en <code>$HOME/.local/share/applications</code>
+que contenga una preferencia mayor que la aplicación que se está usando por defecto.</p><p><a href=/home/xu/src/github.com/FRIGN/soap>Otro programa que usa expresiones regulares para decidir con qué abrir el programa es soap</a></p><h1 id=preguntar-a-xdg-mime-programa-por-defecto><a href=#preguntar-a-xdg-mime-programa-por-defecto alt>Preguntar a xdg-mime programa por defecto</a> <a href=# alt="Regresar al inicio">↑</a></h1><pre tabindex=0><code>$ file -i archivo
+mime/type
+$ xdg-mime query default mime/type
+programa.desktop
+</code></pre><h2 id=más-info><a href=#m%c3%a1s-info alt>Más info:</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=http://askubuntu.com/questions/62585/how-do-i-set-a-new-xdg-open-setting target=_blank rel=noopener>http://askubuntu.com/questions/62585/how-do-i-set-a-new-xdg-open-setting</a></p></article></main></body></html>
