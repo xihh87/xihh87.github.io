@@ -1,0 +1,34 @@
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Demo Yolo</title>
+<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Demo Yolo</h1><nav id=TableOfContents><ul><li><a href=#plan>Plan</a><ul><li><a href=#yolov7>YOLOv7</a></li><li><a href=#yolov8>YOLOv8</a></li></ul></li></ul></nav><p>Se pueden <a href=https://huggingface.co/pricing target=_blank rel=noopener>alquilar</a>
+<a href=https://www.runpod.io/console/gpu-cloud target=_blank rel=noopener>tarjetas</a>
+<a href=https://cloud.vast.ai/cli/ target=_blank rel=noopener>gráficas</a>
+(<a href=https://vast.ai/docs/cli/commands target=_blank rel=noopener>API docs</a>)
+ejecutando trabajos en contenedores.</p><pre tabindex=0><code>vastai create instance 36842 --image pytorch/pytorch --disk 32
+</code></pre><embed type=application/pdf src="https://arxiv.org/pdf/2304.00501v1.pdf#navpanes=0&statusbar=0&pagemode=none" width=100% height=905em><p><a href=https://arxiv.org/pdf/2304.00501v1.pdf>Descargar documento</a>.</p><h2 id=plan><a href=#plan alt>Plan</a> <a href=# alt="Regresar al inicio">↑</a></h2><ul><li><input checked disabled type=checkbox> Encontrar una versión de yolo lista para tiempo real.<ul><li><a href=https://www.synapse-analytics.io/post/what-to-consider-when-selecting-yolo-for-real-time-applications target=_blank rel=noopener>YOLOv3 con batch size de 16 podría funcionar en 6 GB</a>.</li><li><a href=https://arxiv.org/pdf/2207.02696.pdf title=[@arxiv:2207.02696] target=_blank rel=noopener>YOLOv7 es rápido y en tiempo real</a>
+(<a href=https://github.com/WongKinYiu/yolov7 target=_blank rel=noopener>código</a>,
+<a href=https://stackabuse.com/real-time-pose-estimation-from-video-in-python-with-yolov7/ target=_blank rel=noopener>demo</a>)<pre tabindex=0><code>web https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt
+web http://images.cocodataset.org/annotations/annotations_trainval2017.zip
+</code></pre></li><li><a href=https://github.com/ultralytics/ultralytics target=_blank rel=noopener>YOLOv8</a>
+(<a href=https://docs.ultralytics.com/ target=_blank rel=noopener>docs</a>, AGPLv3).</li></ul></li></ul><h3 id=yolov7><a href=#yolov7 alt>YOLOv7</a> <a href=# alt="Regresar al inicio">↑</a></h3><pre tabindex=0><code>nvidia-docker run \
+    --name yolov7 \
+    -it \
+    -v your_coco_path/:/coco/ \
+    -v your_code_path/:/yolov7 \
+    --shm-size=64g \
+    nvcr.io/nvidia/pytorch:21.08-py3
+
+# apt install required packages
+apt update
+apt install -y zip htop screen libgl1-mesa-glx
+
+# pip install required packages
+pip install seaborn thop
+
+# go to code folder
+cd /yolov7
+</code></pre><h3 id=yolov8><a href=#yolov8 alt>YOLOv8</a> <a href=# alt="Regresar al inicio">↑</a></h3><pre tabindex=0><code>gcl git@github.com:ultralytics/ultralytics.git
+cr ultralytics
+python -m venv .venv
+. .venv/bin/activate
+pip install ultralytics
+</code></pre><ul><li><p><input checked disabled type=checkbox> Ejecutar YOLOv8 (<a href=https://docs.ultralytics.com/modes/predict/ target=_blank rel=noopener>docs</a>).</p></li><li><p><input checked disabled type=checkbox> Conectar YOLOv8 a la cámara</p></li></ul><p>Se generaron demos para ciencia de datos, están en <code>carbono:~/src/github.com/ultralytics/ultralytics</code>.</p></article></main></body></html>

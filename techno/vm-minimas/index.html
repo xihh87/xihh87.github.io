@@ -50,7 +50,10 @@ y <a href=https://wiki.archlinux.org/title/User-mode_Linux#Setup_by_rootfs_+_tap
 que es un sistema de archivos que utiliza un directorio para los archivos
 y otro para los meta-datos [@isbn:978-0-13-186505-1, ch. 6].</p><h2 id=tinycore--levinux><a href=#tinycore--levinux alt>TinyCore / Levinux</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Hoy (2024-04-11) revisé mi investigación
 y encontré <a href=https://github.com/miklevin/levinux target=_blank rel=noopener>esta máquina virtual de 20MB</a>
-basada en <a href=http://www.tinycorelinux.net/ target=_blank rel=noopener>TinyCore</a> (<a href=http://www.tinycorelinux.net/corebook.pdf target=_blank rel=noopener>libro</a>)</p><p>Hice el experimento y pude hacer que se ejecute desde el servidor:</p><pre tabindex=0><code>$ ssh h
+(<a href=https://www.youtube.com/user/miklevin target=_blank rel=noopener>yt autor</a>)
+basada en <a href=http://www.tinycorelinux.net/ target=_blank rel=noopener>TinyCore</a>
+(<a href=http://www.tinycorelinux.net/corebook.pdf target=_blank rel=noopener>libro</a>,
+<a href=https://web.archive.org/web/20201112015615/http://distro.ibiblio.org/tinycorelinux/architecture.html target=_blank rel=noopener>diagrama</a>).</p><p>Hice el experimento y pude hacer que se ejecute desde el servidor:</p><pre tabindex=0><code>$ ssh h
 $ cd ~/levinux-master/Levinux.app/Contents/MacOS
 $ TERM=xterm ./qemu-system-i386 -curses -kernel vmlinuz -initrd core.gz -L ./ -hda opt.qcow -hdc tce.qcow -tftp ../../../Reset/Server -append &#34;loglevel=3 home=sda1 opt=sdb1 tce=sdc1&#34;
 </code></pre><p>Dado que el sistema inicia correctamente y usa sólo 100MB de memoria,
