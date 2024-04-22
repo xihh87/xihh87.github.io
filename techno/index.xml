@@ -633,6 +633,7 @@ http://biogeo.ucdavis.edu/data/gadm2.8/rds/MEX_adm2.rds
 Se descomprime el RDS: ↑map &amp;lt;- readRDS(&amp;#34;/home/joshpar/web/biogeo.ucdavis.edu/data/gadm2.8/rds/MEX_adm2.rds&amp;#34;) Los códigos HASC son distintos de los ISO 3166-1
 Abrir shapefiles ↑Se recomienda rgdal (ejemplo, otro).
 Ejemplo usando sf.
+Como hacer un mapa de precinto nacional.
 Paquete para hacer mapas de México: ↑Para hacer mapas de México se puede utilizar el paquete mxmaps, que está basado en choroplethr (docs, web) con una API simplificada.</description></item><item><title>Anotaciones acerca de firefox</title><link>https://joshua.haase.mx/techno/firefox/</link><pubDate>Sat, 09 Sep 2017 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/firefox/</guid><description>Sincronizar las pestañas de Firefox en el celular ↑Uso Firefox en el celular y dejo cosas abiertas para leer después pero prefiero verlas en la computadora cuando existe la posibilidad.
 Firefox sync permite sincronizar, pero hay dos problemas:
 Uso de memoria al abrir las 107 pestañas ↑Entrar a about:config y modificar la opción browser.tabs.loadInBackground para que diga false.

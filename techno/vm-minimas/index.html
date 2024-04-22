@@ -48,7 +48,7 @@ que <a href=http://user-mode-linux.sourceforge.net/old/UserModeLinux-HOWTO-1.htm
 en vez de hablar con el software</a>.</p><p>Se puede <a href=https://wiki.archlinux.org/title/User-mode_Linux target=_blank rel=noopener>instalar desde AUR</a>
 y <a href=https://wiki.archlinux.org/title/User-mode_Linux#Setup_by_rootfs_+_tap target=_blank rel=noopener>configurar una red virtual exclusiva para los juegos</a>.</p><p>Para intercambiar archivos se recomienda usar <code>humfs</code>,
 que es un sistema de archivos que utiliza un directorio para los archivos
-y otro para los meta-datos [@isbn:978-0-13-186505-1, ch. 6].</p><h2 id=tinycore--levinux><a href=#tinycore--levinux alt>TinyCore / Levinux</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Hoy (2024-04-11) revisé mi investigación
+y otro para los meta-datos [@isbn:978-0-13-186505-1, ch. 6].</p><h2 id=tinycore--levinux><a href=#tinycore--levinux alt>TinyCore / Levinux</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Durante 2024-04-11 revisé mi investigación
 y encontré <a href=https://github.com/miklevin/levinux target=_blank rel=noopener>esta máquina virtual de 20MB</a>
 (<a href=https://www.youtube.com/user/miklevin target=_blank rel=noopener>yt autor</a>)
 basada en <a href=http://www.tinycorelinux.net/ target=_blank rel=noopener>TinyCore</a>
@@ -57,6 +57,7 @@ basada en <a href=http://www.tinycorelinux.net/ target=_blank rel=noopener>TinyC
 $ cd ~/levinux-master/Levinux.app/Contents/MacOS
 $ TERM=xterm ./qemu-system-i386 -curses -kernel vmlinuz -initrd core.gz -L ./ -hda opt.qcow -hdc tce.qcow -tftp ../../../Reset/Server -append &#34;loglevel=3 home=sda1 opt=sdb1 tce=sdc1&#34;
 </code></pre><p>Dado que el sistema inicia correctamente y usa sólo 100MB de memoria,
-que es demasiado pero puede ser aceptable porque tengo mucha memoria libre.</p><p>Para simplificar los juegos, podría:</p><ul><li>[?] <del>configurar este sistema para iniciar con s6</del>.</li><li>[?] <del>Configurar ssh para usar una llave individual por persona,
+que es demasiado pero puede ser aceptable porque tengo mucha memoria libre;
+Para simplificar los juegos, podría:</p><ul><li>[?] <del>configurar este sistema para iniciar con s6</del>.</li><li>[?] <del>Configurar ssh para usar una llave individual por persona,
 ejecutando cada nivel con diferencias ligeras</del>.</li><li><input disabled type=checkbox> Desactivar ALSR para la máquina virtual en la configuración de <code>/etc/sysctl.d</code>.</li><li><input disabled type=checkbox> Configurar los servicios de los juegos y exponer el puerto,
 usando un usuario por cada nivel.</li><li><input disabled type=checkbox> Ejecutar el servicio de QEMU como un usuario sin privilegios, ¿desde sistemd?.</li></ul></article></main></body></html>
