@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Software Libre on Joshua Haase</title><link>https://joshua.haase.mx/categories/software-libre/</link><description>Recent content in Software Libre on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Thu, 23 Dec 2010 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/categories/software-libre/index.xml" rel="self" type="application/rss+xml"/><item><title>Traiciona a otros estados</title><link>https://joshua.haase.mx/viento-y-anotaciones/traiciona-a-otros-estados/</link><pubDate>Thu, 23 Dec 2010 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/viento-y-anotaciones/traiciona-a-otros-estados/</guid><description>Encontré la noticia de que Microsoft pudo haberle vendido el acceso al código fuente de windows a TOPSEC: una empresa china de seguridad que ayudó a orquestar ataques cibernéticos (¿recuerdan los ataques a google?) y recordé ésta cita:
-—No traiciones a tu propio gobierno sugirió Mika. Limítate a traicionar a todos los demás gobiernos. Nadie ha llamado nunca traición a eso.
-El futuro de los estados.
-Me preocupa que el principal proveedor de software dé acceso a su código para que una institución pueda aprovechar las vulnerabilidades para su propio beneficio.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Software Libre on Joshua Haase</title><link>https://joshua.haase.mx/categories/software-libre/</link><description>Recent content in Software Libre on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Thu, 23 Dec 2010 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/categories/software-libre/index.xml" rel="self" type="application/rss+xml"/><item><title>Traiciona a otros estados</title><link>https://joshua.haase.mx/viento-y-anotaciones/traiciona-a-otros-estados/</link><pubDate>Thu, 23 Dec 2010 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/viento-y-anotaciones/traiciona-a-otros-estados/</guid><description>&lt;p>Encontré la noticia de que
+&lt;a href='http://www.guardian.co.uk/world/us-embassy-cables-documents/214462' target="_blank" rel="noopener">Microsoft pudo haberle vendido el acceso al código fuente de windows a TOPSEC&lt;/a>:
+una empresa china de seguridad que ayudó a orquestar ataques cibernéticos
+(&lt;a href='http://www.china-defense-mashup.com/?p=8846' target="_blank" rel="noopener">¿recuerdan los ataques a google?&lt;/a>)
+y recordé ésta cita:&lt;/p>
+&lt;blockquote>
+&lt;p>—No traiciones a tu propio gobierno sugirió Mika. Limítate a
+traicionar a todos los demás gobiernos. Nadie ha llamado nunca
+traición a eso.&lt;/p>
+&lt;p>&lt;a href='http://lasindias.net/indianopedia/Islas_en_la_red#El_futuro_de_los_estados' target="_blank" rel="noopener">El futuro de los estados&lt;/a>.&lt;/p>&lt;/blockquote>
+&lt;p>Me preocupa que el principal proveedor de software dé acceso a su código
+para que una institución pueda aprovechar las vulnerabilidades para su propio beneficio.
+¿A ustedes no? ¿Usan windows?&lt;/p></description></item></channel></rss>

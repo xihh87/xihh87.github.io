@@ -1,7 +1,0 @@
-#!/usr/bin/execlineb -P
-pipeline {
-cmd/prereqs
-}
-sed -r
-	-e "s#(.+)\\.md$#\\1.t.pdf\\n\\1.t.tex#g"
-	-e "s#(.+)\\.pmd$#\\1.p.pdf\\n\\1.p.tex#g"

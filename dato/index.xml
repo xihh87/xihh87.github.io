@@ -1,93 +1,300 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Datos on Joshua Haase</title><link>https://joshua.haase.mx/dato/</link><description>Recent content in Datos on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Mon, 29 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/dato/index.xml" rel="self" type="application/rss+xml"/><item><title>Notas acerca de segmentación de imágenes por satélite</title><link>https://joshua.haase.mx/dato/segmentacion-sat%C3%A9lite/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/segmentacion-sat%C3%A9lite/</guid><description>¿Qué es segmentación de imagen?
-Calidad de la información disponible (groso modo) ↑Las imágenes satelitales Lansat están disponibles desde 1989–2014. Hay imágenes sentinel a partir de 2015. (resolución sentinel)
-Recursos ↑Repo de enlaces de cómo tratar imágenes satelitales incluye qué modelos usar y explican los diferentes puntos de segmentación.
-Un modelo interesante para segmentar cultivos en regiones ralas como Togo, Africa (paper, código)
-Segmentación de cultivos usando detección de bordes (paper).</description></item><item><title>Aplicaciones de aprendizaje de máquina que te permiten hacer cosas rápidamente</title><link>https://joshua.haase.mx/dato/herramientas-ml/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/herramientas-ml/</guid><description>Generación de texto ↑ ChatGPT
-Genera respuestas automáticas a las solicitudes que haces (mi opinión acerca de ChatGPT).
-GigaChat
-Competidor ruso de ChatGPT supuestamente abierto (aunque no he podido encontrar el modelo).
-Perplexity
-Responde preguntas.
-Diseño ↑ MidJourney
-Puede generar escenas gráficas a partir de texto.
-Se puede usar desde su canal de discord o invitar a su bot a tu servidor de discord te permite 25 propmts gratuitos (0.4 h GPU), después de eso están estos planes de pago.</description></item><item><title>Note driven development</title><link>https://joshua.haase.mx/dato/note-driven/</link><pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/note-driven/</guid><description>En proyectos de análisis de datos he visto recomendadas herramientas de notas como:
-jupyter-notebooks Rmarkdown Me gusta la idea de integrar el desarrollo con los reportes de trabajo.
-También me gusta la idea de dirigir el trabajo usando un plan que se convierte, primero en bitácora, luego en manuales y automatización.
-Sin embargo, cuando he trabajado proyectos de datos utilizando notebooks para dirigir el desarrollo, a pesar de ya conocer una metodología para hacer el trabajo reproducible, termino haciendo un flujo de trabajo no repetible, dependiente del documento, y que no se ejecuta óptimamente.</description></item><item><title>¿Qué puedo hacer con bioinformática?</title><link>https://joshua.haase.mx/dato/qu%C3%A9-puedo-hacer-con-bioinform%C3%A1tica/</link><pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/qu%C3%A9-puedo-hacer-con-bioinform%C3%A1tica/</guid><description>El principal problema de la bioinformática es que
-Los seres vivos son una de las cosas más complejas que conocemos.
-Los tipos de datos que analizamos:
-This dimensions include DNA sequence [1], epigenomic state [2], single-cell expression activity [3], proteomics [4], functional and phenotypic measurements [5], and ecological and lifestyle properties [6].
-[@doi:10.1016/j.inffus.2018.09.012]</description></item><item><title>Cómo usar ciencia de datos para mejorar la calidad del código.</title><link>https://joshua.haase.mx/dato/c%C3%B3mo-usar-datos-en-desarrollo/</link><pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/c%C3%B3mo-usar-datos-en-desarrollo/</guid><description>Hay varios gráficos que pueden ayudar a mostrar la efectividad de nuestro flujo de trabajo:
-Series de tiempo con errores
-Archivos por tamaño y coloreados por más modificado para encontrar los archivos problemáticos.
-Tiempo para resolver puede ser una medida de productividad.
-Set de datos de encuesta StackOverflow</description></item><item><title>Mi catálogo de herramientas para visualización de datos</title><link>https://joshua.haase.mx/dato/data-visualisation/</link><pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/data-visualisation/</guid><description>Se puede usar este catálogo de gráficos para saber qué herramientas usar para cada tipo de gráfico. y estas herramientas para graficar.
-Catálogo de gráficos de R con código.
-Herramientas para visualizar datos ↑Una herramienta para hacer cronologías
-Herramientas open source para la visualización de datos
-Un sistema para Gráficos interactivos en internet.
-Para hacer mapas mentales
-Librería JavaScript para visualización interactiva de datos, un tutorial para aprender a usar D3JS y varios ejemplos de gráficas usando D3JS</description></item><item><title>Ingeniería de características</title><link>https://joshua.haase.mx/dato/ingenier%C3%ADa-de-caracter%C3%ADsticas/</link><pubDate>Fri, 28 May 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/ingenier%C3%ADa-de-caracter%C3%ADsticas/</guid><description>Ejemplo de cómo la ingeniería de características puede hacer que un conjunto de datos difícil sea separable Parece que la selección de características es el proceso con mayor impacto en la capacidad de predicción de un modelo y por eso estoy interesado en cómo se realiza, por eso recopilé esta lista de
-Recursos potencialmente interesantes ↑Una página con recursos interesantes acerca de la ciencia de datos como esta descripción de la ingeniería de características.</description></item><item><title>Lista de ambientes gráficos para inteligencia artificial</title><link>https://joshua.haase.mx/dato/ambientes-gr%C3%A1ficos-para-explorar-modelos/</link><pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/ambientes-gr%C3%A1ficos-para-explorar-modelos/</guid><description> Weka Orange KNIME</description></item><item><title>Inteligencia Artificial</title><link>https://joshua.haase.mx/dato/no-es-inteligencia/</link><pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/no-es-inteligencia/</guid><description>Las computadoras son efectivas… ↑Desde que entiendo cómo funcionan los modelos de inteligencia artificial me sorprende lo mucho que puede hacerse multiplicando matrices. Por ejemplo:
-Este sistema de matrices puede clasificar imágenes tan bien o mejor que una persona. (Aquí explican visualmente cómo.) Si tuviera que explicarlo, respondería «porque las operaciones matriciales pueden usarse como filtros para buscar patrones y como representación de funciones matemáticas que aproximan la realidad».
-Como funcionan tan bien, muchas personas se preguntan si las computadoras son más inteligentes que nosotros, y tienen miedo de que vengan a quitarnos la comida.</description></item><item><title>Por qué son mejores los GPU que los CPU para aplicaciones de aprendizaje de máquina</title><link>https://joshua.haase.mx/dato/arquitecturas/</link><pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/arquitecturas/</guid><description>Los CPU tienen varios núcleos y pueden ejecutar tantas tareas como núcleos sobre la información que tienen en el caché.
-Los GPU, ejecutan más lentamente la misma tarea pero en un conjunto de datos grande.
-La mayoría de los modelos de inteligencia artificial consisten en multiplicación de matrices con resultados que se traducen en una predicción y una medición de confianza.
-Estas multiplicaciones se hacen cientos de veces más lento en el GPU que en el CPU pero se hacen decenas de miles operaciones al mismo tiempo.</description></item><item><title>Anotaciones acerca de la representación de datos y causalidad en la inteligencia artificial.</title><link>https://joshua.haase.mx/dato/2021-04-10/</link><pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/2021-04-10/</guid><description>Parece que la mitad derecha de nuestro cerebro tiene la capacidad de encontrar patrones en la información que recibe [@isbn:978-0-300-16892-1] y suele hacerlo sobre una memoria que guarda sólo partes relevantes de los patrones [@isbn:978-1-5416-7580-3].
-Como está optimizado para sobrevivir en un entorno cambiante donde se deben tomar decisiones rápidamente tiene una gran cantidad de sesgos cognitivos que ayudan a procesar no la realidad tal cuál es, sino lo más relevante de lo que tenemos enfrente que nos permitiría sobrevivir.</description></item><item><title>Cómo tratar valores atípicos en análisis econométricos</title><link>https://joshua.haase.mx/dato/outliers/</link><pubDate>Wed, 24 Mar 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/outliers/</guid><description>Quiero analizar datos públicos acerca de las variables económicas de varias empresas.
-Después de hacer la limpieza de los datos extrayendo únicamente:
-Ingresos Ganancias Activos Pasivos Patrimonio Tengo el problema de que aunque la mayoría de los datos caen dentro de una distribución pero todos los parámetros que estoy usando tienen valores atípicos que distorsionan el rango dinámico.
-Para hacer figuras he tenido que redimensionar para obtener valores útiles.
-Si tuviera razones para pensar que los valores extremos son erróneos, podría eliminarlos o imputarlos como todos sugieren.</description></item><item><title>Cómo tratar datos personales</title><link>https://joshua.haase.mx/dato/datos-personales/</link><pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/datos-personales/</guid><description>El consentimiento es necesario para usar los datos personales (LFPDPPP 8). Puede ser tácito cuando se muestre el aviso de privacidad y no se oponga (LPPDPP 8); o expreso cuando manifieste por signos inequívocos (formulario).
-Se pueden usar datos para investigación si:
-se disocian de la identidad (LFPDPPP 10). los datos no se divulgan ni se usan comercialmente (LFPDPPP 2 II). son para fines históricos, estadísticos o científicos (LFPDPPP 18) No recolectar datos sensibles (LFPDPPP 9) o patrimoniales (LFPDPPP 8, 10, 37).</description></item><item><title>Modelos obsoletos</title><link>https://joshua.haase.mx/dato/modelos-obsoletos/</link><pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/modelos-obsoletos/</guid><description>&amp;ldquo;Book smarts vs street smarts&amp;rdquo;
-Hay una diferencia entre el conocimiento que dan los libros y el conocimiento que da la relación con la realidad.
-El conocimiento de los libros se puede homologar a un modelo estático, entrenado bajo características particulares y potencialmente aplicable a otras situaciones para resolver problemas.
-Los modelos se vuelven obsoletos porque la realidad está en constante cambio.
-Hay quien dice que porque los algoritmos pueden encontrar relaciones que las personas no pueden ver ya no son necesarias las personas para hacer ciencia.</description></item><item><title>Inteligencia artificial</title><link>https://joshua.haase.mx/dato/inteligencia-artificial/</link><pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/inteligencia-artificial/</guid><description>Jeff Hawkins argumenta que:
-Aprendizaje de máquina no es inteligencia. Para aprender de la inteligencia necesitamos entender los cerebros. La inteligencia requiere tener un cuerpo para explorar la realidad. Para producir máquinas rápidas no produjimos caballos mecánicos, hicimos máquinas con ruedas que son más efectivas como máquinas.
-Para la inteligencia muy probablemente ocurra algo similar, el enfoque más eficiente no tiene por qué parecerse a lo orgánico.
-EOL: Pensar si sí somos “inteligentes” o seres orgánicos complejos que de acuerdo a bases irracionales creamos nuestra “racionalidad”.</description></item><item><title>Notas acerca de cómo limpiar datos</title><link>https://joshua.haase.mx/dato/limpiar-datos/</link><pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/limpiar-datos/</guid><description>Para cambiar ciertos datos:
-data %&amp;gt;% mutate( columna = recode( columna, old1 = new1, old2 = new2 ) ) Para acomodar las columnas:
-data %&amp;gt;% relocate( c(&amp;#34;columna1&amp;#34;, …) ) Manipular columnas individuales.</description></item><item><title>Notas acerca de visión computacional</title><link>https://joshua.haase.mx/dato/vision/</link><pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/vision/</guid><description>CS231n Stanford University
-Libro para el curso en Stanford
-TensorFlow, PyTorch.
-Se usa una función de pérdida para decirle al modelo qué clase de errores quiere corregir. Se agrega un término de regularización para penalizar que el modelo sobreajuste.
-Softmax (regresión logística multinomial)
-$$P(Y = k | X = x_i) = \frac{e^s k}{\sum_j e^s_j}$$ donde $$s = f(x_i, W)$$
-Un demo de CIFAR-10 en el navegador
-Benchmark:
-ImageNet Convolutional Neural Network</description></item><item><title>Cómo funcionan los transformers</title><link>https://joshua.haase.mx/dato/transformers/</link><pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/transformers/</guid><description>Características de los transformers ↑ La primer aproximación a NLP fue usando vectores de n-palabras de un lenguaje. No funcionó por el orden y entonces los n-gramas pero requieren muchísimo espacio.
-Se proponen los Recurrent Neural Network porque ¿pueden entrenarse con una entrada lineal? y usan mucho menos memoria.
-Los RNN tienen el problema de explosión y dilución de factores porque funcionan como exponenciales. LSTM resuelve ese problema.
-El entrenamiento en LSTM no se puede transferir fácilmente.</description></item><item><title>Notas y enlaces acerca del Procesamiento del Lenguaje Natural</title><link>https://joshua.haase.mx/dato/natural-language-processing/</link><pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/natural-language-processing/</guid><description>«Language Models are Few-Shot Learners»
-Un instructivo para usar GPT-2 y el post original de OpenAI.
-El paper que describe cómo funciona GPT-3.
-Propiedades emergentes de modelos de lenguaje</description></item><item><title>Cómo hacer una nube de palabras.</title><link>https://joshua.haase.mx/dato/word-cloud/</link><pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/word-cloud/</guid><description>Enlaces para hacer nubes de palabras.
-No sé si necesitamos un conteo de palabras o un vector de palabras.
-https://www.pluralsight.com/guides/visualization-text-data-using-word-cloud-r https://www.r-bloggers.com/word-cloud-in-r/ https://towardsdatascience.com/create-a-word-cloud-with-r-bde3e7422e8a https://dzone.com/articles/building-word-cloud-with-r</description></item><item><title>Ciencia de datos</title><link>https://joshua.haase.mx/dato/data-science/</link><pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/data-science/</guid><description>&amp;ldquo;Feature Engineering is by far more impactful on predictive accuracy than anything you can do in the Modeling phase.&amp;rdquo;
-— Maciej Wasiak
-Data Scientist (n.): Person who is better at statistics than any software engineer and better at software engineering that any statistician.
-— @josh_wills
-Habilidades que necesita un científico de datos Conjuntos de datos.
-Una guía que explica buenas prácticas al momento de programar.
-Para calcular las tasas de conversión en los negocios, usar el estimador Kaplan- Meier por cohortes.</description></item><item><title>Minado de datos</title><link>https://joshua.haase.mx/dato/data-mining/</link><pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/data-mining/</guid><description>Limpieza de datos (Data wrangling) ↑Una guía para formatear los datos
-Verificar datos ↑Para datos que pueden tener varios órdenes de magnitud se puede identificar si los datos son falsos con la frecuencia del primer dígito.
-Algoritmos para aprendizaje de máquina ↑https://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/
-Precauciones qué tomar ↑https://www.digitaltonto.com/2017/data-bias-is-becoming-a-massive-problem/
-Herramientas ↑https://thenewstack.io/six-of-the-best-open-source-data-mining-tools/ ↑https://orange.biolab.si/download/ https://rapidminer.com/ http://mahout.apache.org/ http://www.cs.waikato.ac.nz/~ml/weka/ http://nltk.org/
-https://stackoverflow.com/questions/835754/data-mining-open-source-tools ↑Java Evolutionary algorithms http://keel.es/
-(Weka has outdated algorithms according to https://stackoverflow.com/users/335265/weshallovercome )
-http://mloss.org/software/ http://jmlr.csail.mit.edu/mloss/
-http://www.rapidminer.com/
-http://lucene.apache.org/mahout/</description></item><item><title>Herramientas para la búsqueda de funciones</title><link>https://joshua.haase.mx/dato/b%C3%BAsqueda-de-datos/</link><pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/b%C3%BAsqueda-de-datos/</guid><description>A command-line fuzzy finder.
-ripgrep recursively searches directories for a regex pattern.
-A code searching tool similar to ack, with a focus on speed.
-s(hortcut)-ack: a faster way to use ag, ack (or grep)! Bases de datos públicos ↑Datos públicos del gobierno de México.
-Datos recabados por el INEGI.
-Mapa de México.
-Catálogo geográfico de Guanajuato.
-Indicadores de salud.
-Conjuntos de datos curiosos recopilados por Jeremy Singer-Vine.
-UC Irvine Machine Learning Repository</description></item><item><title>Modelos conceptualmente fuertes</title><link>https://joshua.haase.mx/dato/modelos-conceptualmente-fuertes/</link><pubDate>Sun, 16 Jun 2013 03:50:10 +0000</pubDate><guid>https://joshua.haase.mx/dato/modelos-conceptualmente-fuertes/</guid><description>De dónde viene esta reflexión ↑En su análisis del libro «Competing on Analytics» Venkatesh Rao señala:
-[…] la analítica, como se entiende en este libro, trata acerca de personas inteligentes haciendo las preguntas correctas, e intentando guiar su pensamiento con la clase correcta de cajas-negras glorificadas y opacas ajustadas a los datos. La analítica por sí misma no provee una forma clara y robusta de distinguir las señales de los ruidos.</description></item><item><title/><link>https://joshua.haase.mx/dato/aprendizaje-de-m%C3%A1quina/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/aprendizaje-de-m%C3%A1quina/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Datos on Joshua Haase</title><link>https://joshua.haase.mx/dato/</link><description>Recent content in Datos on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Mon, 29 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/dato/index.xml" rel="self" type="application/rss+xml"/><item><title>Notas acerca de segmentación de imágenes por satélite</title><link>https://joshua.haase.mx/dato/segmentacion-sat%C3%A9lite/</link><pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/segmentacion-sat%C3%A9lite/</guid><description>&lt;p>&lt;a href='https://www.tensorflow.org/tutorials/images/segmentation?hl=es-419' target="_blank" rel="noopener">¿Qué es segmentación de imagen?&lt;/a>&lt;/p>
+&lt;h2 id="calidad-de-la-información-disponible-groso-modo">&lt;a href="#calidad-de-la-informaci%c3%b3n-disponible-groso-modo" alt="">Calidad de la información disponible (groso modo)&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Las imágenes satelitales Lansat están disponibles desde 1989–2014.
+Hay imágenes sentinel a partir de 2015.
+(&lt;a href='https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-2-msi/resolutions/spatial' target="_blank" rel="noopener">resolución sentinel&lt;/a>)&lt;/p>
+&lt;h2 id="recursos">&lt;a href="#recursos" alt="">Recursos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>&lt;a href='https://github.com/satellite-image-deep-learning/techniques#2-segmentation' target="_blank" rel="noopener">Repo de enlaces de cómo tratar imágenes satelitales&lt;/a>
+incluye qué modelos usar
+y &lt;a href='https://medium.com/@robmarkcole/a-brief-introduction-to-satellite-image-segmentation-with-neural-networks-33ea732d5bce' target="_blank" rel="noopener">explican los diferentes puntos de segmentación&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://github.com/nasaharvest/togo-crop-mask' target="_blank" rel="noopener">Un modelo interesante para segmentar cultivos en regiones ralas como Togo, Africa&lt;/a> (&lt;a href='https://arxiv.org/pdf/2006.16866.pdf' title="[@arxiv:2006.16866]" target="_blank" rel="noopener">paper&lt;/a>, &lt;a href='https://github.com/nasaharvest/togo-crop-mask' target="_blank" rel="noopener">código&lt;/a>)&lt;/p>
+&lt;p>&lt;a href='https://medium.com/geekculture/%D1%81r%D0%BE%D1%80-field-boundary-detection-approaches-and-main-challenges-46e37dd276bc' target="_blank" rel="noopener">Segmentación de cultivos usando detección de bordes&lt;/a> (&lt;a href='https://www.mdpi.com/2072-4292/12/14/2240/htm' title="[@doi:10.3390/rs12142240]" target="_blank" rel="noopener">paper&lt;/a>).&lt;/p></description></item><item><title>Aplicaciones de aprendizaje de máquina que te permiten hacer cosas rápidamente</title><link>https://joshua.haase.mx/dato/herramientas-ml/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/herramientas-ml/</guid><description>&lt;h2 id="generación-de-texto">&lt;a href="#generaci%c3%b3n-de-texto" alt="">Generación de texto&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;a href='https://chat.openai.com' target="_blank" rel="noopener">ChatGPT&lt;/a>&lt;/p>
+&lt;p>Genera respuestas automáticas a las solicitudes que haces
+(&lt;a href='https://joshua.haase.mx/dato/chatgpt/'>mi opinión acerca de ChatGPT&lt;/a>).&lt;/p>
+&lt;p>&lt;figure>
+&lt;img src='https://imgs.xkcd.com/comics/constructive.png' />
+
+&lt;/figure>
+&lt;/p>
+&lt;p>Para usar modelo o1, &lt;a href='https://aimlapi.com/' target="_blank" rel="noopener">se puede usar esta API&lt;/a> (via &lt;a href='https://lablab.ai/blog/how-to-access-o1-models' target="_blank" rel="noopener">lablab&lt;/a>).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>GigaChat&lt;/p>
+&lt;p>Competidor ruso de ChatGPT
+supuestamente abierto (aunque no he podido encontrar el modelo).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href='https://www.perplexity.ai/' target="_blank" rel="noopener">Perplexity&lt;/a>&lt;/p>
+&lt;p>Responde preguntas, usando investigación web.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href='https://typst.app/' target="_blank" rel="noopener">Tipyst&lt;/a>&lt;/p>
+&lt;p>Ayuda a redactar.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="diseño">&lt;a href="#dise%c3%b1o" alt="">Diseño&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;a href='https://www.midjourney.com/home/?callbackUrl=%2Fapp%2F#about' target="_blank" rel="noopener">MidJourney&lt;/a>&lt;/p>
+&lt;p>Puede generar escenas gráficas a partir de texto.&lt;/p>
+&lt;p>&lt;a href='https://discord.com/channels/662267976984297473/943622331916488704' target="_blank" rel="noopener">Se puede usar desde su canal de discord&lt;/a>
+o &lt;a href='https://www.followchain.org/add-midjourney-bot-discord-server/' target="_blank" rel="noopener">invitar a su bot a tu servidor de discord&lt;/a>
+te permite 25 propmts gratuitos (0.4 h GPU),
+después de eso &lt;a href='https://docs.midjourney.com/docs/plans' target="_blank" rel="noopener">están estos planes de pago&lt;/a>.&lt;/p></description></item><item><title>Note driven development</title><link>https://joshua.haase.mx/dato/note-driven/</link><pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/note-driven/</guid><description>&lt;p>En proyectos de análisis de datos
+he visto recomendadas herramientas de notas como:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>jupyter-notebooks&lt;/code>&lt;/li>
+&lt;li>&lt;code>Rmarkdown&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Me gusta la idea de integrar el desarrollo con los reportes de trabajo.&lt;/p>
+&lt;p>También me gusta la idea de dirigir el trabajo usando
+&lt;a href='https://joshua.haase.mx/techno/c%c3%b3mo-trabajo/'>un plan que se convierte,
+primero en bitácora,
+luego en manuales y automatización&lt;/a>.&lt;/p>
+&lt;p>Sin embargo,
+cuando he trabajado proyectos de datos
+utilizando notebooks para dirigir el desarrollo,
+a pesar de ya conocer una metodología para hacer el trabajo reproducible,
+termino haciendo un flujo de trabajo no repetible,
+dependiente del documento,
+y que no se ejecuta óptimamente.&lt;/p></description></item><item><title>¿Qué puedo hacer con bioinformática?</title><link>https://joshua.haase.mx/dato/qu%C3%A9-puedo-hacer-con-bioinform%C3%A1tica/</link><pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/qu%C3%A9-puedo-hacer-con-bioinform%C3%A1tica/</guid><description>&lt;p>&lt;del>El principal problema de la bioinformática es que&lt;/del>&lt;/p>
+&lt;p>Los seres vivos son una de las cosas más complejas que conocemos.&lt;/p>
+&lt;hr>
+&lt;p>Los tipos de datos que analizamos:&lt;/p>
+&lt;blockquote>
+&lt;p>This dimensions include DNA sequence [1],
+epigenomic state [2],
+single-cell expression activity [3],
+proteomics [4],
+functional and phenotypic measurements [5],
+and ecological and lifestyle properties [6].&lt;/p>
+&lt;p>[@doi:10.1016/j.inffus.2018.09.012]&lt;/p>&lt;/blockquote></description></item><item><title>Cómo usar ciencia de datos para mejorar la calidad del código.</title><link>https://joshua.haase.mx/dato/c%C3%B3mo-usar-datos-en-desarrollo/</link><pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/c%C3%B3mo-usar-datos-en-desarrollo/</guid><description>&lt;p>Hay varios gráficos que pueden ayudar a mostrar la efectividad de nuestro flujo de trabajo:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href='https://stackoverflow.blog/2021/08/25/see-where-your-engineering-process-go-wrong-with-data-visualization/' target="_blank" rel="noopener">Series de tiempo con errores&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href=''>Archivos por tamaño y coloreados por más modificado&lt;/a>
+para encontrar los archivos problemáticos.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href='https://victoria.dev/blog/measuring-productivity-with-github-issues/' target="_blank" rel="noopener">Tiempo para resolver&lt;/a>
+puede ser una medida de productividad.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href='https://stackoverflow.blog/2021/08/30/the-full-data-set-for-the-2021-developer-survey-now-available/' target="_blank" rel="noopener">Set de datos de encuesta StackOverflow&lt;/a>&lt;/p></description></item><item><title>Mi catálogo de herramientas para visualización de datos</title><link>https://joshua.haase.mx/dato/data-visualisation/</link><pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/data-visualisation/</guid><description>&lt;p>Se puede usar este &lt;a href='https://datavizcatalogue.com/ES/' target="_blank" rel="noopener">catálogo de gráficos&lt;/a>
+para saber qué herramientas usar para cada tipo de gráfico.
+y estas &lt;a href='https://app.rawgraphs.io/' target="_blank" rel="noopener">herramientas para graficar&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://www.r-graph-gallery.com/' target="_blank" rel="noopener">Catálogo de gráficos de R con código&lt;/a>.&lt;/p>
+&lt;h2 id="herramientas-para-visualizar-datos">&lt;a href="#herramientas-para-visualizar-datos" alt="">Herramientas para visualizar datos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>&lt;a href='https://es.schoolofdata.org/2018/03/27/mezclando-cronologias-y-graficos-lineales-o-de-fiebre-con-storylinejs/' title="No es tan bonita." target="_blank" rel="noopener">Una herramienta para hacer cronologías&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://opensource.com/life/15/6/eight-open-source-data-visualization-tools' target="_blank" rel="noopener">Herramientas open source para la visualización de datos&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://github.com/vega/vega' target="_blank" rel="noopener">Un sistema para Gráficos interactivos en internet.&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://coggle.it/' title="Aplicación para hacer mapa mental, mapa conceptual." target="_blank" rel="noopener">Para hacer mapas mentales&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://d3js.org/' target="_blank" rel="noopener">Librería JavaScript para visualización interactiva de datos&lt;/a>,
+un &lt;a href='https://observablehq.com/@d3/learn-d3' target="_blank" rel="noopener">tutorial para aprender a usar D3JS&lt;/a>
+y &lt;a href='https://www.d3-graph-gallery.com/' target="_blank" rel="noopener">varios ejemplos de gráficas usando D3JS&lt;/a>&lt;/p></description></item><item><title>Ingeniería de características</title><link>https://joshua.haase.mx/dato/ingenier%C3%ADa-de-caracter%C3%ADsticas/</link><pubDate>Fri, 28 May 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/ingenier%C3%ADa-de-caracter%C3%ADsticas/</guid><description>&lt;p>&lt;figure>
+&lt;img src='https://blog.dominodatalab.com/wp-content/uploads/2018/08/Casari-Feature-Eng-Image-2.png' alt="Tomada de https://www.oreilly.com/library/view/feature-engineering-for/9781491953235/ch01.html" />
+
+&lt;/figure>
+&lt;/p>
+&lt;p>&lt;figure>
+&lt;img src='https://www.kdnuggets.com/wp-content/uploads/feature-engineering-fig1-1.jpg' />
+&lt;figcaption>Ejemplo de cómo la ingeniería de características puede hacer que un conjunto de datos difícil sea separable&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>Parece que &lt;a href='https://www.linkedin.com/pulse/data-science-taught-universities-here-why-maciej-wasiak' target="_blank" rel="noopener">la selección de características es el proceso con mayor impacto en la capacidad de predicción de un modelo&lt;/a>
+y por eso estoy interesado en cómo se realiza,
+por eso recopilé esta lista de&lt;/p>
+&lt;h2 id="recursos-potencialmente-interesantes">&lt;a href="#recursos-potencialmente-interesantes" alt="">Recursos potencialmente interesantes&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>&lt;a href='https://www.datavedas.com/' target="_blank" rel="noopener">Una página con recursos interesantes acerca de la ciencia de datos&lt;/a>
+como esta &lt;a href='https://www.datavedas.com/feature-engineering/' target="_blank" rel="noopener">descripción de la ingeniería de características&lt;/a>.&lt;/p></description></item><item><title>Lista de ambientes gráficos para inteligencia artificial</title><link>https://joshua.haase.mx/dato/ambientes-gr%C3%A1ficos-para-explorar-modelos/</link><pubDate>Thu, 15 Apr 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/ambientes-gr%C3%A1ficos-para-explorar-modelos/</guid><description>&lt;ul>
+&lt;li>&lt;a href=''>Weka&lt;/a>&lt;/li>
+&lt;li>&lt;a href=''>Orange&lt;/a>&lt;/li>
+&lt;li>&lt;a href='https://www.knime.com/getting-started-guide' target="_blank" rel="noopener">KNIME&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Inteligencia Artificial</title><link>https://joshua.haase.mx/dato/no-es-inteligencia/</link><pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/no-es-inteligencia/</guid><description>&lt;h2 id="las-computadoras-son-efectivas">&lt;a href="#las-computadoras-son-efectivas" alt="">Las computadoras son efectivas…&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Desde que entiendo cómo funcionan los modelos de inteligencia artificial
+&lt;strong>me sorprende lo mucho que puede hacerse multiplicando matrices&lt;/strong>. Por ejemplo:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href='https://libccv.org/doc/doc-convnet/' target="_blank" rel="noopener">Este sistema de matrices puede clasificar imágenes tan bien o mejor que una persona&lt;/a>.
+(&lt;a href='https://ujjwalkarn.me/2016/08/11/intuitive-explanation-convnets/' title="Extrayendo patrones " target="_blank" rel="noopener">Aquí explican visualmente cómo&lt;/a>.)&lt;/li>
+&lt;/ul>
+&lt;p>Si tuviera que explicarlo,
+respondería «&lt;strong>porque las operaciones matriciales pueden usarse como filtros para buscar patrones
+y como representación de funciones matemáticas que aproximan la realidad&lt;/strong>».&lt;/p></description></item><item><title>Por qué son mejores los GPU que los CPU para aplicaciones de aprendizaje de máquina</title><link>https://joshua.haase.mx/dato/arquitecturas/</link><pubDate>Sun, 11 Apr 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/arquitecturas/</guid><description>&lt;p>Los CPU tienen varios núcleos y pueden ejecutar tantas tareas como núcleos
+sobre la información que tienen en el caché.&lt;/p>
+&lt;p>&lt;a href='http://download.nvidia.com/developer/cuda/seminar/TDCI_Arch.pdf' target="_blank" rel="noopener">Los GPU, ejecutan más lentamente la misma tarea pero en un conjunto de datos grande&lt;/a>.&lt;/p>
+&lt;p>La mayoría de los modelos de inteligencia artificial consisten en multiplicación de matrices
+con resultados que se traducen en una predicción y una medición de confianza.&lt;/p>
+&lt;p>Estas multiplicaciones se hacen cientos de veces más lento en el GPU que en el CPU
+pero se hacen decenas de miles operaciones al mismo tiempo.
+El resultado final es que las operaciones terminan ordenes de magnitud antes.&lt;/p></description></item><item><title>Anotaciones acerca de la representación de datos y causalidad en la inteligencia artificial.</title><link>https://joshua.haase.mx/dato/2021-04-10/</link><pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/2021-04-10/</guid><description>&lt;p>Parece que la mitad derecha de nuestro cerebro tiene la capacidad de encontrar patrones en la información que recibe [@isbn:978-0-300-16892-1]
+y suele hacerlo sobre una memoria que guarda sólo partes relevantes de los patrones [@isbn:978-1-5416-7580-3].&lt;/p>
+&lt;p>Como está optimizado para sobrevivir en un entorno cambiante
+donde se deben tomar decisiones rápidamente
+tiene una gran cantidad de sesgos cognitivos que ayudan a procesar
+no la realidad tal cuál es,
+sino lo más relevante de lo que tenemos enfrente que nos permitiría sobrevivir.
+Esta es la tesis que expone Donald Hoffman en &lt;em>The Case Against Reality&lt;/em> [@isbn:9780141983417].&lt;/p></description></item><item><title>Cómo tratar valores atípicos en análisis econométricos</title><link>https://joshua.haase.mx/dato/outliers/</link><pubDate>Wed, 24 Mar 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/outliers/</guid><description>&lt;p>Quiero analizar datos públicos acerca de las variables económicas de varias empresas.&lt;/p>
+&lt;p>Después de hacer la limpieza de los datos extrayendo únicamente:&lt;/p>
+&lt;ul>
+&lt;li>Ingresos&lt;/li>
+&lt;li>Ganancias&lt;/li>
+&lt;li>Activos&lt;/li>
+&lt;li>Pasivos&lt;/li>
+&lt;li>Patrimonio&lt;/li>
+&lt;/ul>
+&lt;p>Tengo el problema de que aunque la mayoría de los datos caen dentro de una distribución
+pero todos los parámetros que estoy usando tienen valores atípicos
+que distorsionan el rango dinámico.&lt;/p>
+&lt;p>Para hacer figuras he tenido que redimensionar para obtener valores útiles.&lt;/p>
+&lt;p>Si tuviera razones para pensar que los valores extremos son erróneos,
+&lt;a href='https://www.statology.org/remove-outliers-r/' target="_blank" rel="noopener">podría&lt;/a>
+&lt;a href='https://www.r-bloggers.com/2020/01/how-to-remove-outliers-in-r/' target="_blank" rel="noopener">eliminarlos&lt;/a>
+&lt;a href='https://www.datavedas.com/outlier-treatment/' target="_blank" rel="noopener">o imputarlos&lt;/a>
+&lt;a href='http://r-statistics.co/Outlier-Treatment-With-R.html' target="_blank" rel="noopener">como&lt;/a>
+&lt;a href='https://statisticsglobe.com/remove-outliers-from-data-set-in-r' target="_blank" rel="noopener">todos&lt;/a>
+&lt;a href='https://cxl.com/blog/outliers/' title="Este artículo me gusta especialmente porque explica 5 métodos" target="_blank" rel="noopener">sugieren&lt;/a>.
+Sin embargo, &lt;a href='https://www.theanalysisfactor.com/outliers-to-drop-or-not-to-drop/' target="_blank" rel="noopener">no es válido eliminar valores atípicos sólo por ser atípicos&lt;/a>.&lt;/p></description></item><item><title>Cómo tratar datos personales</title><link>https://joshua.haase.mx/dato/datos-personales/</link><pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/datos-personales/</guid><description>&lt;p>El consentimiento es necesario para usar los datos personales (LFPDPPP 8).
+Puede ser tácito cuando se muestre el aviso de privacidad y no se oponga (LPPDPP 8);
+o expreso cuando manifieste por signos inequívocos (formulario).&lt;/p>
+&lt;p>Se pueden usar datos para investigación si:&lt;/p>
+&lt;ul>
+&lt;li>se disocian de la identidad (LFPDPPP 10).&lt;/li>
+&lt;li>los datos no se divulgan ni se usan comercialmente (LFPDPPP 2 II).&lt;/li>
+&lt;li>son para fines históricos, estadísticos o científicos (LFPDPPP 18)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>No recolectar&lt;/strong> datos sensibles (LFPDPPP 9)
+o patrimoniales (LFPDPPP 8, 10, 37).&lt;/p></description></item><item><title>Modelos obsoletos</title><link>https://joshua.haase.mx/dato/modelos-obsoletos/</link><pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/modelos-obsoletos/</guid><description>&lt;blockquote>
+&lt;p>&amp;ldquo;Book smarts vs street smarts&amp;rdquo;&lt;/p>&lt;/blockquote>
+&lt;p>Hay una diferencia entre el conocimiento que dan los libros
+y el conocimiento que da la relación con la realidad.&lt;/p>
+&lt;p>El conocimiento de los libros se puede homologar a un modelo estático,
+entrenado bajo características particulares
+y potencialmente aplicable a otras situaciones para resolver problemas.&lt;/p>
+&lt;p>Los modelos se vuelven obsoletos porque la realidad está en constante cambio.&lt;/p>
+&lt;hr>
+&lt;p>Hay quien dice que porque los algoritmos pueden encontrar relaciones que las personas no pueden ver
+ya no son necesarias las personas para hacer ciencia.&lt;/p></description></item><item><title>Inteligencia artificial</title><link>https://joshua.haase.mx/dato/inteligencia-artificial/</link><pubDate>Thu, 04 Mar 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/inteligencia-artificial/</guid><description>&lt;p>&lt;a href='https://www.technologyreview.com/2021/03/03/1020247/artificial-intelligence-brain-neuroscience-jeff-hawkins/' target="_blank" rel="noopener">Jeff Hawkins argumenta que&lt;/a>:&lt;/p>
+&lt;ul>
+&lt;li>Aprendizaje de máquina no es inteligencia.&lt;/li>
+&lt;li>Para aprender de la inteligencia necesitamos entender los cerebros.&lt;/li>
+&lt;li>La inteligencia requiere tener un cuerpo para explorar la realidad.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Para producir máquinas rápidas no produjimos caballos mecánicos,
+hicimos máquinas con ruedas que son más efectivas como máquinas.&lt;/p>
+&lt;p>Para la inteligencia muy probablemente ocurra algo similar, el enfoque más eficiente no tiene por qué parecerse a lo orgánico.&lt;/p>
+&lt;hr>
+&lt;p>EOL:
+Pensar si sí somos “inteligentes” o seres orgánicos complejos
+que de acuerdo a bases irracionales
+creamos nuestra “racionalidad”.&lt;/p></description></item><item><title>Notas acerca de cómo limpiar datos</title><link>https://joshua.haase.mx/dato/limpiar-datos/</link><pubDate>Tue, 02 Feb 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/limpiar-datos/</guid><description>&lt;p>Para cambiar ciertos datos:&lt;/p>
+&lt;pre tabindex="0">&lt;code>data %&amp;gt;%
+mutate(
+ columna = recode(
+ columna,
+ old1 = new1,
+ old2 = new2
+ )
+)
+&lt;/code>&lt;/pre>&lt;p>&lt;a href='https://dplyr.tidyverse.org/reference/relocate.html' target="_blank" rel="noopener">Para acomodar las columnas&lt;/a>:&lt;/p>
+&lt;pre tabindex="0">&lt;code>data %&amp;gt;%
+relocate(
+ c(&amp;#34;columna1&amp;#34;, …)
+)
+&lt;/code>&lt;/pre>&lt;p>&lt;a href='https://dplyr.tidyverse.org/reference/rows.html' target="_blank" rel="noopener">Manipular columnas individuales&lt;/a>.&lt;/p></description></item><item><title>Notas acerca de visión computacional</title><link>https://joshua.haase.mx/dato/vision/</link><pubDate>Fri, 07 Aug 2020 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/vision/</guid><description>&lt;div style="position: relative; padding-bottom: 56.25%; overflow: hidden;">
+
+ &lt;iframe
+ style="position: absolute; width: 100%; height: 100%;"
+ src="https://www.youtube.com/embed/videoseries?list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv"
+ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
+ allowfullscreen
+ referrerpolicy="strict-origin-when-cross-origin"
+ frameborder="0">
+ &lt;/iframe>
+
+&lt;/div>&lt;/br>
+
+&lt;p>&lt;a href='https://www.youtube.com/watch?v=vT1JzLTH4G4&amp;amp;list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv' target="_blank" rel="noopener">CS231n Stanford University&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://www.deeplearningbook.org' target="_blank" rel="noopener">Libro para el curso en Stanford&lt;/a>&lt;/p>
+&lt;p>TensorFlow, PyTorch.&lt;/p>
+&lt;p>Se usa una función de pérdida para decirle al modelo qué clase de errores quiere corregir.
+Se agrega un término de regularización para penalizar que el modelo sobreajuste.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Softmax (regresión logística multinomial)&lt;/p>
+&lt;p>$$P(Y = k | X = x_i) = \frac{e^s k}{\sum_j e^s_j}$$ donde $$s = f(x_i, W)$$&lt;/p></description></item><item><title>Cómo funcionan los transformers</title><link>https://joshua.haase.mx/dato/transformers/</link><pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/transformers/</guid><description>&lt;div style="position: relative; padding-bottom: 56.25%; overflow: hidden;">
+
+ &lt;iframe
+ style="position: absolute; width: 100%; height: 100%;"
+ src="https://www.youtube.com/embed/S27pHKBEp30"
+ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
+ allowfullscreen
+ referrerpolicy="strict-origin-when-cross-origin"
+ frameborder="0">
+ &lt;/iframe>
+
+&lt;/div>&lt;/br>
+
+&lt;h2 id="características-de-los-transformers">&lt;a href="#caracter%c3%adsticas-de-los-transformers" alt="">Características de los transformers&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>La primer aproximación a NLP fue usando vectores de n-palabras de un lenguaje.
+No funcionó por el orden y entonces los n-gramas pero requieren muchísimo espacio.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Se proponen los Recurrent Neural Network porque ¿pueden entrenarse con una entrada lineal? y usan mucho menos memoria.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Los RNN tienen el problema de explosión y dilución de factores porque funcionan como exponenciales.
+LSTM resuelve ese problema.&lt;/p></description></item><item><title>Notas y enlaces acerca del Procesamiento del Lenguaje Natural</title><link>https://joshua.haase.mx/dato/natural-language-processing/</link><pubDate>Mon, 27 Jul 2020 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/natural-language-processing/</guid><description>&lt;p>&lt;a href='https://arxiv.org/pdf/2005.14165.pdf' title="[@arxiv:2005.14165v4]" target="_blank" rel="noopener">«Language Models are Few-Shot Learners»&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://minimaxir.com/2019/09/howto-gpt2/' target="_blank" rel="noopener">Un instructivo para usar GPT-2&lt;/a>
+y &lt;a href='https://openai.com/blog/better-language-models/' target="_blank" rel="noopener">el post original de OpenAI&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://arxiv.org/pdf/1801.10198.pdf' target="_blank" rel="noopener">El paper que describe cómo funciona GPT-3&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://yaofu.notion.site/How-does-GPT-Obtain-its-Ability-Tracing-Emergent-Abilities-of-Language-Models-to-their-Sources-b9a57ac0fcf74f30a1ab9e3e36fa1dc1' target="_blank" rel="noopener">Propiedades emergentes de modelos de lenguaje&lt;/a>&lt;/p></description></item><item><title>Cómo hacer una nube de palabras.</title><link>https://joshua.haase.mx/dato/word-cloud/</link><pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/word-cloud/</guid><description>&lt;p>Enlaces para hacer nubes de palabras.&lt;/p>
+&lt;p>No sé si necesitamos un conteo de palabras o un vector de palabras.&lt;/p>
+&lt;hr>
+&lt;p>&lt;a href='https://www.pluralsight.com/guides/visualization-text-data-using-word-cloud-r' target="_blank" rel="noopener">https://www.pluralsight.com/guides/visualization-text-data-using-word-cloud-r&lt;/a>
+&lt;a href='https://www.r-bloggers.com/word-cloud-in-r/' target="_blank" rel="noopener">https://www.r-bloggers.com/word-cloud-in-r/&lt;/a>
+&lt;a href='https://towardsdatascience.com/create-a-word-cloud-with-r-bde3e7422e8a' target="_blank" rel="noopener">https://towardsdatascience.com/create-a-word-cloud-with-r-bde3e7422e8a&lt;/a>
+&lt;a href='https://dzone.com/articles/building-word-cloud-with-r' target="_blank" rel="noopener">https://dzone.com/articles/building-word-cloud-with-r&lt;/a>&lt;/p></description></item><item><title>Ciencia de datos</title><link>https://joshua.haase.mx/dato/data-science/</link><pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/data-science/</guid><description>&lt;blockquote>
+&lt;p>&amp;ldquo;Feature Engineering is by far more impactful on predictive accuracy than anything you can do in the Modeling phase.&amp;rdquo;&lt;/p>
+&lt;p>— &lt;a href='https://www.linkedin.com/pulse/data-science-taught-universities-here-why-maciej-wasiak' target="_blank" rel="noopener">Maciej Wasiak&lt;/a>&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>Data Scientist (n.):
+Person who is better at statistics than any software engineer
+and better at software engineering that any statistician.&lt;/p>
+&lt;p>— @josh_wills&lt;/p>&lt;/blockquote>
+&lt;p>&lt;figure>
+&lt;img src='http://image.slidesharecdn.com/mds-140831045233-phpapp01/95/data-science-skillset-explained-1-1024.jpg?cb=1409460890' />
+&lt;figcaption>Habilidades que necesita un científico de datos&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>&lt;a href='../b%c3%basqueda-de-datos/'>Conjuntos de datos&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://drivendata.github.io/cookiecutter-data-science/#analysis-is-a-dag' target="_blank" rel="noopener">Una guía que explica buenas prácticas al momento de programar&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://erikbern.com/2017/05/23/conversion-rates-you-are-most-likely-computing-them-wrong.html' target="_blank" rel="noopener">Para calcular las tasas de conversión en los negocios, usar el estimador Kaplan- Meier por cohortes&lt;/a>.&lt;/p></description></item><item><title>Minado de datos</title><link>https://joshua.haase.mx/dato/data-mining/</link><pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/data-mining/</guid><description>&lt;h1 id="limpieza-de-datos-data-wrangling">&lt;a href="#limpieza-de-datos-data-wrangling" alt="">Limpieza de datos (Data wrangling)&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h1>&lt;p>&lt;a href='https://tidyr.tidyverse.org/articles/tidy-data.html#sec:tidying' title="Guardada en Zotero porque desapareció de internet" target="_blank" rel="noopener">Una guía para formatear los datos&lt;/a>&lt;/p>
+&lt;h1 id="verificar-datos">&lt;a href="#verificar-datos" alt="">Verificar datos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h1>&lt;p>&lt;a href='https://en.wikipedia.org/wiki/Benford%27s_law' target="_blank" rel="noopener">Para datos que pueden tener varios órdenes de magnitud se puede identificar si los datos son falsos con la frecuencia del primer dígito.&lt;/a>&lt;/p>
+&lt;h1 id="algoritmos-para-aprendizaje-de-máquina">&lt;a href="#algoritmos-para-aprendizaje-de-m%c3%a1quina" alt="">Algoritmos para aprendizaje de máquina&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h1>&lt;p>&lt;a href='https://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/' target="_blank" rel="noopener">https://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use/&lt;/a>&lt;/p>
+&lt;h2 id="precauciones-qué-tomar">&lt;a href="#precauciones-qu%c3%a9-tomar" alt="">Precauciones qué tomar&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>&lt;a href='https://www.digitaltonto.com/2017/data-bias-is-becoming-a-massive-problem/' target="_blank" rel="noopener">https://www.digitaltonto.com/2017/data-bias-is-becoming-a-massive-problem/&lt;/a>&lt;/p>
+&lt;h1 id="herramientas">&lt;a href="#herramientas" alt="">Herramientas&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h1>&lt;h2 id="">&lt;a href="#" alt="">&lt;a href='https://thenewstack.io/six-of-the-best-open-source-data-mining-tools/' target="_blank" rel="noopener">https://thenewstack.io/six-of-the-best-open-source-data-mining-tools/&lt;/a>&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>&lt;a href='https://orange.biolab.si/download/' target="_blank" rel="noopener">https://orange.biolab.si/download/&lt;/a>
+&lt;a href='https://rapidminer.com/' target="_blank" rel="noopener">https://rapidminer.com/&lt;/a>
+&lt;a href='http://mahout.apache.org/' target="_blank" rel="noopener">http://mahout.apache.org/&lt;/a>
+&lt;a href='http://www.cs.waikato.ac.nz/~ml/weka/' target="_blank" rel="noopener">http://www.cs.waikato.ac.nz/~ml/weka/&lt;/a>
+&lt;a href='http://nltk.org/' target="_blank" rel="noopener">http://nltk.org/&lt;/a>&lt;/p>
+&lt;h2 id="">&lt;a href="#" alt="">&lt;a href='https://stackoverflow.com/questions/835754/data-mining-open-source-tools' target="_blank" rel="noopener">https://stackoverflow.com/questions/835754/data-mining-open-source-tools&lt;/a>&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Java Evolutionary algorithms
+&lt;a href='http://keel.es/' target="_blank" rel="noopener">http://keel.es/&lt;/a>&lt;/p>
+&lt;p>(Weka has outdated algorithms according to &lt;a href='https://stackoverflow.com/users/335265/weshallovercome' target="_blank" rel="noopener">https://stackoverflow.com/users/335265/weshallovercome&lt;/a> )&lt;/p></description></item><item><title>Herramientas para la búsqueda de funciones</title><link>https://joshua.haase.mx/dato/b%C3%BAsqueda-de-datos/</link><pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/b%C3%BAsqueda-de-datos/</guid><description>&lt;p>&lt;a href='https://github.com/junegunn/fzf' title="An interactive Unix filter for command-line that can be used with any list" target="_blank" rel="noopener">A command-line fuzzy finder&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://github.com/BurntSushi/ripgrep' target="_blank" rel="noopener">ripgrep recursively searches directories for a regex pattern&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://github.com/ggreer/the_silver_searcher' target="_blank" rel="noopener">A code searching tool similar to ack, with a focus on speed&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://github.com/sampson-chen/sack' target="_blank" rel="noopener">&lt;code>s(hortcut)-ack&lt;/code>: a faster way to use ag, ack (or grep)! &lt;/a>&lt;/p>
+&lt;h1 id="bases-de-datos-públicos">&lt;a href="#bases-de-datos-p%c3%bablicos" alt="">Bases de datos públicos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h1>&lt;p>&lt;a href='https://datos.gob.mx/busca/dataset' target="_blank" rel="noopener">Datos públicos del gobierno de México&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://www.inegi.org.mx/app/descarga/' target="_blank" rel="noopener">Datos recabados por el INEGI&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='http://idegeo.centrogeo.org.mx/layers/geonode%3Amunicipios_mx_feb2018' target="_blank" rel="noopener">Mapa de México&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='http://geoinfo.iplaneg.net/' target="_blank" rel="noopener">Catálogo geográfico de Guanajuato&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://datos.gob.mx/busca/organization/salud' target="_blank" rel="noopener">Indicadores de salud&lt;/a>.&lt;/p></description></item><item><title>Modelos conceptualmente fuertes</title><link>https://joshua.haase.mx/dato/modelos-conceptualmente-fuertes/</link><pubDate>Sun, 16 Jun 2013 03:50:10 +0000</pubDate><guid>https://joshua.haase.mx/dato/modelos-conceptualmente-fuertes/</guid><description>&lt;h2 id="de-dónde-viene-esta-reflexión">&lt;a href="#de-d%c3%b3nde-viene-esta-reflexi%c3%b3n" alt="">De dónde viene esta reflexión&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>En su &lt;a href='http://www.ribbonfarm.com/2007/07/22/book-review-competing-on-analytics/' target="_blank" rel="noopener">análisis del libro&lt;/a>
+«Competing on Analytics» &lt;a href='http://www.ribbonfarm.com/' target="_blank" rel="noopener">Venkatesh Rao&lt;/a>
+señala:&lt;/p>
+&lt;blockquote>
+&lt;p>[…] la analítica, como se entiende en este libro,
+trata acerca de personas inteligentes haciendo las preguntas correctas,
+e intentando guiar su pensamiento
+con la clase correcta de cajas-negras glorificadas y opacas ajustadas a los datos.
+&lt;strong>La analítica por sí misma no provee una forma clara y robusta de distinguir las señales de los ruidos.
+Los modelos conceptualmente fuertes (como, digamos, mecánica clásica) hacen eso.
+Los modelos conceptualmente débiles (como las regresiones) no.&lt;/strong>&lt;/p></description></item><item><title/><link>https://joshua.haase.mx/dato/aprendizaje-de-m%C3%A1quina/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/aprendizaje-de-m%C3%A1quina/</guid><description/></item></channel></rss>

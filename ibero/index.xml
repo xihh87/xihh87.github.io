@@ -1,80 +1,1056 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Joshua Haase</title><link>https://joshua.haase.mx/ibero/</link><description>Recent content on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Fri, 24 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/ibero/index.xml" rel="self" type="application/rss+xml"/><item><title>Plan de trabajo para «Evaluación de técnicas de aprendizaje profundo con información de teledetección a partir de fuentes abiertas para monitorear biomasa en bosques tropicales de México.»</title><link>https://joshua.haase.mx/ibero/2024-05-24-alianza-biomasa-sat%C3%A9lite-unam/</link><pubDate>Fri, 24 May 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-05-24-alianza-biomasa-sat%C3%A9lite-unam/</guid><description>Protocolo.
-Directorio del proyecto.
-Zotero.
-Dudas al correo: emergentes.tic@unam.mx
-Descripción de los datos que hemos usado ↑ Concentrar los datos de biomasa y coordenadas para descargar las imágenes que usaremos para el entrenamiento. (Beto) Pide acceso a la información. &amp;ldquo;Las otras tendríamos que escribir correos a los grupos de investigación y suma 200 más.&amp;rdquo; (Candelario) Datos con información de las parcelas (2024-06-04). (Jonathan) podría obtener imágenes de planet, sentinel jugar con probar mosaico.</description></item><item><title>Apoyo GPT para artículo de QQML</title><link>https://joshua.haase.mx/ibero/2024-05-22-art%C3%ADculo/</link><pubDate>Wed, 22 May 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-05-22-art%C3%ADculo/</guid><description>Versión 2 ↑Ideas principales ↑ Investigación cualitativa en bibliotecas y socialización de la investigación:
-Enfoque: El estudio se basa en una perspectiva cualitativa, utilizando entrevistas semiestructuradas y teoría fundamentada. Participantes: Investigadores en temas educativos de cuatro universidades mexicanas. Datos: Entrevistas con investigadores, observación de videos y revisión de la producción bibliográfica. Papel de la biblioteca en la divulgación y difusión de resultados de investigación:
-Actividades: La biblioteca ayuda en la difusión y divulgación científica, ajustándose a diferentes audiencias, desde pares académicos hasta el público general.</description></item><item><title>Solicitud: Aplicación para seguir proyectos en redes sociales</title><link>https://joshua.haase.mx/ibero/2024-04-25-scrapper-redes-sociales/</link><pubDate>Thu, 25 Apr 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-04-25-scrapper-redes-sociales/</guid><description>Requerimientos ↑La petición es &amp;ldquo;Herramienta de web-scrapping para revisar en tiempo real la popularidad de los proyectos de la semana de ingenierías&amp;rdquo;. Esto tendría que estar listo para 2024-05-02 y hoy es 2024-05-25, por lo que hay 7 días exactamente para hacerlo.
-Evaluación de factibilidad ↑web-scrapping va en contra de los términos de uso de las RRSS, por lo que se podrían bloquear las sesiones, aplicaciones o IPs que utilicen este método.</description></item><item><title>Diseño del examen</title><link>https://joshua.haase.mx/ibero/2024-03-14-examen-bdan/</link><pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-03-14-examen-bdan/</guid><description>Diseña un sistema de datos para este bar de la Ciudad de México que está disminuyendo sus beneficios y no tiene un control de inventario adecuado.
-Haz 3 hipótesis que expliquen el problema. ¿Qué cosas deberías medir para saber cuál es el problema? Diseña un sistema que recopile estas variables. Te están una implementación de Qlik por MXN $50'000.00: El argumento es que mejorando tu flujo de integración de datos podrías encontrar fácilmente el problema.</description></item><item><title>Hackea la cámara</title><link>https://joshua.haase.mx/ibero/2024-promoci%C3%B3n-icd/hackea-tu-c%C3%A1mara/</link><pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-promoci%C3%B3n-icd/hackea-tu-c%C3%A1mara/</guid><description>Descripción extensa
-La idea para generar el juego es que la cámara grabe una oficina o algo similar donde haya pistas o directamente se vea la contraseña y la web que requieran usarse.
-La infraestructura para esto incluye generar un RTSP sin TLS.
-Configurar una webcam para publicar información en línea. Podría utilizarse un servidor RTSP (instrucciones linux, container rtsp-simple-server, listado RFC). En el reto los estudiantes primero tienen que encontrar la cámara (p.</description></item><item><title>Demo Yolo</title><link>https://joshua.haase.mx/ibero/2024-03-01-demo-yolo/</link><pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-03-01-demo-yolo/</guid><description>Se pueden alquilar tarjetas gráficas (API docs) ejecutando trabajos en contenedores.
-vastai create instance 36842 --image pytorch/pytorch --disk 32 Descargar documento.
-Plan ↑ Encontrar una versión de yolo lista para tiempo real. YOLOv3 con batch size de 16 podría funcionar en 6 GB. YOLOv7 es rápido y en tiempo real (código, demo) web https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt web http://images.cocodataset.org/annotations/annotations_trainval2017.zip YOLOv8 (docs, AGPLv3). YOLOv7 ↑nvidia-docker run \ --name yolov7 \ -it \ -v your_coco_path/:/coco/ \ -v your_code_path/:/yolov7 \ --shm-size=64g \ nvcr.</description></item><item><title>Búsqueda del tesoro (ICD, GIC) → 2024-07-11</title><link>https://joshua.haase.mx/ibero/2024-promoci%C3%B3n-icd/b%C3%BAsqueda-del-tesoro/</link><pubDate>Mon, 19 Feb 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-promoci%C3%B3n-icd/b%C3%BAsqueda-del-tesoro/</guid><description>Objetivos ↑Atraer estudiantes a la carrera «Ingeniería en Ciencia de Datos» de la Universidad Iberoamericana.
-Mostrar las instalaciones a los estudiantes. Hacerlos resolver retos relacionados con la asignatura de su interés. Promocionar actividades y grupos de interés que existen en a Ibero. Recursos de Ibero que venden ↑Instalaciones ↑ Lab robots (Ingeniería industrial) Biblioteca Acevo historico de la biblioteca. Gimnasio Club astronómico INIAT Anexo F movimiento → Siempre abiertos Espacio estudiantil Jardín de lobos Estatua de San Ignacio, jardín C/D Espacio estudiantil ¿CITER (L), cerca de ingeniería industrial de materiales?</description></item><item><title>¿Qué clase de proyecto puedo usar para «Big Data Aplicada a Negocios»</title><link>https://joshua.haase.mx/ibero/bdan/</link><pubDate>Mon, 12 Feb 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/bdan/</guid><description>Dónde buscar conjuntos de datos ↑Estuve buscando conjuntos de datos para actividades.
-800 conjuntos de datos gratuitos. 21 lugares para buscar datos Datasets para proyectos específicos detección de fraude bancario 10 lugares para buscar conjuntos de datos: DataHub Linked Open Data. Billion Triplet Challenge (paper). Academic Torrents data.world al parecer descarga gratuita con registro, uso de la herramienta Open Data USD$12/usuario/mes, o usar su plataforma comercialmente USD$custom. Open Data Portal Watch de la Universidad de Viena.</description></item><item><title>Prospectiva CSAW</title><link>https://joshua.haase.mx/ibero/2023-01-05-prospectiva-csaw/</link><pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-01-05-prospectiva-csaw/</guid><description>Objetivos Santiago ↑Perspectiva de investigación en ciber-seguridad.
-2024-01-05 ↑Los desafíos de México podrían ser distintos a los de otros países.
-Buscar recursos. CSAW le pertenece a NYU, profesor a ayudar, laboratorio como institución que apoya, no integrar Purdue.
-Hack The Drone ↑Desarrollar simulador digital. El Dron lleva un contenedor de un lugar al otro, si desvías el simulador.
-Puntos por:
-Lograr el objetivo Metodología Hackea tu vehículo autónomo.
-Cyber-forense ↑Investigar por qué un LLM reaciona de cierta manera.</description></item><item><title>Proyecto Institucional «WiFi Ibero»</title><link>https://joshua.haase.mx/ibero/2023-05-25-an%C3%A1lisis-wifi/</link><pubDate>Fri, 09 Jun 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-05-25-an%C3%A1lisis-wifi/</guid><description>Objetivo ↑Es un proyecto interdisciplinario para diagnosticar, analizar, evaluar y buscar soluciones para mejorar el servicio de WiFi que se ofrece actualmente a la comunidad Ibero en el campus.
-Enlaces rápidos ↑ Proyecto Datos Diagnóstico ↑ Solicitar datos a Adriana Lorena Fajardo (Joshua Haase) (2023-05-25 en reunión, 2023-06-02 correo, 2023-06-09 WA) Entregar datos (Adriana Fajardo) (2023-06-14) Generar un conjunto de datos consolidado para el análisis y ordenado por Edificio y AP.</description></item><item><title>Proyectos visibles de Ciencia de Datos (insignia)</title><link>https://joshua.haase.mx/ibero/2023-insignia/</link><pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-insignia/</guid><description>Enlaces rápidos ↑ Código Objetivo ↑ Ganar visibilidad como grupo de ciencia de datos. Mapa de estudiantes ↑ Descargar los datos y agregarlos en el directorio del proyecto.
-Configurar el entorno para trabajar el proyecto.
-Iniciar el sistema origen:
-make run Entrar al sistema.
-Instalar los paquetes:
-renv::restore() Encontrar shapefiles de CDMX y Edo. Mex
-El conjunto de datos «Tabla de Códigos Postales y asentamientos humanos de todas las entidades, y archivos shp de Códigos Postales» no está disponible.</description></item><item><title>Propuesta: analizar datos de prospectos en salesforce</title><link>https://joshua.haase.mx/ibero/2023-03-27-propuesta-salesforce/</link><pubDate>Mon, 27 Mar 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-03-27-propuesta-salesforce/</guid><description>Con fundamento en el principio de Eficiencia y Sostenibilidad presentado por el Dr. Luis Arriaga Valenzuela, S.J, con motivo del rubro «1. propuesta de proyecto visible que involucre ciencia de datos» y considerando que:
-Uno de los principales puntos de venta de la Ingeniería en Ciencia de Datos es que ayudamos a las empresas a tomar decisiones basadas en datos para mejorar los resultados de negocio.
-Existen datos en SalesForce que pueden dirigir las decisiones de promoción de las diferentes carreras de la Universidad Iberoamericana Ciudad de México.</description></item><item><title>Acciones de promoción desde ICD</title><link>https://joshua.haase.mx/ibero/promoci%C3%B3n-de-icd/</link><pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/promoci%C3%B3n-de-icd/</guid><description>Página web ↑ Sitio web que hizo Andrés
-Enviar lista de proyectos a Andrés Tortolero.
-Buscar recursos, videos, tutoriales, explicaciones de divulgación.
-https://towardsdatascience.com/ https://ncase.me/polygons/ https://ncase.me/crowds/ https://datascience.codata.org/articles/10.5334/dsj-2015-008/ &amp;ldquo;La idea es que se convierta en un referente&amp;rdquo;.
-Lanzamiento con el CEO de McKinsey (Pricewater coopers) Ignacio Yacuría S Sótano 18:00
-Enfocada a padres y empresarios para sus conocidos. Competencia interna en Ibero ↑ AI para diseñadores Estadística y Python Creatividad en tiempos de IA ¿Qué taller hacemos para IA?</description></item><item><title>Simulador de intercambio gaseoso</title><link>https://joshua.haase.mx/ibero/simulador-de-intercambio-gaseoso/</link><pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/simulador-de-intercambio-gaseoso/</guid><description>Directorio del proyecto Artículo Definición del proyecto ↑Para el Instituto Nacional de Enfermedades Respiratorias que quieren capacitar a sus residentes para adaptar los tratamientos para condiciones diferentes a nivel del mar el Simulador de Intercambio Gaseoso es una aplicación web que permite enseñar a médicos y a diferencia del método tradicional para enseñar nuestro producto muestra los parámetros de equilibrio de manera dinámica para explorar.
-Para la Universidad Iberoamericana, el atractivo es recopilar datos para proyecto de investigación y generar un producto en el mercado.</description></item><item><title>Script de ventas para *Ingeniería en Ciencia de Datos*</title><link>https://joshua.haase.mx/ibero/script-de-venta/</link><pubDate>Thu, 16 Mar 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/script-de-venta/</guid><description>Script de ventas para Ingeniería en Ciencia de Datos ↑¿Ya decidiste qué quieres estudiar?
-Sí ¿Qué quieres estudiar?
-¿Estás 100% seguro?
-Si ya decidió y está buscando otra cosa, llamarlo a argumentar.
-Si la carrera que eligió está relacionada (actuaría, informática) o si no sabe qué hacer buscar preguntar:
-¿Por qué te interesa esa carrera?
-Estamos buscando puntos de contacto como:
-gusto por las matemáticas, interés por entender el mundo, interés storytelling, perfil analítico.</description></item><item><title>App endometriosis</title><link>https://joshua.haase.mx/ibero/app-endometriosis/</link><pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/app-endometriosis/</guid><description>Visión y alcance ↑Para investigadores en materia de salud de la Ibero que necesitan recabar datos epidemiológicos para el proyecto «Calidad de vida en mujeres mexicanas con endometriosis» el [nombre de producto] es una aplicación móvil que permite recabar los datos directamente en una base de datos directamente en un formato que facilita su análisis y a diferencia de las encuestas realizadas con personas nuestro producto tiene más alcance, puede generar datos a largo plazo, y guarda los datos consistentemente.</description></item><item><title>App Sarcopenia</title><link>https://joshua.haase.mx/ibero/app-sarcopenia/</link><pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/app-sarcopenia/</guid><description>Para médicos que quieren diagnosticar Sarcopenia el [nombre de producto] es una aplicación móvil que simplifica el diagnóstico y a diferencia de los equipos convencionales nuestro producto [ventaja competitiva].
-Arquitectura ↑ Actores y sus intereses ↑Usuarios favorecidos ↑ Médicos que diagnostican. Pacientes que consultan su diagnóstico. Investigadores que estudian datos anonimizados. Usuarios desfavorecidos ↑ Vendores de equipos convencionales. Usuarios ignorados ↑ Estudiantes de medicina. Médicos no asignados. Aseguradoras. Otros Usuario ↑ Bots explotando vulnerabilidades.</description></item><item><title>¿Qué información necesitamos para la prospectiva?</title><link>https://joshua.haase.mx/ibero/2023-01-06-solicitud-de-informaci%C3%B3n/</link><pubDate>Thu, 05 Jan 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-01-06-solicitud-de-informaci%C3%B3n/</guid><description>¿Por qué necesitamos esta prospectiva?
-&amp;ldquo;Es un marco común acerca de lo que se quiere lograr. derivada un análisis de hacia dónde se mueve el Departamento de Estudios en Ingeniería para la Innovación para encauzar esfuerzos hacia el posible futuro que vemos.
-Para entender «en dónde estoy parado y hacia dónde me quiero mover» generar escenarios, y tener una visión común de hacia dónde me muevo.&amp;rdquo;
-Proceso de captación, retención y seguimiento de estudiantes ↑ ¿Qué proceso siguen los estudiantes desde el primer contacto hasta después de su egreso?</description></item><item><title>Prospectiva</title><link>https://joshua.haase.mx/ibero/2023-01-05-prospectiva/</link><pubDate>Thu, 05 Jan 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-01-05-prospectiva/</guid><description>Introducción ↑Ciencia de datos ↑La Universidad Iberoamericana forma 3 perfiles:
-Intra-emprendedores: transforman la empresa para generar bienestar. Emprendedores: son capaces de generar bienestar y capturar parte de el valor que generan. Investigadores: son capaces de extender las fronteras del conocimiento humano. Objetivos de Coordinación de Ciencia de Datos ↑ Tener una matrícula adecuada y estable. Tener una imagen reconocible dentro y fuera de la Ibero. Ser referente académico en Ciencia de Datos a nivel internacional.</description></item><item><title>RFC UIA</title><link>https://joshua.haase.mx/ibero/rfc/</link><pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/rfc/</guid><description>RFC: UIB 540920 IT3 Universidad Iberoamericana, A.C. Prolg. Paseo de la Reforma No. 880 Col. Lomas de Santa Fe Álvaro Obregón 01219 Ciudad de México
-UIB540920IT3 Regimen fiscal: 603 Personas Morales con Fines no Lucrativos</description></item><item><title>Gestión Práctica de Datos de Investigación</title><link>https://joshua.haase.mx/ibero/taller-herramientas-de-datos/</link><pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/taller-herramientas-de-datos/</guid><description>Entorno e inquietudes ↑Gestión de datos. Confidencialidad.
-Australian Research Council ↑Describir cómo surgen los datos.
-Ponerse a disposición del público en repositorio institucional.
-NSF ↑Plan de gestión de datos hasta 2 páginas
-Nature ↑Intercambio de datos para repositorios cuando existan. Cuando no existen, Figshare, Dryad, Zenodo.
-Ejercicio 1 ↑ a) ¿Qué nos dijo sobre sus retos e inquietudes?
-Dónde poner los datos y cómo hacerlos accesibles.
-Cómo agregar los metadatos para que los datos sean accesibles para otras investigaciones.</description></item><item><title>Escritura académica</title><link>https://joshua.haase.mx/ibero/escritura-acad%C3%A9mica/</link><pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/escritura-acad%C3%A9mica/</guid><description>No cuidar formas, transmitir ideas, ejercicios.
-Eva Arceo: Es muy frustrante leerlos y quiero ayudarles.
-Idea piramidal. Estructura de párrafo. Simplificar. Andrea Clausen: Comunicación, Administración.
-Sorpresa de que cuando pido que redacten opiniones personales Nuevas técnicas y herramientas para mejorar y ayudarles a mis alumnos a mejorar. Cristianne Cazenave Tapie: Sacar la estructura del texto y no se queden con 3 ideas generales.
-Miguel Ángel Rodríguez: Contador.
-¿Qué importa esto si es conta?</description></item><item><title>Alternativas para mejorar la clase</title><link>https://joshua.haase.mx/ibero/mejorar-clase/</link><pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/mejorar-clase/</guid><description>Posibilidad de participar
-Revisar la planeación desde el enfoque del alineamiento constructivo
-coherencia entre objetivos, método y evaluación
-Reflexionar sobre planeación para identificar áreas de oportunidad
-Reconocer diferentes niveles de aprendizaje y su relación con la motivación
-Niveles de aprendizaje ICAP
-Prácticas de enseñanza y aprendizaje que promueven la motivación del estudiante
-Formación DIDAE, DEAMet, BFXC
-Alineamiento constructivo ↑coherencia entre objetivos, método y evaluación
-Profesores esperan =/= estudiantes reciben
-intención de demostrar que expliquen, relacionen, demuestren</description></item><item><title/><link>https://joshua.haase.mx/ibero/plan-2023/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/plan-2023/</guid><description/></item><item><title/><link>https://joshua.haase.mx/ibero/plan-2024/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/plan-2024/</guid><description/></item><item><title/><link>https://joshua.haase.mx/ibero/plan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/plan/</guid><description/></item><item><title/><link>https://joshua.haase.mx/ibero/servicios-bfxc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/servicios-bfxc/</guid><description/></item><item><title>¿Qué es la IA?</title><link>https://joshua.haase.mx/ibero/2024-01-19-inteligencia-artficial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-01-19-inteligencia-artficial/</guid><description>Desarollo de la Inteligencia Artificial [@url:https://qbi.uq.edu.au/files/40697/The-Brain-Intelligent-Machines-AI-timeline.jpg ] Se han usado muchos métodos para imitar la inteligencia [@url:https://prismlegal.com/wp-content/uploads/2016/01/Artificial-Intelligence-AI.png ] Las primeras estrategias resolvían problemas con estrategias concretas [@url:https://www.tutorialandexample.com/wp-content/uploads/2019/07/search-algorithm.png] O buscaban límites de decisión [@url:https://miro.medium.com/v2/resize:fit:1149/1*z-4Jf9apbzR8pGb21zp4Yg.jpeg] Usando trucos para separar problemas difíciles [@url:https://miro.medium.com/v2/resize:fit:838/1*gXvhD4IomaC9Jb37tzDUVg.png] [@url:https://lh5.googleusercontent.com/Fqswkk7bY0_7EhTgbPWNOexWWzzDplNKYc1bJl6MI_edNVdwXnWI5xkoSyl7SxFHLLAWlW1AIEhWF2ilVvThzuU0HoPBNF79HsPezpXnKTv3DCFnD9ZeVPLmR828_JXpv5cB35TL] Luego se intentó traducir el conocimiento a formatos que las computadoras pudieran buscar [@doi:10.5604/0860889X.1172060] E incluso desde finales de los 50’s se propusieron varios métodos usando redes neuronales [](</description></item><item><title>Explainable ML Exchange Ideas</title><link>https://joshua.haase.mx/ibero/2023-03-06-proposal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-03-06-proposal/</guid><description>Architecture defines capabilities.
-Gradient descent tries to approximate the objective.
-More parameters can be helpful but have energy costs.
-I don&amp;rsquo;t see space for Reinforcement Learning (RL) becase there is no feedback mechanism.
-But the experiment I&amp;rsquo;d like to try is to:
-search for known equations that describe appliance energy consumption (Nicole)
-Washing Machine a non-linearity layer to allow for mix and match → PDF for time intervals?.
-a math model that&amp;rsquo;s good to predict cycles.</description></item><item><title>La Ciencia de Datos en nuestra vida cotidiana</title><link>https://joshua.haase.mx/ibero/2023-10-24-promoci%C3%B3n-icd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-10-24-promoci%C3%B3n-icd/</guid><description>En 1854 hubo una epidemia de cólera en Londres Corría el año 1854, y Londres estaba siendo azotada por un terrible brote de cólera. Las calles estaban llenas de enfermos y moribundos, y la ciudad estaba en pánico. Snow, sin embargo, estaba decidido a desentrañar el misterio detrás de esta mortal epidemia.
-Armado con sus libros y un mapa de la ciudad, Snow comenzó a investigar. Visitó a las personas afectadas y tomó notas meticulosas sobre sus síntomas y ubicaciones.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Joshua Haase</title><link>https://joshua.haase.mx/ibero/</link><description>Recent content on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Mon, 08 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/ibero/index.xml" rel="self" type="application/rss+xml"/><item><title>Bases Hackatón</title><link>https://joshua.haase.mx/ibero/2025-09-bases-hackat%C3%B3n/</link><pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2025-09-bases-hackat%C3%B3n/</guid><description>&lt;p>Por favor ayúdame a redactar el texto de estas bases como una prosa con el estilo del ejemplo&lt;/p>
+&lt;h1 id="bases-oficiales--hackatón-detectives-de-datos">&lt;a href="#bases-oficiales--hackat%c3%b3n-detectives-de-datos" alt="">Bases oficiales — Hackatón &amp;ldquo;Detectives de Datos&amp;rdquo;&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h1>&lt;ol>
+&lt;li>
+&lt;p>Título del evento&lt;/p>
+&lt;ul>
+&lt;li>Detectives de Datos&lt;/li>
+&lt;li>Opciones alternativas (para elección de comunicación):
+&lt;ul>
+&lt;li>Detectives de Datos: Clasifica y Protege&lt;/li>
+&lt;li>Ibero Data Detectives&lt;/li>
+&lt;li>PhishGuard: Hackatón de Clasificación de Phishing&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Organizadores&lt;/p>
+&lt;ul>
+&lt;li>Universidad Iberoamericana&lt;/li>
+&lt;li>Departamento: Ingeniería para la Innovación&lt;/li>
+&lt;li>Coordinación: Coordinación de Ciencia de Datos&lt;/li>
+&lt;li>Contactos organizadores: ver sección &amp;ldquo;Contacto para aclaraciones&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Objetivo / descripción general&lt;/p></description></item><item><title>Plan de trabajo para «Evaluación de técnicas de aprendizaje profundo con información de teledetección a partir de fuentes abiertas para monitorear biomasa en bosques tropicales de México.»</title><link>https://joshua.haase.mx/ibero/2024-05-24-alianza-biomasa-sat%C3%A9lite-unam/</link><pubDate>Fri, 24 May 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-05-24-alianza-biomasa-sat%C3%A9lite-unam/</guid><description>&lt;p>&lt;a href='https://iberomx-my.sharepoint.com/:w:/r/personal/joshua_haase_ibero_mx/Documents/Proyectos/2024-alianza-unam/Alianza_2023_-_Biomasa_segmentaci%C3%B3n_sat%C3%A9lite.docx?d=w3da45ceb49934f42aaf620bbd7505ce0&amp;amp;csf=1&amp;amp;web=1&amp;amp;e=cJhg9h' target="_blank" rel="noopener">Protocolo&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://iberomx-my.sharepoint.com/:f:/r/personal/joshua_haase_ibero_mx/Documents/Investigaci%C3%B3n/2024-alianza-unam?csf=1&amp;amp;web=1&amp;amp;e=Uisenf' target="_blank" rel="noopener">Directorio del proyecto&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://www.zotero.org/groups/5544671/biomasa-alianza' target="_blank" rel="noopener">Zotero&lt;/a>.&lt;/p>
+&lt;p>Dudas al correo: &lt;a href='mailto:emergentes.tic@unam.mx'>emergentes.tic@unam.mx&lt;/a>&lt;/p>
+&lt;h2 id="descripción-de-los-datos-que-hemos-usado">&lt;a href="#descripci%c3%b3n-de-los-datos-que-hemos-usado" alt="">Descripción de los datos que hemos usado&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Concentrar los datos de biomasa y coordenadas para descargar las imágenes que usaremos para el entrenamiento.
+&lt;ul>
+&lt;li>(Beto) Pide acceso a la información.
+&lt;ul>
+&lt;li>&amp;ldquo;Las otras tendríamos que escribir correos a los grupos de investigación y suma 200 más.&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>(Candelario) Datos con información de las parcelas (2024-06-04).&lt;/li>
+&lt;li>(Jonathan) podría obtener imágenes de planet, sentinel jugar con probar mosaico.&lt;/li>
+&lt;li>¿Cuántos datos tenemos que podemos compartir ahora? ( /INFyS).&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Cando) Quitando datos de Jorge, Miguel. Círculos de 113 metros, hay más de 100. 1600m^2 y coordenadas del centro.
+&lt;ul>
+&lt;li>&lt;a href='https://iberomx-my.sharepoint.com/:x:/r/personal/joshua_haase_ibero_mx/Documents/Investigaci%C3%B3n/2024-alianza-unam/Base_Parcelas/Base_Parcelas_Alianza.xlsx?d=w8470a1daf2884eafb4bc527f7184bfd0&amp;amp;csf=1&amp;amp;web=1&amp;amp;e=Gb0BPn' target="_blank" rel="noopener">Conjunto de datos&lt;/a>&lt;/li>
+&lt;li>&lt;a href='https://iberomx-my.sharepoint.com/:i:/r/personal/joshua_haase_ibero_mx/Documents/Investigaci%C3%B3n/2024-alianza-unam/Mapas%20JPG/Parcelas_INFYS_Alianza.jpg?csf=1&amp;amp;web=1&amp;amp;e=21iqC7' target="_blank" rel="noopener">Imagen&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href='https://snmf.cnf.gob.mx/documentos-metodologicos/' target="_blank" rel="noopener">Método de muestreo del Inventario Nacional Forestal y de Suelos (INFyS)&lt;/a>.&lt;/li>
+&lt;li>25x25, 25x50, 40–50 (1000+).&lt;/li>
+&lt;li>&lt;a href='https://iberomx-my.sharepoint.com/:x:/r/personal/joshua_haase_ibero_mx/Documents/Investigaci%C3%B3n/2024-alianza-unam/Base_Parcelas/Base_Parcelas_Alianza.xlsx?d=w8470a1daf2884eafb4bc527f7184bfd0&amp;amp;csf=1&amp;amp;web=1&amp;amp;e=Gb0BPn' target="_blank" rel="noopener">Parcelas de bosques tropicales&lt;/a>.
+&lt;ul>
+&lt;li>Las coordenadas están en las columnas &lt;code>Northing_Geo&lt;/code> e &lt;code>Easting_Geo&lt;/code>,
+la biomasa está en &lt;code>Biomasa (t/ha)&lt;/code>
+y la fecha en &lt;code>Ano_muestreo&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="generar-conjuntos-de-datos-para-entrenamientos-y-validación">&lt;a href="#generar-conjuntos-de-datos-para-entrenamientos-y-validaci%c3%b3n" alt="">Generar conjuntos de datos para entrenamientos y validación&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Joshua) Descargar el conjunto de datos con el que se entrenó
+&lt;a href='https://github.com/priamus-lab/ReUse' target="_blank" rel="noopener">Re-UNET&lt;/a>:
+&lt;a href='https://data.ceda.ac.uk/neodc/esacci/biomass/data/agb/maps/v3.0/' target="_blank" rel="noopener">«ESA Biomass Climate Change Initiative of the Global above-ground forest biomass for 2018, v3»&lt;/a>
+(&lt;a href='https://catalogue.ceda.ac.uk/uuid/5f331c418e9f4935b8eb1b836f8a91b8' target="_blank" rel="noopener">desc&lt;/a>,
+vía &lt;a href='https://climate.esa.int/en/data/#/' target="_blank" rel="noopener">ESA&lt;/a>).&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Joshua) Configurar acceso para las personas que quieran trabajar en el servidor.
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Jonathan,Max,Cando) Generar clave SSH.&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Joshua) Agregarla al equipo.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Joshua) Ayuda a montar GDrive en el servidor para copiar los datos.&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Cando) Descargar imágenes satelitales desde Google Earth Engine.
+&lt;ul>
+&lt;li>Imágenes multiespectrales de 10m desde 2015.
+Son &lt;strong>Mosaicos anuales de planet a 5m desde 2015&lt;/strong>.
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> 2015&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> 2016&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> 2017&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> 2018&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> 2019&lt;/li>
+&lt;li>☒ &lt;del>2020&lt;/del>&lt;/li>
+&lt;li>☒ &lt;del>2021&lt;/del>&lt;/li>
+&lt;li>☒ &lt;del>2022&lt;/del>&lt;/li>
+&lt;li>☒ &lt;del>2023&lt;/del>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Jonathan) Generó script para extraer imágenes TIF que incluyan los 40x40m (1600m²) centradas en las coordenadas de la base de datos.
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> (Jonathan) Convertir las imágenes a etiquetas.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Subir las imágenes satelitales para entrenamiento al servidor.
+&lt;ul>
+&lt;li>(Joshua) Descargar imágenes.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="entrenamiento-y-posible-optimización-para-hardware-huawei">&lt;a href="#entrenamiento-y-posible-optimizaci%c3%b3n-para-hardware-huawei" alt="">Entrenamiento y posible optimización para hardware Huawei&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Joshua) Descargar código de Re-UNET.&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Joshua) Leer &lt;a href='https://proceedings.mlr.press/v212/lu23a/lu23a.pdf' target="_blank" rel="noopener">artículo original de Re-UNet&lt;/a>.
+Al parecer para &lt;a href='https://stackoverflow.com/questions/74954805/using-the-u-net-for-regression-problems' target="_blank" rel="noopener">cambiar de UNET segmentador a regresión Lineal&lt;/a>
+basta con cambiar la función de pérdida por minimizar error cuadrado
+y la última capa por una convolución con activación lineal.&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> (Joshua) Generar contenedor para ejecutar el código.&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Entrenar modelo.&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Comparar con otros métodos.
+&lt;ul>
+&lt;li>(Edgar) Tiene modelos en su equipo que podrían usarse para comparar rendimiento con otros modelos.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="burocracia-a-entregar">&lt;a href="#burocracia-a-entregar" alt="">Burocracia a entregar&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Este es el &lt;a href='https://iberomx-my.sharepoint.com/:w:/r/personal/joshua_haase_ibero_mx/Documents/Investigaci%C3%B3n/2024-alianza-unam/01-recursos/Alianza_FormatoReportesTrimestrales_2023.docx?d=wcca28a9c34534aa2b0d43693c1c216a6&amp;amp;csf=1&amp;amp;web=1&amp;amp;e=ZDbkF7' target="_blank" rel="noopener">Documento de Reporte Trimestral&lt;/a>&lt;/p></description></item><item><title>Apoyo GPT para artículo de QQML</title><link>https://joshua.haase.mx/ibero/2024-05-22-art%C3%ADculo/</link><pubDate>Wed, 22 May 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-05-22-art%C3%ADculo/</guid><description>&lt;h2 id="versión-2">&lt;a href="#versi%c3%b3n-2" alt="">Versión 2&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;h3 id="ideas-principales">&lt;a href="#ideas-principales" alt="">Ideas principales&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Investigación cualitativa en bibliotecas y socialización de la investigación:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Enfoque: El estudio se basa en una perspectiva cualitativa, utilizando entrevistas semiestructuradas y teoría fundamentada.&lt;/li>
+&lt;li>Participantes: Investigadores en temas educativos de cuatro universidades mexicanas.&lt;/li>
+&lt;li>Datos: Entrevistas con investigadores, observación de videos y revisión de la producción bibliográfica.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Papel de la biblioteca en la divulgación y difusión de resultados de investigación:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Actividades: La biblioteca ayuda en la difusión y divulgación científica, ajustándose a diferentes audiencias, desde pares académicos hasta el público general.&lt;/li>
+&lt;li>Funciones: Desde apoyo en la gestión de la información hasta la creación de infografías y participación en redes sociales.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Definiciones y enfoques de divulgación y difusión:&lt;/strong>&lt;/p></description></item><item><title>Solicitud: Aplicación para seguir proyectos en redes sociales</title><link>https://joshua.haase.mx/ibero/2024-04-25-scrapper-redes-sociales/</link><pubDate>Thu, 25 Apr 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-04-25-scrapper-redes-sociales/</guid><description>&lt;h2 id="requerimientos">&lt;a href="#requerimientos" alt="">Requerimientos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>La petición es
+&amp;ldquo;Herramienta de web-scrapping para revisar en tiempo real
+la popularidad de los proyectos de la semana de ingenierías&amp;rdquo;.
+Esto tendría que estar listo para 2024-05-02 y hoy es 2024-05-25,
+por lo que hay 7 días exactamente para hacerlo.&lt;/p>
+&lt;h2 id="evaluación-de-factibilidad">&lt;a href="#evaluaci%c3%b3n-de-factibilidad" alt="">Evaluación de factibilidad&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>&lt;strong>web-scrapping va en contra de los &lt;a href='https://www.facebook.com/legal/terms/' target="_blank" rel="noopener">términos&lt;/a>
+&lt;a href='https://www.facebook.com/help/instagram/478745558852511' target="_blank" rel="noopener">de&lt;/a>
+&lt;a href='https://cdn.cms-twdigitalassets.com/content/dam/legal-twitter/asset-download-files/TheTwitterUserAgreement_1.pdf' target="_blank" rel="noopener">uso&lt;/a>
+de las RRSS&lt;/strong>,
+por lo que se podrían bloquear las sesiones, aplicaciones o IPs que utilicen este método.&lt;/p></description></item><item><title>Diseño del examen</title><link>https://joshua.haase.mx/ibero/2024-03-14-examen-bdan/</link><pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-03-14-examen-bdan/</guid><description>&lt;ol>
+&lt;li>
+&lt;p>Diseña un sistema de datos para este bar de la Ciudad de México que está disminuyendo sus beneficios y no tiene un control de inventario adecuado.&lt;/p>
+&lt;ul>
+&lt;li>Haz 3 hipótesis que expliquen el problema.&lt;/li>
+&lt;li>¿Qué cosas deberías medir para saber cuál es el problema?&lt;/li>
+&lt;li>Diseña un sistema que recopile estas variables.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Te están una implementación de &lt;a href='https://www.salesforce.com/uk/editions-pricing/marketing-cloud/account-engagement/' target="_blank" rel="noopener">Qlik&lt;/a> por MXN $50'000.00:
+El argumento es que mejorando tu flujo de integración de datos podrías encontrar fácilmente el problema.&lt;/p></description></item><item><title>Hackea la cámara</title><link>https://joshua.haase.mx/ibero/2024-promoci%C3%B3n-icd/hackea-tu-c%C3%A1mara/</link><pubDate>Wed, 06 Mar 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-promoci%C3%B3n-icd/hackea-tu-c%C3%A1mara/</guid><description>&lt;p>&lt;a href='https://drive.google.com/drive/u/0/folders/1IXq7sHIZ6v_uxCG_PUznokWJuqOTnq3L' target="_blank" rel="noopener">Descripción extensa&lt;/a>&lt;/p>
+&lt;p>La idea para generar el juego es que la cámara grabe una oficina o algo similar
+donde haya pistas o directamente se vea la contraseña y la web que requieran usarse.&lt;/p>
+&lt;p>La infraestructura para esto incluye generar un RTSP sin TLS.&lt;/p>
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> Configurar una webcam para publicar información en línea.
+&lt;a href='https://aprendacctv.com/protocolo-rtsp/' target="_blank" rel="noopener">Podría utilizarse un servidor RTSP&lt;/a>
+(&lt;a href='https://helpdeskgeek.com/linux-tips/create-your-own-live-video-streaming-server-with-linux/' target="_blank" rel="noopener">instrucciones linux&lt;/a>,
+&lt;a href='https://github.com/ztzl-com/rtsp-simple-server' target="_blank" rel="noopener">container rtsp-simple-server&lt;/a>,
+&lt;a href='https://stackoverflow.com/questions/4321438/how-to-create-a-rtsp-streaming-server' target="_blank" rel="noopener">listado RFC&lt;/a>).&lt;/li>
+&lt;/ul>
+&lt;p>En el reto los estudiantes primero tienen que encontrar la cámara (p.e. haciendo un escaneo de redes),
+una vez que hayan encontrado la cámara, tienen que escuchar la red (p.e. usando wireshark) y obtener la contraseña.
+Finalmente entran a la web con un los datos que se encuentran en la cámara y esto les muestra la victoria.&lt;/p></description></item><item><title>Demo Yolo</title><link>https://joshua.haase.mx/ibero/2024-03-01-demo-yolo/</link><pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-03-01-demo-yolo/</guid><description>&lt;p>Se pueden &lt;a href='https://huggingface.co/pricing' target="_blank" rel="noopener">alquilar&lt;/a>
+&lt;a href='https://www.runpod.io/console/gpu-cloud' target="_blank" rel="noopener">tarjetas&lt;/a>
+&lt;a href='https://cloud.vast.ai/cli/' target="_blank" rel="noopener">gráficas&lt;/a>
+(&lt;a href='https://vast.ai/docs/cli/commands' target="_blank" rel="noopener">API docs&lt;/a>)
+ejecutando trabajos en contenedores.&lt;/p>
+&lt;pre tabindex="0">&lt;code>vastai create instance 36842 --image pytorch/pytorch --disk 32
+&lt;/code>&lt;/pre>&lt;embed type="application/pdf" src="https://arxiv.org/pdf/2304.00501v1.pdf#navpanes=0&amp;statusbar=0&amp;pagemode=none" width="100%" height="905em">
+&lt;p>&lt;a href="https://arxiv.org/pdf/2304.00501v1.pdf">Descargar documento&lt;/a>.&lt;/p>
+
+&lt;h2 id="plan">&lt;a href="#plan" alt="">Plan&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Encontrar una versión de yolo lista para tiempo real.
+&lt;ul>
+&lt;li>&lt;a href='https://www.synapse-analytics.io/post/what-to-consider-when-selecting-yolo-for-real-time-applications' target="_blank" rel="noopener">YOLOv3 con batch size de 16 podría funcionar en 6 GB&lt;/a>.&lt;/li>
+&lt;li>&lt;a href='https://arxiv.org/pdf/2207.02696.pdf' title="[@arxiv:2207.02696]" target="_blank" rel="noopener">YOLOv7 es rápido y en tiempo real&lt;/a>
+(&lt;a href='https://github.com/WongKinYiu/yolov7' target="_blank" rel="noopener">código&lt;/a>,
+&lt;a href='https://stackabuse.com/real-time-pose-estimation-from-video-in-python-with-yolov7/' target="_blank" rel="noopener">demo&lt;/a>)
+&lt;pre tabindex="0">&lt;code>web https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt
+web http://images.cocodataset.org/annotations/annotations_trainval2017.zip
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>&lt;a href='https://github.com/ultralytics/ultralytics' target="_blank" rel="noopener">YOLOv8&lt;/a>
+(&lt;a href='https://docs.ultralytics.com/' target="_blank" rel="noopener">docs&lt;/a>, AGPLv3).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="yolov7">&lt;a href="#yolov7" alt="">YOLOv7&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;pre tabindex="0">&lt;code>nvidia-docker run \
+ --name yolov7 \
+ -it \
+ -v your_coco_path/:/coco/ \
+ -v your_code_path/:/yolov7 \
+ --shm-size=64g \
+ nvcr.io/nvidia/pytorch:21.08-py3
+
+# apt install required packages
+apt update
+apt install -y zip htop screen libgl1-mesa-glx
+
+# pip install required packages
+pip install seaborn thop
+
+# go to code folder
+cd /yolov7
+&lt;/code>&lt;/pre>&lt;h3 id="yolov8">&lt;a href="#yolov8" alt="">YOLOv8&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;pre tabindex="0">&lt;code>gcl git@github.com:ultralytics/ultralytics.git
+cr ultralytics
+python -m venv .venv
+. .venv/bin/activate
+pip install ultralytics
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>
+&lt;p>&lt;input checked="" disabled="" type="checkbox"> Ejecutar YOLOv8 (&lt;a href='https://docs.ultralytics.com/modes/predict/' target="_blank" rel="noopener">docs&lt;/a>).&lt;/p></description></item><item><title>Búsqueda del tesoro (ICD, GIC) → 2024-07-11</title><link>https://joshua.haase.mx/ibero/2024-promoci%C3%B3n-icd/b%C3%BAsqueda-del-tesoro/</link><pubDate>Mon, 19 Feb 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-promoci%C3%B3n-icd/b%C3%BAsqueda-del-tesoro/</guid><description>&lt;h2 id="objetivos">&lt;a href="#objetivos" alt="">Objetivos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Atraer estudiantes a la carrera «Ingeniería en Ciencia de Datos» de la Universidad Iberoamericana.&lt;/p>
+&lt;ul>
+&lt;li>Mostrar las instalaciones a los estudiantes.&lt;/li>
+&lt;li>Hacerlos resolver retos relacionados con la asignatura de su interés.&lt;/li>
+&lt;li>Promocionar actividades y grupos de interés que existen en a Ibero.&lt;/li>
+&lt;/ul>
+&lt;h2 id="recursos-de-ibero-que-venden">&lt;a href="#recursos-de-ibero-que-venden" alt="">Recursos de Ibero que venden&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;h3 id="instalaciones">&lt;a href="#instalaciones" alt="">Instalaciones&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>Lab robots (Ingeniería industrial)&lt;/li>
+&lt;li>&lt;em>Biblioteca&lt;/em>
+&lt;ul>
+&lt;li>Acevo historico de la biblioteca.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Gimnasio&lt;/strong>&lt;/li>
+&lt;li>Club astronómico&lt;/li>
+&lt;li>INIAT Anexo F movimiento → Siempre abiertos&lt;/li>
+&lt;li>&lt;em>Espacio estudiantil&lt;/em>&lt;/li>
+&lt;li>Jardín de lobos&lt;/li>
+&lt;li>Estatua de San Ignacio, jardín C/D&lt;/li>
+&lt;li>Espacio estudiantil&lt;/li>
+&lt;li>¿CITER (L), cerca de ingeniería industrial de materiales?&lt;/li>
+&lt;li>Geo-Lab&lt;/li>
+&lt;/ul>
+&lt;h2 id="grupos-de-interés">&lt;a href="#grupos-de-inter%c3%a9s" alt="">Grupos de interés&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Grupos de Interés de Ciberseguridad. - CSAW&lt;/li>
+&lt;li>Grupo de Interés de Drones.&lt;/li>
+&lt;li>Grupo de Interés de Ciencia de Datos&lt;/li>
+&lt;/ul>
+&lt;h3 id="otros-recursos">&lt;a href="#otros-recursos" alt="">Otros recursos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;p>Precios de colegiaturas (becas),
+bolsa de trabajo,
+&lt;strong>intercambio&lt;/strong> (por convenio y por movilidad),
+&lt;del>doble titulación&lt;/del> → 3 materias de otra carrera, diploma de estudios complementarios.&lt;/p></description></item><item><title>¿Qué clase de proyecto puedo usar para «Big Data Aplicada a Negocios»</title><link>https://joshua.haase.mx/ibero/bdan/</link><pubDate>Mon, 12 Feb 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/bdan/</guid><description>&lt;h2 id="dónde-buscar-conjuntos-de-datos">&lt;a href="#d%c3%b3nde-buscar-conjuntos-de-datos" alt="">Dónde buscar conjuntos de datos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Estuve &lt;a href='https://datasetsearch.research.google.com/' target="_blank" rel="noopener">buscando conjuntos de datos para actividades&lt;/a>.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href='https://www.databasestar.com/free-data-sets/' target="_blank" rel="noopener">800 conjuntos de datos gratuitos&lt;/a>.&lt;/li>
+&lt;li>&lt;a href='https://careers.uw.edu/blog/2021/10/05/21-places-to-find-free-datasets-for-data-science-projects-shared-article-from-dataquest/' target="_blank" rel="noopener">21 lugares para buscar datos&lt;/a>&lt;/li>
+&lt;li>&lt;a href='https://towardsdatascience.com/all-the-datasets-you-need-to-practice-data-science-skills-and-make-a-great-portfolio-74f2eb53b38a' target="_blank" rel="noopener">Datasets para proyectos específicos&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href='https://github.com/rashida048/Credit-Card-Fraud-Detection/tree/master' target="_blank" rel="noopener">detección de fraude bancario&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href='https://careerfoundry.com/en/blog/data-analytics/where-to-find-free-datasets/' target="_blank" rel="noopener">10 lugares para buscar conjuntos de datos&lt;/a>:
+&lt;ul>
+&lt;li>&lt;a href='https://datahub.io/collections' target="_blank" rel="noopener">DataHub&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href='https://datahub.io/collections/linked-open-data' target="_blank" rel="noopener">Linked Open Data&lt;/a>.&lt;/li>
+&lt;li>&lt;a href='https://zenodo.org/records/2634588' target="_blank" rel="noopener">Billion Triplet Challenge&lt;/a> (&lt;a href='https://aidanhogan.com/docs/btc2019.pdf' target="_blank" rel="noopener">paper&lt;/a>).&lt;/li>
+&lt;li>&lt;a href='https://academictorrents.com/browse.php?search=segmentation&amp;#43;model&amp;amp;page=4' target="_blank" rel="noopener">Academic Torrents&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href='https://data.world' target="_blank" rel="noopener">data.world&lt;/a> al parecer descarga gratuita con registro,
+uso &lt;a href='https://data.world/product/community/' target="_blank" rel="noopener">de la herramienta Open Data&lt;/a> USD$12/usuario/mes,
+o usar su plataforma comercialmente USD$custom.&lt;/li>
+&lt;li>&lt;a href='https://data.wu.ac.at' target="_blank" rel="noopener">Open Data Portal Watch&lt;/a> de la Universidad de Viena.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href='https://towardsdatascience.com/getting-datasets-for-data-analysis-tasks-advanced-google-search-b1c01f9cc324' target="_blank" rel="noopener">Cómo guscar en Google para buscar conjuntos de datos&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="conjuntos-de-datos-para-bdan">&lt;a href="#conjuntos-de-datos-para-bdan" alt="">Conjuntos de datos para BDAN&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>&lt;a href='https://data.world/datasets/business' target="_blank" rel="noopener">Conjuntos de datos de negocio de data.world&lt;/a>.&lt;/li>
+&lt;li>&lt;a href='https://www.theglobaleconomy.com/download-data.php' target="_blank" rel="noopener">The Global Economy Data&lt;/a> USD$29.95/mes.&lt;/li>
+&lt;li>&lt;a href='https://knoema.es/atlas/M%c3%a9xico/topics/Econom%c3%ada/National-Accounts-Value-Added-by-Economic-Activity-at-constant-2015-prices-US-Dollars/Comercio-al-por-mayor-al-por-menor-restaurantes-y-hoteles' target="_blank" rel="noopener">Valor agregado por actividad económica en hoteles y restaurantes&lt;/a> USD$24/año&lt;/li>
+&lt;li>&lt;a href='https://es.statista.com/estadisticas/590848/unidades-economicas-por-sectores-economicos-mexico/' target="_blank" rel="noopener">Establecimientos de negocio en México&lt;/a> USD$149/mes.&lt;/li>
+&lt;/ul>
+&lt;h3 id="para-extraer-datos-de-una-web">&lt;a href="#para-extraer-datos-de-una-web" alt="">Para extraer datos de una web&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>Wikipedia, &lt;a href='https://en.wikipedia.org/wiki/List_of_S%26P_500_companies' target="_blank" rel="noopener">empresas del S&amp;amp;P500&lt;/a>
+y &lt;a href='https://es.wikipedia.org/wiki/Anexo:Empresas_por_ingresos' target="_blank" rel="noopener">Empresas por ingreso&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="datos-abiertos-interesantes">&lt;a href="#datos-abiertos-interesantes" alt="">Datos abiertos interesantes&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>&lt;a href='https://www.inegi.org.mx/datosabiertos/' target="_blank" rel="noopener">INEGI&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href='https://www.inegi.org.mx/rnm/index.php/catalog/668' target="_blank" rel="noopener">Catálog DENUE 2021&lt;/a>
+y &lt;a href='https://www.inegi.org.mx/app/descarga/?ti=6#' target="_blank" rel="noopener">descarga de datos&lt;/a>.&lt;/li>
+&lt;li>&lt;a href='https://www.inegi.org.mx/rnm/index.php/catalog/574' target="_blank" rel="noopener">Encuesta Mensual sobre Empresas Comerciales 2020&lt;/a>
+y &lt;a href='https://www.inegi.org.mx/programas/emec/2013/#datos_abiertos' target="_blank" rel="noopener">descarga de datos&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href='https://www.census.gov/topics/business-economy/data/datasets.html' target="_blank" rel="noopener">Conjuntos de datos de Censos en EUA&lt;/a>.
+&lt;ul>
+&lt;li>&lt;a href='https://www.census.gov/data/datasets/time-series/econ/bds/bds-datasets.html' target="_blank" rel="noopener">Estadísticas de dinámicas de negocio, censos USA&lt;/a>
+(&lt;a href='https://www.census.gov/programs-surveys/bds/news-updates/updates/2021-bds-release.html' target="_blank" rel="noopener">2021&lt;/a>).&lt;/li>
+&lt;li>&lt;a href='https://data.world/xprizeai-bus/business-expenses' target="_blank" rel="noopener">Gastos de negocio&lt;/a>.&lt;/li>
+&lt;li>&lt;a href='https://data.world/city-of-ny/8jfz-tjny' target="_blank" rel="noopener">Indicadores de rendimiento de agencias&lt;/a>.&lt;/li>
+&lt;li>&lt;a href='https://lehd.ces.census.gov/data/#j2j' target="_blank" rel="noopener">Longitudinal Employer-Household Dynamics&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Bases de datos de Colombia
+&lt;ul>
+&lt;li>&lt;a href='https://www.datos.gov.co/browse' target="_blank" rel="noopener">Datos abiertos del gobierno&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="datos-que-sí-requiren-análisis-de-big-data">&lt;a href="#datos-que-s%c3%ad-requiren-an%c3%a1lisis-de-big-data" alt="">Datos que sí requiren análisis de Big Data&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;a href='https://hdfstutorial.com/blog/datasets-for-hadoop-practice/' target="_blank" rel="noopener">Datos para Big Data&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href='https://registry.opendata.aws/klarna_productpage_dataset/' target="_blank" rel="noopener">&lt;strong>Klarna Product-Page Dataset&lt;/strong>&lt;/a>
+esto es un conjunto de datos enorme de negocios
+que implica el uso de procesamiento masivo para analizarlo.
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Descargado en &lt;code>carbono:~/web/klarna-research-public-datasets.s3-eu-west-1.amazonaws.com/klarna_product_page_dataset_50k/klarna_product_page_dataset_MHTML_50k.tar.gz&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href='https://datarade.ai/data-products/56-million-companies-in-united-states-of-america-full-cover-techsalerator' target="_blank" rel="noopener">Negocios en USA&lt;/a>, p.e. para prospección. USD$custom_quote.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="otros-conjuntos-de-datos-interesantes">&lt;a href="#otros-conjuntos-de-datos-interesantes" alt="">Otros conjuntos de datos interesantes&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>&lt;a href='https://registry.opendata.aws/nasa-power/' target="_blank" rel="noopener">Prediction Of Worldwide Energy Resources (POWER)&lt;/a>.&lt;/li>
+&lt;li>&lt;a href='https://registry.opendata.aws/target/' target="_blank" rel="noopener">Therapeuticaly Aplicable Research to Generate Effective Treatments (Target)&lt;/a>.&lt;/li>
+&lt;li>&lt;a href='https://registry.opendata.aws/openfold/' target="_blank" rel="noopener">Open Protein Set&lt;/a>.
+&lt;a href='https://biorxiv.org/content/10.1101/2022.11.20.517210' target="_blank" rel="noopener">OpenFold&lt;/a>.&lt;/li>
+&lt;li>&lt;a href='https://registry.opendata.aws/singlecellhumanbloodatlas/' target="_blank" rel="noopener">Single-Cell Atlas of Human Blood During Healthy Aging&lt;/a>.&lt;/li>
+&lt;li>&lt;a href='https://registry.opendata.aws/human-microbiome-project/' target="_blank" rel="noopener">Human Microbiome Project&lt;/a>.&lt;/li>
+&lt;li>&lt;a href='https://registry.opendata.aws/civic/' target="_blank" rel="noopener">Clinical Interpretation of Variants in Cancer (CIViC)&lt;/a>.&lt;/li>
+&lt;li>&lt;a href='https://registry.opendata.aws/hcmi-cmdc/' target="_blank" rel="noopener">Human Cancer Models Initiative&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="recomendados-para-portfolio-de-datos">&lt;a href="#recomendados-para-portfolio-de-datos" alt="">Recomendados para portfolio de datos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>&lt;a href='https://www.kaggle.com/datasets/parulpandey/covid19-clinical-trials-dataset' target="_blank" rel="noopener">COVID&lt;/a> 29MB&lt;/p></description></item><item><title>Prospectiva CSAW</title><link>https://joshua.haase.mx/ibero/2023-01-05-prospectiva-csaw/</link><pubDate>Thu, 04 Jan 2024 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-01-05-prospectiva-csaw/</guid><description>&lt;h2 id="objetivos-santiago">&lt;a href="#objetivos-santiago" alt="">Objetivos Santiago&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Perspectiva de investigación en ciber-seguridad.&lt;/p>
+&lt;h2 id="2024-01-05">&lt;a href="#2024-01-05" alt="">2024-01-05&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Los desafíos de México podrían ser distintos a los de otros países.&lt;/p>
+&lt;ul>
+&lt;li>Buscar recursos.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>CSAW le pertenece a NYU,
+profesor a ayudar,
+laboratorio como institución que apoya,
+no integrar Purdue.&lt;/p>
+&lt;hr>
+&lt;h2 id="hack-the-drone">&lt;a href="#hack-the-drone" alt="">Hack The Drone&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Desarrollar simulador digital.
+El Dron lleva un contenedor de un lugar al otro,
+si desvías el simulador.&lt;/p>
+&lt;p>Puntos por:&lt;/p>
+&lt;ul>
+&lt;li>Lograr el objetivo&lt;/li>
+&lt;li>Metodología&lt;/li>
+&lt;/ul>
+&lt;p>Hackea tu vehículo autónomo.&lt;/p></description></item><item><title>Notas de academia</title><link>https://joshua.haase.mx/ibero/2023-08-09-academia/</link><pubDate>Wed, 09 Aug 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-08-09-academia/</guid><description>&lt;ul>
+&lt;li>Problemas&lt;/li>
+&lt;/ul>
+&lt;p>Dialogremos sería modificado y la coordinación podría pilotar el instrumento nuevo.&lt;/p>
+&lt;p>En dialogremos intermedio Jorge Rivera puede dar retroalimentación.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>El final no da tanto pie a retroalimentación, pero se hace introspección.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>El primer día de clases es importante verificar que todos estén en Brightspace y Recursos Humanos,
+si no aparecen, canalizar en servicios escolares.
+Si menciona que se acaba de inscribir o tiene problemas en ajustes,
+enviar correo a Jorge Rivera (el sistema a veces tarda 12–24 h).&lt;/p></description></item><item><title>Proyecto Institucional «WiFi Ibero»</title><link>https://joshua.haase.mx/ibero/2023-05-25-an%C3%A1lisis-wifi/</link><pubDate>Fri, 09 Jun 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-05-25-an%C3%A1lisis-wifi/</guid><description>&lt;h2 id="objetivo">&lt;a href="#objetivo" alt="">Objetivo&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Es un proyecto interdisciplinario
+para diagnosticar, analizar, evaluar
+y buscar soluciones para mejorar el servicio de WiFi
+que se ofrece actualmente a la comunidad Ibero en el campus.&lt;/p>
+&lt;h2 id="enlaces-rápidos">&lt;a href="#enlaces-r%c3%a1pidos" alt="">Enlaces rápidos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>&lt;a href='https://gitlab.com/xihh87/analisis-wifi/' target="_blank" rel="noopener">Proyecto&lt;/a>&lt;/li>
+&lt;li>&lt;a href='https://iberomx-my.sharepoint.com/:f:/r/personal/adriana_fajardo_ibero_mx/Documents/Direcci%C3%B3n%20General%20de%20Planeaci%C3%B3n%20Estrat%C3%A9gica%20e%20Innovaci%C3%B3n/Direcciones/Direcci%C3%B3n%20de%20Inform%C3%A1tica%20y%20Telecomunicaciones/Indicadores/WiFi/Datos/Ingenier%C3%ADa%20Ciencia%20de%20Datos?csf=1&amp;amp;web=1&amp;amp;e=nRHvAW' target="_blank" rel="noopener">Datos&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="diagnóstico">&lt;a href="#diagn%c3%b3stico" alt="">Diagnóstico&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Solicitar datos a Adriana Lorena Fajardo (Joshua Haase) (2023-05-25 en reunión, 2023-06-02 correo, 2023-06-09 WA)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href='https://iberomx-my.sharepoint.com/:f:/r/personal/adriana_fajardo_ibero_mx/Documents/Direcci%C3%B3n%20General%20de%20Planeaci%C3%B3n%20Estrat%C3%A9gica%20e%20Innovaci%C3%B3n/Direcciones/Direcci%C3%B3n%20de%20Inform%C3%A1tica%20y%20Telecomunicaciones/Indicadores/WiFi/Datos/Ingenier%C3%ADa%20Ciencia%20de%20Datos?csf=1&amp;amp;web=1&amp;amp;e=nRHvAW' target="_blank" rel="noopener">Entregar datos (Adriana Fajardo)&lt;/a> (2023-06-14)&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href=''>Generar un conjunto de datos consolidado para el análisis y ordenado por Edificio y AP&lt;/a>.
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href='https://gitlab.com/xihh87/analisis-wifi/-/commit/88c678f15caf84daec0b4012c97eaf1ffbe1d2f1' target="_blank" rel="noopener">Ordenar base de datos de AP por edificio, piso&lt;/a> (2023-06-15).&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> Consolidar datos de estudiantes (2023-06-15).
+&lt;ul>
+&lt;li>Se eliminan los datos de edificio y piso para los estudiantes,
+porque se consideran los datos de access_points como canónicos.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href='https://gitlab.com/xihh87/analisis-wifi/-/blob/main/cmd/001.003-join-students-and-aps?ref_type=heads' target="_blank" rel="noopener">Juntar datos de &lt;code>access_points&lt;/code> y &lt;code>estudiantes&lt;/code>&lt;/a> (2023-06-15).
+En este proceso se encontró que &lt;a href='https://iberomx-my.sharepoint.com/:x:/r/personal/adriana_fajardo_ibero_mx/Documents/Direcci%C3%B3n%20General%20de%20Planeaci%C3%B3n%20Estrat%C3%A9gica%20e%20Innovaci%C3%B3n/Direcciones/Direcci%C3%B3n%20de%20Inform%C3%A1tica%20y%20Telecomunicaciones/Indicadores/WiFi/Datos/Ingenier%C3%ADa%20Ciencia%20de%20Datos/Listado%20de%20AP%C2%B4s%20new.xlsx?d=w812969751b0149bebd458fbc4e2cf57b&amp;amp;csf=1&amp;amp;web=1&amp;amp;e=e9hd96' target="_blank" rel="noopener">faltaban 6 Access Points en &lt;code>Listado de AP&lt;/code>s new.xlsx`&lt;/a>:&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>output |&amp;gt; filter(edificio %in% c(NA)) |&amp;gt; select(Sensor) |&amp;gt; unique()
+# A tibble: 6 × 1
+ Sensor
+ &amp;lt;chr&amp;gt;
+1 E.2-S272
+2 IPB_ECONOMIA-2
+3 biblioteca_3
+4 biblioteca_4
+5 d0:4d:c6:c4:af:57
+6 d0:4d:c6:c4:af:d2
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Joshua) Generar una &lt;a href='https://joshua.haase.mx/techno/r/#usar-biblioteca-local'>biblioteca local&lt;/a>.&lt;/li>
+&lt;li>Analizar los datos para responder las preguntas:
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Joshua) Dispositivos concurrentes conectados a un AP (2023-06-23).&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Joshua) Horas pico por edificio y AP (2023-06-26).&lt;/li>
+&lt;li>☒ &lt;del>Desconexiones de dispositivos.&lt;/del>
+(Un porcentaje muy bajo de las lecturas tiene la cadencia suficiente
+para hacer un análisis de desconexiones.)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Joshua) Queremos representar conexiones usando heatmap de conexiones (2023-06-27)
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Joshua) Generar información preparada para generar un tablero de dispositivos por edificio y piso.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Joshua) 1er entregable mostrando el análisis detallado.&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Joshua) &lt;a href='https://gitlab.com/xihh87/analisis-wifi/-/blob/main/tablero.R?ref_type=heads' target="_blank" rel="noopener">Tableros de exploración con miras a hacer tablero de monitoreo&lt;/a>.
+&lt;ul>
+&lt;li>☒ &lt;del>Excel de cada semana.&lt;/del> Debido a que estas mediciones se hacen manualmente esto es impráctico.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="mapa-del-campus-con-ap">&lt;a href="#mapa-del-campus-con-ap" alt="">Mapa del campus con AP&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Esta parte del proyecto la gestiona &lt;strong>Irving Rosales Arredondo&lt;/strong>.
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> (Adriana) Solicitando información a Planta Física.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="mejora-de-monitoreo-y-medición-de-la-calidad-del-servicio">&lt;a href="#mejora-de-monitoreo-y-medici%c3%b3n-de-la-calidad-del-servicio" alt="">Mejora de monitoreo y medición de la calidad del servicio&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Para responder la pregunta «¿El diseño actual de la distribución de APs es suficiente?»
+se sugiere generar un sistema de monitoreo.&lt;/p></description></item><item><title>Proyectos visibles de Ciencia de Datos (insignia)</title><link>https://joshua.haase.mx/ibero/2023-insignia/</link><pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-insignia/</guid><description>&lt;h2 id="enlaces-rápidos">&lt;a href="#enlaces-r%c3%a1pidos" alt="">Enlaces rápidos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>&lt;a href='https://gitlab.com/xihh87/insignia' target="_blank" rel="noopener">Código&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="objetivo">&lt;a href="#objetivo" alt="">Objetivo&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Ganar visibilidad como grupo de ciencia de datos.&lt;/li>
+&lt;/ul>
+&lt;h2 id="mapa-de-estudiantes">&lt;a href="#mapa-de-estudiantes" alt="">Mapa de estudiantes&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;input checked="" disabled="" type="checkbox"> &lt;a href='#' title="grafeno:/home/x/src/gitlab.com/xihh87/insignia/data">Descargar los datos&lt;/a>
+y agregarlos en &lt;a href='https://gitlab.com/xihh87/insignia' target="_blank" rel="noopener">el directorio del proyecto&lt;/a>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;input checked="" disabled="" type="checkbox"> Configurar el entorno para trabajar el proyecto.&lt;/p>
+&lt;p>Iniciar el sistema origen:&lt;/p>
+&lt;pre tabindex="0">&lt;code>make run
+&lt;/code>&lt;/pre>&lt;p>&lt;a href='http://localhost:8787' target="_blank" rel="noopener">Entrar al sistema&lt;/a>.&lt;/p>
+&lt;p>Instalar los paquetes:&lt;/p>
+&lt;pre tabindex="0">&lt;code>renv::restore()
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>
+&lt;p>&lt;input checked="" disabled="" type="checkbox"> Encontrar shapefiles de CDMX y Edo. Mex&lt;/p>
+&lt;p>El conjunto de datos «Tabla de Códigos Postales
+y asentamientos humanos de todas las entidades,
+y archivos shp de Códigos Postales» no está disponible.&lt;/p></description></item><item><title>Propuesta: analizar datos de prospectos en salesforce</title><link>https://joshua.haase.mx/ibero/2023-03-27-propuesta-salesforce/</link><pubDate>Mon, 27 Mar 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-03-27-propuesta-salesforce/</guid><description>&lt;p>Con fundamento en &lt;a href='https://informe.ibero.mx/wp-content/uploads/2023/02/informe_rector_30-ene_sencillo.pdf' target="_blank" rel="noopener">el principio de &lt;em>Eficiencia y Sostenibilidad&lt;/em>
+presentado por el Dr. Luis Arriaga Valenzuela, S.J&lt;/a>,
+con motivo del rubro «1. propuesta de proyecto visible que involucre ciencia de datos»
+y considerando que:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Uno de los principales puntos de venta de la Ingeniería en Ciencia de Datos
+es que ayudamos a las empresas a tomar decisiones basadas en datos
+para mejorar los resultados de negocio.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href='https://joshua.haase.mx/techno/salesforce/'>Existen datos en SalesForce&lt;/a>
+que pueden dirigir las decisiones de promoción
+de las diferentes carreras de la &lt;em>Universidad Iberoamericana Ciudad de México&lt;/em>.&lt;/p></description></item><item><title>Acciones de promoción desde ICD</title><link>https://joshua.haase.mx/ibero/promoci%C3%B3n-de-icd/</link><pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/promoci%C3%B3n-de-icd/</guid><description>&lt;h2 id="página-web">&lt;a href="#p%c3%a1gina-web" alt="">Página web&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;a href='https://cienciadatos.ibero.mx/' target="_blank" rel="noopener">Sitio web que hizo Andrés&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;input disabled="" type="checkbox"> Enviar lista de proyectos a Andrés Tortolero.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;input checked="" disabled="" type="checkbox"> Buscar recursos, videos, tutoriales, explicaciones de divulgación.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href='https://towardsdatascience.com/' target="_blank" rel="noopener">https://towardsdatascience.com/&lt;/a>&lt;/li>
+&lt;li>&lt;a href='https://ncase.me/polygons/' target="_blank" rel="noopener">https://ncase.me/polygons/&lt;/a>&lt;/li>
+&lt;li>&lt;a href='https://ncase.me/crowds/' target="_blank" rel="noopener">https://ncase.me/crowds/&lt;/a>&lt;/li>
+&lt;li>&lt;a href='https://datascience.codata.org/articles/10.5334/dsj-2015-008/' target="_blank" rel="noopener">https://datascience.codata.org/articles/10.5334/dsj-2015-008/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&amp;ldquo;La idea es que se convierta en un referente&amp;rdquo;.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Lanzamiento con el CEO de McKinsey (Pricewater coopers)
+Ignacio Yacuría S Sótano 18:00&lt;/p>
+&lt;ul>
+&lt;li>Enfocada a padres y empresarios para sus conocidos.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="competencia-interna-en-ibero">&lt;a href="#competencia-interna-en-ibero" alt="">Competencia interna en Ibero&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>AI para diseñadores&lt;/li>
+&lt;li>Estadística y Python&lt;/li>
+&lt;li>Creatividad en tiempos de IA&lt;/li>
+&lt;/ul>
+&lt;h2 id="qué-taller-hacemos-para-ia">&lt;a href="#qu%c3%a9-taller-hacemos-para-ia" alt="">¿Qué taller hacemos para IA?&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Inteligencia Artificial en la vida cotidiana&lt;/li>
+&lt;li>Data Mining para no matemáticos&lt;/li>
+&lt;li>Ciencia de Datos para todos.
+Un primer acercamiento.&lt;/li>
+&lt;li>&lt;del>Una probadita de la Carrera.&lt;/del>&lt;/li>
+&lt;/ul>
+&lt;h2 id="propuesta-de-colaboración-en-la-promoción-entre-la-daetu-y-el-deii">&lt;a href="#propuesta-de-colaboraci%c3%b3n-en-la-promoci%c3%b3n-entre-la-daetu-y-el-deii" alt="">Propuesta de colaboración en la promoción entre la DAETU y el DEII&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;input disabled="" type="checkbox"> &lt;strong>Lanzamiento 11 de mayo&lt;/strong> (Andrés).
+Dirigido a profesionales, papás y ex-alumnos.&lt;/p></description></item><item><title>Simulador de intercambio gaseoso</title><link>https://joshua.haase.mx/ibero/simulador-de-intercambio-gaseoso/</link><pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/simulador-de-intercambio-gaseoso/</guid><description>&lt;ul>
+&lt;li>&lt;a href='https://iberomx-my.sharepoint.com/personal/jose_urrusti_ibero_mx/_layouts/15/onedrive.aspx?ct=1678310857721&amp;amp;or=OWA%2DNT&amp;amp;cid=581b29b0%2D1a1d%2D3a44%2Ddd4e%2D28026cc3e7d0&amp;amp;ga=1&amp;amp;id=%2Fpersonal%2Fjose%5Furrusti%5Fibero%5Fmx%2FDocuments%2FUIA%2FProyectos%2FProyectos%20en%20curso%2FINER%20%2D%20Simulador%20intercambio%20gaseoso' target="_blank" rel="noopener">Directorio del proyecto&lt;/a>&lt;/li>
+&lt;li>&lt;a href='https://iberomx-my.sharepoint.com/:w:/r/personal/jose_urrusti_ibero_mx/_layouts/15/Doc.aspx?sourcedoc=%7BACEF8174-F0B5-45A9-B578-9BDF662A96FC%7D&amp;amp;file=INTERCAMBIOGASEOSOA2240M-4%20copy.docx&amp;amp;action=default&amp;amp;mobileredirect=true' target="_blank" rel="noopener">Artículo&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="definición-del-proyecto">&lt;a href="#definici%c3%b3n-del-proyecto" alt="">Definición del proyecto&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Para el Instituto Nacional de Enfermedades Respiratorias
+que quieren capacitar a sus residentes
+para adaptar los tratamientos para condiciones diferentes a nivel del mar
+el Simulador de Intercambio Gaseoso
+es una aplicación web
+que permite enseñar a médicos
+y a diferencia del método tradicional para enseñar
+nuestro producto muestra los parámetros de equilibrio
+de manera dinámica para explorar.&lt;/p>
+&lt;p>Para la Universidad Iberoamericana,
+el atractivo es recopilar datos para proyecto de investigación
+y generar un producto en el mercado.&lt;/p></description></item><item><title>Script de ventas para *Ingeniería en Ciencia de Datos*</title><link>https://joshua.haase.mx/ibero/script-de-venta/</link><pubDate>Thu, 16 Mar 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/script-de-venta/</guid><description>&lt;h2 id="script-de-ventas-para-ingeniería-en-ciencia-de-datos">&lt;a href="#script-de-ventas-para-ingenier%c3%ada-en-ciencia-de-datos" alt="">Script de ventas para &lt;em>Ingeniería en Ciencia de Datos&lt;/em>&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>¿Ya decidiste qué quieres estudiar?&lt;/p>
+&lt;details>
+&lt;summary>Sí&lt;/summary>
+&lt;p>¿Qué quieres estudiar?&lt;/p>
+&lt;p>¿Estás 100% seguro?&lt;/p>
+&lt;blockquote>
+&lt;p>Si ya decidió y está buscando otra cosa,
+&lt;a href='#por-qu%c3%a9'>llamarlo a argumentar&lt;/a>.&lt;/p>&lt;/blockquote>
+&lt;blockquote>
+&lt;p>Si la carrera que eligió está relacionada (actuaría, informática)
+o si no sabe qué hacer buscar preguntar:&lt;/p>&lt;/blockquote>
+&lt;p>¿Por qué te interesa esa carrera?&lt;/p>
+&lt;blockquote>
+&lt;p>Estamos buscando puntos de contacto como:&lt;/p>
+&lt;ul>
+&lt;li>gusto por las matemáticas,&lt;/li>
+&lt;li>interés por entender el mundo,&lt;/li>
+&lt;li>interés storytelling,&lt;/li>
+&lt;li>perfil analítico.&lt;/li>
+&lt;/ul>
+&lt;p>Si no hay interés o punto de contacto &lt;a href='#por-qu%c3%a9'>llamarlo a argumentar&lt;/a>.&lt;/p></description></item><item><title>App endometriosis</title><link>https://joshua.haase.mx/ibero/app-endometriosis/</link><pubDate>Fri, 03 Feb 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/app-endometriosis/</guid><description>&lt;h1 id="visión-y-alcance">&lt;a href="#visi%c3%b3n-y-alcance" alt="">Visión y alcance&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h1>&lt;p>Para investigadores en materia de salud de la Ibero
+que necesitan recabar datos epidemiológicos para el proyecto
+«Calidad de vida en mujeres mexicanas con endometriosis»
+el [nombre de producto]
+es una aplicación móvil
+que permite recabar los datos directamente en una base de datos
+directamente en un formato que facilita su análisis
+y a diferencia de las encuestas realizadas con personas
+nuestro producto tiene más alcance,
+puede generar datos a largo plazo,
+y guarda los datos consistentemente.&lt;/p></description></item><item><title>App Sarcopenia</title><link>https://joshua.haase.mx/ibero/app-sarcopenia/</link><pubDate>Mon, 09 Jan 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/app-sarcopenia/</guid><description>&lt;p>Para médicos
+que quieren diagnosticar Sarcopenia
+el [nombre de producto]
+es una aplicación móvil
+que simplifica el diagnóstico
+y a diferencia de los equipos convencionales
+nuestro producto [ventaja competitiva].&lt;/p>
+&lt;h2 id="arquitectura">&lt;a href="#arquitectura" alt="">Arquitectura&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;embed type="image/svg+xml" src="https://files.haase.mx/ibero/app_sarcopenia.svg" />
+
+&lt;h1 id="actores-y-sus-intereses">&lt;a href="#actores-y-sus-intereses" alt="">Actores y sus intereses&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h1>&lt;h2 id="usuarios-favorecidos">&lt;a href="#usuarios-favorecidos" alt="">Usuarios favorecidos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Médicos que diagnostican.&lt;/li>
+&lt;li>Pacientes que consultan su diagnóstico.&lt;/li>
+&lt;li>Investigadores que estudian datos anonimizados.&lt;/li>
+&lt;/ul>
+&lt;h2 id="usuarios-desfavorecidos">&lt;a href="#usuarios-desfavorecidos" alt="">Usuarios desfavorecidos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Vendores de equipos convencionales.&lt;/li>
+&lt;/ul>
+&lt;h2 id="usuarios-ignorados">&lt;a href="#usuarios-ignorados" alt="">Usuarios ignorados&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Estudiantes de medicina.&lt;/li>
+&lt;li>Médicos no asignados.&lt;/li>
+&lt;li>Aseguradoras.&lt;/li>
+&lt;/ul>
+&lt;h2 id="otros-usuario">&lt;a href="#otros-usuario" alt="">Otros Usuario&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Bots explotando vulnerabilidades.&lt;/li>
+&lt;li>Harvester.&lt;/li>
+&lt;li>Crawlers y spiders (google, internet archive).&lt;/li>
+&lt;/ul>
+&lt;h2 id="otros-beneficiados">&lt;a href="#otros-beneficiados" alt="">Otros beneficiados&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Investigadores en salud.&lt;/li>
+&lt;li>Universidades colaborando en el proyecto.&lt;/li>
+&lt;/ul>
+&lt;h1 id="glosario">&lt;a href="#glosario" alt="">Glosario&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h1>&lt;ul>
+&lt;li>Sarcopenia: pérdida de masa muscular relacionada con la edad.&lt;/li>
+&lt;/ul>
+&lt;h1 id="documentación-suplementaria">&lt;a href="#documentaci%c3%b3n-suplementaria" alt="">Documentación suplementaria&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h1>&lt;ul>
+&lt;li>[Definiciones de datos]&lt;/li>
+&lt;li>&lt;a href='https://ibero.mx/corpus-reglamentario' target="_blank" rel="noopener">Normativa institucional&lt;/a>&lt;/li>
+&lt;li>&lt;a href='https://docs.google.com/document/d/1I37FdfLW7GANA_8VKACPG_7QHi1sKMmM/edit?rtpof=true' target="_blank" rel="noopener">Normatividad aplicable&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="plan-de-trabajo">&lt;a href="#plan-de-trabajo" alt="">Plan de trabajo&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> (Eric) Enviar a Joshua invitación para &lt;a href='https://colab.research.google.com/drive/10Ik3A0_MtNkY7DPWPVmfehKsECHqX_Zs?usp=sharing' target="_blank" rel="noopener">el proyecto de la aplicación&lt;/a>.&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> (Pablo) Corregir muestreo de aplicación.&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> (Joshua) Gestionar infraestructura para aplicación.&lt;/li>
+&lt;/ul>
+&lt;h2 id="seguridad-y-manejo-de-info">&lt;a href="#seguridad-y-manejo-de-info" alt="">Seguridad y manejo de info&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;input checked="" disabled="" type="checkbox"> Aviso de privacidad.&lt;/p></description></item><item><title>¿Qué información necesitamos para la prospectiva?</title><link>https://joshua.haase.mx/ibero/2023-01-06-solicitud-de-informaci%C3%B3n/</link><pubDate>Thu, 05 Jan 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-01-06-solicitud-de-informaci%C3%B3n/</guid><description>&lt;ul>
+&lt;li>
+&lt;p>&lt;input checked="" disabled="" type="checkbox"> &lt;strong>¿Por qué necesitamos esta prospectiva?&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>&amp;ldquo;&lt;strong>Es un marco común acerca de lo que se quiere lograr&lt;/strong>.
+derivada un análisis de hacia dónde se mueve
+el &lt;em>Departamento de Estudios en Ingeniería para la Innovación&lt;/em>
+para encauzar esfuerzos hacia el posible futuro que vemos.&lt;/p>
+&lt;p>Para entender «&lt;strong>en dónde estoy parado y hacia dónde me quiero mover&lt;/strong>»
+generar escenarios,
+y tener una visión común de hacia dónde me muevo.&amp;rdquo;&lt;/p>&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="proceso-de-captación-retención-y-seguimiento-de-estudiantes">&lt;a href="#proceso-de-captaci%c3%b3n-retenci%c3%b3n-y-seguimiento-de-estudiantes" alt="">Proceso de captación, retención y seguimiento de estudiantes&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué proceso siguen los estudiantes desde el primer contacto hasta después de su egreso?&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> ¿Cómo consultamos las estadísticas de cada etapa del proceso? → CRM
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué tantos estudiantes entran en cada periodo?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿En qué momentos los estudiantes buscan entrar a una carrera?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿los alumnos esperan entre que salen la preparatoria y entran a la universidad? ¿por qué?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cuántos estudiantes egresan cada semestre?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cuál es el proceso de admisión y asignación de becas de postgrado?&lt;/li>
+&lt;/ul>
+&lt;h3 id="acerca-de-las-becas">&lt;a href="#acerca-de-las-becas" alt="">Acerca de las becas&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href='https://preuniversitarios.ibero.mx/becas/' target="_blank" rel="noopener">¿Qué se necesita para otorgar beca a un estudiante?&lt;/a>
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> ¿Qué becas existen?
+De acuerdo a &lt;a href='https://preuniversitarios.ibero.mx/becas/' target="_blank" rel="noopener">la página de la Ibero&lt;/a>:
+&lt;ul>
+&lt;li>Beca
+&lt;ul>
+&lt;li>Apoyo Ibero (10%–100%)&lt;/li>
+&lt;li>&lt;a href='https://preuniversitarios.ibero.mx/tendenciastecnologicas/' target="_blank" rel="noopener">Beca de ingeniería&lt;/a> (hasta 50%)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Financiamiento&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cuántas becas hay disponibles?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cómo se asignan las becas?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cómo se determina el monto de la beca?&lt;/li>
+&lt;/ul>
+&lt;h3 id="preguntas-de-marketing">&lt;a href="#preguntas-de-marketing" alt="">Preguntas de marketing&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué opinión tienen acerca de la Universidad Iberoamericana…
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> …los estudiantes de preparatoria?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> …los padres de los estudiantes de preparatoria?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿De dónde provienen los estudiantes actuales?
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿De qué preparatorias provienen?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Por qué se inscribieron a la Ibero nuestros estudiantes actuales?
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué les emociona?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué les hizo decidirse por la Ibero y no por otra universidad?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cuál es el perfil de los estudiantes que entran?
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué otras opciones consideran nuestros aspirantes?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Por qué estaban interesados en la Universidad Iberoamericana?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué dolores de los aspirante estamos atendiendo?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿A dónde se van los aspirantes que no entran a la Ibero (segmentado por carrera preferida en la Ibero)?&lt;/li>
+&lt;/ul>
+&lt;h3 id="acerca-de-la-tasa-de-deserción">&lt;a href="#acerca-de-la-tasa-de-deserci%c3%b3n" alt="">Acerca de la tasa de deserción&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué proporción de estudiantes se dan de baja?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿A dónde se van los estudiantes de baja total?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Por qué se van los estudiantes de baja total?&lt;/li>
+&lt;/ul>
+&lt;h3 id="salida-laboral-de-los-estudiantes">&lt;a href="#salida-laboral-de-los-estudiantes" alt="">Salida laboral de los estudiantes&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> &lt;strong>¿Cuál es el retorno de inversión de las carreras Ibero?&lt;/strong>&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cuánto tardan los egresados en conseguir empleo?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué quieren los empleadores? ¿Qué perfiles demanda la industria?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Dónde están trabajando los egresados de la Universidad Iberoamericana?
+(Estos datos posiblemente estén disponibles en reportes de head hunters,
+p.e. Manpower, Select, Deloit)
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿En qué empresas trabajan nuestros egresados?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué puestos tienen nuestros egresados?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cuántos de nuestros egresados fundan empresas?
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué porcentaje de las empresas fundadas por egresados sobrevive más de 5 años?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cómo se compara esta estadística con la línea base?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cuántos de nuestros egresados estudiaron postgrado?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Solicitar opinión de empleadores de egresados de la Ibero con respecto de otros egresados.&lt;/li>
+&lt;/ul>
+&lt;h3 id="competidores-de-la-ibero">&lt;a href="#competidores-de-la-ibero" alt="">Competidores de la Ibero&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> ¿Quién es nuestra competencia directa o indirecta?
+&lt;ul>
+&lt;li>Tec&lt;/li>
+&lt;li>ITAM&lt;/li>
+&lt;li>Anahuac&lt;/li>
+&lt;li>Panamericana&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>Salle&lt;/li>
+&lt;li>Unitec&lt;/li>
+&lt;li>UVM&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>UAM&lt;/li>
+&lt;li>IPN&lt;/li>
+&lt;li>UNAM | MXN $0.25 + seguro social + odontología&amp;hellip;&lt;/li>
+&lt;li>UAEM&lt;/li>
+&lt;li>BUAP&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>Rioja&lt;/li>
+&lt;li>UDEMI&lt;/li>
+&lt;li>UTEL&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>OCW MIT&lt;/li>
+&lt;li>Coursera&lt;/li>
+&lt;li>Khan Academi&lt;/li>
+&lt;li>MOOC MIT&lt;/li>
+&lt;li>Standford&lt;/li>
+&lt;li>Harvard&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>Plataformas para universidad en línea&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Comparación de colegiatura con otras universidades.
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> Costos ocultos en otras universidades.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cuál es nuestra competencia indirecta?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué desempeño tiene la Ibero y cómo se compara a otras instituciones en evaluaciones estandarizadas de alcance nacional e internacional?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Somos competitivos en términos de costo/beneficio?
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué incluyen otras universidades?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Algunos de nuestros programas se pueden dar en línea?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Comparar contenidos, tiempos, ventajas competitivas de cada universidad.&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Además de estas, ¿Qué otras ventajas competitivas tiene la Ibero?
+&lt;ul>
+&lt;li>p.e. «Tienes un seguro donde si llegas a faltar,
+la educación de tus hijos está asegurada.»&lt;/li>
+&lt;li>La visión emprendedora y visión empresarial.&lt;/li>
+&lt;li>La relación con los profesores es cercana.&lt;/li>
+&lt;li>Perfil de los profesores.
+La Ibero tiene profesionales de gran calidad.&lt;/li>
+&lt;li>Oficina que se dedica a potenciar emprendimientos.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;del>¿De qué tamaño es el claustro en otras universidades? Ibero DEII: 21 ATC&lt;/del>
+&lt;ul>
+&lt;li>&lt;del>¿Cómo está estructurado el claustro?&lt;/del>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué cursos en línea existen en otras universidades?&lt;/li>
+&lt;/ul>
+&lt;h2 id="acerca-del-potencial-de-crecimiento">&lt;a href="#acerca-del-potencial-de-crecimiento" alt="">Acerca del potencial de crecimiento&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;h3 id="datos-demográficos">&lt;a href="#datos-demogr%c3%a1ficos" alt="">Datos demográficos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cuántas personas tienen la capacidad económica para pagar la Ibero?
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href='https://ibero.mx/alumnos-precios-de-colegiaturas' target="_blank" rel="noopener">Costos de la colegiatura en Ibero&lt;/a>&lt;/li>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> &lt;a href='https://www.inegi.org.mx/temas/ingresoshog/' target="_blank" rel="noopener">Ingresos de gastos en los hogares&lt;/a>
+y &lt;a href='https://www.inegi.org.mx/programas/enigh/nc/2016/#Tabulados' target="_blank" rel="noopener">datos tabulados&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cuántos alumnos entran a universidades privadas cada año?&lt;/li>
+&lt;li>&lt;del>Crecimiento poblacional en 5–50 años.&lt;/del>&lt;/li>
+&lt;/ul>
+&lt;h3 id="capacidad-de-la-ibero">&lt;a href="#capacidad-de-la-ibero" alt="">Capacidad de la Ibero&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿A cuántos estudiantes más puede atender la Universidad Iberoamericana con su infraestructura actual?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué infraestructura tiene la universidad?
+&lt;ul>
+&lt;li>&lt;input checked="" disabled="" type="checkbox"> ¿Qué tanto de esta capacidad está en uso?
+De acuerdo a &lt;a href='https://www.datamexico.org/es/profile/institution/universidad-iberoamericana-ciudad-de-mexico' target="_blank" rel="noopener">Data Mexico&lt;/a>,
+en 2021: 13,072&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué porcentaje de uso tiene esta infraestructura en cada franja horaria laborable?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="estudiantes-de-excelencia">&lt;a href="#estudiantes-de-excelencia" alt="">Estudiantes de excelencia&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cuántos estudiantes de excelencia existen?
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿En qué están interesados?
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> El mercado de las carreras.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cómo la Ibero puede atender esos intereses?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="acerca-de-cómo-mejorar-nuestros-procesos-operativos">&lt;a href="#acerca-de-c%c3%b3mo-mejorar-nuestros-procesos-operativos" alt="">Acerca de cómo mejorar nuestros procesos operativos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;h3 id="comunicación-institucional">&lt;a href="#comunicaci%c3%b3n-institucional" alt="">Comunicación institucional&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cómo solicitamos presupuesto para generar una imagen profesional para la coordinación?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cómo podríamos operar redes sociales de la Coordinación de forma profesional?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué eventos de puertas abiertas organizan otras universidades?&lt;/li>
+&lt;/ul>
+&lt;h3 id="recursos-disponibles-para-investigación">&lt;a href="#recursos-disponibles-para-investigaci%c3%b3n" alt="">Recursos disponibles para investigación&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cómo podemos involucrar estudiantes de postgrado en tu investigación?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cómo podemos involucrar a becarios en proyectos académicos?
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué estrategias existen para remunerar estudiantes que apoyen en proyectos?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> Cantidad e impacto acerca de las publicaciones en la Universidad Iberoamericana.&lt;/li>
+&lt;/ul>
+&lt;h3 id="cooperación-intra-e-inter-institucional">&lt;a href="#cooperaci%c3%b3n-intra-e-inter-institucional" alt="">Cooperación intra e inter institucional&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cómo podemos acceder a los resultados de las encuestas institucionales?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cómo podemos acceder a los datos de lo que está pasando en la Ibero?
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cuántas materias se ofertan a otros departamentos?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cuántos alumnos son atendidos?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cómo consultamos los convenios que existen con otras instituciones?
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué resultados se han obtenido a partir de los convenios?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cómo consultamos los convenios con empresas?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué capacidades hay dentro de la institución para generar colaboraciones interdisciplinarias?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Qué eventos internacionales serían interesantes en investigación?&lt;/li>
+&lt;/ul>
+&lt;h3 id="evolución-de-los-planes-y-programas">&lt;a href="#evoluci%c3%b3n-de-los-planes-y-programas" alt="">Evolución de los planes y programas&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cómo surge y cómo se modificaron los planes de estudios a raíz de las necesidades de las empresas?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Existen instrumentos institucionales, nacionales o internacionales,
+generado por expertos en materia y en pedagogía,
+que se haya demostrado como robusto psicométricamente (o como corresponda),
+para evaluar las competencias genéricas?
+(p.e. SIES [Sistema Institucional de Evaluación de Educación Superior])
+&lt;ul>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cuál es el plan de la Universidad Iberoamericana para evaluar las 8 competencias genéricas?&lt;/li>
+&lt;li>&lt;input disabled="" type="checkbox"> ¿Cómo sabemos que se están desarrollando a lo largo de la carera?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Tendencias de población en PowerBI.&lt;/p></description></item><item><title>Prospectiva</title><link>https://joshua.haase.mx/ibero/2023-01-05-prospectiva/</link><pubDate>Thu, 05 Jan 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-01-05-prospectiva/</guid><description>&lt;h2 id="introducción">&lt;a href="#introducci%c3%b3n" alt="">Introducción&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;h3 id="ciencia-de-datos">&lt;a href="#ciencia-de-datos" alt="">Ciencia de datos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;p>La Universidad Iberoamericana forma 3 perfiles:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Intra-emprendedores&lt;/strong>: transforman la empresa para generar bienestar.&lt;/li>
+&lt;li>&lt;strong>Emprendedores&lt;/strong>: son capaces de generar bienestar y capturar parte de el valor que generan.&lt;/li>
+&lt;li>&lt;strong>Investigadores&lt;/strong>: son capaces de extender las fronteras del conocimiento humano.&lt;/li>
+&lt;/ul>
+&lt;h2 id="objetivos-de-coordinación-de-ciencia-de-datos">&lt;a href="#objetivos-de-coordinaci%c3%b3n-de-ciencia-de-datos" alt="">Objetivos de Coordinación de Ciencia de Datos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Tener una matrícula adecuada y estable.&lt;/li>
+&lt;li>Tener una imagen reconocible dentro y fuera de la Ibero.&lt;/li>
+&lt;li>Ser referente académico en Ciencia de Datos a nivel internacional.&lt;/li>
+&lt;li>Generar vínculos de cooperación internacional.&lt;/li>
+&lt;/ul>
+&lt;h2 id="antecedentes">&lt;a href="#antecedentes" alt="">Antecedentes&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Se realizó un estudio de la demanda de varias carreras. 
+Se encontró que la demanda de algunas carreras
+«de clase alta»
+aumenta con el costo.
+En las otras carreras, los apoyos «si quieres puedes»
+aumentan directamente la demanda.&lt;/p></description></item><item><title>RFC UIA</title><link>https://joshua.haase.mx/ibero/rfc/</link><pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/rfc/</guid><description>&lt;p>RFC: UIB 540920 IT3 &lt;br>
+Universidad Iberoamericana, A.C. &lt;br>
+Prolg. Paseo de la Reforma No. 880 &lt;br>
+Col. Lomas de Santa Fe &lt;br>
+Álvaro Obregón 01219 Ciudad de México&lt;/p>
+&lt;p>UIB540920IT3 &lt;br>
+Regimen fiscal: 603 &lt;br>
+Personas Morales con Fines no Lucrativos&lt;/p></description></item><item><title>Gestión Práctica de Datos de Investigación</title><link>https://joshua.haase.mx/ibero/taller-herramientas-de-datos/</link><pubDate>Thu, 01 Jul 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/taller-herramientas-de-datos/</guid><description>&lt;h2 id="entorno-e-inquietudes">&lt;a href="#entorno-e-inquietudes" alt="">Entorno e inquietudes&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Gestión de datos.
+Confidencialidad.&lt;/p>
+&lt;h3 id="australian-research-council">&lt;a href="#australian-research-council" alt="">Australian Research Council&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;p>Describir cómo surgen los datos.&lt;/p>
+&lt;p>Ponerse a disposición del público en repositorio institucional.&lt;/p>
+&lt;h3 id="nsf">&lt;a href="#nsf" alt="">NSF&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;p>Plan de gestión de datos hasta 2 páginas&lt;/p>
+&lt;h3 id="nature">&lt;a href="#nature" alt="">Nature&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h3>&lt;p>Intercambio de datos para repositorios cuando existan.
+Cuando no existen, Figshare, Dryad, Zenodo.&lt;/p>
+&lt;h2 id="ejercicio-1">&lt;a href="#ejercicio-1" alt="">Ejercicio 1&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;blockquote>
+&lt;p>a) ¿Qué nos dijo sobre sus retos e inquietudes?&lt;/p>&lt;/blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>Dónde poner los datos y cómo hacerlos accesibles.&lt;/p></description></item><item><title>Escritura académica</title><link>https://joshua.haase.mx/ibero/escritura-acad%C3%A9mica/</link><pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/escritura-acad%C3%A9mica/</guid><description>&lt;p>No cuidar formas, transmitir ideas, ejercicios.&lt;/p>
+&lt;p>Eva Arceo: Es muy frustrante leerlos y quiero ayudarles.&lt;/p>
+&lt;ul>
+&lt;li>Idea piramidal.&lt;/li>
+&lt;li>Estructura de párrafo.&lt;/li>
+&lt;li>Simplificar.&lt;/li>
+&lt;/ul>
+&lt;p>Andrea Clausen: Comunicación, Administración.&lt;/p>
+&lt;ul>
+&lt;li>Sorpresa de que cuando pido que redacten opiniones personales&lt;/li>
+&lt;li>Nuevas técnicas y herramientas para mejorar y ayudarles a mis alumnos a mejorar.&lt;/li>
+&lt;/ul>
+&lt;p>Cristianne Cazenave Tapie: Sacar la estructura del texto y no se queden con 3 ideas generales.&lt;/p>
+&lt;p>Miguel Ángel Rodríguez: Contador.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>¿Qué importa esto si es conta?&lt;/p></description></item><item><title>Alternativas para mejorar la clase</title><link>https://joshua.haase.mx/ibero/mejorar-clase/</link><pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/mejorar-clase/</guid><description>&lt;p>Posibilidad de participar&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Revisar la planeación desde el enfoque del alineamiento constructivo&lt;/p>
+&lt;p>coherencia entre objetivos, método y evaluación&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Reflexionar sobre planeación para identificar áreas de oportunidad&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Reconocer diferentes niveles de aprendizaje y su relación con la motivación&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Niveles de aprendizaje ICAP&lt;/p>
+&lt;p>Prácticas de enseñanza y aprendizaje
+que promueven la motivación del estudiante&lt;/p>
+&lt;p>Formación DIDAE, DEAMet, BFXC&lt;/p>
+&lt;h1 id="alineamiento-constructivo">&lt;a href="#alineamiento-constructivo" alt="">Alineamiento constructivo&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h1>&lt;p>coherencia entre objetivos, método y evaluación&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Profesores esperan =/= estudiantes reciben&lt;/p></description></item><item><title/><link>https://joshua.haase.mx/ibero/2025-05-05-cartel-para-curso/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2025-05-05-cartel-para-curso/</guid><description>&lt;p>Redacta la información para un cartel promocional de un curso para profesores que toman cursos de actualización,
+el cartel debe tener elementos AIDA
+a profesores de bachillerato del área de ciencias.&lt;/p>
+&lt;p>Introducción a la Analítica y Ciencia de Datos&lt;/p>
+&lt;p>Primer día&lt;/p>
+&lt;p>¿Qué son datos? ¿Cómo se consiguen?&lt;/p>
+&lt;p>Repositorios de datos&lt;/p>
+&lt;p>INEGI&lt;/p>
+&lt;p>KAGGLE&lt;/p>
+&lt;p>Proponer preguntas de investigación acerca de esos datos&lt;/p>
+&lt;p>En análisis exploratorio mostrar si se puede responder la pregunta (verificar como se puede responder la(s) pregunta(s) de investigación a partir del análisis exploratorio).&lt;/p></description></item><item><title/><link>https://joshua.haase.mx/ibero/2025-05-05-programa-datos-visualizaci%C3%B3n/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2025-05-05-programa-datos-visualizaci%C3%B3n/</guid><description>&lt;p>Ayúdame a generar un programa para un curso de «Análisis y Visualización de Datos» de 5 días, 2 horas para profesores de Ingeniería Mecátrónica, Ingeniería Industrial y Manufactura.&lt;/p>
+&lt;p>&lt;strong>Programa del Curso: Análisis y Visualización de Datos (5 días, 2 horas diarias)&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Dirigido a:&lt;/strong> Profesores de Ingeniería Mecatrónica, Ingeniería Industrial y Manufactura&lt;/p>
+&lt;hr>
+&lt;p>&lt;strong>Día 1: Introducción al Análisis de Datos&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Ciclo de vida del análisis de datos&lt;/li>
+&lt;li>Tipos de datos:
+&lt;ul>
+&lt;li>Por estructura:
+&lt;ul>
+&lt;li>estructurados&lt;/li>
+&lt;li>no estructurados&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Por características de los datos:
+&lt;ul>
+&lt;li>Nominales&lt;/li>
+&lt;li>Ordinales&lt;/li>
+&lt;li>Discreto&lt;/li>
+&lt;li>Continuo&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Herramientas y software habituales (Excel, Power BI, Python, Excel)&lt;/li>
+&lt;li>Repositorios de Datos.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Día 2: Fundamentos de Estadística para Analítica&lt;/strong>&lt;/p></description></item><item><title/><link>https://joshua.haase.mx/ibero/2025-05-15/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2025-05-15/</guid><description>&lt;p>Usa periodos aproximados de 5 minutos de las 13:00 a las 15:00 para estos estudiantes, en este orden:&lt;/p>
+&lt;p>Jerónimo
+Joana
+Rodrigo
+Patricio
+Fernanda
+Hannia
+Valeria
+Mauricio
+Sofía Nava
+José
+Andrea
+Héctor
+Daniela
+Sofía Oneto
+Andrés
+Angelina
+Diego&lt;/p>
+&lt;p>Usé un orden aleatorio para que revisemos las calificaciones, este horario aproximado:&lt;/p>
+&lt;p>13:00 - 13:05 Jerónimo
+13:05 - 13:10 Joana
+13:10 - 13:15 Rodrigo
+13:15 - 13:20 Patricio
+13:20 - 13:25 Fernanda
+13:25 - 13:30 Hannia
+13:30 - 13:35 Valeria
+13:35 - 13:40 Mauricio
+13:40 - 13:45 Sofía Nava
+13:45 - 13:50 José
+13:50 - 13:55 Andrea
+13:55 - 14:00 Héctor
+14:00 - 14:05 Daniela
+14:05 - 14:10 Sofía Oneto
+14:10 - 14:15 Andrés
+14:15 - 14:20 Angelina
+14:20 - 14:25 Diego&lt;/p></description></item><item><title/><link>https://joshua.haase.mx/ibero/colaboracion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/colaboracion/</guid><description>&lt;p>&lt;a href='mailto:jpmarindiaz@datasketch.co'>jpmarindiaz@datasketch.co&lt;/a>&lt;/p></description></item><item><title/><link>https://joshua.haase.mx/ibero/plan-2023/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/plan-2023/</guid><description/></item><item><title/><link>https://joshua.haase.mx/ibero/plan-2024/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/plan-2024/</guid><description/></item><item><title/><link>https://joshua.haase.mx/ibero/plan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/plan/</guid><description/></item><item><title/><link>https://joshua.haase.mx/ibero/producto/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/producto/</guid><description>&lt;p>Genera un programa en R o python que tome una lista de&lt;/p>
+&lt;p>Cómo transponer una combinaciones en R como una lista.&lt;/p>
+&lt;p>Quiero hacer un conteo de los elementos que se compran juntos.
+Tengo una lista que quiero agrupar por ventas combinación de (fecha y comprador).
+Luego quiero encontrar las combinaciones de los productos de cada compra.&lt;/p>
+&lt;p>Por favor haz un programa en R o python que lo haga,
+mis datos tienen esta estructura:&lt;/p></description></item><item><title/><link>https://joshua.haase.mx/ibero/servicios-bfxc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/servicios-bfxc/</guid><description/></item><item><title>¿Qué es la IA?</title><link>https://joshua.haase.mx/ibero/2024-01-19-inteligencia-artficial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2024-01-19-inteligencia-artficial/</guid><description>&lt;h2 id="desarollo-de-la-inteligencia-artificial">Desarollo de la Inteligencia Artificial&lt;/h2>
+&lt;figure>
+&lt;img src="https://qbi.uq.edu.au/files/40697/The-Brain-Intelligent-Machines-AI-timeline.jpg" alt=" [@url:https://qbi.uq.edu.au/files/40697/The-Brain-Intelligent-Machines-AI-timeline.jpg ]" />&lt;figcaption aria-hidden="true">&lt;span class="citation" data-cites="url:https://qbi.uq.edu.au/files/40697/The-Brain-Intelligent-Machines-AI-timeline.jpg">[@url:https://qbi.uq.edu.au/files/40697/The-Brain-Intelligent-Machines-AI-timeline.jpg ]&lt;/span>&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="se-han-usado-muchos-métodos-para-imitar-la-inteligencia">Se han usado muchos métodos para imitar la inteligencia&lt;/h2>
+&lt;figure>
+&lt;img src="https://prismlegal.com/wp-content/uploads/2016/01/Artificial-Intelligence-AI.png" alt=" [@url:https://prismlegal.com/wp-content/uploads/2016/01/Artificial-Intelligence-AI.png ]" />&lt;figcaption aria-hidden="true">&lt;span class="citation" data-cites="url:https://prismlegal.com/wp-content/uploads/2016/01/Artificial-Intelligence-AI.png">[@url:https://prismlegal.com/wp-content/uploads/2016/01/Artificial-Intelligence-AI.png ]&lt;/span>&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="las-primeras-estrategias-resolvían-problemas-con-estrategias-concretas">Las primeras estrategias resolvían problemas con estrategias concretas&lt;/h2>
+&lt;figure>
+&lt;img src="https://www.tutorialandexample.com/wp-content/uploads/2019/07/search-algorithm.png" alt="[@url:https://www.tutorialandexample.com/wp-content/uploads/2019/07/search-algorithm.png]" />&lt;figcaption aria-hidden="true">&lt;span class="citation" data-cites="url:https://www.tutorialandexample.com/wp-content/uploads/2019/07/search-algorithm.png">[@url:https://www.tutorialandexample.com/wp-content/uploads/2019/07/search-algorithm.png]&lt;/span>&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="o-buscaban-límites-de-decisión">O buscaban límites de decisión&lt;/h2>
+&lt;figure>
+&lt;img src="https://miro.medium.com/v2/resize:fit:1149/1*z-4Jf9apbzR8pGb21zp4Yg.jpeg" alt="[@url:https://miro.medium.com/v2/resize:fit:1149/1*z-4Jf9apbzR8pGb21zp4Yg.jpeg]" />&lt;figcaption aria-hidden="true">[&lt;span class="citation" data-cites="url:https://miro.medium.com/v2/resize:fit:1149/1">@url:https://miro.medium.com/v2/resize:fit:1149/1&lt;/span>*z-4Jf9apbzR8pGb21zp4Yg.jpeg]&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="usando-trucos-para-separar-problemas-difíciles">Usando trucos para separar problemas difíciles&lt;/h2>
+&lt;figure>
+&lt;img src="https://miro.medium.com/v2/resize:fit:838/1*gXvhD4IomaC9Jb37tzDUVg.png" alt="[@url:https://miro.medium.com/v2/resize:fit:838/1*gXvhD4IomaC9Jb37tzDUVg.png]" />&lt;figcaption aria-hidden="true">[&lt;span class="citation" data-cites="url:https://miro.medium.com/v2/resize:fit:838/1">@url:https://miro.medium.com/v2/resize:fit:838/1&lt;/span>*gXvhD4IomaC9Jb37tzDUVg.png]&lt;/figcaption>
+&lt;/figure>
+&lt;figure>
+&lt;img src="https://lh5.googleusercontent.com/Fqswkk7bY0_7EhTgbPWNOexWWzzDplNKYc1bJl6MI_edNVdwXnWI5xkoSyl7SxFHLLAWlW1AIEhWF2ilVvThzuU0HoPBNF79HsPezpXnKTv3DCFnD9ZeVPLmR828_JXpv5cB35TL" alt="[@url:https://lh5.googleusercontent.com/Fqswkk7bY0_7EhTgbPWNOexWWzzDplNKYc1bJl6MI_edNVdwXnWI5xkoSyl7SxFHLLAWlW1AIEhWF2ilVvThzuU0HoPBNF79HsPezpXnKTv3DCFnD9ZeVPLmR828_JXpv5cB35TL]" />&lt;figcaption aria-hidden="true">&lt;span class="citation" data-cites="url:https://lh5.googleusercontent.com/Fqswkk7bY0_7EhTgbPWNOexWWzzDplNKYc1bJl6MI_edNVdwXnWI5xkoSyl7SxFHLLAWlW1AIEhWF2ilVvThzuU0HoPBNF79HsPezpXnKTv3DCFnD9ZeVPLmR828_JXpv5cB35TL">[@url:https://lh5.googleusercontent.com/Fqswkk7bY0_7EhTgbPWNOexWWzzDplNKYc1bJl6MI_edNVdwXnWI5xkoSyl7SxFHLLAWlW1AIEhWF2ilVvThzuU0HoPBNF79HsPezpXnKTv3DCFnD9ZeVPLmR828_JXpv5cB35TL]&lt;/span>&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="luego-se-intentó-traducir-el-conocimiento-a-formatos-que-las-computadoras-pudieran-buscar">Luego se intentó traducir el conocimiento a formatos que las computadoras pudieran buscar&lt;/h2>
+&lt;figure>
+&lt;img src="https://www.researchgate.net/profile/Piotr-Golanski/publication/282589002/figure/fig1/AS:322353985802240@1453866587909/A-diagram-of-the-expert-system-structure.png" alt="[@doi:10.5604/0860889X.1172060]" />&lt;figcaption aria-hidden="true">&lt;span class="citation" data-cites="doi:10.5604/0860889X.1172060">[@doi:10.5604/0860889X.1172060]&lt;/span>&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="e-incluso-desde-finales-de-los-50s-se-propusieron-varios-métodos-usando-redes-neuronales">E incluso desde finales de los 50’s se propusieron varios métodos usando redes neuronales&lt;/h2>
+&lt;p>[](&lt;/p></description></item><item><title>Explainable ML Exchange Ideas</title><link>https://joshua.haase.mx/ibero/2023-03-06-proposal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-03-06-proposal/</guid><description>&lt;ol>
+&lt;li>
+&lt;p>Architecture defines capabilities.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Gradient descent tries to approximate the objective.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>More parameters can be helpful but have energy costs.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;p>I don&amp;rsquo;t see space for Reinforcement Learning (RL) becase there is no feedback mechanism.&lt;/p>
+&lt;hr>
+&lt;p>But the experiment I&amp;rsquo;d like to try is to:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;input disabled="" type="checkbox"> &lt;strong>search for known equations that describe appliance energy consumption (Nicole)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href='https://www.sciencedirect.com/science/article/pii/S2352710215000200' target="_blank" rel="noopener">Washing Machine&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>a &lt;del>non-linearity&lt;/del> layer to allow for mix and match → PDF for time intervals?.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>a math model that&amp;rsquo;s good to predict cycles.&lt;/p></description></item><item><title>La Ciencia de Datos en nuestra vida cotidiana</title><link>https://joshua.haase.mx/ibero/2023-10-24-promoci%C3%B3n-icd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ibero/2023-10-24-promoci%C3%B3n-icd/</guid><description>&lt;h2 id="en-1854-hubo-una-epidemia-de-cólera-en-londres">En 1854 hubo una epidemia de cólera en Londres&lt;/h2>
+&lt;p>&lt;img src="https://es.bcdn.biz/Images/2020/5/19/5f6364ac-f828-4c20-82ee-ac375efc0fb5.jpg" style="width:10cm" />&lt;/p>
+&lt;div class="notes">
+&lt;p>Corría el año 1854, y Londres estaba siendo azotada por un terrible brote de cólera. Las calles estaban llenas de enfermos y moribundos, y la ciudad estaba en pánico. Snow, sin embargo, estaba decidido a desentrañar el misterio detrás de esta mortal epidemia.&lt;/p>
+&lt;p>Armado con sus libros y un mapa de la ciudad, Snow comenzó a investigar. Visitó a las personas afectadas y tomó notas meticulosas sobre sus síntomas y ubicaciones. Pronto, notó un patrón extraño: la mayoría de los casos se concentraban en el vecindario de Soho, pero no parecía haber una conexión obvia.&lt;/p></description></item></channel></rss>

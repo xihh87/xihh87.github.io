@@ -1,13 +1,64 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diagramas on Joshua Haase</title><link>https://joshua.haase.mx/techno/diagramas/</link><description>Recent content in Diagramas on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Wed, 11 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/techno/diagramas/index.xml" rel="self" type="application/rss+xml"/><item><title>Diagramas Entidad Relación</title><link>https://joshua.haase.mx/techno/diagramas/entidad-relaci%C3%B3n/</link><pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagramas/entidad-relaci%C3%B3n/</guid><description>Generar a partir de esquema SQL ↑Lo ideal para estos diagramas es que puedan generarse a partir del esquema SQL:
-DBeaver es un producto open Core es un gestor de bases de datos que supuestamente facilita la vida de los DBA y puede hacer diagramas ER.
-Schema to Diagram es una aplicación en JavaScript para generar diagramas a partir de la base de datos.
-SchemaSpy (sourceforge) es una aplicación que genera el diagrama ER.</description></item><item><title>Diagramas a partir de texto</title><link>https://joshua.haase.mx/techno/diagramas/desde-texto/</link><pubDate>Tue, 15 Nov 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagramas/desde-texto/</guid><description>Diagramas de actividad ↑ PlantUML lo hace bien y esta es la sintaxis.
-Se pueden agregar enlaces con esta sintaxis: [[url texto]].
-UML ↑ Varias herramientas textuales que no he revisado.
-Más ejemplos de herramientas textuales.
-Herramienta js para diagramas de secuencia
-Notación de Modelado de Procesos de Negocio (Business Process Model and Notation) ↑La especificación oficial de BPMN y un ejemplo de uso se pueden consultar en línea, hay un resumen de su sintaxis en Wikipedia.</description></item><item><title>Herramientas para hacer diagramas de infraestructura</title><link>https://joshua.haase.mx/techno/diagramas/infraestructura/</link><pubDate>Sun, 27 Sep 2020 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagramas/infraestructura/</guid><description>Encontré este video que concuerda con lo que pienso de la mayoría de las ilustraciones que hago:
-Herramientas libres para hacer diagramas de infraestructura ↑La mejor herramienta que me he encontrado es:
-diagrams, que permite hacer diagramas de infraestructura en la nube usando código sencillo, tiene montones de nodos disponibles y puedes agregar más fácilmente. Además, puede generar diagramas C4.
-diagrams está implementado como wrapper para graphviz.
-Existe una herramienta para autodetectar infraestructura en la nube que genera diagramas usando diagrams y que ofrece un rol para generar los diagramas.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diagramas on Joshua Haase</title><link>https://joshua.haase.mx/techno/diagramas/</link><description>Recent content in Diagramas on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Wed, 11 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/techno/diagramas/index.xml" rel="self" type="application/rss+xml"/><item><title>Diagramas Entidad Relación</title><link>https://joshua.haase.mx/techno/diagramas/entidad-relaci%C3%B3n/</link><pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagramas/entidad-relaci%C3%B3n/</guid><description>&lt;h2 id="generar-a-partir-de-esquema-sql">&lt;a href="#generar-a-partir-de-esquema-sql" alt="">Generar a partir de esquema SQL&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Lo ideal para estos diagramas es que
+&lt;a href='https://stackoverflow.com/questions/2488/auto-generate-database-diagram-mysql' target="_blank" rel="noopener">puedan&lt;/a>
+&lt;a href='https://stackoverflow.com/questions/32379038/how-can-i-generate-an-entity-relationship-er-diagram-of-a-database-using-micro' target="_blank" rel="noopener">generarse a partir&lt;/a>
+&lt;a href='https://stackoverflow.com/questions/168724/generate-table-relationship-diagram-from-existing-schema-sql-server' title="`SQL Server` y `DBeaver` pueden generar diagramas a partir del esquema SQL" target="_blank" rel="noopener">del esquema SQL&lt;/a>:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href='https://dbeaver.io/' target="_blank" rel="noopener">DBeaver&lt;/a>
+&lt;a href='https://dbeaver.com/' title="DBeaver es open core." target="_blank" rel="noopener">es un producto open Core&lt;/a>
+es un gestor de bases de datos
+que &lt;a href='https://github.com/dbeaver/dbeaver/wiki' target="_blank" rel="noopener">supuestamente facilita la vida de los DBA&lt;/a>
+y &lt;a href='https://github.com/dbeaver/dbeaver/wiki/ER-Diagrams' target="_blank" rel="noopener">puede hacer diagramas ER&lt;/a>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href='https://github.com/brunocascio/schema-to-diagram' target="_blank" rel="noopener">Schema to Diagram&lt;/a>
+es una aplicación en JavaScript
+para generar diagramas a partir de la base de datos.&lt;/p></description></item><item><title>Diagramas a partir de texto</title><link>https://joshua.haase.mx/techno/diagramas/desde-texto/</link><pubDate>Tue, 15 Nov 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagramas/desde-texto/</guid><description>&lt;h2 id="diagramas-de-actividad">&lt;a href="#diagramas-de-actividad" alt="">Diagramas de actividad&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;a href='https://plantuml.com/' target="_blank" rel="noopener">PlantUML&lt;/a> lo hace bien y &lt;a href='https://plantuml.com/activity-diagram-beta' target="_blank" rel="noopener">esta es la sintaxis&lt;/a>.&lt;/p>
+&lt;p>Se pueden agregar enlaces con esta sintaxis: &lt;code>[[url texto]]&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="arquitectura-de-software">&lt;a href="#arquitectura-de-software" alt="">Arquitectura de software&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>&lt;a href='https://plantuml.com/' target="_blank" rel="noopener">PlantUML&lt;/a> puede hacer diagramas de arquitectura con el paradigma C4
+&lt;a href='https://github.com/plantuml-stdlib/C4-PlantUML?tab=readme-ov-file' target="_blank" rel="noopener">usando esta extensión&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="uml">&lt;a href="#uml" alt="">UML&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;a href='https://modeling-languages.com/uml-tools/#textual' target="_blank" rel="noopener">Varias herramientas textuales que no he revisado&lt;/a>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href='https://modeling-languages.com/text-uml-tools-complete-list/' target="_blank" rel="noopener">Más ejemplos de herramientas textuales&lt;/a>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href='https://bramp.github.io/js-sequence-diagrams/' target="_blank" rel="noopener">Herramienta js para diagramas de secuencia&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="notación-de-modelado-de-procesos-de-negocio-business-process-model-and-notation">&lt;a href="#notaci%c3%b3n-de-modelado-de-procesos-de-negocio-business-process-model-and-notation" alt="">Notación de Modelado de Procesos de Negocio (Business Process Model and Notation)&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>&lt;a href='https://www.omg.org/spec/BPMN/2.0/PDF' target="_blank" rel="noopener">La especificación oficial de BPMN&lt;/a>
+y &lt;a href='https://www.omg.org/cgi-bin/doc?dtc/10-06-02.pdf' target="_blank" rel="noopener">un ejemplo de uso&lt;/a>
+se pueden consultar en línea,
+hay &lt;a href='https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation' title="Resumen de la sintaxis BPMN" target="_blank" rel="noopener">un resumen de su sintaxis en Wikipedia&lt;/a>.&lt;/p></description></item><item><title>Herramientas para hacer diagramas de infraestructura</title><link>https://joshua.haase.mx/techno/diagramas/infraestructura/</link><pubDate>Sun, 27 Sep 2020 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagramas/infraestructura/</guid><description>&lt;p>Encontré este video que concuerda con lo que pienso de la mayoría de las ilustraciones que hago:&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; overflow: hidden;">
+
+ &lt;iframe
+ style="position: absolute; width: 100%; height: 100%;"
+ src='https://www.youtube.com/embed/3i-C7qbRGGQ?enablejsapi=1&amp;'
+ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
+ allowfullscreen
+ frameborder="0"
+ referrerpolicy="strict-origin-when-cross-origin"
+ title='Una buena explicación de por qué conviene usar modelos textuales para generar diagramas.'
+ >
+ &lt;/iframe>
+
+&lt;/div>&lt;/br>
+
+&lt;h2 id="herramientas-libres-para-hacer-diagramas-de-infraestructura">&lt;a href="#herramientas-libres-para-hacer-diagramas-de-infraestructura" alt="">Herramientas libres para hacer diagramas de infraestructura&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>La mejor herramienta que me he encontrado es:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href='https://pypi.org/project/diagrams/' target="_blank" rel="noopener">&lt;code>diagrams&lt;/code>&lt;/a>,
+que permite hacer diagramas de infraestructura en la nube
+&lt;a href='https://diagrams.mingrammer.com/docs/getting-started/examples' target="_blank" rel="noopener">usando código sencillo&lt;/a>,
+tiene &lt;a href='https://diagrams.mingrammer.com/docs/nodes/onprem' target="_blank" rel="noopener">montones de nodos disponibles&lt;/a>
+y &lt;a href='https://diagrams.mingrammer.com/docs/nodes/custom' target="_blank" rel="noopener">puedes agregar más fácilmente&lt;/a>.
+Además, puede generar &lt;a href='https://diagrams.mingrammer.com/docs/nodes/c4' target="_blank" rel="noopener">diagramas C4&lt;/a>.&lt;/p></description></item></channel></rss>

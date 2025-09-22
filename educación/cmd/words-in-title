@@ -1,7 +1,0 @@
-#!/usr/bin/execlineb -P
-pipeline {
-	yq eval .title tesis.yml
-} pipeline {
-	sed -re "s#(-|–|—)# #g"
-}
-	wc -w

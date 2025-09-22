@@ -1,56 +1,119 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diagramas on Joshua Haase</title><link>https://joshua.haase.mx/tags/diagramas/</link><description>Recent content in Diagramas on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Sat, 11 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/diagramas/index.xml" rel="self" type="application/rss+xml"/><item><title>Model Driven Architecture no evolucionó, los lenguajes sí.</title><link>https://joshua.haase.mx/techno/uml-based-vs-programming-languages/</link><pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/uml-based-vs-programming-languages/</guid><description>Escuchando la clase de Yegor acerca de UML, me da la impresión de que siempre tuvimos el mismo sueño:
-Y a pesar de que programar se ha vuelto mucho más sencillo porque ahora no tenemos que entender:
-el funcionamiento interno del hardware (binario), las instrucciones específicas del microprocesador (ensamblador), o cuidar:
-el flujo de ejecución (GOTO) el manejo de la memoria (C) la gestión de los hilos (Go, Rust) Hay una diferencia entre el diseñar todo el sistema esperando que funcione, y resolver el problema inmediato, iterando poco a poco.</description></item><item><title>Mi catálogo de herramientas para visualización de datos</title><link>https://joshua.haase.mx/dato/data-visualisation/</link><pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/data-visualisation/</guid><description>Se puede usar este catálogo de gráficos para saber qué herramientas usar para cada tipo de gráfico. y estas herramientas para graficar.
-Catálogo de gráficos de R con código.
-Herramientas para visualizar datos ↑Una herramienta para hacer cronologías
-Herramientas open source para la visualización de datos
-Un sistema para Gráficos interactivos en internet.
-Para hacer mapas mentales
-Librería JavaScript para visualización interactiva de datos, un tutorial para aprender a usar D3JS y varios ejemplos de gráficas usando D3JS</description></item><item><title>Diagrama de dependencias</title><link>https://joshua.haase.mx/techno/diagramas-de-dependencias/</link><pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagramas-de-dependencias/</guid><description>Cada vez encuentro más problemas donde puedo usar grafos.
-Esta vez quise hacer un programa de estudios usando graphviz.
-Enlaces prometedores ↑Diagramas de estado con graphviz
-Documentación de Graphviz
-Descripción del lenguaje DOT
-Cómo generar diagramas con Graphviz usando scripts que generan el código
-Cómo poner nodos en el mismo nivel en el algoritmo dot
-Cómo forzar nodos en al menos el mismo nivel, considerando que queremos un plan de estudios Atributos que es posible usar (Probablemente son más sencillos de consultar en man dot.</description></item><item><title>Diagrama de dependencias</title><link>https://joshua.haase.mx/techno/diagrama-de-dependencias/</link><pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagrama-de-dependencias/</guid><description>He notado que muchas cosas pueden representarse como grafos, pero no conozco herramientas muy buenas para representarlas.
-Me da la impresión que hacer los diagramas con código debería ser relativamente sencillo, pero siempre que lo intento resulta mucho más feo de lo que espero y más inflexible.
-Quiero hacer un diagrama de dependencias entre materias, con información acerca de las materias y mostrando las dependencias.
-Ayudaría que el tamaño de los nodos sea estático.</description></item><item><title>Herramientas para hacer diagramas de infraestructura</title><link>https://joshua.haase.mx/techno/diagramas/infraestructura/</link><pubDate>Sun, 27 Sep 2020 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagramas/infraestructura/</guid><description>Encontré este video que concuerda con lo que pienso de la mayoría de las ilustraciones que hago:
-Herramientas libres para hacer diagramas de infraestructura ↑La mejor herramienta que me he encontrado es:
-diagrams, que permite hacer diagramas de infraestructura en la nube usando código sencillo, tiene montones de nodos disponibles y puedes agregar más fácilmente. Además, puede generar diagramas C4.
-diagrams está implementado como wrapper para graphviz.
-Existe una herramienta para autodetectar infraestructura en la nube que genera diagramas usando diagrams y que ofrece un rol para generar los diagramas.</description></item><item><title>Generar un diagrama de red</title><link>https://joshua.haase.mx/techno/diagrama-de-red/</link><pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagrama-de-red/</guid><description>Me gustaría generar diagramas de red automáticamente con respecto de los equipos en la red.
-drawthe.net se anuncia como «diagramas decentes para ingenieros» (vía bahooka). En mi opinión no es tan bueno y como tantos otros está basado en graphviz.
-Referencias ↑Recomendaciones en un foro
-Software por licencia para explorar la red
-https://www.networkworld.com/article/2345932/data-breach/nagios--lots-of-network-management-for-nothing.html
-https://www.networkworld.com/article/2281199/infrastructure-management/whatsup-gold--a-solid-new-version-with-minor-flaws.html
-https://www.netadmintools.com/solarwinds-vs-nagios
-https://www.ittsystems.com/best-alternatives-to-nagios/
-https://www.ittsystems.com/best-open-source-network-monitoring-tools/
-https://exchange.nagios.org/directory/Addons/Maps-and-Diagrams
-https://exchange.nagios.org/directory/Addons/Components/Network-Replay-Component/details
-https://pandorafms.org/es/
-https://pandorafms.org/es/producto/funcionalidades-monitorizacion/
-https://stackoverflow.com/questions/1844517/is-there-anyway-i-can-auto-generate-architecture-diagrams-from-a-table-of-data
-https://graphviz.gitlab.io/_pages/Gallery/directed/psg.html
-https://graphviz.gitlab.io/_pages/Gallery/undirected/networkmap_twopi.gv.txt
-https://graphviz.gitlab.io/_pages/Gallery/twopi/twopi2.html
-https://graphviz.gitlab.io/_pages/Gallery/twopi/twopi2.gv.txt
-https://halbekoenraads.com/sid/
-https://www.gwos.com/
-La aplicación que recomienda Cristóbal</description></item><item><title>Un listado de herramientas que podrían ser útiles</title><link>https://joshua.haase.mx/techno/lista-de-herramientas/</link><pubDate>Sat, 16 Jun 2018 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/lista-de-herramientas/</guid><description>Herramientas para la terminal.
-Para empaquetar software.
-Para usar FAI.
-Controlar el led de los discos, puede ser útil o no dependiendo de tu hardware
-Lista de herramientas para usar en Linux para empresas
-Herramientas comerciales para usar mientras eres estudiante vía GitHub
-Una plataforma para la reproducibilidad de código
-Herramienta para replicar imágenes de docker p2p y un sistema para construir imágenes de docker.
-Para usar emacs en todos lados</description></item><item><title>Cómo hacer diagramas de proceso (como código)</title><link>https://joshua.haase.mx/techno/diagramas-de-procesos/</link><pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagramas-de-procesos/</guid><description>Hay dos tipos de diagramas de proceso que me importan:
-Un flujo de trabajo que está implementado como código. Un procedimiento que quiero documentar. Procedimientos ↑Los procedimientos pueden acompañarse de:
-Un video documentando el proceso, que se puede hacer al momento de trabajar para evitar que se
-Yo los agrego en mi web usando {{/* youtube id */}}
-Flujos de trabajo ↑Con ayuda de k054 y Dawid Oliva encontré cómo hacer diagramas de los procesos que automatizo.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Diagramas on Joshua Haase</title><link>https://joshua.haase.mx/tags/diagramas/</link><description>Recent content in Diagramas on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Sat, 11 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/diagramas/index.xml" rel="self" type="application/rss+xml"/><item><title>Model Driven Architecture no evolucionó, los lenguajes sí.</title><link>https://joshua.haase.mx/techno/uml-based-vs-programming-languages/</link><pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/uml-based-vs-programming-languages/</guid><description>&lt;p>Escuchando &lt;a href='https://www.youtube.com/watch?v=DNAMztROPyI&amp;amp;list=PLaIsQH4uc08woJKRAA7mmjs9fU0jeKjjM&amp;amp;index=8' target="_blank" rel="noopener">la clase de Yegor acerca de UML&lt;/a>,
+me da la impresión de que siempre tuvimos el mismo sueño:&lt;/p>
+&lt;p>&lt;a href='https://www.commitstrip.com/en/2016/08/25/a-very-comprehensive-and-precise-spec/' target="_blank" rel="noopener">&lt;figure>
+&lt;img src='https://www.commitstrip.com/wp-content/uploads/2016/08/Strip-Les-specs-cest-du-code-650-finalenglish.jpg' />
+
+&lt;/figure>
+&lt;/a>&lt;/p>
+&lt;p>Y a pesar de que programar se ha vuelto mucho más sencillo
+porque ahora no tenemos que entender:&lt;/p>
+&lt;ul>
+&lt;li>el funcionamiento interno del hardware (binario),&lt;/li>
+&lt;li>las instrucciones específicas del microprocesador (ensamblador),&lt;/li>
+&lt;/ul>
+&lt;p>o cuidar:&lt;/p>
+&lt;ul>
+&lt;li>el flujo de ejecución (GOTO)&lt;/li>
+&lt;li>el manejo de la memoria (C)&lt;/li>
+&lt;li>la gestión de los hilos (Go, Rust)&lt;/li>
+&lt;/ul>
+&lt;p>Hay una diferencia entre el diseñar todo el sistema esperando que funcione,
+y resolver el problema inmediato, iterando poco a poco.&lt;/p></description></item><item><title>Mi catálogo de herramientas para visualización de datos</title><link>https://joshua.haase.mx/dato/data-visualisation/</link><pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/dato/data-visualisation/</guid><description>&lt;p>Se puede usar este &lt;a href='https://datavizcatalogue.com/ES/' target="_blank" rel="noopener">catálogo de gráficos&lt;/a>
+para saber qué herramientas usar para cada tipo de gráfico.
+y estas &lt;a href='https://app.rawgraphs.io/' target="_blank" rel="noopener">herramientas para graficar&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://www.r-graph-gallery.com/' target="_blank" rel="noopener">Catálogo de gráficos de R con código&lt;/a>.&lt;/p>
+&lt;h2 id="herramientas-para-visualizar-datos">&lt;a href="#herramientas-para-visualizar-datos" alt="">Herramientas para visualizar datos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>&lt;a href='https://es.schoolofdata.org/2018/03/27/mezclando-cronologias-y-graficos-lineales-o-de-fiebre-con-storylinejs/' title="No es tan bonita." target="_blank" rel="noopener">Una herramienta para hacer cronologías&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://opensource.com/life/15/6/eight-open-source-data-visualization-tools' target="_blank" rel="noopener">Herramientas open source para la visualización de datos&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://github.com/vega/vega' target="_blank" rel="noopener">Un sistema para Gráficos interactivos en internet.&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://coggle.it/' title="Aplicación para hacer mapa mental, mapa conceptual." target="_blank" rel="noopener">Para hacer mapas mentales&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://d3js.org/' target="_blank" rel="noopener">Librería JavaScript para visualización interactiva de datos&lt;/a>,
+un &lt;a href='https://observablehq.com/@d3/learn-d3' target="_blank" rel="noopener">tutorial para aprender a usar D3JS&lt;/a>
+y &lt;a href='https://www.d3-graph-gallery.com/' target="_blank" rel="noopener">varios ejemplos de gráficas usando D3JS&lt;/a>&lt;/p></description></item><item><title>Diagrama de dependencias</title><link>https://joshua.haase.mx/techno/diagramas-de-dependencias/</link><pubDate>Thu, 08 Apr 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagramas-de-dependencias/</guid><description>&lt;p>Cada vez encuentro más problemas donde puedo usar grafos.&lt;/p>
+&lt;p>Esta vez quise hacer un programa de estudios usando &lt;code>graphviz&lt;/code>.&lt;/p>
+&lt;h2 id="enlaces-prometedores">&lt;a href="#enlaces-prometedores" alt="">Enlaces prometedores&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>&lt;a href='http://sfriederichs.github.io/how-to/graphviz/2017/12/07/State-Diagrams.html' target="_blank" rel="noopener">Diagramas de estado con &lt;code>graphviz&lt;/code>&lt;/a>&lt;/p>
+&lt;p>&lt;a href='http://www.graphviz.org/documentation/' title="Artículos en PDF explicando cómo funciona cada proyecto o las bibliotecas" target="_blank" rel="noopener">Documentación de Graphviz&lt;/a>&lt;/p>
+&lt;p>&lt;a href='http://www.graphviz.org/doc/info/lang.html' target="_blank" rel="noopener">Descripción del lenguaje DOT&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://developer.ibm.com/technologies/systems/articles/au-aix-graphviz/' target="_blank" rel="noopener">Cómo generar diagramas con Graphviz usando scripts que generan el código&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://stackoverflow.com/questions/25734244/how-do-i-place-nodes-on-the-same-level-in-dot' target="_blank" rel="noopener">Cómo poner nodos en el mismo nivel en el algoritmo dot&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://stackoverflow.com/questions/52829284/python-graphviz-force-rank-to-be-at-least-the-same' target="_blank" rel="noopener">Cómo forzar nodos en al menos el mismo nivel, considerando que queremos un plan de estudios&lt;/a>
+&lt;a href='https://graphviz.org/doc/info/attrs.html' target="_blank" rel="noopener">Atributos que es posible usar&lt;/a>
+(Probablemente son más sencillos de consultar en &lt;code>man dot&lt;/code>.)&lt;/p></description></item><item><title>Diagrama de dependencias</title><link>https://joshua.haase.mx/techno/diagrama-de-dependencias/</link><pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagrama-de-dependencias/</guid><description>&lt;p>He notado que muchas cosas pueden representarse como grafos,
+pero no conozco herramientas muy buenas para representarlas.&lt;/p>
+&lt;p>Me da la impresión que hacer los diagramas con código debería ser relativamente sencillo,
+pero siempre que lo intento resulta mucho más feo de lo que espero y más inflexible.&lt;/p>
+&lt;p>Quiero hacer un diagrama de dependencias entre materias,
+con información acerca de las materias
+y mostrando las dependencias.&lt;/p>
+&lt;p>Ayudaría que el tamaño de los nodos sea estático.&lt;/p></description></item><item><title>Herramientas para hacer diagramas de infraestructura</title><link>https://joshua.haase.mx/techno/diagramas/infraestructura/</link><pubDate>Sun, 27 Sep 2020 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagramas/infraestructura/</guid><description>&lt;p>Encontré este video que concuerda con lo que pienso de la mayoría de las ilustraciones que hago:&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; overflow: hidden;">
+
+ &lt;iframe
+ style="position: absolute; width: 100%; height: 100%;"
+ src='https://www.youtube.com/embed/3i-C7qbRGGQ?enablejsapi=1&amp;'
+ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"
+ allowfullscreen
+ frameborder="0"
+ referrerpolicy="strict-origin-when-cross-origin"
+ title='Una buena explicación de por qué conviene usar modelos textuales para generar diagramas.'
+ >
+ &lt;/iframe>
+
+&lt;/div>&lt;/br>
+
+&lt;h2 id="herramientas-libres-para-hacer-diagramas-de-infraestructura">&lt;a href="#herramientas-libres-para-hacer-diagramas-de-infraestructura" alt="">Herramientas libres para hacer diagramas de infraestructura&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>La mejor herramienta que me he encontrado es:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href='https://pypi.org/project/diagrams/' target="_blank" rel="noopener">&lt;code>diagrams&lt;/code>&lt;/a>,
+que permite hacer diagramas de infraestructura en la nube
+&lt;a href='https://diagrams.mingrammer.com/docs/getting-started/examples' target="_blank" rel="noopener">usando código sencillo&lt;/a>,
+tiene &lt;a href='https://diagrams.mingrammer.com/docs/nodes/onprem' target="_blank" rel="noopener">montones de nodos disponibles&lt;/a>
+y &lt;a href='https://diagrams.mingrammer.com/docs/nodes/custom' target="_blank" rel="noopener">puedes agregar más fácilmente&lt;/a>.
+Además, puede generar &lt;a href='https://diagrams.mingrammer.com/docs/nodes/c4' target="_blank" rel="noopener">diagramas C4&lt;/a>.&lt;/p></description></item><item><title>Generar un diagrama de red</title><link>https://joshua.haase.mx/techno/diagrama-de-red/</link><pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagrama-de-red/</guid><description>&lt;p>Me gustaría generar diagramas de red automáticamente con respecto de los equipos en la red.&lt;/p>
+&lt;p>&lt;a href='https://github.com/cidrblock/drawthe.net' target="_blank" rel="noopener">&lt;code>drawthe.net&lt;/code> se anuncia como «diagramas decentes para ingenieros»&lt;/a>
+(vía &lt;a href='https://bashooka.com/resources/10-useful-text-based-flowchart-diagram-tools-for-web-developers/' target="_blank" rel="noopener">bahooka&lt;/a>).
+En mi opinión no es tan bueno
+y como tantos otros
+está basado en &lt;a href='http://www.graphviz.org/' target="_blank" rel="noopener">graphviz&lt;/a>.&lt;/p>
+&lt;h1 id="referencias">&lt;a href="#referencias" alt="">Referencias&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h1>&lt;p>&lt;a href='https://community.spiceworks.com/topic/521280-i-need-software-that-make-my-whole-network-diagram-automatically' target="_blank" rel="noopener">Recomendaciones en un foro&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://www.lantopolog.com/download.html' target="_blank" rel="noopener">Software por licencia para explorar la red&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://www.networkworld.com/article/2345932/data-breach/nagios--lots-of-network-management-for-nothing.html' target="_blank" rel="noopener">https://www.networkworld.com/article/2345932/data-breach/nagios--lots-of-network-management-for-nothing.html&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://www.networkworld.com/article/2281199/infrastructure-management/whatsup-gold--a-solid-new-version-with-minor-flaws.html' target="_blank" rel="noopener">https://www.networkworld.com/article/2281199/infrastructure-management/whatsup-gold--a-solid-new-version-with-minor-flaws.html&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://www.netadmintools.com/solarwinds-vs-nagios' target="_blank" rel="noopener">https://www.netadmintools.com/solarwinds-vs-nagios&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://www.ittsystems.com/best-alternatives-to-nagios/' target="_blank" rel="noopener">https://www.ittsystems.com/best-alternatives-to-nagios/&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://www.ittsystems.com/best-open-source-network-monitoring-tools/' target="_blank" rel="noopener">https://www.ittsystems.com/best-open-source-network-monitoring-tools/&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://exchange.nagios.org/directory/Addons/Maps-and-Diagrams' target="_blank" rel="noopener">https://exchange.nagios.org/directory/Addons/Maps-and-Diagrams&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://exchange.nagios.org/directory/Addons/Components/Network-Replay-Component/details' target="_blank" rel="noopener">https://exchange.nagios.org/directory/Addons/Components/Network-Replay-Component/details&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://pandorafms.org/es/' target="_blank" rel="noopener">https://pandorafms.org/es/&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://pandorafms.org/es/producto/funcionalidades-monitorizacion/' target="_blank" rel="noopener">https://pandorafms.org/es/producto/funcionalidades-monitorizacion/&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://stackoverflow.com/questions/1844517/is-there-anyway-i-can-auto-generate-architecture-diagrams-from-a-table-of-data' target="_blank" rel="noopener">https://stackoverflow.com/questions/1844517/is-there-anyway-i-can-auto-generate-architecture-diagrams-from-a-table-of-data&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://graphviz.gitlab.io/_pages/Gallery/directed/psg.html' target="_blank" rel="noopener">https://graphviz.gitlab.io/_pages/Gallery/directed/psg.html&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://graphviz.gitlab.io/_pages/Gallery/undirected/networkmap_twopi.gv.txt' target="_blank" rel="noopener">https://graphviz.gitlab.io/_pages/Gallery/undirected/networkmap_twopi.gv.txt&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://graphviz.gitlab.io/_pages/Gallery/twopi/twopi2.html' target="_blank" rel="noopener">https://graphviz.gitlab.io/_pages/Gallery/twopi/twopi2.html&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://graphviz.gitlab.io/_pages/Gallery/twopi/twopi2.gv.txt' target="_blank" rel="noopener">https://graphviz.gitlab.io/_pages/Gallery/twopi/twopi2.gv.txt&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://halbekoenraads.com/sid/' target="_blank" rel="noopener">https://halbekoenraads.com/sid/&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://www.gwos.com/' target="_blank" rel="noopener">https://www.gwos.com/&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://www.lucidchart.com/pages/' target="_blank" rel="noopener">La aplicación que recomienda Cristóbal&lt;/a>&lt;/p></description></item><item><title>Un listado de herramientas que podrían ser útiles</title><link>https://joshua.haase.mx/techno/lista-de-herramientas/</link><pubDate>Sat, 16 Jun 2018 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/lista-de-herramientas/</guid><description>&lt;p>&lt;a href='https://github.com/k4m4/terminals-are-sexy' target="_blank" rel="noopener">Herramientas para la terminal&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='http://pkgin.net/' target="_blank" rel="noopener">Para empaquetar software&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://github.com/J0oo/FAI-Administration-Tool/blob/master/README.md' target="_blank" rel="noopener">Para usar FAI&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://sourceforge.net/projects/ledmon/' target="_blank" rel="noopener">Controlar el led de los discos, puede ser útil o no dependiendo de tu hardware&lt;/a>&lt;/p>
+&lt;p>&lt;a href='http://linas.org/linux/' title="Linux Enterprise Computing" target="_blank" rel="noopener">Lista de herramientas para usar en Linux para empresas&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://education.github.com/pack' target="_blank" rel="noopener">Herramientas comerciales para usar mientras eres estudiante vía GitHub&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://codeocean.com/plans' target="_blank" rel="noopener">Una plataforma para la reproducibilidad de código&lt;/a>&lt;/p>
+&lt;p>&lt;a href='https://eng.uber.com/introducing-kraken/' target="_blank" rel="noopener">Herramienta para replicar imágenes de docker p2p&lt;/a>
+y un &lt;a href='https://eng.uber.com/makisu/' target="_blank" rel="noopener">sistema para construir imágenes de docker&lt;/a>.&lt;/p>
+&lt;p>&lt;a href='https://github.com/zachcurry/emacs-anywhere' target="_blank" rel="noopener">Para usar emacs en todos lados&lt;/a>&lt;/p></description></item><item><title>Cómo hacer diagramas de proceso (como código)</title><link>https://joshua.haase.mx/techno/diagramas-de-procesos/</link><pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/diagramas-de-procesos/</guid><description>&lt;p>Hay dos tipos de diagramas de proceso que me importan:&lt;/p>
+&lt;ul>
+&lt;li>Un flujo de trabajo que está implementado como código.&lt;/li>
+&lt;li>Un procedimiento que quiero documentar.&lt;/li>
+&lt;/ul>
+&lt;h2 id="procedimientos">&lt;a href="#procedimientos" alt="">Procedimientos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Los procedimientos pueden acompañarse de:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Un video documentando el proceso,
+que se puede hacer al momento de trabajar
+para evitar que se&lt;/p>
+&lt;p>Yo los agrego en mi web usando &lt;code>{{/* youtube id */}}&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="flujos-de-trabajo">&lt;a href="#flujos-de-trabajo" alt="">Flujos de trabajo&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Con ayuda de k054 y Dawid Oliva
+encontré cómo hacer diagramas de los procesos que automatizo.&lt;/p></description></item></channel></rss>

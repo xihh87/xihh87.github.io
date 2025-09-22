@@ -1,0 +1,1 @@
+<!doctype html><html><head><title>Redirect</title><link rel=canonical href=/biblio/ia-funnel-labs><meta charset=utf-8><meta http-equiv=refresh content="0; url=/biblio/ia-funnel-labs"></head></html>

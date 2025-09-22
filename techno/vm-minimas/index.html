@@ -1,7 +1,8 @@
-<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Máquinas virtuales mínimas</title>
-<link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Máquinas virtuales mínimas</h1><nav id=TableOfContents><ul><li><a href=#máquinas-virtuales-mínimas-y-reproducibles>Máquinas virtuales mínimas y reproducibles</a><ul><li><a href=#espacio-de-disco>Espacio de disco</a></li><li><a href=#ram>RAM</a></li><li><a href=#cpu-asignado>CPU asignado</a></li></ul></li><li><a href=#convertir-imágenes-de-virtualbox-a-qemukvm>Convertir imágenes de Virtualbox a QEMU/KVM</a></li><li><a href=#usar-contenedores-para-la-mayoría-de-los-retos>Usar contenedores para la mayoría de los retos</a></li><li><a href=#usar-máquinas-virtuales-para-retos-potencialmente-problemáticos>Usar máquinas virtuales para retos potencialmente problemáticos</a></li><li><a href=#user-mode-linux-uml>User Mode Linux (UML)</a></li><li><a href=#tinycore--levinux>TinyCore / Levinux</a></li></ul></nav><p>Haciendo <a href=../aplicaciones-vulnerables-para-poc/>retos para enseñar conceptos de ciberseguridad</a>
+<!doctype html><html lang=es-mx><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Máquinas virtuales mínimas</title><link rel=stylesheet media=screen href=https://joshua.haase.mx/css/theme.min.2ee1317322f9eb9b2ef0a618d19b20e38c11f5f9c310751400a45db225dd2626.css integrity="sha256-LuExcyL565su8KYY0Zsg44wR9fnDEHUUAKRdsiXdJiY="><script src=https://hypothes.is/embed.js></script></head><body><main><article><h1>Máquinas virtuales mínimas</h1><nav id=TableOfContents><ul><li><a href=#plan>Plan</a></li><li><a href=#máquinas-virtuales-mínimas-y-reproducibles>Máquinas virtuales mínimas y reproducibles</a><ul><li><a href=#espacio-de-disco>Espacio de disco</a></li><li><a href=#ram>RAM</a></li><li><a href=#cpu-asignado>CPU asignado</a></li></ul></li><li><a href=#convertir-imágenes-de-virtualbox-a-qemukvm>Convertir imágenes de Virtualbox a QEMU/KVM</a></li><li><a href=#usar-contenedores-para-la-mayoría-de-los-retos>Usar contenedores para la mayoría de los retos</a></li><li><a href=#usar-máquinas-virtuales-para-retos-potencialmente-problemáticos>Usar máquinas virtuales para retos potencialmente problemáticos</a></li><li><a href=#user-mode-linux-uml>User Mode Linux (UML)</a></li><li><a href=#tinycore--levinux>TinyCore / Levinux</a><ul><li><a href=#para-usar-tinycore-desde-qemu>Para usar tinycore desde qemu</a></li><li><a href=#desactivar-alsr>Desactivar ALSR</a></li><li><a href=#ejecutar-como-usuario-sin-privilegios>Ejecutar como usuario sin privilegios</a></li><li><a href=#configurar-s6>Configurar s6</a></li><li><a href=#generar-un-paquete-para-tinycore>Generar un paquete para tinycore</a></li></ul></li><li><a href=#o-tal-vez-puedo-dar-personality-a-los-binarios>O tal vez puedo dar <code>personality</code> a los binarios</a></li></ul></nav><p>Haciendo <a href=../aplicaciones-vulnerables-para-poc/>retos para enseñar conceptos de ciberseguridad</a>
 me encontré que no es suficiente generar contenedores con los servicios.</p><p>Varias de <a href=../aplicaciones-vulnerables-para-poc/#c%c3%b3mo-demostrar-programas-vulnerables>las protecciones anti-ataque se establecen a nivel de sistema operativo</a>
-y no pienso desactivar las protecciones de seguridad en mi infraestructura.</p><p>Por lo tanto, la única vía de acción que queda es generar para los retos…</p><h2 id=máquinas-virtuales-mínimas-y-reproducibles><a href=#m%c3%a1quinas-virtuales-m%c3%adnimas-y-reproducibles alt>Máquinas virtuales mínimas y reproducibles</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Hay herramientas bien probadas para generar y gestionar máquinas virtuales:</p><ul><li><p><a href=https://www.vagrantup.com/ target=_blank rel=noopener><code>vagrant</code></a>
+y no pienso desactivar las protecciones de seguridad en mi infraestructura.</p><p>Por lo tanto, la única vía de acción que queda es generar para los retos…</p><h2 id=plan><a href=#plan alt>Plan</a> <a href=# alt="Regresar al inicio">↑</a></h2><ul><li>[?] <del>configurar este sistema para iniciar con s6</del>.</li><li>[?] <del>Configurar ssh para usar una llave individual por persona,
+ejecutando cada nivel con diferencias ligeras</del>.</li><li><input checked disabled type=checkbox> <a href=#desactivar-alsr>Desactivar ALSR para la máquina virtual en la configuración de <code>/etc/sysctl.d</code></a>.</li><li><input disabled type=checkbox> Configurar los servicios de los juegos y exponer el puerto,
+usando un usuario por cada nivel.</li><li><input checked disabled type=checkbox> <a href=#ejecutar-como-usuario-sin-privilegios>Ejecutar el servicio de QEMU como un usuario sin privilegios</a>.</li></ul><h2 id=máquinas-virtuales-mínimas-y-reproducibles><a href=#m%c3%a1quinas-virtuales-m%c3%adnimas-y-reproducibles alt>Máquinas virtuales mínimas y reproducibles</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Hay herramientas bien probadas para generar y gestionar máquinas virtuales:</p><ul><li><p><a href=https://www.vagrantup.com/ target=_blank rel=noopener><code>vagrant</code></a>
 puede usarse para configurar máquinas con vagrant.</p><p>Para gestionar las máquinas con vagrant,
 necesitan un usuario <code>vagrant</code>
 <a href=https://github.com/hashicorp/vagrant/tree/main/keys target=_blank rel=noopener>con estas llaves públicas</a> en <code>~/.ssh/authorized_keys</code>.</p></li><li><p><a href=https://www.packer.io/ target=_blank rel=noopener><code>packer</code></a>
@@ -50,7 +51,7 @@ y <a href=https://wiki.archlinux.org/title/User-mode_Linux#Setup_by_rootfs_+_tap
 que es un sistema de archivos que utiliza un directorio para los archivos
 y otro para los meta-datos [@isbn:978-0-13-186505-1, ch. 6].</p><h2 id=tinycore--levinux><a href=#tinycore--levinux alt>TinyCore / Levinux</a> <a href=# alt="Regresar al inicio">↑</a></h2><p>Durante 2024-04-11 revisé mi investigación
 y encontré <a href=https://github.com/miklevin/levinux target=_blank rel=noopener>esta máquina virtual de 20MB</a>
-(<a href=https://www.youtube.com/user/miklevin target=_blank rel=noopener>yt autor</a>)
+(via <a href=https://www.youtube.com/user/miklevin target=_blank rel=noopener>miklevin</a>)
 basada en <a href=http://www.tinycorelinux.net/ target=_blank rel=noopener>TinyCore</a>
 (<a href=http://www.tinycorelinux.net/corebook.pdf target=_blank rel=noopener>libro</a>,
 <a href=https://web.archive.org/web/20201112015615/http://distro.ibiblio.org/tinycorelinux/architecture.html target=_blank rel=noopener>diagrama</a>).</p><p>Hice el experimento y pude hacer que se ejecute desde el servidor:</p><pre tabindex=0><code>$ ssh h
@@ -58,6 +59,50 @@ $ cd ~/levinux-master/Levinux.app/Contents/MacOS
 $ TERM=xterm ./qemu-system-i386 -curses -kernel vmlinuz -initrd core.gz -L ./ -hda opt.qcow -hdc tce.qcow -tftp ../../../Reset/Server -append &#34;loglevel=3 home=sda1 opt=sdb1 tce=sdc1&#34;
 </code></pre><p>Dado que el sistema inicia correctamente y usa sólo 100MB de memoria,
 que es demasiado pero puede ser aceptable porque tengo mucha memoria libre;
-Para simplificar los juegos, podría:</p><ul><li>[?] <del>configurar este sistema para iniciar con s6</del>.</li><li>[?] <del>Configurar ssh para usar una llave individual por persona,
-ejecutando cada nivel con diferencias ligeras</del>.</li><li><input disabled type=checkbox> Desactivar ALSR para la máquina virtual en la configuración de <code>/etc/sysctl.d</code>.</li><li><input disabled type=checkbox> Configurar los servicios de los juegos y exponer el puerto,
-usando un usuario por cada nivel.</li><li><input disabled type=checkbox> Ejecutar el servicio de QEMU como un usuario sin privilegios, ¿desde sistemd?.</li></ul></article></main></body></html>
+Para simplificar los juegos, podría:</p><h3 id=para-usar-tinycore-desde-qemu><a href=#para-usar-tinycore-desde-qemu alt>Para usar tinycore desde qemu</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>Descargué la imagen de tinycore y tuve que modificarla para iniciar sobre la consola serial:</p><pre tabindex=0><code>$ mkdir ~/tinycore
+$ fuseiso mount /path/to/tinicore.iso ~/tinycore
+$ mkdir -p ~/coredir/core
+$ cd coredir
+$ cp ~/tinycore/boot/core.gz ~/tinycore/boot/vmlinuz .
+# cd core
+# bsdtar -xf ../core.gz
+# nvim ./etc/inittab
+</code></pre><p>Allí agregué la línea:</p><pre tabindex=0><code class=language-inittab data-lang=inittab>ttyS0::respawn:/sbin/getty -nl /sbin/autologin 38400 ttyS0
+</code></pre><p>Y luego volví a comprimir la imagen para usar,
+requiere superusuario porque varios archivos en la imagen son de root:</p><pre tabindex=0><code>$ cd ~/coredir/core
+$ bsdtar -tf ~/tinycore/boot/core.gz \
+  | sudo cpio -ovH newc &gt; ~/coredir/coremod
+</code></pre><p>Ahora puedo iniciar el sistema:</p><pre tabindex=0><code>$ cd ~/coredir
+$ qemu-system-x86_64 \
+  -kernel ./vmlinuz \
+  -initrd ./coremod \
+  -append &#34;console=ttyS0&#34; \
+  -nographic
+</code></pre><h3 id=desactivar-alsr><a href=#desactivar-alsr alt>Desactivar ALSR</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>Agregar a la configuración del kernel:</p><pre tabindex=0><code class=language-coredir/core/etc/sysctl.conf data-lang=coredir/core/etc/sysctl.conf>kernel.randomize_va_space = 0
+</code></pre><p>Agregar la instrucción para usar esta configuración.</p><h3 id=ejecutar-como-usuario-sin-privilegios><a href=#ejecutar-como-usuario-sin-privilegios alt>Ejecutar como usuario sin privilegios</a> <a href=# alt="Regresar al inicio">↑</a></h3><pre tabindex=0><code>sudo -u nobody \
+qemu-system-x86_64 \
+    -kernel ./vmlinuz \
+    -initrd ./coremod.gz \
+    -append &#39;console=ttyS0&#39; \
+    -nographic
+</code></pre><h3 id=configurar-s6><a href=#configurar-s6 alt>Configurar s6</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>Primero necesito instalar las bibliotecas, execline, s6 y s6-rc.</p><pre tabindex=0><code>./configure \
+  --enable-slashpackage \
+  --disable-allstatic \
+  --enable-shared
+make
+sudo make install
+sudo make -L global-links
+</code></pre><p>Tuve este problema compilando</p><pre tabindex=0><code>tc@box:~/build/s6-rc-0.5.5.0$ make
+exec gcc -D_POSIX_C_SOURCE=200809L -D_XOPEN_SOURCE=700 -iquote src/include-local -Isrc/include -fPIC -Werror=implicit-function-declaration -Werroc
+exec gcc -o s6-rc-oneshot-run -pipe -Wall -std=c99 -fno-exceptions -fno-unwind-tables -fno-asynchronous-unwind-tables -ffunction-sections -fdata-
+/usr/local/bin/ld: warning: libs6.so.2.13, needed by libs6rc.so.xyzzy, not found (try using -rpath or -rpath-link)
+/usr/local/bin/ld: libs6rc.so.xyzzy: undefined reference to `s6_supervise_link&#39;
+/usr/local/bin/ld: libs6rc.so.xyzzy: undefined reference to `s6_svc_writectl&#39;
+/usr/local/bin/ld: libs6rc.so.xyzzy: undefined reference to `s6_supervise_unlink&#39;
+/usr/local/bin/ld: libs6rc.so.xyzzy: undefined reference to `s6_svstatus_read&#39;
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:137: s6-rc-oneshot-run] Error 1
+</code></pre><h3 id=generar-un-paquete-para-tinycore><a href=#generar-un-paquete-para-tinycore alt>Generar un paquete para tinycore</a> <a href=# alt="Regresar al inicio">↑</a></h3><p>Una vez que instalé los paquetes comprimo los directorios en</p><pre tabindex=0><code># mksquashfs directorio [...otros directorios opcionalmente...] nombre-paquete.tcz
+</code></pre><p>Para instalar en tinycore puedo descomprimirlo:</p><pre tabindex=0><code># squashfs -f -d /directory /path/to/s6.tcz
+</code></pre><ul><li><a href='https://wiki.tinycorelinux.net/doku.php?id=wiki:extension_for_settings' target=_blank rel=noopener>Documentación para generar un paquete de tinycore</a></li><li><a href='https://forum.tinycorelinux.net/index.php?topic=2072.0' target=_blank rel=noopener>Foro con documentación para paquetes TCE</a></li></ul><h2 id=o-tal-vez-puedo-dar-personality-a-los-binarios><a href=#o-tal-vez-puedo-dar-personality-a-los-binarios alt>O tal vez puedo dar <code>personality</code> a los binarios</a> <a href=# alt="Regresar al inicio">↑</a></h2><p><a href=https://man7.org/linux/man-pages/man2/personality.2.html target=_blank rel=noopener>Manual de personality</a>,
+posiblemente podría cambiar la seguridad con <code>ADDR_NO_RANDOMIZE</code>.</p></article></main></body></html>

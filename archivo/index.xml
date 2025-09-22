@@ -1,5 +1,49 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Archivoes on Joshua Haase</title><link>https://joshua.haase.mx/archivo/</link><description>Recent content in Archivoes on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Mon, 23 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/archivo/index.xml" rel="self" type="application/rss+xml"/><item><title>Plantilla para documentos Ibero</title><link>https://joshua.haase.mx/archivo/generar-plantilla-ibero/</link><pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/archivo/generar-plantilla-ibero/</guid><description>Quiero generar una plantilla en LaTeX para generar documentos en la Universidad Iberoamericana que a diferencia de usar un formato todo el tiempo me permite enfocarme en los contenidos.
-Objetivos ↑ ☑ Imagen institucional
-Guardé ejemplos en cd $(repo ibero$)/ejemplos-plantilla/
-☑ Podría extraer las tipografías de los avisos institucionales.
-~~https://www.pdftron.com/documentation/linux/guides/features/extraction/text-extract/~~ Puedo listar las tipografías del pdf usando [Posiblemente funcione `pdffonts` de poppler-utils](https://www.makeuseof.com/how-to-analyze-pdf-file-fonts/): ``` $ cd $(repo ibero$)/ejemplos-plantilla/ $ pdffonts avisos-institucionales.pdf name type encoding emb sub uni object ID ------------------------------------ ----------------- ---------------- --- --- --- --------- QAPTWQ+EuphemiaUCAS TrueType WinAnsi yes yes yes 164 0 HSKMAI+EuphemiaUCAS-Bold TrueType WinAnsi yes yes yes 166 0 IAUSOG+EuphemiaUCAS CID TrueType Identity-H yes yes yes 66 0 GKAGMK+Symbol CID TrueType Identity-H yes yes yes 65 0 GKAGMK+Arial-BoldMT TrueType WinAnsi yes yes yes 75 0 FCQAYM+Wingdings3 CID TrueType Identity-H yes yes yes 77 0 ``` Tal vez se puede usar [este servicio web para extraer tipografías](http://luc.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Archivoes on Joshua Haase</title><link>https://joshua.haase.mx/archivo/</link><description>Recent content in Archivoes on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Mon, 23 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/archivo/index.xml" rel="self" type="application/rss+xml"/><item><title>Plantilla para documentos Ibero</title><link>https://joshua.haase.mx/archivo/generar-plantilla-ibero/</link><pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/archivo/generar-plantilla-ibero/</guid><description>&lt;p>Quiero generar una plantilla en LaTeX
+para generar documentos en la Universidad Iberoamericana
+que a diferencia de usar un formato todo el tiempo
+me permite enfocarme en los contenidos.&lt;/p>
+&lt;h2 id="objetivos">&lt;a href="#objetivos" alt="">Objetivos&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>☑ Imagen institucional&lt;/p>
+&lt;p>Guardé ejemplos en &lt;code>cd $(repo ibero$)/ejemplos-plantilla/&lt;/code>&lt;/p>
+&lt;p>☑ Podría extraer las tipografías de los avisos institucionales.&lt;/p>
+&lt;pre>&lt;code> ~~https://www.pdftron.com/documentation/linux/guides/features/extraction/text-extract/~~
+
+ Puedo listar las tipografías del pdf usando
+ [Posiblemente funcione `pdffonts` de poppler-utils](https://www.makeuseof.com/how-to-analyze-pdf-file-fonts/):
+
+ ```
+ $ cd $(repo ibero$)/ejemplos-plantilla/
+ $ pdffonts avisos-institucionales.pdf
+ name type encoding emb sub uni object ID
+ ------------------------------------ ----------------- ---------------- --- --- --- ---------
+ QAPTWQ+EuphemiaUCAS TrueType WinAnsi yes yes yes 164 0
+ HSKMAI+EuphemiaUCAS-Bold TrueType WinAnsi yes yes yes 166 0
+ IAUSOG+EuphemiaUCAS CID TrueType Identity-H yes yes yes 66 0
+ GKAGMK+Symbol CID TrueType Identity-H yes yes yes 65 0
+ GKAGMK+Arial-BoldMT TrueType WinAnsi yes yes yes 75 0
+ FCQAYM+Wingdings3 CID TrueType Identity-H yes yes yes 77 0
+ ```
+
+ Tal vez se puede usar [este servicio web para extraer tipografías](http://luc.devroye.org/pdfextract.html )
+
+ [O usar las herramientas de `mupdf`](https://stackoverflow.com/questions/3488042/how-can-i-extract-embedded-fonts-from-a-pdf-as-valid-font-files )
+
+ ```
+ $ mutool extract ../avisos-institucionales.pdf
+ extracting font-0064.ttf
+ extracting font-0068.ttf
+ extracting font-0072.ttf
+ extracting font-0079.ttf
+ extracting font-0163.ttf
+ extracting font-0165.ttf
+ $ ls
+ font-0064.ttf font-0068.ttf font-0072.ttf font-0079.ttf font-0163.ttf font-0165.ttf
+ ```
+
+ [Encontré la tipografía EuphemiaUCAS](https://www.ffonts.net/Euphemia-UCAS.font.download )
+ y [su versión oscura](https://blogfonts.com/euphemia-ucas-bold.font )
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>☑ Establezca el trabajo del Departamento de Estudios de Ingeniería para la Innovación&lt;/p></description></item></channel></rss>
