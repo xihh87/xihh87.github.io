@@ -1,0 +1,65 @@
+---
+title: Anarquía relacional
+author: Joshua Haase
+date: 2025-10-06
+#publishDate:
+#expiryDate:
+draft: true
+private: true
+comments: true
+toc: true
+equations: false
+---
+
+
+```kroki {type=plantuml}
+@startmindmap
+skin rose
++ anarquia relacional
+++ impuesto
++++ preconcebidos
+++++ amistad
+++++ amor
+++++ poliamor
++++++ "Si es consensuado es ético"
+++++++ justifica jerarquías
+++++ biología
++++++ madres solteras
++++++ queer
++++++ enamoramiento
+++++++ bélico (38)
+++++++ sesgo masculino (41) (¿y femenino?)
++++ anarquista
+++++ hago lo que me da la gana
+++++ construir en comunidad (37)
++++++ compromiso
++++++ apoyo
++++++ cuidado
++++++ respeto límites
+++ 47
++++ extravagante
+++++ fragilidad
+++++ violencia estructural
+++ 50
++++ estructura / organización (bien)
++++ desiguales (mal)
++++ coacción (mal)
+++ 69
++++ decúbito prono
+++ nacido
++++ necesidades
++++ deseos
++++ situación
+++ referencias
++++ Relationship Anarachy vs nonhierarchical poliamory – blog Thinking Asexual
++++ Susan Sontag
++++ Charles Fourier – Le nouveau monde amoreux
+++ Woman Is a Sometime thing
++++ Debora Anapol Love Without Limits The quest for sutainable intimate relationships: Responsible Nonmonogamy
+++++ Polyamory: The new love without limits: Secrets of sustainable intimate relationships
++++ Th e Ethical Slut
+g++ Sex at dawn
++++ Naked Aape
+
+@endmindmap
+```

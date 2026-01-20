@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Joshua Haase</title><link>https://joshua.haase.mx/tags/git/</link><description>Recent content in Git on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Mon, 01 Aug 2016 10:58:22 -0500</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki usando git y hugo</title><link>https://joshua.haase.mx/techno/wiki/</link><pubDate>Mon, 01 Aug 2016 10:58:22 -0500</pubDate><guid>https://joshua.haase.mx/techno/wiki/</guid><description>&lt;p>Git es una gran herramienta para editar colaborativamente un documento
-y puede usarse para hacer algo estilo wiki/blog con un poco de ayuda.&lt;/p>
-&lt;h1 id="requisitos-en-el-servidor-web">&lt;a href="#requisitos-en-el-servidor-web" alt="">Requisitos en el servidor web&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h1>&lt;p>&lt;a href='https://joshua.haase.mx/techno/internet' title="Una explicación de cómo funciona internet que escribí hace ya un rato.">Un servidor es una compu&lt;/a>
-que espera que le pidan información y la envía.&lt;/p>
-&lt;p>Se necesita que la compu tenga instalado:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href='http://git-scm.com/' title="Sistema de control de versiones." target="_blank" rel="noopener">git&lt;/a> (o algún otro sistema de control de versiones).&lt;/li>
-&lt;li>&lt;a href='http://gohugo.io/' title="Hace páginas web a partir de plantillas y texto plano." target="_blank" rel="noopener">hugo&lt;/a> (o algún otro gestor de contenido estático).&lt;/li>
-&lt;li>&lt;a href='https://www.nginx.com/' title="Responde al navegador con páginas web." target="_blank" rel="noopener">nginx&lt;/a> (o algún otro servidor web).&lt;/li>
-&lt;/ul>
-&lt;p>Para limitar el permiso de escritura, se puede usar:&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Joshua Haase</title><link>https://joshua.haase.mx/tags/git/</link><description>Recent content in Git on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Mon, 01 Aug 2016 10:58:22 -0500</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Wiki usando git y hugo</title><link>https://joshua.haase.mx/techno/wiki/</link><pubDate>Mon, 01 Aug 2016 10:58:22 -0500</pubDate><guid>https://joshua.haase.mx/techno/wiki/</guid><description>&lt;p&gt;Git es una gran herramienta para editar colaborativamente un documento
+y puede usarse para hacer algo estilo wiki/blog con un poco de ayuda.&lt;/p&gt;
+&lt;h1 id="requisitos-en-el-servidor-web"&gt;&lt;a href="#requisitos-en-el-servidor-web" alt=""&gt;Requisitos en el servidor web&lt;/a&gt; &lt;a href="#" alt="Regresar al inicio"&gt;↑&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;a href='https://joshua.haase.mx/techno/internet' title="Una explicación de cómo funciona internet que escribí hace ya un rato."&gt;Un servidor es una compu&lt;/a&gt;
+que espera que le pidan información y la envía.&lt;/p&gt;
+&lt;p&gt;Se necesita que la compu tenga instalado:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href='http://git-scm.com/' title="Sistema de control de versiones." target="_blank" rel="noopener"&gt;git&lt;/a&gt; (o algún otro sistema de control de versiones).&lt;/li&gt;
+&lt;li&gt;&lt;a href='http://gohugo.io/' title="Hace páginas web a partir de plantillas y texto plano." target="_blank" rel="noopener"&gt;hugo&lt;/a&gt; (o algún otro gestor de contenido estático).&lt;/li&gt;
+&lt;li&gt;&lt;a href='https://www.nginx.com/' title="Responde al navegador con páginas web." target="_blank" rel="noopener"&gt;nginx&lt;/a&gt; (o algún otro servidor web).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Para limitar el permiso de escritura, se puede usar:&lt;/p&gt;</description></item></channel></rss>

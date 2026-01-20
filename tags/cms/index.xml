@@ -1,48 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cms on Joshua Haase</title><link>https://joshua.haase.mx/tags/cms/</link><description>Recent content in Cms on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Tue, 27 Oct 2015 21:43:21 -0600</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/cms/index.xml" rel="self" type="application/rss+xml"/><item><title>HUGO - sistema de gestión de contenidos estáticos (SGCE)</title><link>https://joshua.haase.mx/techno/hugo/</link><pubDate>Tue, 27 Oct 2015 21:43:21 -0600</pubDate><guid>https://joshua.haase.mx/techno/hugo/</guid><description>&lt;p>Estaba contento con &lt;a href='https://joshua.haase.mx/techno/docpad/' title="Otro Sistema de Gestión de Contenidos Estáticos.">&lt;code>docpad&lt;/code>&lt;/a>,
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cms on Joshua Haase</title><link>https://joshua.haase.mx/tags/cms/</link><description>Recent content in Cms on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Tue, 27 Oct 2015 21:43:21 -0600</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/cms/index.xml" rel="self" type="application/rss+xml"/><item><title>HUGO - sistema de gestión de contenidos estáticos (SGCE)</title><link>https://joshua.haase.mx/techno/hugo/</link><pubDate>Tue, 27 Oct 2015 21:43:21 -0600</pubDate><guid>https://joshua.haase.mx/techno/hugo/</guid><description>&lt;p&gt;Estaba contento con &lt;a href='https://joshua.haase.mx/techno/docpad/' title="Otro Sistema de Gestión de Contenidos Estáticos."&gt;&lt;code&gt;docpad&lt;/code&gt;&lt;/a&gt;,
 pero el flujo de trabajo era un poco tedioso:
-visualizar los cambios toma más de 5 minutos.&lt;/p>
-&lt;p>Buscando &lt;a href='https://staticsitegenerators.net/' title="Una lista de SGCEs." target="_blank" rel="noopener">en&lt;/a>
-&lt;a href='https://iwantmyname.com/blog/2014/05/the-updated-big-list-of-static-website-generators-for-your-site-blog-or-wiki' title="Otra." target="_blank" rel="noopener">la&lt;/a>
-&lt;a href='https://www.staticgen.com/' title="La lista más bonita de SGCEs que encontré." target="_blank" rel="noopener">red&lt;/a>
-encontré que &lt;a href='http://gohugo.io/' title="El SGCE con que se hace este sitio ahora." target="_blank" rel="noopener">Hugo&lt;/a>
-presume de ser el más rápido.&lt;/p></description></item><item><title>Comentarios en docpad</title><link>https://joshua.haase.mx/techno/comentarios-en-docpad/</link><pubDate>Mon, 06 Apr 2015 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/comentarios-en-docpad/</guid><description>&lt;p>Quiero que esta página permita conversar,
-así que estuve buscando cómo agregar comentarios.&lt;/p>
-&lt;p>Aquí detallo el resultado de algunos experimentos.&lt;/p>
-&lt;h1 id="docpad-plugin-nativecomments">&lt;a href="#docpad-plugin-nativecomments" alt="">docpad-plugin-nativecomments&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h1>&lt;p>La &lt;a href='https://bevry.me/' target="_blank" rel="noopener">compañía que hace docpad&lt;/a> desarrolló este complemento.
-Lo que hace es muy simple:&lt;/p>
-&lt;ul>
-&lt;li>Agregar un formulario en las páginas que requieran comentarios,&lt;/li>
-&lt;li>El formulario envía una petición POST que se guarda en &lt;a href='./docpad#estructura-de-archivos'>la carpeta&lt;/a>
-&lt;code>src/documents/comments/&lt;/code>,&lt;/li>
-&lt;li>Los comentarios se agregan a las páginas al momento de (re)generar la página web.&lt;/li>
-&lt;/ul>
-&lt;h2 id="instalar-el-complemento">&lt;a href="#instalar-el-complemento" alt="">Instalar el complemento&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Desde la carpeta del proyecto ejecutamos:&lt;/p></description></item><item><title>Cómo generar RSS usando docpad</title><link>https://joshua.haase.mx/techno/rss-usando-docpad/</link><pubDate>Thu, 02 Apr 2015 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/rss-usando-docpad/</guid><description>&lt;p>RSS es un estándar para anunciar los cambios de un sitio web.&lt;/p>
-&lt;p>Agregar un RSS a Docpad es muy simple:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Instalar el complemento usando &lt;code>docpad install rss&lt;/code>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Generar una &lt;a href='%22/posts/docpad-2%22'>colección de documentos&lt;/a> en &lt;code>docpad.coffee&lt;/code>&lt;/p>
-&lt;p>collections:
+visualizar los cambios toma más de 5 minutos.&lt;/p&gt;
+&lt;p&gt;Buscando &lt;a href='https://staticsitegenerators.net/' title="Una lista de SGCEs." target="_blank" rel="noopener"&gt;en&lt;/a&gt;
+&lt;a href='https://iwantmyname.com/blog/2014/05/the-updated-big-list-of-static-website-generators-for-your-site-blog-or-wiki' title="Otra." target="_blank" rel="noopener"&gt;la&lt;/a&gt;
+&lt;a href='https://www.staticgen.com/' title="La lista más bonita de SGCEs que encontré." target="_blank" rel="noopener"&gt;red&lt;/a&gt;
+encontré que &lt;a href='http://gohugo.io/' title="El SGCE con que se hace este sitio ahora." target="_blank" rel="noopener"&gt;Hugo&lt;/a&gt;
+presume de ser el más rápido.&lt;/p&gt;</description></item><item><title>Comentarios en docpad</title><link>https://joshua.haase.mx/techno/comentarios-en-docpad/</link><pubDate>Mon, 06 Apr 2015 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/comentarios-en-docpad/</guid><description>&lt;p&gt;Quiero que esta página permita conversar,
+así que estuve buscando cómo agregar comentarios.&lt;/p&gt;
+&lt;p&gt;Aquí detallo el resultado de algunos experimentos.&lt;/p&gt;
+&lt;h1 id="docpad-plugin-nativecomments"&gt;&lt;a href="#docpad-plugin-nativecomments" alt=""&gt;docpad-plugin-nativecomments&lt;/a&gt; &lt;a href="#" alt="Regresar al inicio"&gt;↑&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;La &lt;a href='https://bevry.me/' target="_blank" rel="noopener"&gt;compañía que hace docpad&lt;/a&gt; desarrolló este complemento.
+Lo que hace es muy simple:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Agregar un formulario en las páginas que requieran comentarios,&lt;/li&gt;
+&lt;li&gt;El formulario envía una petición POST que se guarda en &lt;a href='./docpad#estructura-de-archivos'&gt;la carpeta&lt;/a&gt;
+&lt;code&gt;src/documents/comments/&lt;/code&gt;,&lt;/li&gt;
+&lt;li&gt;Los comentarios se agregan a las páginas al momento de (re)generar la página web.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="instalar-el-complemento"&gt;&lt;a href="#instalar-el-complemento" alt=""&gt;Instalar el complemento&lt;/a&gt; &lt;a href="#" alt="Regresar al inicio"&gt;↑&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Desde la carpeta del proyecto ejecutamos:&lt;/p&gt;</description></item><item><title>Cómo generar RSS usando docpad</title><link>https://joshua.haase.mx/techno/rss-usando-docpad/</link><pubDate>Thu, 02 Apr 2015 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/rss-usando-docpad/</guid><description>&lt;p&gt;RSS es un estándar para anunciar los cambios de un sitio web.&lt;/p&gt;
+&lt;p&gt;Agregar un RSS a Docpad es muy simple:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Instalar el complemento usando &lt;code&gt;docpad install rss&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Generar una &lt;a href='%22/posts/docpad-2%22'&gt;colección de documentos&lt;/a&gt; en &lt;code&gt;docpad.coffee&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;collections:
 # Contiene los documentos en posts.
-posts: -&amp;gt; @getCollection(&amp;lsquo;documents&amp;rsquo;).findAllLive({relativeOutDirPath: &amp;lsquo;posts&amp;rsquo;},[{date:-1}])&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Agregar a la configuración de docpad en la sección &lt;code>plugins&lt;/code>&lt;/p>
-&lt;p>plugins:
+posts: -&amp;gt; @getCollection(&amp;lsquo;documents&amp;rsquo;).findAllLive({relativeOutDirPath: &amp;lsquo;posts&amp;rsquo;},[{date:-1}])&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Agregar a la configuración de docpad en la sección &lt;code&gt;plugins&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;plugins:
 rss:
 default:
 collection: &amp;lsquo;posts&amp;rsquo;
-url: &amp;lsquo;/rss.xml&amp;rsquo;&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>Después esperamos a que docpad genere los archivos o los regeneramos usando:&lt;/p></description></item><item><title>HOWTO: usar mezzanine con grappelli y filebrowser vanilla</title><link>https://joshua.haase.mx/viento-y-anotaciones/howto-usar-mezzanine-con-grappelli-y-filebrowser-vanilla/</link><pubDate>Fri, 15 Jul 2011 01:27:56 +0000</pubDate><guid>https://joshua.haase.mx/viento-y-anotaciones/howto-usar-mezzanine-con-grappelli-y-filebrowser-vanilla/</guid><description>&lt;p>mezzanine es un gestor de contenido (CMS) escrito en django, se supone
+url: &amp;lsquo;/rss.xml&amp;rsquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Después esperamos a que docpad genere los archivos o los regeneramos usando:&lt;/p&gt;</description></item><item><title>HOWTO: usar mezzanine con grappelli y filebrowser vanilla</title><link>https://joshua.haase.mx/viento-y-anotaciones/howto-usar-mezzanine-con-grappelli-y-filebrowser-vanilla/</link><pubDate>Fri, 15 Jul 2011 01:27:56 +0000</pubDate><guid>https://joshua.haase.mx/viento-y-anotaciones/howto-usar-mezzanine-con-grappelli-y-filebrowser-vanilla/</guid><description>&lt;p&gt;mezzanine es un gestor de contenido (CMS) escrito en django, se supone
 que es simple de usar como wordpress y tiene el potencial de escalarse
-de django.&lt;/p>
-&lt;p>Cuando intenté instalarlo tuve problemas porque me pedía
-«grappelli-safe» y «filebrowser-safe» para iniciar un nuevo proyecto.&lt;/p>
-&lt;p>Hay varias soluciones a éste problema,
+de django.&lt;/p&gt;
+&lt;p&gt;Cuando intenté instalarlo tuve problemas porque me pedía
+«grappelli-safe» y «filebrowser-safe» para iniciar un nuevo proyecto.&lt;/p&gt;
+&lt;p&gt;Hay varias soluciones a éste problema,
 una es instalar los paquetes que requiere,
-pero si quieren utilizar las versiones actualizadas de &lt;code>django-filebrowser&lt;/code> y &lt;code>django-grappelli&lt;/code>,
-sólo necesitan editar &lt;code>/usr/lib/python2.7/site-packages/Mezzanine-0.11.5-py2.7.egg-info/requires.txt&lt;/code>&lt;/p></description></item></channel></rss>
+pero si quieren utilizar las versiones actualizadas de &lt;code&gt;django-filebrowser&lt;/code&gt; y &lt;code&gt;django-grappelli&lt;/code&gt;,
+sólo necesitan editar &lt;code&gt;/usr/lib/python2.7/site-packages/Mezzanine-0.11.5-py2.7.egg-info/requires.txt&lt;/code&gt;&lt;/p&gt;</description></item></channel></rss>

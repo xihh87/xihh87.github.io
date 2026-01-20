@@ -1,33 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Proyectos on Joshua Haase</title><link>https://joshua.haase.mx/tags/proyectos/</link><description>Recent content in Proyectos on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Sat, 02 Apr 2022 09:09:32 -0600</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/proyectos/index.xml" rel="self" type="application/rss+xml"/><item><title>Flujo de trabajo en `taskwarrior`</title><link>https://joshua.haase.mx/techno/taskwarrior-workflow/</link><pubDate>Sat, 02 Apr 2022 09:09:32 -0600</pubDate><guid>https://joshua.haase.mx/techno/taskwarrior-workflow/</guid><description>&lt;p>Hace 5 años, &lt;a href='https://taskwarrior.org/docs/workflow.html#joshua' target="_blank" rel="noopener">envié mi flujo de trabajo&lt;/a> a taskwarrior.org.&lt;/p>
-&lt;p>Esta es una copia de las preguntas que podría actualizar conforme pasa el tiempo.&lt;/p>
-&lt;h2 id="where-do-you-use-task-warrior">&lt;a href="#where-do-you-use-task-warrior" alt="">Where do you use Task warrior?&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>Everywhere to get track of things.&lt;/p>
-&lt;p>I tried task warrior for teamwork
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Proyectos on Joshua Haase</title><link>https://joshua.haase.mx/tags/proyectos/</link><description>Recent content in Proyectos on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Sat, 02 Apr 2022 09:09:32 -0600</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/proyectos/index.xml" rel="self" type="application/rss+xml"/><item><title>Flujo de trabajo en `taskwarrior`</title><link>https://joshua.haase.mx/techno/taskwarrior-workflow/</link><pubDate>Sat, 02 Apr 2022 09:09:32 -0600</pubDate><guid>https://joshua.haase.mx/techno/taskwarrior-workflow/</guid><description>&lt;p&gt;Hace 5 años, &lt;a href='https://taskwarrior.org/docs/workflow.html#joshua' target="_blank" rel="noopener"&gt;envié mi flujo de trabajo&lt;/a&gt; a taskwarrior.org.&lt;/p&gt;
+&lt;p&gt;Esta es una copia de las preguntas que podría actualizar conforme pasa el tiempo.&lt;/p&gt;
+&lt;h2 id="where-do-you-use-task-warrior"&gt;&lt;a href="#where-do-you-use-task-warrior" alt=""&gt;Where do you use Task warrior?&lt;/a&gt; &lt;a href="#" alt="Regresar al inicio"&gt;↑&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Everywhere to get track of things.&lt;/p&gt;
+&lt;p&gt;I tried task warrior for teamwork
 but found most people wouldn&amp;rsquo;t use cli to coordinate projects.
-So &lt;a href='../c%c3%b3mo-trabajo/'>I use GitLab to coordinate projects&lt;/a>.&lt;/p>
-&lt;h2 id="for-what-kind-of-work-do-you-use-task-warrior">&lt;a href="#for-what-kind-of-work-do-you-use-task-warrior" alt="">For what kind of work do you use Task warrior?&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>At work to organize my projects,
+So &lt;a href='../c%c3%b3mo-trabajo/'&gt;I use GitLab to coordinate projects&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="for-what-kind-of-work-do-you-use-task-warrior"&gt;&lt;a href="#for-what-kind-of-work-do-you-use-task-warrior" alt=""&gt;For what kind of work do you use Task warrior?&lt;/a&gt; &lt;a href="#" alt="Regresar al inicio"&gt;↑&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;At work to organize my projects,
 chop them into small tasks have a log of what I am doing,
-and log of how did I solved problems.&lt;/p></description></item><item><title>Cómo trabajo</title><link>https://joshua.haase.mx/techno/c%C3%B3mo-trabajo/</link><pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/c%C3%B3mo-trabajo/</guid><description>&lt;h2 id="cómo-seleccionar-las-cosas-más-importantes-en-las-que-trabajar">&lt;a href="#c%c3%b3mo-seleccionar-las-cosas-m%c3%a1s-importantes-en-las-que-trabajar" alt="">Cómo seleccionar las cosas más importantes en las que trabajar&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;p>&lt;a href='https://viviralmaximo.net/no-consigo-resultados/' target="_blank" rel="noopener">El secreto está en hacer las cosas más relevantes&lt;/a>
-y &lt;a href='https://viviralmaximo.net/centrate/' target="_blank" rel="noopener">hacer las cosas una por una&lt;/a>.&lt;/p>
-&lt;h2 id="cómo-hago-individualmente-para-mantenerme-enfocado">&lt;a href="#c%c3%b3mo-hago-individualmente-para-mantenerme-enfocado" alt="">Cómo hago individualmente para mantenerme enfocado&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h2>&lt;ul>
-&lt;li>
-&lt;p>Uso &lt;a href='https://joshua.haase.mx/techno/taskwarrior-workflow/'>una bitácora usando &lt;code>taskwarrior&lt;/code>&lt;/a>
-para registrar lo que hago individualmente.&lt;/p>
-&lt;p>Quisiera tener un buen programa libre para administrar proyectos
-y de preferencia que tenga un modelo de negocio al que pueda contribuir.&lt;/p>
-&lt;p>Intento tener la documentación de un proyecto con el proyecto.
-Uso GitLab e issues en GitLab.&lt;/p></description></item><item><title>Coordinar proyectos</title><link>https://joshua.haase.mx/techno/coordinar-proyectos/</link><pubDate>Wed, 09 Aug 2017 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/coordinar-proyectos/</guid><description>&lt;p>De vez en cuando tengo que colaborar en proyectos razonablemente grandes
-y quisiera elegir una buena herramienta que permita:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>Mantener a todos al tanto de lo que hay que hacer y ya se hizo&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Permitir que el equipo use una interfaz gráfica que no requiera comandos&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Permitir que se usen líneas de comando para gestionar el trabajo&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>Preferentemente me gustaría la posibilidad de sincronizar con &lt;code>taskwarrior&lt;/code>,
+and log of how did I solved problems.&lt;/p&gt;</description></item><item><title>Cómo trabajo</title><link>https://joshua.haase.mx/techno/c%C3%B3mo-trabajo/</link><pubDate>Fri, 01 Jun 2018 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/c%C3%B3mo-trabajo/</guid><description>&lt;h2 id="cómo-seleccionar-las-cosas-más-importantes-en-las-que-trabajar"&gt;&lt;a href="#c%c3%b3mo-seleccionar-las-cosas-m%c3%a1s-importantes-en-las-que-trabajar" alt=""&gt;Cómo seleccionar las cosas más importantes en las que trabajar&lt;/a&gt; &lt;a href="#" alt="Regresar al inicio"&gt;↑&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;a href='https://viviralmaximo.net/no-consigo-resultados/' target="_blank" rel="noopener"&gt;El secreto está en hacer las cosas más relevantes&lt;/a&gt;
+y &lt;a href='https://viviralmaximo.net/centrate/' target="_blank" rel="noopener"&gt;hacer las cosas una por una&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="cómo-hago-individualmente-para-mantenerme-enfocado"&gt;&lt;a href="#c%c3%b3mo-hago-individualmente-para-mantenerme-enfocado" alt=""&gt;Cómo hago individualmente para mantenerme enfocado&lt;/a&gt; &lt;a href="#" alt="Regresar al inicio"&gt;↑&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Uso &lt;a href='https://joshua.haase.mx/techno/taskwarrior-workflow/'&gt;una bitácora usando &lt;code&gt;taskwarrior&lt;/code&gt;&lt;/a&gt;
+para registrar lo que hago individualmente.&lt;/p&gt;
+&lt;p&gt;Quisiera tener un buen programa libre para administrar proyectos
+y de preferencia que tenga un modelo de negocio al que pueda contribuir.&lt;/p&gt;
+&lt;p&gt;Intento tener la documentación de un proyecto con el proyecto.
+Uso GitLab e issues en GitLab.&lt;/p&gt;</description></item><item><title>Coordinar proyectos</title><link>https://joshua.haase.mx/techno/coordinar-proyectos/</link><pubDate>Wed, 09 Aug 2017 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/coordinar-proyectos/</guid><description>&lt;p&gt;De vez en cuando tengo que colaborar en proyectos razonablemente grandes
+y quisiera elegir una buena herramienta que permita:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Mantener a todos al tanto de lo que hay que hacer y ya se hizo&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Permitir que el equipo use una interfaz gráfica que no requiera comandos&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Permitir que se usen líneas de comando para gestionar el trabajo&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Preferentemente me gustaría la posibilidad de sincronizar con &lt;code&gt;taskwarrior&lt;/code&gt;,
 pero principalmente me importa conseguir que personas no técnicas
-puedan colaborar usando markdown en proyectos de escritura.&lt;/p></description></item></channel></rss>
+puedan colaborar usando markdown en proyectos de escritura.&lt;/p&gt;</description></item></channel></rss>

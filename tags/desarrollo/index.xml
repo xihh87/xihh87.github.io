@@ -1,21 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Desarrollo on Joshua Haase</title><link>https://joshua.haase.mx/tags/desarrollo/</link><description>Recent content in Desarrollo on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Sat, 11 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/desarrollo/index.xml" rel="self" type="application/rss+xml"/><item><title>Model Driven Architecture no evolucionó, los lenguajes sí.</title><link>https://joshua.haase.mx/techno/uml-based-vs-programming-languages/</link><pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/uml-based-vs-programming-languages/</guid><description>&lt;p>Escuchando &lt;a href='https://www.youtube.com/watch?v=DNAMztROPyI&amp;amp;list=PLaIsQH4uc08woJKRAA7mmjs9fU0jeKjjM&amp;amp;index=8' target="_blank" rel="noopener">la clase de Yegor acerca de UML&lt;/a>,
-me da la impresión de que siempre tuvimos el mismo sueño:&lt;/p>
-&lt;p>&lt;a href='https://www.commitstrip.com/en/2016/08/25/a-very-comprehensive-and-precise-spec/' target="_blank" rel="noopener">&lt;figure>
-&lt;img src='https://www.commitstrip.com/wp-content/uploads/2016/08/Strip-Les-specs-cest-du-code-650-finalenglish.jpg' />
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Desarrollo on Joshua Haase</title><link>https://joshua.haase.mx/tags/desarrollo/</link><description>Recent content in Desarrollo on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Sat, 11 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/desarrollo/index.xml" rel="self" type="application/rss+xml"/><item><title>Model Driven Architecture no evolucionó, los lenguajes sí.</title><link>https://joshua.haase.mx/techno/uml-based-vs-programming-languages/</link><pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/techno/uml-based-vs-programming-languages/</guid><description>&lt;p&gt;Escuchando &lt;a href='https://www.youtube.com/watch?v=DNAMztROPyI&amp;amp;list=PLaIsQH4uc08woJKRAA7mmjs9fU0jeKjjM&amp;amp;index=8' target="_blank" rel="noopener"&gt;la clase de Yegor acerca de UML&lt;/a&gt;,
+me da la impresión de que siempre tuvimos el mismo sueño:&lt;/p&gt;
+&lt;p&gt;&lt;a href='https://www.commitstrip.com/en/2016/08/25/a-very-comprehensive-and-precise-spec/' target="_blank" rel="noopener"&gt;&lt;figure&gt;
+&lt;img src='https://www.commitstrip.com/wp-content/uploads/2016/08/Strip-Les-specs-cest-du-code-650-finalenglish.jpg' /&gt;
 
-&lt;/figure>
-&lt;/a>&lt;/p>
-&lt;p>Y a pesar de que programar se ha vuelto mucho más sencillo
-porque ahora no tenemos que entender:&lt;/p>
-&lt;ul>
-&lt;li>el funcionamiento interno del hardware (binario),&lt;/li>
-&lt;li>las instrucciones específicas del microprocesador (ensamblador),&lt;/li>
-&lt;/ul>
-&lt;p>o cuidar:&lt;/p>
-&lt;ul>
-&lt;li>el flujo de ejecución (GOTO)&lt;/li>
-&lt;li>el manejo de la memoria (C)&lt;/li>
-&lt;li>la gestión de los hilos (Go, Rust)&lt;/li>
-&lt;/ul>
-&lt;p>Hay una diferencia entre el diseñar todo el sistema esperando que funcione,
-y resolver el problema inmediato, iterando poco a poco.&lt;/p></description></item></channel></rss>
+&lt;/figure&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Y a pesar de que programar se ha vuelto mucho más sencillo
+porque ahora no tenemos que entender:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;el funcionamiento interno del hardware (binario),&lt;/li&gt;
+&lt;li&gt;las instrucciones específicas del microprocesador (ensamblador),&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;o cuidar:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;el flujo de ejecución (GOTO)&lt;/li&gt;
+&lt;li&gt;el manejo de la memoria (C)&lt;/li&gt;
+&lt;li&gt;la gestión de los hilos (Go, Rust)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hay una diferencia entre el diseñar todo el sistema esperando que funcione,
+y resolver el problema inmediato, iterando poco a poco.&lt;/p&gt;</description></item></channel></rss>

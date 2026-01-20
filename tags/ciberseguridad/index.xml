@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ciberseguridad on Joshua Haase</title><link>https://joshua.haase.mx/tags/ciberseguridad/</link><description>Recent content in Ciberseguridad on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Thu, 31 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/ciberseguridad/index.xml" rel="self" type="application/rss+xml"/><item><title>Feeds Anarquistas 64</title><link>https://joshua.haase.mx/feeds-anarquistas/64/</link><pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/feeds-anarquistas/64/</guid><description>&lt;p>A un desarrollador de software libre,
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ciberseguridad on Joshua Haase</title><link>https://joshua.haase.mx/tags/ciberseguridad/</link><description>Recent content in Ciberseguridad on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Thu, 31 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/ciberseguridad/index.xml" rel="self" type="application/rss+xml"/><item><title>Feeds Anarquistas 64</title><link>https://joshua.haase.mx/feeds-anarquistas/64/</link><pubDate>Thu, 31 Mar 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/feeds-anarquistas/64/</guid><description>&lt;p&gt;A un desarrollador de software libre,
 le pareció buena idea
-&lt;a href='https://www.zdnet.com/article/some-developers-are-fouling-up-open-source-software/' target="_blank" rel="noopener">protestar agregando código que borra archivos si tienes IP rusa o bielorusa&lt;/a>.
-Eso &lt;a href='https://github.com/RIAEvangelist/node-ipc/issues/233#issuecomment-1068182278' target="_blank" rel="noopener">podría afectar la credibilidad de sus proyectos&lt;/a>.&lt;/p>
-&lt;p>&lt;a href='https://www.zdnet.com/article/linus-torvalds-prepares-to-move-the-linux-kernel-to-modern-c/' target="_blank" rel="noopener">Linux se moderniza usando C11 (2011) en vez de C89 (1989)&lt;/a>,
+&lt;a href='https://www.zdnet.com/article/some-developers-are-fouling-up-open-source-software/' target="_blank" rel="noopener"&gt;protestar agregando código que borra archivos si tienes IP rusa o bielorusa&lt;/a&gt;.
+Eso &lt;a href='https://github.com/RIAEvangelist/node-ipc/issues/233#issuecomment-1068182278' target="_blank" rel="noopener"&gt;podría afectar la credibilidad de sus proyectos&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href='https://www.zdnet.com/article/linus-torvalds-prepares-to-move-the-linux-kernel-to-modern-c/' target="_blank" rel="noopener"&gt;Linux se moderniza usando C11 (2011) en vez de C89 (1989)&lt;/a&gt;,
 y aunque no será reescrito en Rust,
-tendrá &lt;a href='https://www.zdnet.com/article/rust-takes-a-major-step-forward-as-linuxs-second-official-language/' target="_blank" rel="noopener">componentes en este lenguaje con uso seguro de memoria&lt;/a>.&lt;/p>
-&lt;p>&lt;a href='http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf' target="_blank" rel="noopener">El estándar C2011&lt;/a>&lt;/p>
-&lt;p>Linux recibirá una limpieza&lt;/p>
-&lt;p>&lt;a href='https://blog.segu-info.com.ar/2022/03/vulnerabilidad-critica-en-todos-los.html' target="_blank" rel="noopener">Una nueva vulnerabilidad en chromium&lt;/a>.&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;a href='https://stackoverflow.blog/2022/04/04/comparing-go-vs-c-in-embedded-applications/?cb=1' target="_blank" rel="noopener">Comparando &lt;code>C&lt;/code> vs &lt;code>Go&lt;/code> para aplicaciones embebidas&lt;/a>.&lt;/p></description></item></channel></rss>
+tendrá &lt;a href='https://www.zdnet.com/article/rust-takes-a-major-step-forward-as-linuxs-second-official-language/' target="_blank" rel="noopener"&gt;componentes en este lenguaje con uso seguro de memoria&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href='http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf' target="_blank" rel="noopener"&gt;El estándar C2011&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Linux recibirá una limpieza&lt;/p&gt;
+&lt;p&gt;&lt;a href='https://blog.segu-info.com.ar/2022/03/vulnerabilidad-critica-en-todos-los.html' target="_blank" rel="noopener"&gt;Una nueva vulnerabilidad en chromium&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://stackoverflow.blog/2022/04/04/comparing-go-vs-c-in-embedded-applications/?cb=1' target="_blank" rel="noopener"&gt;Comparando &lt;code&gt;C&lt;/code&gt; vs &lt;code&gt;Go&lt;/code&gt; para aplicaciones embebidas&lt;/a&gt;.&lt;/p&gt;</description></item></channel></rss>

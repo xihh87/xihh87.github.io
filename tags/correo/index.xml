@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Correo on Joshua Haase</title><link>https://joshua.haase.mx/tags/correo/</link><description>Recent content in Correo on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Wed, 13 Jul 2016 10:47:53 -0500</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/correo/index.xml" rel="self" type="application/rss+xml"/><item><title>Transformar correo en estilo maildir a MH</title><link>https://joshua.haase.mx/techno/mail.2/</link><pubDate>Wed, 13 Jul 2016 10:47:53 -0500</pubDate><guid>https://joshua.haase.mx/techno/mail.2/</guid><description>&lt;p>En un intento de simplificar la gestión de mi correo,
-encontré el &lt;a href='http://marmaro.de/prog/mmh/' title="Página principal de mmh." target="_blank" rel="noopener">manejador moderno de correo (mmh - modern mail handler)&lt;/a>,
-que moderniza y simplifica &lt;a href='http://nongnu.org/nmh' title="Que a su vez moderniza MH." target="_blank" rel="noopener">el systema para gestión de correo NMH&lt;/a>.&lt;/p>
-&lt;p>Como ya tengo &lt;a href='http://pyropus.ca/software/getmail/' title="Una aplicación sencilla para descargar correo electrónico." target="_blank" rel="noopener">getmail&lt;/a>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Correo on Joshua Haase</title><link>https://joshua.haase.mx/tags/correo/</link><description>Recent content in Correo on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Wed, 13 Jul 2016 10:47:53 -0500</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/correo/index.xml" rel="self" type="application/rss+xml"/><item><title>Transformar correo en estilo maildir a MH</title><link>https://joshua.haase.mx/techno/mail.2/</link><pubDate>Wed, 13 Jul 2016 10:47:53 -0500</pubDate><guid>https://joshua.haase.mx/techno/mail.2/</guid><description>&lt;p&gt;En un intento de simplificar la gestión de mi correo,
+encontré el &lt;a href='http://marmaro.de/prog/mmh/' title="Página principal de mmh." target="_blank" rel="noopener"&gt;manejador moderno de correo (mmh - modern mail handler)&lt;/a&gt;,
+que moderniza y simplifica &lt;a href='http://nongnu.org/nmh' title="Que a su vez moderniza MH." target="_blank" rel="noopener"&gt;el systema para gestión de correo NMH&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Como ya tengo &lt;a href='http://pyropus.ca/software/getmail/' title="Una aplicación sencilla para descargar correo electrónico." target="_blank" rel="noopener"&gt;getmail&lt;/a&gt;
 para descargar mi correo,
-primero intenté convertir del formato maildir a MH.&lt;/p>
-&lt;h1 id="cómo-guarda-el-correo-mh">&lt;a href="#c%c3%b3mo-guarda-el-correo-mh" alt="">¿Cómo guarda el correo MH?&lt;/a> &lt;a href="#" alt="Regresar al inicio">↑&lt;/a>&lt;/h1>&lt;p>El formato en que se escribe el correo es elegante y consiste en:&lt;/p></description></item><item><title>Correo desde la consola</title><link>https://joshua.haase.mx/techno/mail/</link><pubDate>Wed, 06 Jan 2016 09:35:43 -0600</pubDate><guid>https://joshua.haase.mx/techno/mail/</guid><description>&lt;p>Por azares del destino reviso mi correo electrónico con emacs-notmuch
-y generalmente estoy contento con eso.&lt;/p>
-&lt;p>Sin embargo configurar el envío con varios correos es difícil
+primero intenté convertir del formato maildir a MH.&lt;/p&gt;
+&lt;h1 id="cómo-guarda-el-correo-mh"&gt;&lt;a href="#c%c3%b3mo-guarda-el-correo-mh" alt=""&gt;¿Cómo guarda el correo MH?&lt;/a&gt; &lt;a href="#" alt="Regresar al inicio"&gt;↑&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;El formato en que se escribe el correo es elegante y consiste en:&lt;/p&gt;</description></item><item><title>Correo desde la consola</title><link>https://joshua.haase.mx/techno/mail/</link><pubDate>Wed, 06 Jan 2016 09:35:43 -0600</pubDate><guid>https://joshua.haase.mx/techno/mail/</guid><description>&lt;p&gt;Por azares del destino reviso mi correo electrónico con emacs-notmuch
+y generalmente estoy contento con eso.&lt;/p&gt;
+&lt;p&gt;Sin embargo configurar el envío con varios correos es difícil
 (lo he hecho, me tardé un rato y no he querido volverlo a hacer).
 Parte del problema es que la mayoría de los programas
-que emacs puede usar para enviar correos son demasiado complejos.&lt;/p>
-&lt;p>Sin embargo encontré &lt;a href='http://msmtp.sourceforge.net/' title="Mini ~~cliente para~~ SMTP, o sea correo." target="_blank" rel="noopener">msmtp&lt;/a>,
-que se configura de manera muy simple y puede enviar correo desde la línea de comando.&lt;/p></description></item></channel></rss>
+que emacs puede usar para enviar correos son demasiado complejos.&lt;/p&gt;
+&lt;p&gt;Sin embargo encontré &lt;a href='http://msmtp.sourceforge.net/' title="Mini ~~cliente para~~ SMTP, o sea correo." target="_blank" rel="noopener"&gt;msmtp&lt;/a&gt;,
+que se configura de manera muy simple y puede enviar correo desde la línea de comando.&lt;/p&gt;</description></item></channel></rss>

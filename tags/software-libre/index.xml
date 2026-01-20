@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Software Libre on Joshua Haase</title><link>https://joshua.haase.mx/tags/software-libre/</link><description>Recent content in Software Libre on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Fri, 15 Jul 2011 01:27:56 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/software-libre/index.xml" rel="self" type="application/rss+xml"/><item><title>HOWTO: usar mezzanine con grappelli y filebrowser vanilla</title><link>https://joshua.haase.mx/viento-y-anotaciones/howto-usar-mezzanine-con-grappelli-y-filebrowser-vanilla/</link><pubDate>Fri, 15 Jul 2011 01:27:56 +0000</pubDate><guid>https://joshua.haase.mx/viento-y-anotaciones/howto-usar-mezzanine-con-grappelli-y-filebrowser-vanilla/</guid><description>&lt;p>mezzanine es un gestor de contenido (CMS) escrito en django, se supone
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Software Libre on Joshua Haase</title><link>https://joshua.haase.mx/tags/software-libre/</link><description>Recent content in Software Libre on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Fri, 15 Jul 2011 01:27:56 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/tags/software-libre/index.xml" rel="self" type="application/rss+xml"/><item><title>HOWTO: usar mezzanine con grappelli y filebrowser vanilla</title><link>https://joshua.haase.mx/viento-y-anotaciones/howto-usar-mezzanine-con-grappelli-y-filebrowser-vanilla/</link><pubDate>Fri, 15 Jul 2011 01:27:56 +0000</pubDate><guid>https://joshua.haase.mx/viento-y-anotaciones/howto-usar-mezzanine-con-grappelli-y-filebrowser-vanilla/</guid><description>&lt;p&gt;mezzanine es un gestor de contenido (CMS) escrito en django, se supone
 que es simple de usar como wordpress y tiene el potencial de escalarse
-de django.&lt;/p>
-&lt;p>Cuando intenté instalarlo tuve problemas porque me pedía
-«grappelli-safe» y «filebrowser-safe» para iniciar un nuevo proyecto.&lt;/p>
-&lt;p>Hay varias soluciones a éste problema,
+de django.&lt;/p&gt;
+&lt;p&gt;Cuando intenté instalarlo tuve problemas porque me pedía
+«grappelli-safe» y «filebrowser-safe» para iniciar un nuevo proyecto.&lt;/p&gt;
+&lt;p&gt;Hay varias soluciones a éste problema,
 una es instalar los paquetes que requiere,
-pero si quieren utilizar las versiones actualizadas de &lt;code>django-filebrowser&lt;/code> y &lt;code>django-grappelli&lt;/code>,
-sólo necesitan editar &lt;code>/usr/lib/python2.7/site-packages/Mezzanine-0.11.5-py2.7.egg-info/requires.txt&lt;/code>&lt;/p></description></item></channel></rss>
+pero si quieren utilizar las versiones actualizadas de &lt;code&gt;django-filebrowser&lt;/code&gt; y &lt;code&gt;django-grappelli&lt;/code&gt;,
+sólo necesitan editar &lt;code&gt;/usr/lib/python2.7/site-packages/Mezzanine-0.11.5-py2.7.egg-info/requires.txt&lt;/code&gt;&lt;/p&gt;</description></item></channel></rss>

@@ -1,48 +1,48 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ciberseguridad on Joshua Haase</title><link>https://joshua.haase.mx/ciberseguridad/</link><description>Recent content in Ciberseguridad on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Tue, 08 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/ciberseguridad/index.xml" rel="self" type="application/rss+xml"/><item><title>Grabaciones de clase de ciberseguridad (Pr. 2022)</title><link>https://joshua.haase.mx/ciberseguridad/archive/2022-1/</link><pubDate>Tue, 08 Feb 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ciberseguridad/archive/2022-1/</guid><description>&lt;ul>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/r87hpcn3c35g21s/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener">Triada de la Seguridad&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/ifcl6kzoh26yemq/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener">Laboratorio: Setup de entorno&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/c02bc6i726lb2iq/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener">Laboratorio: Inicio de proyecto&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/d4jmzvfcf49kn5y/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener">Troubleshooting entorno | AAA, riesgo&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/ciw3y2rq9dmai1j/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener">Resolución de conflictos en GIT&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/9xpxtbrnte1ukqz/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener">Laboratorio: Ejercicios para terminal&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/l6l9ciwc6f1fi2a/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener">Ética y estudios de caso&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/v4k3u18wtv2yfa4/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener">Ética (II): divulgación responsable, bug bounties&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/zylfsoacdzss0fz/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener">Cómo funciona un procesador: Fetch, Decode, Execute&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/8t7o6m09f5ax7o7/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener">Laboratorio: Stack Overflow&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/ib4y8snfln7pe32/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener">Permisos en Unix&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/aqngg89b5c3smc4/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener">Cifrado clásico&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/tdg2x7tzeamdfes/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener">Cifrado asimétrico (202-02-10)&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/1jkpyr5cfocjhct/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener">GDB para overflow (2022-02-11)&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/tn1cp7th38n51yy/GMT20220215-215811_Recording.mp4?dl=0' target="_blank" rel="noopener">Cómo funciona la pila y cifrar con GPG (2022-02-15)&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;a href='https://www.dropbox.com/s/mvwasl7jr3cbki8/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener">Configuración de GIT para firmar con GPG&lt;/a>&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ciberseguridad on Joshua Haase</title><link>https://joshua.haase.mx/ciberseguridad/</link><description>Recent content in Ciberseguridad on Joshua Haase</description><generator>Hugo</generator><language>es-mx</language><lastBuildDate>Tue, 08 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://joshua.haase.mx/ciberseguridad/index.xml" rel="self" type="application/rss+xml"/><item><title>Grabaciones de clase de ciberseguridad (Pr. 2022)</title><link>https://joshua.haase.mx/ciberseguridad/archive/2022-1/</link><pubDate>Tue, 08 Feb 2022 00:00:00 +0000</pubDate><guid>https://joshua.haase.mx/ciberseguridad/archive/2022-1/</guid><description>&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/r87hpcn3c35g21s/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener"&gt;Triada de la Seguridad&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/ifcl6kzoh26yemq/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener"&gt;Laboratorio: Setup de entorno&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/c02bc6i726lb2iq/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener"&gt;Laboratorio: Inicio de proyecto&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/d4jmzvfcf49kn5y/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener"&gt;Troubleshooting entorno | AAA, riesgo&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/ciw3y2rq9dmai1j/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener"&gt;Resolución de conflictos en GIT&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/9xpxtbrnte1ukqz/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener"&gt;Laboratorio: Ejercicios para terminal&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/l6l9ciwc6f1fi2a/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener"&gt;Ética y estudios de caso&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/v4k3u18wtv2yfa4/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener"&gt;Ética (II): divulgación responsable, bug bounties&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/zylfsoacdzss0fz/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener"&gt;Cómo funciona un procesador: Fetch, Decode, Execute&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/8t7o6m09f5ax7o7/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener"&gt;Laboratorio: Stack Overflow&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/ib4y8snfln7pe32/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener"&gt;Permisos en Unix&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/aqngg89b5c3smc4/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener"&gt;Cifrado clásico&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/tdg2x7tzeamdfes/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener"&gt;Cifrado asimétrico (202-02-10)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/1jkpyr5cfocjhct/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener"&gt;GDB para overflow (2022-02-11)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/tn1cp7th38n51yy/GMT20220215-215811_Recording.mp4?dl=0' target="_blank" rel="noopener"&gt;Cómo funciona la pila y cifrar con GPG (2022-02-15)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href='https://www.dropbox.com/s/mvwasl7jr3cbki8/shared_screen_with_speaker_view.mp4?dl=0' target="_blank" rel="noopener"&gt;Configuración de GIT para firmar con GPG&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

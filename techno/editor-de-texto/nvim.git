@@ -1,0 +1,33 @@
+---
+title: Neovim
+author: Joshua Haase
+date: 2025-10-31
+#publishDate:
+#expiryDate:
+draft: true
+private: true
+comments: true
+toc: true
+equations: false
+---
+
+Leí el manual de nvim hace poco 
+y un libro para configurar nvim nativo
+que me decepcionó porque no usa el LSP, treesitter y comandos asíncronos.
+
+Esta guía muestra [cómo hacer cosas comunes sin plugins](https://boltless.me/posts/neovim-config-without-plugins-2025/#todo )
+
+Hoy decidí intentar convertir mi editor para usar IA.
+
+
+## Recursos
+
+-   [Recomendaciones de plugin](https://medium.com/life-at-moka/step-up-your-game-with-neovim-62ba814166d7 ).
+-   [Configuración minimalista que funciona](https://vimandgit.com/posts/vim/beginners/vim-config-vimrc-options-settings-and-neovim-init-configuration.html ).
+
+
+## Feeds Anarquistas
+
+[Aplicaciones con IA ganadoras en For the Love of Code Challenge](https://github.blog/open-source/from-karaoke-terminals-to-ai-resumes-the-winners-of-githubs-for-the-love-of-code-challenge/ )
+
+
